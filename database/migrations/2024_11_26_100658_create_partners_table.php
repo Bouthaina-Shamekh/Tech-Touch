@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name_ar')->nullable()->default('الشركاء');
             $table->string('title_en');
             $table->string('title_ar');
-            $table->string('image');
+            $table->foreignId('media_id')->constrained('medias')->cascadeOnDelete();
             $table->timestamps();
         });
     }

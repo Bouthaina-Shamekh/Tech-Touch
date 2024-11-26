@@ -2,7 +2,7 @@
 
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Files')}}</li>
+        <li class="breadcrumb-item" aria-current="page">{{__('Teams')}}</li>
     </x-slot:breadcrumb>
 
 
@@ -12,10 +12,10 @@
     <div class="card table-card">
         <div class="card-header">
             <div class="sm:flex items-center justify-between">
-                <h5 class="mb-3 sm:mb-0">{{__('Files')}}</h5>
+                <h5 class="mb-3 sm:mb-0">{{__('Teams')}}</h5>
                 <div>
-                    <a href="{{route('admin.file.create')}}" class="btn btn-primary" >
-                        {{__('Add Files')}}
+                    <a href="{{route('admin.team.create')}}" class="btn btn-primary" >
+                        {{__('Add Teams')}}
                     </a>
                 </div>
             </div>
@@ -32,38 +32,38 @@
                         <th>{{__('Title_EN')}}</th>
                         <th>{{__('Description_AR')}}</th>
                         <th>{{__('Description_EN')}}</th>
-                        <th>{{__('File Name_AR')}}</th>
-                        <th>{{__('File Name_EN')}}</th>
-                        <th>{{__('Price')}}</th>
-                        <th>{{__('Btn')}}</th>
+                        <th>{{__('Member Name_AR')}}</th>
+                        <th>{{__('Member Name_EN')}}</th>
+                        <th>{{__('Specialization_AR')}}</th>
+                        <th>{{__('Specialization_EN')}}</th>
                         <th>{{__('Image')}}</th>
                         <th>{{__('Action')}}</th>
 
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach ($files as $file )
+                        @foreach ($teams as $team )
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$file->name_ar}}</td>
-                                <td>{{$file->name_en}}</td>
-                                <td>{{$file->title_ar}}</td>
-                                <td>{{$file->title_en}}</td>
-                                <td>{{$file->description_ar}}</td>
-                                <td>{{$file->description_en}}</td>
-                                <td>{{$file->file_name_en}}</td>
-                                <td>{{$file->file_name_ar}}</td>
-                                <td>{{$file->price}}</td>
-                                <td>{{$file->btn}}</td>
+                                <td>{{$team->name_ar}}</td>
+                                <td>{{$team->name_en}}</td>
+                                <td>{{$team->title_ar}}</td>
+                                <td>{{$team->title_en}}</td>
+                                <td>{{$team->description_ar}}</td>
+                                <td>{{$team->description_en}}</td>
+                                <td>{{$team->member_name_ar}}</td>
+                                <td>{{$team->member_name_en}}</td>
+                                <td>{{$team->Specialization_en}}</td>
+                                <td>{{$team->Specialization_ar}}</td>
                                 <td>
-                                    <img src="{{asset('storage/'.$file->image)}}" alt="image" class="w-16">
+                                    <img src="{{asset('storage/'.$team->image)}}" alt="image" class="w-16">
                                 </td>
 
                                 <td>
-                                    <a href="{{route('admin.file.edit',$file->id)}}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
+                                    <a href="{{route('admin.team.edit',$team->id)}}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
                                         <i class="ti ti-edit text-xl leading-none"></i>
                                     </a>
-                                    <form action="{{route('admin.file.destroy',$file->id)}}" method="post">
+                                    <form action="{{route('admin.team.destroy',$team->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary" title="{{__('Delete')}}">

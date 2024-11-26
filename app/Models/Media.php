@@ -23,4 +23,6 @@ class Media extends Model
         return $this->belongsTo(Slider::class)->withDefault();
     }
 
+   
+
 }

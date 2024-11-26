@@ -4,10 +4,13 @@ use App\Models\Slider;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ServiceController;
 
 /*
@@ -41,5 +44,8 @@ Route::prefix('admin')->name('admin.')->group(function() {
         'slider' =>SliderController::class,
         'service' =>ServiceController::class,
         'file' =>FileController::class,
+        'team' =>TeamController::class,
+        'work' =>WorkController::class,
+        'partner' =>PartnerController::class,
     ]);
 });

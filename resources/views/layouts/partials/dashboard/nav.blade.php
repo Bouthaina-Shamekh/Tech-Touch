@@ -14,11 +14,11 @@
                 <div class="card-body !p-5">
                     <div class="flex items-center">
                         {{-- <img class="shrink-0 w-[45px] h-[45px] rounded-full" src="{{ Auth::user()->avatar_url }}" --}}
-                            alt="user-image" />
-                        <div class="ml-4 mr-2 grow">
+                            {{-- alt="user-image" /> --}}
+                        {{-- <div class="ml-4 mr-2 grow"> --}}
                             {{-- <h6 class="mb-0">{{ Auth::user()->name }}</h6> --}}
 
-                        </div>
+                        {{-- </div> --}}
                         <a class="shrink-0 btn btn-icon inline-flex btn-link-secondary" data-pc-toggle="collapse"
                             href="#pc_sidebar_userlink">
                             <svg class="pc-icon w-[22px] h-[22px]">
@@ -119,6 +119,44 @@
                     </a>
                 </li>
 
+                <li class="pc-item">
+                    <a href="{{route('admin.client.index')}}" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="material-icons-two-tone pc-icon">grid_on</i>
+                        </span>
+                        <span class="pc-mtext">{{__('admin.Client')}}</span>
+                    </a>
+                </li>
+
+
+                <li class="pc-item">
+                    <a href="{{route('admin.work.index')}}" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="material-icons-two-tone pc-icon">grid_on</i>
+                        </span>
+                        <span class="pc-mtext">{{__('admin.Work')}}</span>
+                    </a>
+                </li>
+
+
+                <li class="pc-item">
+                    <a href="{{route('admin.team.index')}}" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="material-icons-two-tone pc-icon">grid_on</i>
+                        </span>
+                        <span class="pc-mtext">{{__('admin.Team')}}</span>
+                    </a>
+                </li>
+
+                {{-- <li class="pc-item">
+                    <a href="{{route('admin.partner.index')}}" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="material-icons-two-tone pc-icon">grid_on</i>
+                        </span>
+                        <span class="pc-mtext">{{__('admin.Partner')}}</span>
+                    </a>
+                </li> --}}
+
             </ul>
             <ul class="pc-navbar">
                 {{-- <li class="pc-item pc-caption">
@@ -145,11 +183,7 @@
                                 {{__('admin.Roles')}}
                             </a>
                         </li>
-                        <li class="pc-item">
-                            <a class="pc-link" href="">
-                                {{__('admin.Deliveries')}}
-                            </a>
-                        </li>
+
                         <li class="pc-item">
                             <a class="pc-link" href="">
                                 {{__('admin.Users')}}
@@ -157,27 +191,9 @@
                         </li>
                     </ul>
 
-                    <li class="pc-item">
-                        <a href="" class="pc-link">
-                            <span class="pc-micon">
-                                <span class="pc-micon">
-                                    <i class="fas fa-sliders-h"></i>
-                                </span>
-                            </span>
-                            <span class="pc-mtext">{{__('admin.Slider')}}</span>
-                        </a>
-                    </li>
 
-                    <li class="pc-item">
-                        <a href="" class="pc-link">
-                            <span class="pc-micon">
-                                <span class="pc-micon">
-                                    <i class="fas fa-sliders-h"></i>
-                                </span>
-                            </span>
-                            <span class="pc-mtext">{{__('admin.Offer')}}</span>
-                        </a>
-                    </li>
+
+
                 </li>
             </ul>
         </div>
