@@ -30,7 +30,7 @@
         <div class="ms-auto">
             <ul class="inline-flex *:min-h-header-height *:inline-flex *:items-center">
 
-                {{-- @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
 
                 @if (app()->currentLocale() != $localeCode)
                 <li class="nav-item ">
@@ -41,7 +41,7 @@
                 </li>
                 @endif
 
-                @endforeach --}}
+                @endforeach
 
 
                 <li class="dropdown pc-h-item">
@@ -232,7 +232,7 @@
                 <li class="dropdown pc-h-item header-user-profile">
                     <a class="pc-head-link dropdown-toggle arrow-none me-0" data-pc-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" data-pc-auto-close="outside" aria-expanded="false">
-                        {{-- <img src="{{ Auth::user()->avatar_url }}" alt="user-image" --}}
+                        <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}" alt="user-image"
                             class="user-avtar w-10 h-10 rounded-full" />
                     </a>
                     <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown p-2">
@@ -244,12 +244,12 @@
                                 style="max-height: calc(100vh - 225px)">
                                 <div class="flex mb-1 items-center">
                                     <div class="shrink-0">
-                                        {{-- <img src="{{ Auth::user()->avatar_url }}" alt="user-image" class="w-10 rounded-full" /> --}}
+                                        <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}" alt="user-image" class="w-10 rounded-full" />
                                     </div>
-                                    {{-- <div class="grow ms-3">
+                                    <div class="grow ms-3">
                                         <h6 class="mb-1">{{ Auth::user()->name }}</h6>
                                         <span>{{ Auth::user()->email }}</span>
-                                    </div> --}}
+                                    </div>
                                 </div>
                                 <hr class="border-secondary-500/10 my-4" />
                                 <div class="card">
@@ -281,7 +281,7 @@
                                 </a>
                                 <hr class="border-secondary-500/10 my-4" />
                                 <div class="grid mb-3">
-                                    {{-- <form action="{{ route('logout') }}" method="post">
+                                    <form action="{{ route('logout') }}" method="post">
                                         @csrf
                                         <button class="btn btn-primary flex items-center justify-center">
                                             <svg class="pc-icon me-2 w-[22px] h-[22px]">
@@ -289,7 +289,7 @@
                                             </svg>
                                             {{__('Logout')}}
                                         </button>
-                                    </form> --}}
+                                    </form>
 
                                 </div>
                             </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Slider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Admin\HomeController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ServiceController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +36,9 @@ Route::get('admin', function () {
     return redirect()->route('admin.home');
 });
 
-Route::prefix('admin')->name('admin.')->group(function() {
+Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+{
+Route::prefix('admin')->name('admin.')->middleware('auth','check_user')->group(function() {
     Route::get('home', [HomeController::class, 'index'])->name('home');
 
     Route::resources([
@@ -49,3 +53,10 @@ Route::prefix('admin')->name('admin.')->group(function() {
         'partner' =>PartnerController::class,
     ]);
 });
+});
+
+Auth::routes();
+
+Route::view('not_allowed', 'not_allowed');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
