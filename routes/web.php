@@ -3,6 +3,7 @@
 use App\Models\Slider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\TeamController;
@@ -53,10 +54,19 @@ Route::prefix('admin')->name('admin.')->middleware('auth','check_user')->group(f
         'partner' =>PartnerController::class,
     ]);
 });
-});
 
 Auth::routes();
 
 Route::view('not_allowed', 'not_allowed');
+
+// Website Routes
+Route::get('/', [MainController::class, 'home'])->name('site.index');
+
+
+
+
+});
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
