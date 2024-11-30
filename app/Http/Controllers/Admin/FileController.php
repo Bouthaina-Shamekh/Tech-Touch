@@ -31,30 +31,20 @@ class FileController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name_en' => 'nullable|string|max:255',
-            'name_ar' => 'nullable|string|max:255',
-            'title_en' => 'required',
-            'title_ar' => 'required',
-            'description_en' => 'required',
-            'description_ar' => 'required',
             'file_name_en'=> 'required',
             'file_name_ar'=> 'required',
-            'imagePath' => 'required',
+            'description_en' => 'required',
+            'description_ar' => 'required',
             'price' => 'required',
             'btn' => 'nullable',
 
         ]);
         // Insert To Database
         File::create([
-            'name_en' => $request->name_en,
-            'name_ar' => $request->name_ar,
-            'title_en' => $request->title_en,
-            'title_ar' => $request->title_ar,
-            'description_ar' => $request->description_ar,
-            'description_en' => $request->description_en,
-            'image' => $request->imagePath,
             'file_name_en' => $request->file_name_en,
             'file_name_ar' => $request->file_name_ar,
+            'description_ar' => $request->description_ar,
+            'description_en' => $request->description_en,
             'price' =>$request->price,
             'btn' =>$request->btn,
 
@@ -78,7 +68,7 @@ class FileController extends Controller
     {
         $files = File::findOrFail($id);
         $images = Media::paginate(100);
-        return view('dashboard.File.edit',compact('files','images'));
+        return view('dashboard.file.edit',compact('files','images'));
     }
 
     /**
@@ -87,37 +77,23 @@ class FileController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name_en' => 'nullable|string|max:255',
-            'name_ar' => 'nullable|string|max:255',
-            'title_en' => 'required',
-            'title_ar' => 'required',
-            'description_en' => 'required',
-            'description_ar' => 'required',
             'file_name_en'=> 'required',
             'file_name_ar'=> 'required',
-            'imagePath' => 'required',
+            'description_en' => 'required',
+            'description_ar' => 'required',
             'price' => 'required',
             'btn' => 'nullable',
-
         ]);
 
         $files = File::findOrFail($id);
-        $image = $request->imagePath;
-        if($image == null){
-            $image = $files->image;
-        }
+
 
         // Insert To Database
         $files->update([
-            'name_en' => $request->name_en,
-            'name_ar' => $request->name_ar,
-            'title_en' => $request->title_en,
-            'title_ar' => $request->title_ar,
+           'file_name_en' => $request->file_name_en,
+            'file_name_ar' => $request->file_name_ar,
             'description_ar' => $request->description_ar,
             'description_en' => $request->description_en,
-            'image' => $request->imagePath,
-            'file_name_en' => $request->file_name_en,
-            'file_name_ar' => $request->file_name_ar,
             'price' =>$request->price,
             'btn' =>$request->btn,
 

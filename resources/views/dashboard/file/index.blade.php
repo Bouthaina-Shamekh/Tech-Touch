@@ -25,18 +25,13 @@
                 <table class="table table-hover table-bordered" id="pc-dt-simple">
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>{{__('Name_AR')}}</th>
-                        <th>{{__('Name_EN')}}</th>
-                        <th>{{__('Title_AR')}}</th>
-                        <th>{{__('Title_EN')}}</th>
-                        <th>{{__('Description_AR')}}</th>
-                        <th>{{__('Description_EN')}}</th>
+                         <th>#</th>
                         <th>{{__('File Name_AR')}}</th>
                         <th>{{__('File Name_EN')}}</th>
+                        <th>{{__('Description_AR')}}</th>
+                        <th>{{__('Description_EN')}}</th>
                         <th>{{__('Price')}}</th>
                         <th>{{__('Btn')}}</th>
-                        <th>{{__('Image')}}</th>
                         <th>{{__('Action')}}</th>
 
                     </tr>
@@ -45,19 +40,13 @@
                         @foreach ($files as $file )
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$file->name_ar}}</td>
-                                <td>{{$file->name_en}}</td>
-                                <td>{{$file->title_ar}}</td>
-                                <td>{{$file->title_en}}</td>
-                                <td>{{$file->description_ar}}</td>
-                                <td>{{$file->description_en}}</td>
                                 <td>{{$file->file_name_en}}</td>
                                 <td>{{$file->file_name_ar}}</td>
+                                <td>{{$file->description_ar}}</td>
+                                <td>{{$file->description_en}}</td>
                                 <td>{{$file->price}}</td>
                                 <td>{{$file->btn}}</td>
-                                <td>
-                                    <img src="{{asset('storage/'.$file->image)}}" alt="image" class="w-16">
-                                </td>
+
 
                                 <td>
                                     <a href="{{route('admin.file.edit',$file->id)}}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">

@@ -20,33 +20,12 @@
                         @csrf
                         @method('PUT')
                         <div class="row">
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name of files in arabic')}}" required :value="$files->name_ar" />
-                            </div>
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of files in english')}}" required :value="$files->name_en"/>
-                            </div>
-
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="title_ar" label="{{__('Title_AR')}}" type="text" placeholder="{{__('enter title of files in arabic')}}" required :value="$files->title_ar" />
-                            </div>
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="title_en" label="{{__('Title_EN')}}" type="text" placeholder="{{__('enter title of files in english')}}" required :value="$files->title_en"/>
-                            </div>
 
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="file_name_en" label="{{__('File Name_AR')}}" type="text" placeholder="{{__('enter name of files in arabic')}}" required :value="$files->file_name_en" />
                             </div>
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="file_name_ar" label="{{__('Faile Name_EN')}}" type="text" placeholder="{{__('enter name of files in english')}}" required :value="$files->file_name_ar"/>
-                            </div>
-
-
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="price" label="{{__('Price')}}" type="text" placeholder="{{__('enter price of files in arabic')}}" required :value="$files->price" />
-                            </div>
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="btn" label="{{__('Btn')}}" type="text" placeholder="{{__('enter btn of files in english')}}" required :value="$files->btn"/>
                             </div>
 
                             <div class="form-group col-6 mb-3">
@@ -59,20 +38,11 @@
                             </div>
 
 
-
-
-
-
-                            <div class="form-group col-6">
-                                <label for="imageFile" class="form-label">{{__('Image')}}</label>
-                                <label class="btn btn-outline-secondary" for="imageFile">
-                                    <i class="ti ti-upload me-2"></i>
-                                    {{__("Choose Image")}}
-                                    <i  id="doneChooseMedia" class="ti ti-check bg-success text-white rounded-circle p-1" style="transition: all 0.3s ease; opacity: 0"></i>
-                                </label>
-                                <button type="button" id="imageFile" class="d-none" data-pc-toggle="modal" data-pc-target="#mediaModal"></button>
-                                <input type="text" class="form-control mt-2 d-none"  id="imagePathInput" value="" name="imagePath" accept="image/*" readonly>
-                                <img src="{{asset('storage/' . $files->image)}}" alt="img...." width="100px" class="mt-3">
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="price" label="{{__('Price')}}" type="text" placeholder="{{__('enter price of files in arabic')}}" required :value="$files->price" />
+                            </div>
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="btn" label="{{__('Btn')}}" type="text" placeholder="{{__('enter btn of files in english')}}" required :value="$files->btn"/>
                             </div>
                         </div>
                         <div class="row justify-content-end mt-3">

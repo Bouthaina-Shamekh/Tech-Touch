@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\FileController;
+use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\WorkController;
@@ -52,6 +53,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth','check_user')->group(f
         'team' =>TeamController::class,
         'work' =>WorkController::class,
         'partner' =>PartnerController::class,
+        'hero' =>HeroController::class,
     ]);
 });
 

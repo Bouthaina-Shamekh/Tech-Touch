@@ -13,15 +13,10 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->string('name_en')->nullable()->default('FILES');
-            $table->string('name_ar')->nullable()->default('ملفاتنا');
-            $table->string('title_en');
-            $table->string('title_ar');
             $table->string('file_name_en');
             $table->string('file_name_ar');
             $table->text('description_en');
             $table->text('description_ar');
-            $table->string('image');
             $table->double('price');
             $table->string('btn')->nullable();
             $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();

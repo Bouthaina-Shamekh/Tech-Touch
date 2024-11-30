@@ -20,7 +20,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        $services = Service::first();
+        $services = new Service();
         $images = Media::paginate(100);
         return view('dashboard.service.create',compact('services','images'));
     }
@@ -35,11 +35,8 @@ class ServiceController extends Controller
             'name_ar' => 'required|string|max:255',
             'description_en' => 'required',
             'description_ar' => 'required',
-            'sub_description_en'=> 'required',
-            'sub_description_ar'=> 'required',
             'imagePath' => 'required',
-            'major_en' => 'required',
-            'major_ar' => 'required',
+
 
         ]);
         // Insert To Database
@@ -48,11 +45,8 @@ class ServiceController extends Controller
             'name_ar' => $request->name_ar,
             'description_ar' => $request->description_ar,
             'description_en' => $request->description_en,
-            'sub_description_en' => $request->sub_description_en,
-            'sub_description_ar' => $request->sub_description_ar,
             'image' => $request->imagePath,
-            'major_en' => $request->major_en,
-            'major_ar' => $request->major_ar,
+
 
         ]);
 
@@ -87,11 +81,7 @@ class ServiceController extends Controller
             'name_ar' => 'required|string|max:255',
             'description_en' => 'required',
             'description_ar' => 'required',
-            'sub_description_en'=> 'required',
-            'sub_description_ar'=> 'required',
-            'imagePath' => 'required',
-            'major_en' => 'required',
-            'major_ar' => 'required',
+            'imagePath' => 'nullable',
 
         ]);
 
@@ -107,11 +97,8 @@ class ServiceController extends Controller
             'name_ar' => $request->name_ar,
             'description_ar' => $request->description_ar,
             'description_en' => $request->description_en,
-            'sub_description_en' => $request->sub_description_en,
-            'sub_description_ar' => $request->sub_description_ar,
             'image' => $request->imagePath,
-            'major_en' => $request->major_en,
-            'major_ar' => $request->major_ar,
+
 
         ]);
 

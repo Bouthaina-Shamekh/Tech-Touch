@@ -4,29 +4,33 @@
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{route('admin.service.index')}}">{{__('Services')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Add Services')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.hero.index')}}">{{__('Hero')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('Add Hero')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
                 {{-- @can('add product') --}}
                 <div class="card-header">
-                    <h5>{{__('Add Services')}}</h5>
+                    <h5>{{__('Add Hero')}}</h5>
                 </div>
                 {{-- @endcan --}}
                 <div class="card-body">
-                    <form action="{{route('admin.service.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('admin.hero.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name of services in arabic')}}"  />
+                                <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name restarant in arabic')}}"  />
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of services in english')}}"/>
+                                <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name restarant in english')}}"/>
                             </div>
-
-
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="title_ar" label="{{__('Title_AR')}}" type="text" placeholder="{{__('enter name restarant in arabic')}}"  />
+                            </div>
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="title_en" label="{{__('Title_EN')}}" type="text" placeholder="{{__('enter name restarant in english')}}"/>
+                            </div>
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('Content Arabic')}}</label>
                                 <textarea name="description_ar" id="description_ar" rows="3" class="form-control"></textarea>
@@ -36,22 +40,46 @@
                                 <textarea name="description_en" id="description_en" rows="3" class="form-control"></textarea>
                             </div>
 
-                          
+
 
                             <div class="form-group col-6">
                                 <label for="imageFile" class="form-label d-block">{{__('Image')}}</label>
-                                <label class="btn btn-outline-secondary" for="imageFile">
+                                <label class="btn btn-outline-secondary" for="imageFile1">
                                     <i class="ti ti-upload me-2"></i>
                                     {{__("Choose Image")}}
-                                    <i  id="doneChooseMedia" class="ti ti-check bg-success text-white rounded-circle p-1 " style="transition: all 0.3s ease; opacity: 0"></i>
+                                    <i  id="doneChooseMedia1" class="ti ti-check bg-success text-white rounded-circle p-1 " style="transition: all 0.3s ease; opacity: 0"></i>
                                 </label>
-                                <button type="button" id="imageFile" class="d-none" data-pc-toggle="modal" data-pc-target="#mediaModal"></button>
-                                <input type="text" class="form-control mt-2 d-none" id="imagePathInput" value="" name="imagePath" accept="image/*" readonly>
+                                <button type="button" id="imageFile1" class="d-none imageFile" data-pc-toggle="modal" data-pc-target="#mediaModal" data-media='1'></button>
+                                <input type="text" class="form-control mt-2 d-none" id="imagePathInput1" value="" name="imagePath1" accept="image/*" readonly>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="imageFile" class="form-label d-block">{{__('Image2')}}</label>
+                                <label class="btn btn-outline-secondary" for="imageFile2">
+                                    <i class="ti ti-upload me-2"></i>
+                                    {{__("Choose Image")}}
+                                    <i  id="doneChooseMedia2" class="ti ti-check bg-success text-white rounded-circle p-1 " style="transition: all 0.3s ease; opacity: 0"></i>
+                                </label>
+                                <button type="button" id="imageFile2" class="d-none imageFile" data-pc-toggle="modal" data-pc-target="#mediaModal" data-media='2'></button>
+                                <input type="text" class="form-control mt-2 d-none" id="imagePathInput2" value="" name="imagePath2" accept="image/*" readonly>
+                            </div>
+
+                            <div class="form-group col-6 mb-3">
+                                <label for="status" class="form-label">{{__('Section')}}</label>
+                                <select name="section" id="section" class="form-control">
+                                    <option value="Slider" >{{__('Slider')}}</option>
+                                    <option value="About" >{{__('About')}}</option>
+                                    <option value="Services" >{{__('Services')}}</option>
+                                    <option value="Files" >{{__('Files')}}</option>
+                                    <option value="Partners" >{{__('Partners')}}</option>
+                                    <option value="Works" >{{__('Works')}}</option>
+                                    <option value="Teams" >{{__('Teams')}}</option>
+                                    <option value="Feedback" >{{__('Feedback')}}</option>
+                                </select>
                             </div>
 
                         </div>
                         <div class="row justify-content-end mt-3">
-                            <a href="{{route('admin.service.index')}}" class="btn btn-secondary col-1 mr-3">
+                            <a href="{{route('admin.hero.index')}}" class="btn btn-secondary col-1 mr-3">
                                 {{__('Back')}}
                             </a>
                             <button type="submit" class="btn btn-primary col-1  mr-3">
@@ -86,6 +114,7 @@
                         </button>
                     </div>
                 </div>
+                <input type="hidden" name="imageNumMedia" id="imageNumMedia">
                 <div class="modal-body masonry-column">
                     @foreach ($images as $image)
                         <div class="masonry-item relative" data-image-path="{{$image->path}}" id="image-{{$image->id}}">
@@ -107,16 +136,18 @@
 
 
     @push('scripts')
-    <!-- Include jQuery first -->
-
     <script>
         $(document).ready(function() {
-           //
+            $('.imageFile').on('click', function() {
+                let imageNum = $(this).data('media');
+                $('#imageNumMedia').val(imageNum);
+            });
             $('.masonry-item').on('click', function() {
+                let num = $('#imageNumMedia').val();
                 let pathImage = $(this).data('image-path');
-                $('#imagePathInput').val(pathImage); // تخزين المسار في حقل إدخال مخفي أو عرضه في مكان آخر
+                $('#imagePathInput' + num).val(pathImage); // تخزين المسار في حقل إدخال مخفي أو عرضه في مكان آخر
                 $('#closeMediaModal').click();
-                $('#doneChooseMedia').css('opacity', '1');
+                $('#doneChooseMedia' + num).css('opacity', '1');
                 // $("#mediaModal").hide();
             });
             //
@@ -137,7 +168,7 @@
                     }
                 });
             });
-            $('#imageFileUpload').on('change', function() {
+            $('imageFileUpload').on('change', function() {
                 // إنشاء كائن FormData لتضمين الملفات
                 var formData = new FormData();
                 formData.append('_token', "{{ csrf_token() }}");

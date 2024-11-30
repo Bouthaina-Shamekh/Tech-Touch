@@ -72,7 +72,7 @@
                 $('.del').on('click', function() {
                     let id = $(this).data('id');
                     $.ajax({
-                        url: "/dashboard/media/" + id,
+                        url: "/admin/media/" + id,
                         type: "DELETE",
                         data: {
                             _token: "{{ csrf_token() }}",
@@ -85,7 +85,7 @@
                             if(xhr.responseJSON.confirmation_deletion == false){
                                 if (confirm('هل أنت متأكد من أنك تريد حذف هذه الصورة؟ إنها مرتبطة بعنصر مخزن')) {
                                     $.ajax({
-                                            url: "/dashboard/media/" + id,
+                                            url: "/admin/media/" + id,
                                             type: "DELETE",
                                             data: {
                                                 _token: "{{ csrf_token() }}",

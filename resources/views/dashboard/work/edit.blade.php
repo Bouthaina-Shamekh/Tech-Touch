@@ -27,46 +27,6 @@
                                 <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of works in english')}}" required :value="$works->name_en"/>
                             </div>
 
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="title_ar" label="{{__('Title_AR')}}" type="text" placeholder="{{__('enter title of works in arabic')}}" required :value="$works->title_ar" />
-                            </div>
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="title_en" label="{{__('Title_EN')}}" type="text" placeholder="{{__('enter title of works in english')}}" required :value="$works->title_en"/>
-                            </div>
-
-                            {{-- <div class="form-group col-6 mb-3">
-                                <x-form.input name="project_name_ar" label="{{__('Project Name_AR')}}" type="text" placeholder="{{__('enter "project name of works in english')}}" required :value="$works->project_name_ar"/>
-                            </div> --}}
-
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="project_name_ar" label="{{__('Project Name_AR')}}" type="text" placeholder="{{__('enter project name of works in arabic')}}" required :value="$works->project_name_ar" />
-                            </div>
-
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="project_name_en" label="{{__('Project Name_EN')}}" type="text" placeholder="{{__('enter project name of works in arabic')}}" required :value="$works->project_name_en" />
-                            </div>
-
-
-
-
-                            <div class="form-group col-12 mb-3">
-                                <x-form.input name="price" label="{{__('Price')}}" type="text" placeholder="{{__('enter price of works in arabic')}}" required :value="$works->price" />
-                            </div>
-
-
-                            <div class="form-group col-6 mb-3">
-                                <label for="content_en" class="form-label">{{__('Content Arabic')}}</label>
-                                <textarea name="description_ar" id="description_ar" rows="3" class="form-control" required>{{$works->description_ar}}</textarea>
-                            </div>
-                            <div class="form-group col-6 mb-3">
-                                <label for="content_en" class="form-label">{{__('Content English')}}</label>
-                                <textarea name="description_en" id="description_en" rows="3" class="form-control" required>{{$works->description_en}}</textarea>
-                            </div>
-
-
-
-
-
 
                             <div class="form-group col-6">
                                 <label for="imageWork" class="form-label">{{__('Image')}}</label>

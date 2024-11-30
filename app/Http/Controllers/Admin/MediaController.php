@@ -32,7 +32,7 @@ class MediaController extends Controller
      */
     public function store(Request $request)
     {
-        if(is_array($request->hasFile('imageFile'))){
+        if(is_array($request->imageFile)){
             $request->validate([
                 'imageFile' => 'required|array|min:1',
                 'imageFile.*' => 'image|mimes:jpeg,png,jpg,gif',
@@ -47,7 +47,7 @@ class MediaController extends Controller
             ]);
         }
         if($request->hasFile('imageFile')){
-            if(is_array($request->hasFile('imageFile'))){
+            if(is_array($request->imageFile)){
                 foreach ($request->file('imageFile') as $imageFile){
                     $imageName = time() . ' - ' . $imageFile->getClientOriginalName() . '.' . $imageFile->extension();
                     $imagePath = $imageFile->storeAs('images', $imageName, 'public');
@@ -99,13 +99,13 @@ class MediaController extends Controller
         $aboutImage = About::where('image', $image->path)->first();
         $workImage = Work::where('image', $image->path)->first();
         $sliderImage = Slider::where('image', $image->path)->first();
-        $partnerImage = Partner::where('image', $image->path)->first();
+        // $partnerImage = Partner::where('image', $image->path)->first();
         $serviceImage = Service::where('image', $image->path)->first();
         $clientImage = Client::where('image', $image->path)->first();
         $fileImage = File::where('image', $image->path)->first();
         $teamImage = Team::where('image', $image->path)->first();
 
-        if($aboutImage != null || $workImage != null || $sliderImage != null|| $partnerImage != null || $serviceImage != null || $clientImage != null || $fileImage != null || $teamImage != null){
+        if($aboutImage != null || $workImage != null || $sliderImage != null|| $serviceImage != null || $clientImage != null || $fileImage != null || $teamImage != null){
             $confirmation_deletion = $request->confirmation_deletion;
             if($confirmation_deletion == null){
                 return response()->json(['error' => 'لا يمكن حذف هذه الصورة بسبب تحميلها لاحدى المنتجات والأصناف', 'confirmation_deletion' => false], 400);
@@ -128,10 +128,10 @@ class MediaController extends Controller
             $sliderImage->image = null;
             $sliderImage->save();
         }
-        if($partnerImage != null){
-            $partnerImage->image = null;
-            $partnerImage->save();
-        }
+        // if($partnerImage != null){
+        //     $partnerImage->image = null;
+        //     $partnerImage->save();
+        // }
         if($serviceImage != null){
             $serviceImage->image = null;
             $serviceImage->save();

@@ -79,6 +79,18 @@
                 </li>
 
 
+                <li class="pc-item">
+                    <a href="{{route('admin.hero.index')}}" class="pc-link">
+                        <span class="pc-micon">
+                            <span class="pc-micon">
+                                <i class="fas fa-images"></i>
+                            </span>
+                        </span>
+                        <span class="pc-mtext">{{__('admin.Hero')}}</span>
+                    </a>
+                </li>
+
+
                 {{-- @can('view categories') --}}
                 <li class="pc-item">
                     <a href="{{route('admin.slider.index')}}" class="pc-link">

@@ -39,7 +39,7 @@ class AboutController extends Controller
             'title_ar' => 'required',
             'description_en' => 'required',
             'description_ar' => 'required',
-            'imagePath' => 'required',
+            'imagePath' => 'nullable',
 
 
         ]);

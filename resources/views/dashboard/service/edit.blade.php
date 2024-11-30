@@ -27,12 +27,7 @@
                                 <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of services in english')}}" required :value="$services->name_en"/>
                             </div>
 
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="major_ar" label="{{__('Major_AR')}}" type="text" placeholder="{{__('enter major of services in arabic')}}" required :value="$services->major_ar" />
-                            </div>
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="major_en" label="{{__('Major_EN')}}" type="text" placeholder="{{__('enter major of services in english')}}" required :value="$services->major_en"/>
-                            </div>
+
 
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('Content Arabic')}}</label>
@@ -43,14 +38,7 @@
                                 <textarea name="description_en" id="description_en" rows="3" class="form-control" required>{{$services->description_en}}</textarea>
                             </div>
 
-                            <div class="form-group col-6 mb-3">
-                                <label for="content_en" class="form-label">{{__('Content Arabic')}}</label>
-                                <textarea name="sub_description_ar" id="sub_description_ar" rows="3" class="form-control" required>{{$services->sub_description_ar}}</textarea>
-                            </div>
-                            <div class="form-group col-6 mb-3">
-                                <label for="content_en" class="form-label">{{__('Content English')}}</label>
-                                <textarea name="sub_description_en" id="sub_description_en" rows="3" class="form-control" required>{{$services->sub_description_en}}</textarea>
-                            </div>
+                           
 
 
 

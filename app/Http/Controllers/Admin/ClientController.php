@@ -31,10 +31,8 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name_en' => 'nullable|string|max:255',
-            'name_ar' => 'nullable|string|max:255',
-            'title_en' => 'required',
-            'title_ar' => 'required',
+            'name_en' => 'required|string|max:255',
+            'name_ar' => 'required|string|max:255',
             'imagePath' => 'required',
             'feedback_en' => 'nullable',
             'feedback_ar' => 'nullable',
@@ -46,8 +44,6 @@ class ClientController extends Controller
         Client::create([
             'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
-            'title_en' => $request->title_en,
-            'title_ar' => $request->title_ar,
             'feedback_en' => $request->feedback_en,
             'feedback_ar' => $request->feedback_ar,
             'image' => $request->imagePath,
@@ -82,14 +78,13 @@ class ClientController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name_en' => 'nullable|string|max:255',
-            'name_ar' => 'nullable|string|max:255',
-            'title_en' => 'required',
-            'title_ar' => 'required',
-            'imagePath' => 'required',
+            'name_en' => 'required|string|max:255',
+            'name_ar' => 'required|string|max:255',
+            'imagePath' => 'nullable',
             'feedback_en' => 'nullable',
             'feedback_ar' => 'nullable',
             'stars' => 'nullable',
+
         ]);
 
         $clients = Client::findOrFail($id);
@@ -100,15 +95,12 @@ class ClientController extends Controller
 
         // Insert To Database
         $clients->update([
-
-                'name_en' => $request->name_en,
-                'name_ar' => $request->name_ar,
-                'title_en' => $request->title_en,
-                'title_ar' => $request->title_ar,
-                'feedback_en' => $request->feedback_en,
-                'feedback_ar' => $request->feedback_ar,
-                'image' => $request->imagePath,
-                'stars' => $request->stars,
+            'name_en' => $request->name_en,
+            'name_ar' => $request->name_ar,
+            'feedback_en' => $request->feedback_en,
+            'feedback_ar' => $request->feedback_ar,
+            'image' => $request->imagePath,
+            'stars' => $request->stars,
         ]);
 
         return redirect()->route('admin.client.index')->with('success', __('Item updated successfully.'));

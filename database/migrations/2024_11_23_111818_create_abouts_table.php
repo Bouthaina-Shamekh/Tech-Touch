@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
-            $table->string('name_en')->nullable()->default('About Us');
+            $table->string('name_en')->nullable()->default(' About Us');
             $table->string('name_ar')->nullable()->default('من نحن');
             $table->string('title_en');
             $table->string('title_ar');

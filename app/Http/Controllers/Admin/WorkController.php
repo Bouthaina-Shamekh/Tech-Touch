@@ -31,30 +31,18 @@ class WorkController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name_en' => 'nullable|string|max:255',
-            'name_ar' => 'nullable|string|max:255',
-            'title_en' => 'required',
-            'title_ar' => 'required',
-            'description_en' => 'required',
-            'description_ar' => 'required',
-            'project_name_en'=> 'required',
-            'project_name_ar'=> 'required',
+            'name_en' => 'required|string|max:255',
+            'name_ar' => 'required|string|max:255',
             'imagePath' => 'required',
-            'price' => 'required',
+
 
         ]);
         // Insert To Database
         Work::create([
             'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
-            'title_en' => $request->title_en,
-            'title_ar' => $request->title_ar,
-            'description_ar' => $request->description_ar,
-            'description_en' => $request->description_en,
             'image' => $request->imagePath,
-            'project_name_en' => $request->project_name_en,
-            'project_name_ar' => $request->project_name_ar,
-            'price' =>$request->price,
+
 
 
         ]);
@@ -87,16 +75,11 @@ class WorkController extends Controller
     {
 
             $request->validate([
-                'name_en' => 'nullable|string|max:255',
-                'name_ar' => 'nullable|string|max:255',
-                'title_en' => 'required',
-                'title_ar' => 'required',
-                'description_en' => 'required',
-                'description_ar' => 'required',
-                'project_name_en'=> 'required',
-                'project_name_ar'=> 'required',
-                 'imagePath' => 'required',
-                'price' => 'required',
+             'name_en' => 'required|string|max:255',
+            'name_ar' => 'required|string|max:255',
+            'imagePath' => 'nullable',
+
+
 
         ]);
 
@@ -110,15 +93,7 @@ class WorkController extends Controller
         $works->update([
             'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
-            'title_en' => $request->title_en,
-            'title_ar' => $request->title_ar,
-            'description_ar' => $request->description_ar,
-            'description_en' => $request->description_en,
             'image' => $request->imagePath,
-            'project_name_en' => $request->project_name_en,
-            'project_name_ar' => $request->project_name_ar,
-            'price' =>$request->price,
-
 
         ]);
 

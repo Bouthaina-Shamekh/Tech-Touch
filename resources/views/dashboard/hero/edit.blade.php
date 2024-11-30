@@ -4,55 +4,87 @@
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{route('admin.team.index')}}">{{__('Teams')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Edit File')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.hero.index')}}">{{__('Slider')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('Edit Slider')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
                     {{-- @can('add product') --}}
                 <div class="card-header">
-                    <h5>{{__('Edit File')}}</h5>
+                    <h5>{{__('Edit Slider')}}</h5>
                 </div>
                 {{-- @endcan --}}
                 <div class="card-body">
-                    <form action="{{route('admin.team.update',$teams->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('admin.hero.update',$heros->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name of teams in arabic')}}" required :value="$teams->name_ar" />
+                                <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name restarant in arabic')}}" required :value="$heros->name_ar" />
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of teams in english')}}" required :value="$teams->name_en"/>
+                                <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name restarant in english')}}" required :value="$heros->name_en"/>
                             </div>
-
-
-
-
 
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="Specialization_en" label="{{__('Specialization_EN')}}" type="text" placeholder="{{__('enter price of teams in arabic')}}" required :value="$teams->Specialization_en" />
+                                <x-form.input name="title_ar" label="{{__('Title_AR')}}" type="text" placeholder="{{__('enter name restarant in arabic')}}" required :value="$heros->title_ar" />
+                            </div>
+
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="title_en" label="{{__('Title_EN')}}" type="text" placeholder="{{__('enter name restarant in arabic')}}" required :value="$heros->title_en" />
+                            </div>
+
+                            <div class="form-group col-6 mb-3">
+                                <label for="content_en" class="form-label">{{__('Content Arabic')}}</label>
+                                <textarea name="description_ar" id="description_ar" rows="3" class="form-control" required>{{$heros->description_ar}}</textarea>
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="Specialization_ar" label="{{__('Specialization_AR')}}" type="text" placeholder="{{__('enter btn of teams in english')}}" required :value="$teams->Specialization_ar"/>
+                                <label for="content_en" class="form-label">{{__('Content English')}}</label>
+                                <textarea name="description_en" id="description_en" rows="3" class="form-control" required>{{$heros->description_en}}</textarea>
                             </div>
+
 
 
                             <div class="form-group col-6">
-                                <label for="imageFile" class="form-label">{{__('Image')}}</label>
-                                <label class="btn btn-outline-secondary" for="imageFile">
+                                <label for="imageFile" class="form-label d-block">{{__('Image')}}</label>
+                                <label class="btn btn-outline-secondary" for="imageFile1">
                                     <i class="ti ti-upload me-2"></i>
                                     {{__("Choose Image")}}
-                                    <i  id="doneChooseMedia" class="ti ti-check bg-success text-white rounded-circle p-1" style="transition: all 0.3s ease; opacity: 0"></i>
+                                    <i  id="doneChooseMedia1" class="ti ti-check bg-success text-white rounded-circle p-1 " style="transition: all 0.3s ease; opacity: 0"></i>
                                 </label>
-                                <button type="button" id="imageFile" class="d-none" data-pc-toggle="modal" data-pc-target="#mediaModal"></button>
-                                <input type="text" class="form-control mt-2 d-none"  id="imagePathInput" value="" name="imagePath" accept="image/*" readonly>
-                                <img src="{{asset('storage/' . $teams->image)}}" alt="img...." width="100px" class="mt-3">
+                                <button type="button" id="imageFile1" class="d-none imageFile" data-pc-toggle="modal" data-pc-target="#mediaModal" data-media='1'></button>
+                                <input type="text" class="form-control mt-2 d-none" id="imagePathInput1" value="" name="imagePath1" accept="image/*" readonly>
+                                <img src="{{asset('storage/' . $heros->image)}}" alt="img...." width="100px" class="mt-3">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="imageFile" class="form-label d-block">{{__('Image2')}}</label>
+                                <label class="btn btn-outline-secondary" for="imageFile2">
+                                    <i class="ti ti-upload me-2"></i>
+                                    {{__("Choose Image")}}
+                                    <i  id="doneChooseMedia2" class="ti ti-check bg-success text-white rounded-circle p-1 " style="transition: all 0.3s ease; opacity: 0"></i>
+                                </label>
+                                <button type="button" id="imageFile2" class="d-none imageFile" data-pc-toggle="modal" data-pc-target="#mediaModal" data-media='2'></button>
+                                <input type="text" class="form-control mt-2 d-none" id="imagePathInput2" value="" name="imagePath2" accept="image/*" readonly>
+                                <img src="{{asset('storage/' . $heros->image)}}" alt="img...." width="100px" class="mt-3">
+
+                            </div>
+                            <div class="form-group col-6 mb-3">
+                                <label for="status" class="form-label">{{__('Section')}}</label>
+                                <select name="section" id="section" class="form-control">
+                                    <option value="Slider" @selected($heros->section == 'Slider')>{{__('Slider')}}</option>
+                                    <option value="About" @selected($heros->section == 'About')>{{__('About')}}</option>
+                                    <option value="Services" @selected($heros->section == 'Services')>{{__('Services')}}</option>
+                                    <option value="Files" @selected($heros->section == 'Files')>{{__('Files')}}</option>
+                                    <option value="Partners" @selected($heros->section == 'Partners')>{{__('Partners')}}</option>
+                                    <option value="Works" @selected($heros->section == 'Works')>{{__('Works')}}</option>
+                                    <option value="Teams" @selected($heros->section == 'Teams')>{{__('Teams')}}</option>
+                                    <option value="Feedback" @selected($heros->section == 'Feedback')>{{__('Feedback')}}</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row justify-content-end mt-3">
-                            <a href="{{route('admin.team.index')}}" class="btn btn-secondary col-1 mr-3">
+                            <a href="{{route('admin.hero.index')}}" class="btn btn-secondary col-1 mr-3">
                                 {{__('Back')}}
                             </a>
                             <button type="submit" class="btn btn-primary col-1  mr-3">
@@ -80,19 +112,20 @@
                             <i class="ti ti-upload me-2"></i>
                             {{__("Click to Upload")}}
                         </label>
-                        <input type="team" id="imageFileUpload" name="imageFile[]" accept="image/*" hidden multiple>
+                        <input type="file" id="imageFileUpload" name="imageFile[]" accept="image/*" hidden multiple>
                     </form>
                     <button id="closeMediaModal"  data-pc-modal-dismiss="#mediaModal" class="text-lg flex items-center justify-center rounded w-7 h-7 text-secondary-500 hover:bg-danger-500/10 hover:text-danger-500">
                         <i class="ti ti-x"></i>
                     </button>
                 </div>
             </div>
+            <input type="hidden" name="imageNumMedia" id="imageNumMedia">
             <div class="modal-body masonry-column">
                 @foreach ($images as $image)
                     <div class="masonry-item relative" data-image-path="{{$image->path}}" id="image-{{$image->id}}">
                         <img src="{{asset('storage/'.$image->path)}}" alt="صورة 1">
                         <div class="caption">
-                            {{$image->team_name}} - {{ App\Helpers\FormatSize::formatSize($image->size) }}
+                            {{$image->file_name}} - {{ App\Helpers\FormatSize::formatSize($image->size) }}
                         </div>
                         <div class="absolute p-[9px] text-white del" id="del-{{$image->id}}" data-id="{{$image->id}}">
                             <button>X</button>
@@ -108,11 +141,16 @@
     @push('scripts')
 <script>
     $(document).ready(function() {
+        $('.imageFile').on('click', function() {
+            let imageNum = $(this).data('media');
+            $('#imageNumMedia').val(imageNum);
+        });
         $('.masonry-item').on('click', function() {
+            let num = $('#imageNumMedia').val();
             let pathImage = $(this).data('image-path');
-            $('#imagePathInput').val(pathImage); // تخزين المسار في حقل إدخال مخفي أو عرضه في مكان آخر
+            $('#imagePathInput' + num).val(pathImage); // تخزين المسار في حقل إدخال مخفي أو عرضه في مكان آخر
             $('#closeMediaModal').click();
-            $('#doneChooseMedia').css('opacity', '1');
+            $('#doneChooseMedia' + num).css('opacity', '1');
             // $("#mediaModal").hide();
         });
         $('.del').on('click', function() {
@@ -136,7 +174,7 @@
             // إنشاء كائن FormData لتضمين الملفات
             var formData = new FormData();
             formData.append('_token', "{{ csrf_token() }}");
-            formData.append('imageFile', $(this).prop('teams')[0]);
+            formData.append('imageFile', $(this).prop('files')[0]);
             $.ajax({
                 url: "{{ route('admin.media.store') }}",
                 type: "POST",
@@ -161,7 +199,7 @@
                                     <div class="masonry-item relative" data-image-path="${item.path}" id="image-${item.id}">
                                         <img src="/storage/${item.path}" alt="صورة 1">
                                         <div class="caption">
-                                            ${item.team_name}
+                                            ${item.file_name}
                                         </div>
                                         <div class="absolute p-[9px] text-white del" id="del-${item.id}" data-id="${item.id}">
                                             <button>X</button>

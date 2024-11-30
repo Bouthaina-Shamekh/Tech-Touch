@@ -26,18 +26,7 @@
                                 <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of clients in english')}}"/>
                             </div>
 
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="title_ar" label="{{__('Title_AR')}}" type="text" placeholder="{{__('enter title of clients in arabic')}}"  />
-                            </div>
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="title_en" label="{{__('Title_Ar')}}" type="text" placeholder="{{__('enter title of clients in english')}}"/>
-                            </div>
-
-
-
-
-
-
+                        
                             <div class="form-group col-12 mb-3">
                                 <x-form.input name="star" label="{{__('Star')}}" type="text" placeholder="{{__('enter star')}}"  />
                             </div>

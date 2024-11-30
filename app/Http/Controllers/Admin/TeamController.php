@@ -31,14 +31,8 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name_en' => 'nullable|string|max:255',
-            'name_ar' => 'nullable|string|max:255',
-            'title_en' => 'required',
-            'title_ar' => 'required',
-            'description_en' => 'required',
-            'description_ar' => 'required',
-            'member_name_en'=> 'required',
-            'member_name_ar'=> 'required',
+            'name_en' => 'required|string|max:255',
+            'name_ar' => 'required|string|max:255',
             'imagePath' => 'required',
             'Specialization_en' => 'required',
             'Specialization_ar' => 'required',
@@ -48,13 +42,7 @@ class TeamController extends Controller
         Team::create([
             'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
-            'title_en' => $request->title_en,
-            'title_ar' => $request->title_ar,
-            'description_ar' => $request->description_ar,
-            'description_en' => $request->description_en,
             'image' => $request->imagePath,
-            'member_name_en' => $request->member_name_en,
-            'member_name_ar' => $request->member_name_ar,
             'Specialization_en' =>$request->Specialization_en,
             'Specialization_ar' =>$request->Specialization_ar,
 
@@ -87,15 +75,9 @@ class TeamController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name_en' => 'nullable|string|max:255',
-            'name_ar' => 'nullable|string|max:255',
-            'title_en' => 'required',
-            'title_ar' => 'required',
-            'description_en' => 'required',
-            'description_ar' => 'required',
-            'member_name_en'=> 'required',
-            'member_name_ar'=> 'required',
-            'imagePath' => 'required',
+            'name_en' => 'required|string|max:255',
+            'name_ar' => 'required|string|max:255',
+            'imagePath' => 'nullable',
             'Specialization_en' => 'required',
             'Specialization_ar' => 'required',
 
@@ -109,15 +91,9 @@ class TeamController extends Controller
 
         // Insert To Database
         $teams->update([
-            'name_en' => $request->name_en,
+           'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
-            'title_en' => $request->title_en,
-            'title_ar' => $request->title_ar,
-            'description_ar' => $request->description_ar,
-            'description_en' => $request->description_en,
             'image' => $request->imagePath,
-            'member_name_en' => $request->member_name_en,
-            'member_name_ar' => $request->member_name_ar,
             'Specialization_en' =>$request->Specialization_en,
             'Specialization_ar' =>$request->Specialization_ar,
 

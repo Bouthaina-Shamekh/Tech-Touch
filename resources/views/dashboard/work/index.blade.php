@@ -28,13 +28,6 @@
                         <th>#</th>
                         <th>{{__('Name_AR')}}</th>
                         <th>{{__('Name_EN')}}</th>
-                        <th>{{__('Title_AR')}}</th>
-                        <th>{{__('Title_EN')}}</th>
-                        <th>{{__('Description_AR')}}</th>
-                        <th>{{__('Description_EN')}}</th>
-                        <th>{{__('ProjectName_AR')}}</th>
-                        <th>{{__('Project Name_EN')}}</th>
-                        <th>{{__('Price')}}</th>
                         <th>{{__('Image')}}</th>
                         <th>{{__('Action')}}</th>
 
@@ -46,14 +39,6 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$work->name_ar}}</td>
                                 <td>{{$work->name_en}}</td>
-                                <td>{{$work->title_ar}}</td>
-                                <td>{{$work->title_en}}</td>
-                                <td>{{$work->description_ar}}</td>
-                                <td>{{$work->description_en}}</td>
-                                <td>{{$work->project_name_ar}}</td>
-                                <td>{{$work->project_name_en}}</td>
-                                <td>{{$work->price}}</td>
-
                                 <td>
                                     <img src="{{asset('storage/'.$work->image)}}" alt="image" class="w-16">
                                 </td>

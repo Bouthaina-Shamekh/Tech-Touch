@@ -28,8 +28,6 @@
                         <th>#</th>
                         <th>{{__('Name_AR')}}</th>
                         <th>{{__('Name_EN')}}</th>
-                        <th>{{__('Title_AR')}}</th>
-                        <th>{{__('Title_EN')}}</th>
                         <th>{{__('Feedback_AR')}}</th>
                         <th>{{__('Feedback_EN')}}</th>
                         <th>{{__('star')}}</th>
@@ -44,12 +42,10 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$client->name_ar}}</td>
                                 <td>{{$client->name_en}}</td>
-                                <td>{{$client->title_ar}}</td>
-                                <td>{{$client->title_en}}</td>
                                 <td>{{$client->feedback_ar}}</td>
                                 <td>{{$client->feedback_en}}</td>
                                 <td>{{$client->star}}</td>
-                            
+
                                 <td>
                                     <img src="{{asset('storage/'.$client->image)}}" alt="image" class="w-16">
                                 </td>

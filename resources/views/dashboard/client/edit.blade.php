@@ -27,12 +27,7 @@
                                 <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of clients in english')}}" required :value="$clients->name_en"/>
                             </div>
 
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="title_ar" label="{{__('Title_AR')}}" type="text" placeholder="{{__('enter title of clients in arabic')}}" required :value="$clients->title_ar" />
-                            </div>
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="title_en" label="{{__('Title_EN')}}" type="text" placeholder="{{__('enter title of clients in english')}}" required :value="$clients->title_en"/>
-                            </div>
+                          
 
 
                             <div class="form-group col-6 mb-3">
@@ -44,7 +39,7 @@
                                 <label for="content_en" class="form-label">{{__('feedback Arabic')}}</label>
                                 <textarea name="feedback_ar" id="feedback_ar" rows="3" class="form-control" required>{{$clients->feedback_ar}}</textarea>
                             </div>
-                            
+
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('Feedback English')}}</label>
                                 <textarea name="feedback_en" id="feedback_en" rows="3" class="form-control" required>{{$clients->feedback_en}}</textarea>

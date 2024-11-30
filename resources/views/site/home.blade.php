@@ -18,26 +18,19 @@ $name = 'name_' . app()->currentLocale();
                         <span class="text-second">Test Your</span>
                         <span class="text-main" id="typewriter_hero"></span>
                         <!-- الكلمات مخزنة في HTML -->
+                       @foreach ( $sliders as $slide)
                         <div id="word-list" class="hidden">
-                            <span>Idea</span>
-                            <span>Plan</span>
-                            <span>Project</span>
+                            <span>{{$slide->name_en}}</span>
+                            {{-- <span>Plan</span>
+                            <span>Project</span> --}}
                         </div>
                     </h1>
                     <div id="hero-texts" class="relative space-y-4 mt-4">
                         <p class="hero-paragraph font-light leading-6 text-xl md:text-2xl text-dark">
-                            Sed Ut Perspiciatis Unde Omnis Iste Natus Error Sit Voluptatem Accusantium Doloremque Laudantium, Totam Rem
-                        </p>
-                        <p class="hero-paragraph font-light leading-6 text-xl md:text-2xl text-dark hidden">
-                            Sed Ut Perspiciatis Unde Omnis Iste Natus Error Sit Voluptatem Accusantium Doloremque Laudantium, Totam Rem
-                        </p>
-                        <p class="hero-paragraph font-light leading-6 text-xl md:text-2xl text-dark hidden">
-                            Sed Ut Perspiciatis Unde Omnis Iste Natus Error Sit Voluptatem Accusantium Doloremque Laudantium, Totam Rem
-                        </p>
-                        <p class="hero-paragraph font-light leading-6 text-xl md:text-2xl text-dark hidden">
-                            Sed Ut Perspiciatis Unde Omnis Iste Natus Error Sit Voluptatem Accusantium Doloremque Laudantium, Totam Rem
+                           {{$slide->description_en}}
                         </p>
                     </div>
+                    @endforeach
                     <div class="relative mb-3 w-full flex justify-start my-8">
                         <a href="./pages/test_idea.html" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:ml-4 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">
                             Start Now
@@ -82,16 +75,16 @@ $name = 'name_' . app()->currentLocale();
                         </svg>
                         <!-- العنصر الداخلي -->
                         <div class="hexagon-content">
-                            <img src="./asset/img/extra/about-1.jpg" alt=""  class="w-full h-full object-cover">
+                            <img src="{{asset("storage/" . $abouts->image)}}" alt=""  class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
                 <!-- Text -->
                 <div class=" flex flex-col  flex-1/2 justify-start items-center md:items-start">
-                    <h2 class="text__about text-3xl md:text-5xl font-semibold text-main uppercase mb-2">About Us</h2>
-                    <h3 class="text__about text-xl md:text-3xl font-semibold text-second uppercase mb-2">What Are tech touch</h3>
-                    <p class="text__about text-dark font-light text-base leading-6">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.</p>
-                    <p class="text__about text-dark  font-light  text-base leading-6">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p>
+                    <h2 class="text__about text-3xl md:text-5xl font-semibold text-main uppercase mb-2">{{$abouts->name_en}}</h2>
+                    <h3 class="text__about text-xl md:text-3xl font-semibold text-second uppercase mb-2">{{$abouts->title_en}}</h3>
+                    <p class="text__about text-dark font-light text-base leading-6">{{$abouts->description_en}}</p>
+                    {{-- <p class="text__about text-dark  font-light  text-base leading-6">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p> --}}
                     <div class="flex flex-wrap justify-center md:justify-between items-center  gap-4 contant-hexagon my-4">
                         <div class="card__about hexagon-container w-[70%] md:w-[20%]">
                             <!-- SVG للشكل السداسي بحدود متقطعة -->
@@ -146,13 +139,13 @@ $name = 'name_' . app()->currentLocale();
         <div class="container">
             <div class=" w-full flex flex-wrap justify-between items-center md:items-start">
                 <div class="flex-1/2">
-                    <h2 class="text__service text-5xl md:text-7xl font-semibold text-main uppercase mb-2">services</h2>
-                    <h3 class="text__service text-xl md:text-3xl font-semibold text-second uppercase mb-2">The Best Service We Offer</h3>
+                    <h2 class="text__service text-5xl md:text-7xl font-semibold text-main uppercase mb-2">{{$services->name_en}}</h2>
+                    <h3 class="text__service text-xl md:text-3xl font-semibold text-second uppercase mb-2">{{$services->title_en}}</h3>
                     <p class="text__service text-dark font-light text-base leading-6">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat</p>
                     <div class="flex flex-col justify-start items-start my-4">
                         <div class="service__box flex justify-between items-center gap-4 h-full p-3 border-y border-[#AEB4C0]">
                             <div class="flex items-center justify-center  w-1/4">
-                                <img src="./asset/img/extra/services-01.png" alt="service" class="w-3/4">
+                                <img src="{{asset("storage/" . $services->image1)}}" alt="service" class="w-3/4">
                             </div>
                             <div class="flex flex-col flex-1 justify-start items-start my-4">
                                 <h3 class="text-2xl font-medium text-second mb-4">Technical Services & Programming</h3>
@@ -217,10 +210,10 @@ $name = 'name_' . app()->currentLocale();
                 </div>
                 <div class="flex-1/2 hidden lg:block">
                     <div class="img__service sticky top-0 flex justify-end">
-                        <img src="./asset/img/extra/services_home_01.png" alt="extra" width="67%">
+                        <img src="{{asset("storage/" . $services->image1)}}" alt="extra" width="67%">
                     </div>
                     <div  class="img__service sticky top-0 bg-white flex justify-end mt-8">
-                        <img src="./asset/img/extra/services_home_02.png" alt="extra" width="83%">
+                        <img src="{{asset("storage/" . $services->image2)}}" alt="extra" width="83%">
                     </div>
                 </div>
             </div>

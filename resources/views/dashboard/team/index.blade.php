@@ -47,12 +47,6 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$team->name_ar}}</td>
                                 <td>{{$team->name_en}}</td>
-                                <td>{{$team->title_ar}}</td>
-                                <td>{{$team->title_en}}</td>
-                                <td>{{$team->description_ar}}</td>
-                                <td>{{$team->description_en}}</td>
-                                <td>{{$team->member_name_ar}}</td>
-                                <td>{{$team->member_name_en}}</td>
                                 <td>{{$team->Specialization_en}}</td>
                                 <td>{{$team->Specialization_ar}}</td>
                                 <td>

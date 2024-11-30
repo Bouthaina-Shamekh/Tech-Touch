@@ -22,7 +22,7 @@ class SliderController extends Controller
     {
         $slid = Slider::first();
         $images = Media::paginate(100);
-        return view('admin.slider.create',compact('slid','images'));
+        return view('dashboard.slider.create',compact('slid','images'));
     }
 
     /**
