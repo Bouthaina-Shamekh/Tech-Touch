@@ -160,6 +160,21 @@
                     </a>
                 </li>
 
+
+
+                <li class="pc-item">
+                    <a href="{{route('admin.partner.index')}}" class="pc-link">
+                        <span class="pc-micon">
+                            <span class="pc-micon">
+                                <i class="fas fa-hamburger"></i>
+                            </span>
+                        </span>
+                        <span class="pc-mtext">{{('admin.Partner')}}</span>
+                    </a>
+                </li>
+
+
+
                 {{-- <li class="pc-item">
                     <a href="{{route('admin.partner.index')}}" class="pc-link">
                         <span class="pc-micon">

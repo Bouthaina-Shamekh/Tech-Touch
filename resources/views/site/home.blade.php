@@ -141,21 +141,23 @@ $name = 'name_' . app()->currentLocale();
                 <div class="flex-1/2">
                     <h2 class="text__service text-5xl md:text-7xl font-semibold text-main uppercase mb-2">{{$services->name_en}}</h2>
                     <h3 class="text__service text-xl md:text-3xl font-semibold text-second uppercase mb-2">{{$services->title_en}}</h3>
-                    <p class="text__service text-dark font-light text-base leading-6">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat</p>
+                    <p class="text__service text-dark font-light text-base leading-6">{{$services->description_en}}</p>
                     <div class="flex flex-col justify-start items-start my-4">
+                        @foreach ($service as $service )
                         <div class="service__box flex justify-between items-center gap-4 h-full p-3 border-y border-[#AEB4C0]">
                             <div class="flex items-center justify-center  w-1/4">
-                                <img src="{{asset("storage/" . $services->image1)}}" alt="service" class="w-3/4">
+                                <img src="{{asset("storage/" . $service->image)}}" alt="service" class="w-3/4">
                             </div>
                             <div class="flex flex-col flex-1 justify-start items-start my-4">
-                                <h3 class="text-2xl font-medium text-second mb-4">Technical Services & Programming</h3>
-                                <p class="text-second font-light text-sm leading-6">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt</p>
+                                <h3 class="text-2xl font-medium text-second mb-4">{{$service->name_en}}</h3>
+                                <p class="text-second font-light text-sm leading-6">{{$service->description_en}}</p>
                                 <a href="./services_show.html" class="my-2 text-main underline hover:pl-2 transition-all delay-150 ease-in">
                                     Read MORE
                                 </a>
                             </div>
                         </div>
-                        <div class="service__box flex justify-between items-center gap-4 h-full p-3 border-b border-[#AEB4C0]">
+                        @endforeach
+                        {{-- <div class="service__box flex justify-between items-center gap-4 h-full p-3 border-b border-[#AEB4C0]">
                             <div class="flex items-center justify-center  w-1/4">
                                 <img src="./asset/img/extra/services-02.png"  alt="service" class="w-3/4">
                             </div>
@@ -166,8 +168,8 @@ $name = 'name_' . app()->currentLocale();
                                     Read MORE
                                 </a>
                             </div>
-                        </div>
-                        <div class="service__box flex justify-between items-center gap-4 h-full p-3 border-b border-[#AEB4C0]">
+                        </div> --}}
+                        {{-- <div class="service__box flex justify-between items-center gap-4 h-full p-3 border-b border-[#AEB4C0]">
                             <div class="flex items-center justify-center  w-1/4">
                                 <img src="./asset/img/extra/services-03.png" alt="service" class="w-3/4">
                             </div>
@@ -178,8 +180,8 @@ $name = 'name_' . app()->currentLocale();
                                     Read MORE
                                 </a>
                             </div>
-                        </div>
-                        <div class="service__box flex justify-between items-center gap-4 h-full p-3 border-b border-[#AEB4C0]">
+                        </div> --}}
+                        {{-- <div class="service__box flex justify-between items-center gap-4 h-full p-3 border-b border-[#AEB4C0]">
                             <div class="flex items-center justify-center  w-1/4">
                                 <img src="./asset/img/extra/services-04.png" alt="service" class="w-3/4">
                             </div>
@@ -190,8 +192,8 @@ $name = 'name_' . app()->currentLocale();
                                     Read MORE
                                 </a>
                             </div>
-                        </div>
-                        <div class="service__box flex justify-between items-center gap-4 h-full p-3 border-b border-[#AEB4C0]">
+                        </div> --}}
+                        {{-- <div class="service__box flex justify-between items-center gap-4 h-full p-3 border-b border-[#AEB4C0]">
                             <div class="flex items-center justify-center  w-1/4">
                                 <img src="./asset/img/extra/services-05.png" alt="service" class="w-3/4">
                             </div>
@@ -202,10 +204,10 @@ $name = 'name_' . app()->currentLocale();
                                     Read MORE
                                 </a>
                             </div>
-                        </div>
-                        <div class="service__box relative my-8 w-full flex justify-start">
+                        </div> --}}
+                        {{-- <div class="service__box relative my-8 w-full flex justify-start">
                             <a href="./pages/services.html" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:ml-4 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">Show All</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="flex-1/2 hidden lg:block">
@@ -234,11 +236,11 @@ $name = 'name_' . app()->currentLocale();
                     <h2 class="left__files text-4xl md:text-7xl font-bold text-main uppercase mb-2">
                         <span class="text-second font-bold text-3xl md:text-5xl">Our</span>
                         <br>
-                        Files
+                        {{$files->name_en}}
                     </h2>
-                    <h3 class="left__files text-base md:text-2xl font-light text-second mb-2">The Secret To Success May Be Inside One Of The Files</h3>
+                    <h3 class="left__files text-base md:text-2xl font-light text-second mb-2">{{$files->title_en}}</h3>
                     <div class="left__files hidden md:block">
-                        <img src="asset/img/extra/files_home.png" alt="">
+                        <img src="{{asset("storage/" .  $files->image1)}}" alt="">
                     </div>
                 </div>
                 <!-- Right -->
@@ -257,193 +259,6 @@ $name = 'name_' . app()->currentLocale();
                     </div>
                     <div class="grid grid-cols-12 gap-2 my-8" id="files_view">
                         <div class="card__file col-span-12 md:col-span-6 flex flex-col justify-start items-start">
-                            <div class="bg-[#F7F7F7] w-full mt-2 px-2">
-                                <div class="flex flex-col justify-start items-start my-4 pl-3">
-                                    <h4 class="text-xl text-black mb-4">
-                                        <i class="fa-solid fa-file text-[#818B90] me-2"></i>
-                                        <span>File Name</span>
-                                    </h4>
-                                    <p class="text-dark font-light text-sm">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sedss Diam Nonumy </p>
-                                    <div class="flex justify-start items-center gap-4 mt-4">
-                                        <span class="text-main font-light text-lg">$23.00</span>
-                                        <a href="./pages/file_single.html" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                            <span>BUY</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card__file col-span-12 md:col-span-6 flex flex-col justify-start items-start">
-                            <div class="bg-[#F7F7F7] w-full mt-2 px-2">
-                                <div class="flex flex-col justify-start items-start my-4 pl-3">
-                                    <h4 class="text-xl text-black mb-4">
-                                        <i class="fa-solid fa-file text-[#818B90] me-2"></i>
-                                        <span>File Name</span>
-                                    </h4>
-                                    <p class="text-dark font-light text-sm">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sedss Diam Nonumy </p>
-                                    <div class="flex justify-start items-center gap-4 mt-4">
-                                        <span class="text-main font-light text-lg">$23.00</span>
-                                        <a href="./pages/file_single.html" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                            <span>BUY</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card__file col-span-12 md:col-span-6 flex flex-col justify-start items-start">
-                            <div class="bg-[#F7F7F7] w-full mt-2 px-2">
-                                <div class="flex flex-col justify-start items-start my-4 pl-3">
-                                    <h4 class="text-xl text-black mb-4">
-                                        <i class="fa-solid fa-file text-[#818B90] me-2"></i>
-                                        <span>File Name</span>
-                                    </h4>
-                                    <p class="text-dark font-light text-sm">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sedss Diam Nonumy </p>
-                                    <div class="flex justify-start items-center gap-4 mt-4">
-                                        <span class="text-main font-light text-lg">$23.00</span>
-                                        <a href="./pages/file_single.html" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                            <span>BUY</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card__file col-span-12 md:col-span-6 flex flex-col justify-start items-start">
-                            <div class="bg-[#F7F7F7] w-full mt-2 px-2">
-                                <div class="flex flex-col justify-start items-start my-4 pl-3">
-                                    <h4 class="text-xl text-black mb-4">
-                                        <i class="fa-solid fa-file text-[#818B90] me-2"></i>
-                                        <span>File Name</span>
-                                    </h4>
-                                    <p class="text-dark font-light text-sm">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sedss Diam Nonumy </p>
-                                    <div class="flex justify-start items-center gap-4 mt-4">
-                                        <span class="text-main font-light text-lg">$23.00</span>
-                                        <a href="./pages/file_single.html" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                            <span>BUY</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card__file col-span-12 md:col-span-6 flex flex-col justify-start items-start">
-                            <div class="bg-[#F7F7F7] w-full mt-2 px-2">
-                                <div class="flex flex-col justify-start items-start my-4 pl-3">
-                                    <h4 class="text-xl text-black mb-4">
-                                        <i class="fa-solid fa-file text-[#818B90] me-2"></i>
-                                        <span>File Name</span>
-                                    </h4>
-                                    <p class="text-dark font-light text-sm">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sedss Diam Nonumy </p>
-                                    <div class="flex justify-start items-center gap-4 mt-4">
-                                        <span class="text-main font-light text-lg">$23.00</span>
-                                        <a href="./pages/file_single.html" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                            <span>BUY</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card__file col-span-12 md:col-span-6 flex flex-col justify-start items-start">
-                            <div class="bg-[#F7F7F7] w-full mt-2 px-2">
-                                <div class="flex flex-col justify-start items-start my-4 pl-3">
-                                    <h4 class="text-xl text-black mb-4">
-                                        <i class="fa-solid fa-file text-[#818B90] me-2"></i>
-                                        <span>File Name</span>
-                                    </h4>
-                                    <p class="text-dark font-light text-sm">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sedss Diam Nonumy </p>
-                                    <div class="flex justify-start items-center gap-4 mt-4">
-                                        <span class="text-main font-light text-lg">$23.00</span>
-                                        <a href="./pages/file_single.html" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                            <span>BUY</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-span-12 md:col-span-6 flex flex-col justify-start items-start">
-                            <div class="bg-[#F7F7F7] w-full mt-2 px-2">
-                                <div class="flex flex-col justify-start items-start my-4 pl-3">
-                                    <h4 class="text-xl text-black mb-4">
-                                        <i class="fa-solid fa-file text-[#818B90] me-2"></i>
-                                        <span>File Name</span>
-                                    </h4>
-                                    <p class="text-dark font-light text-sm">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sedss Diam Nonumy </p>
-                                    <div class="flex justify-start items-center gap-4 mt-4">
-                                        <span class="text-main font-light text-lg">$23.00</span>
-                                        <a href="./pages/file_single.html" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                            <span>BUY</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-span-12 md:col-span-6 flex flex-col justify-start items-start">
-                            <div class="bg-[#F7F7F7] w-full mt-2 px-2">
-                                <div class="flex flex-col justify-start items-start my-4 pl-3">
-                                    <h4 class="text-xl text-black mb-4">
-                                        <i class="fa-solid fa-file text-[#818B90] me-2"></i>
-                                        <span>File Name</span>
-                                    </h4>
-                                    <p class="text-dark font-light text-sm">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sedss Diam Nonumy </p>
-                                    <div class="flex justify-start items-center gap-4 mt-4">
-                                        <span class="text-main font-light text-lg">$23.00</span>
-                                        <a href="./pages/file_single.html" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                            <span>BUY</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-span-12 md:col-span-6 flex flex-col justify-start items-start">
-                            <div class="bg-[#F7F7F7] w-full mt-2 px-2">
-                                <div class="flex flex-col justify-start items-start my-4 pl-3">
-                                    <h4 class="text-xl text-black mb-4">
-                                        <i class="fa-solid fa-file text-[#818B90] me-2"></i>
-                                        <span>File Name</span>
-                                    </h4>
-                                    <p class="text-dark font-light text-sm">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sedss Diam Nonumy </p>
-                                    <div class="flex justify-start items-center gap-4 mt-4">
-                                        <span class="text-main font-light text-lg">$23.00</span>
-                                        <a href="./pages/file_single.html" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                            <span>BUY</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-span-12 md:col-span-6 flex flex-col justify-start items-start">
-                            <div class="bg-[#F7F7F7] w-full mt-2 px-2">
-                                <div class="flex flex-col justify-start items-start my-4 pl-3">
-                                    <h4 class="text-xl text-black mb-4">
-                                        <i class="fa-solid fa-file text-[#818B90] me-2"></i>
-                                        <span>File Name</span>
-                                    </h4>
-                                    <p class="text-dark font-light text-sm">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sedss Diam Nonumy </p>
-                                    <div class="flex justify-start items-center gap-4 mt-4">
-                                        <span class="text-main font-light text-lg">$23.00</span>
-                                        <a href="./pages/file_single.html" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                            <span>BUY</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-span-12 md:col-span-6 flex flex-col justify-start items-start">
-                            <div class="bg-[#F7F7F7] w-full mt-2 px-2">
-                                <div class="flex flex-col justify-start items-start my-4 pl-3">
-                                    <h4 class="text-xl text-black mb-4">
-                                        <i class="fa-solid fa-file text-[#818B90] me-2"></i>
-                                        <span>File Name</span>
-                                    </h4>
-                                    <p class="text-dark font-light text-sm">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sedss Diam Nonumy </p>
-                                    <div class="flex justify-start items-center gap-4 mt-4">
-                                        <span class="text-main font-light text-lg">$23.00</span>
-                                        <a href="./pages/file_single.html" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                            <span>BUY</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-span-12 md:col-span-6 flex flex-col justify-start items-start">
                             <div class="bg-[#F7F7F7] w-full mt-2 px-2">
                                 <div class="flex flex-col justify-start items-start my-4 pl-3">
                                     <h4 class="text-xl text-black mb-4">
@@ -482,8 +297,8 @@ $name = 'name_' . app()->currentLocale();
             </div>
             <div class="flex flex-col justify-center items-center center__partners">
                 <h3 class="text-xl md:text-3xl font-semibold text-second mb-2">Tech Touch</h3>
-                <h2 class="text-5xl md:text-7xl font-semibold text-main uppercase mb-2">partners</h2>
-                <p class="text-dark font-light text-base leading-6 text-center w-[165%]">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat</p>
+                <h2 class="text-5xl md:text-7xl font-semibold text-main uppercase mb-2">{{$partners->name_en}} </h2>
+                <p class="text-dark font-light text-base leading-6 text-center w-[165%]">{{$partners->description_en}}</p>
             </div>
             <div class="right_partners">
                 <svg xmlns="http://www.w3.org/2000/svg" width="677.327" height="136.595" viewBox="0 0 677.327 136.595">
@@ -493,33 +308,13 @@ $name = 'name_' . app()->currentLocale();
         </div>
         <div class="container">
             <div class="flex flex-wrap justify-center items-center" style="gap: 0 70px;">
-                <div class="img__partners">
-                    <img src="./asset/img/extra/partners-01.png" alt="" width="75%" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
-                </div>
-                <div class="img__partners">
-                    <img src="./asset/img/extra/partners-02.png" alt="" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
-                </div>
-                <div class="img__partners">
-                    <img src="./asset/img/extra/partners-03.png" alt="" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
-                </div>
-                <div class="img__partners">
-                    <img src="./asset/img/extra/partners-01.png" alt="" width="75%" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
-                </div>
-                <div class="img__partners">
-                    <img src="./asset/img/extra/partners-02.png" alt="" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
-                </div>
-                <div class="img__partners">
-                    <img src="./asset/img/extra/partners-03.png" alt="" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
-                </div>
-                <div class="img__partners">
-                    <img src="./asset/img/extra/partners-01.png" alt="" width="75%" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
-                </div>
-                <div class="img__partners">
-                    <img src="./asset/img/extra/partners-02.png" alt="" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
-                </div>
-                <div class="img__partners">
-                    <img src="./asset/img/extra/partners-03.png" alt="" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
-                </div>
+                @foreach ($partner as $partner)
+                <a href="{{$partner->link}}" class="img__partners">
+                    <img src="{{asset("storage/" . $partner->image)}}" alt="" width="75%" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
+                </a>
+                @endforeach
+
+               
             </div>
         </div>
     </section>

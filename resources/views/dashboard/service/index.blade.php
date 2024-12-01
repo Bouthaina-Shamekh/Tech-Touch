@@ -44,13 +44,13 @@
                                 <td>{{$service->name_en}}</td>
                                 <td>{{$service->description_ar}}</td>
                                 <td>{{$service->description_en}}</td>
-                               
+
                                 <td>
                                     <img src="{{asset('storage/'.$service->image)}}" alt="image" class="w-16">
                                 </td>
 
                                 <td>
-                                    <a href="{{route('admin.service.edit',$services->id)}}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
+                                    <a href="{{route('admin.service.edit',$service->id)}}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
                                         <i class="ti ti-edit text-xl leading-none"></i>
                                     </a>
                                     <form action="{{route('admin.service.destroy',$service->id)}}" method="post">
