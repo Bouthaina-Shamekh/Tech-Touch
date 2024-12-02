@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use App\Models\Hero;
+use App\Models\Team;
 use App\Models\About;
-use App\Models\Partner;
+use App\Models\Client;
 use App\Models\Slider;
+use App\Models\Partner;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -31,7 +33,23 @@ class MainController extends Controller
                 ->select('name_en', 'name_ar' ,'title_en','title_ar')->first();
         $teams = Hero::where('section', 'Teams')
                 ->select('name_en', 'name_ar' ,'title_en','title_ar','description_en','description_ar')->first();
-        return view('site.home', compact('sliders','abouts','services','service','files','file','partners','partner','works','teams'));
+        $team = Team::all();
+        $clients = Client::limit(5)->get();
+        return view('site.home', compact('sliders','abouts','services','service','files','file','partners','partner','works','teams','team','clients'));
+    }
+
+    public function about(){
+
+        $abouts = About::first();
+        return view('site.about', compact('abouts'));
+
+    }
+
+    public function services(){
+
+        $service = Service::all();
+        return view('site.services', compact('service'));
+
     }
 }
 

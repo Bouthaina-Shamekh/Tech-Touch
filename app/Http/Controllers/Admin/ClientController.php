@@ -36,7 +36,7 @@ class ClientController extends Controller
             'imagePath' => 'required',
             'feedback_en' => 'nullable',
             'feedback_ar' => 'nullable',
-            'stars' => 'nullable',
+            'stars' => 'nullable|numeric',
 
 
         ]);
@@ -48,7 +48,6 @@ class ClientController extends Controller
             'feedback_ar' => $request->feedback_ar,
             'image' => $request->imagePath,
             'stars' => $request->stars,
-
         ]);
 
         return redirect()->route('admin.client.index')->with('success', __('Item updated successfully.'));
@@ -83,7 +82,7 @@ class ClientController extends Controller
             'imagePath' => 'nullable',
             'feedback_en' => 'nullable',
             'feedback_ar' => 'nullable',
-            'stars' => 'nullable',
+            'stars' => 'nullable|numeric',
 
         ]);
 
@@ -99,7 +98,7 @@ class ClientController extends Controller
             'name_ar' => $request->name_ar,
             'feedback_en' => $request->feedback_en,
             'feedback_ar' => $request->feedback_ar,
-            'image' => $request->imagePath,
+            'image' => $image ,
             'stars' => $request->stars,
         ]);
 

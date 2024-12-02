@@ -9,4 +9,14 @@ class Client extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+
+    protected $fillable = [
+        'name_en',
+        'name_ar',
+        'image',
+        'feedback_en',
+        'feedback_ar',
+        'stars',
+    ];
 }

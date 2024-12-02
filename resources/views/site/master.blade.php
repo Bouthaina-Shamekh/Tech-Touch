@@ -198,7 +198,7 @@
     <!-- My JS -->
     <script src="{{asset('asset/js/main.js')}}"></script>
 
-    
+
  <!-- Hero -->
  <script>
     $(document).ready(function () {
@@ -471,5 +471,67 @@
         });
     });
 </script>
+
+    <!-- client's feedback -->
+    <script>
+        $(document).ready(function () {
+            const slider = $('#image-slider');
+            const reviews = $(".review");
+            function updateContent(clientId) {
+                reviews.removeClass("active");
+                $(`.review[data-client="${clientId}"]`).addClass("active");
+                // $(".img__client[data-client="${clientId}"]").addClass("active");
+            }
+
+            slider.on('click', 'img', function () {
+                const clicked = $(this); // العنصر الذي تم النقر عليه
+                const currentActive = slider.find('.active'); // العنصر النشط حالياً
+                const clientId = $(this).data('client');
+                if (!clicked.hasClass('active')) {
+                    currentActive.removeClass('active').addClass('inactive'); // اجعل العنصر النشط الحالي غير نشط
+                    clicked.removeClass('inactive').addClass('active'); // اجعل العنصر الذي تم النقر عليه نشطاً
+
+                    const clickedIndex = clicked.index();
+                    const totalImages = slider.children().length;
+
+                    const centerIndex = 2; // الموقع الثالث (0-based index)
+                    const offset = clickedIndex - centerIndex;
+
+                    const reorderedImages = [];
+
+                    // إضافة تأثيرات الحركة قبل الترتيب
+                    slider.children().each(function (index) {
+                        if (index < clickedIndex) {
+                            $(this).addClass('slide-left'); // إزاحة لليسار
+                        } else if (index > clickedIndex) {
+                            $(this).addClass('slide-right'); // إزاحة لليمين
+                        }
+                    });
+
+                    setTimeout(() => {
+                        // إعادة ترتيب الصور
+                        for (let i = 0; i < totalImages; i++) {
+                            const newIndex = (i - offset + totalImages) % totalImages;
+                            reorderedImages[newIndex] = slider.children().eq(i);
+                        }
+
+                        slider.empty();
+                        reorderedImages.forEach(img => {
+                            $(img).removeClass('slide-left slide-right').addClass('fade-in'); // تأثير الظهور
+                            slider.append(img);
+                        });
+                        // الانتظار لمدة 5 ثوانٍ قبل إزالة تأثير الظهور
+                        setTimeout(() => {
+                            reorderedImages.forEach(img => {
+                                $(img).removeClass('fade-in'); // تأثير الظهور
+                            });
+                        }, 3000); // 5000ms = 5 ثوانٍ
+                    }, 300); // الانتظار لإنهاء الحركة
+                }
+                updateContent(clientId);  // تحديث النصوص
+            });
+            updateContent(3);
+        });
+    </script>
 </body>
 </html>

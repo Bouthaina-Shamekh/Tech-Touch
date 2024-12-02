@@ -54,7 +54,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth','check_user')->group(f
         'work' =>WorkController::class,
         'partner' =>PartnerController::class,
         'hero' =>HeroController::class,
+        'client' =>ClientController::class
     ]);
+});
 });
 
 Auth::routes();
@@ -62,13 +64,23 @@ Auth::routes();
 Route::view('not_allowed', 'not_allowed');
 
 // Website Routes
+
+
+
+
+
 Route::get('/', [MainController::class, 'home'])->name('site.index');
+Route::get('about', [MainController::class, 'about'])->name('site.about');
+Route::get('services', [MainController::class, 'services'])->name('site.services');
 
 
 
 
-});
 
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
