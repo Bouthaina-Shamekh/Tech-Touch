@@ -28,6 +28,20 @@
                                 <x-form.input name="file_name_ar" label="{{__('Faile Name_EN')}}" type="text" placeholder="{{__('enter name of files in english')}}" required :value="$files->file_name_ar"/>
                             </div>
 
+
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="file" label="{{__('Edit UR File')}}" type="file" placeholder="{{__('enter name of files in english')}}"/>
+                                <!-- عرض اسم الملف الحالي -->
+    @if ($files->file)
+    <small class="d-block mt-2">
+        <strong>{{ __('Current file: ') }}</strong>
+        <a href="{{ asset('files/' . $files->file) }}" target="_blank">
+            {{ $files->file }}
+        </a>
+    </small>
+@endif
+                            </div>
+
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('Content Arabic')}}</label>
                                 <textarea name="description_ar" id="description_ar" rows="3" class="form-control" required>{{$files->description_ar}}</textarea>

@@ -26,8 +26,12 @@ class MainController extends Controller
         $file = File::all();
         $partners = Hero::where('section', 'Partners')
                    ->select('name_en', 'name_ar' ,'description_en','description_ar')->first();
-          $partner = Partner::all();
-        return view('site.home', compact('sliders','abouts','services','service','files','file','partners','partner'));
+        $partner = Partner::all();
+        $works = Hero::where('section', 'Works')
+                ->select('name_en', 'name_ar' ,'title_en','title_ar')->first();
+        $teams = Hero::where('section', 'Teams')
+                ->select('name_en', 'name_ar' ,'title_en','title_ar','description_en','description_ar')->first();
+        return view('site.home', compact('sliders','abouts','services','service','files','file','partners','partner','works','teams'));
     }
 }
 

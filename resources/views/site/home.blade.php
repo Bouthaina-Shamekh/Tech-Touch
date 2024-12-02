@@ -258,16 +258,19 @@ $name = 'name_' . app()->currentLocale();
                         </div>
                     </div>
                     <div class="grid grid-cols-12 gap-2 my-8" id="files_view">
+                        @foreach ($file as $file )
+
+
                         <div class="card__file col-span-12 md:col-span-6 flex flex-col justify-start items-start">
                             <div class="bg-[#F7F7F7] w-full mt-2 px-2">
                                 <div class="flex flex-col justify-start items-start my-4 pl-3">
                                     <h4 class="text-xl text-black mb-4">
                                         <i class="fa-solid fa-file text-[#818B90] me-2"></i>
-                                        <span>File Name</span>
+                                        <span>{{$file->file_name_en}}</span>
                                     </h4>
-                                    <p class="text-dark font-light text-sm">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sedss Diam Nonumy </p>
+                                    <p class="text-dark font-light text-sm">{{$file->description_en}} </p>
                                     <div class="flex justify-start items-center gap-4 mt-4">
-                                        <span class="text-main font-light text-lg">$23.00</span>
+                                        <span class="text-main font-light text-lg">${{$file->price}}</span>
                                         <a href="./pages/file_single.html" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
                                             <span>BUY</span>
                                         </a>
@@ -275,6 +278,7 @@ $name = 'name_' . app()->currentLocale();
                                 </div>
                             </div>
                         </div>
+                        @endforeach
 
                     </div>
                 </div>
@@ -314,7 +318,7 @@ $name = 'name_' . app()->currentLocale();
                 </a>
                 @endforeach
 
-               
+
             </div>
         </div>
     </section>
@@ -323,8 +327,8 @@ $name = 'name_' . app()->currentLocale();
     <section class="my-6 relative" style="background-image: url(./asset/img/extra/work_bg.png);">
         <div class="container py-16">
             <div class="flex flex-col justify-center items-center">
-                <h3 class="text-xl md:text-4xl font-semibold text-main mb-2 text__work">Work</h3>
-                <h2 class="text-3xl md:text-5xl font-semibold text-white uppercase mb-2 text__work">Improve & Enhance <br> the Tech Projects</h2>
+                <h3 class="text-xl md:text-4xl font-semibold text-main mb-2 text__work">{{$works->name_en}}</h3>
+                <h2 class="text-3xl md:text-5xl font-semibold text-white uppercase mb-2 text__work">{{$works->title_en}}</h2>
             </div>
             <div class="swiper p-0">
                 <div class="slider-wrapper">
@@ -468,9 +472,9 @@ $name = 'name_' . app()->currentLocale();
     <section class="my-10 relative">
         <div class="container py-10">
             <div class="flex flex-col justify-center items-center">
-                <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2">OUR TEAM</h2>
-                <h3 class="text__client text-xl md:text-3xl font-semibold text-second mb-2">Meet Our Team</h3>
-                <p class="text__client w-3/4 text-dark font-light text-base leading-6 text-center">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat</p>
+                <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2">{{$teams->name_ar}}</h2>
+                <h3 class="text__client text-xl md:text-3xl font-semibold text-second mb-2">{{$teams->title_ar}}</h3>
+                <p class="text__client w-3/4 text-dark font-light text-base leading-6 text-center">{{$teams->description_en}}</p>
             </div>
         </div>
         <div class="scroll-wrapper">

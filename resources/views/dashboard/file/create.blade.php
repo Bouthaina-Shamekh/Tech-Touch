@@ -30,6 +30,10 @@
                             </div>
 
                             <div class="form-group col-6 mb-3">
+                                <x-form.input name="file" label="{{__('Upload Ur File')}}" type="file" placeholder="{{__('upload ur file')}}"  />
+                            </div>
+
+                            <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('Content Arabic')}}</label>
                                 <textarea name="description_ar" id="description_ar" rows="3" class="form-control"></textarea>
                             </div>
@@ -50,7 +54,7 @@
 
 
 
-                          
+
 
                         </div>
                         <div class="row justify-content-end mt-3">

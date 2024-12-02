@@ -28,6 +28,7 @@
                          <th>#</th>
                         <th>{{__('File Name_AR')}}</th>
                         <th>{{__('File Name_EN')}}</th>
+                        <th>{{__('File')}}</th>
                         <th>{{__('Description_AR')}}</th>
                         <th>{{__('Description_EN')}}</th>
                         <th>{{__('Price')}}</th>
@@ -42,6 +43,7 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$file->file_name_en}}</td>
                                 <td>{{$file->file_name_ar}}</td>
+                                <td>{{ asset('files/' . $file->file) }}</td>
                                 <td>{{$file->description_ar}}</td>
                                 <td>{{$file->description_en}}</td>
                                 <td>{{$file->price}}</td>

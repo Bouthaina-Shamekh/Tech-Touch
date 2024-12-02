@@ -28,12 +28,6 @@
                         <th>#</th>
                         <th>{{__('Name_AR')}}</th>
                         <th>{{__('Name_EN')}}</th>
-                        <th>{{__('Title_AR')}}</th>
-                        <th>{{__('Title_EN')}}</th>
-                        <th>{{__('Description_AR')}}</th>
-                        <th>{{__('Description_EN')}}</th>
-                        <th>{{__('Member Name_AR')}}</th>
-                        <th>{{__('Member Name_EN')}}</th>
                         <th>{{__('Specialization_AR')}}</th>
                         <th>{{__('Specialization_EN')}}</th>
                         <th>{{__('Image')}}</th>
