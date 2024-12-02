@@ -46,17 +46,17 @@
                     <!-- navigation links -->
                     <ul class="list-style-none me-auto flex flex-col ps-0 lg:flex-row" data-twe-navbar-nav-ref>
                         <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="text-main transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="./index.html" data-twe-nav-link-ref>
+                            <a class="text-main transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.index')}}" data-twe-nav-link-ref>
                                 Home
                             </a>
                         </li>
                         <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class=" text-dark transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2 " href="./pages/about.html" data-twe-nav-link-ref>
+                            <a class=" text-dark transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2 " href="{{route('site.about')}}" data-twe-nav-link-ref>
                                 About
                             </a>
                         </li>
                         <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="text-dark transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="./pages/services.html" data-twe-nav-link-ref>
+                            <a class="text-dark transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.services')}}" data-twe-nav-link-ref>
                                 Services
                             </a>
                         </li>
@@ -66,7 +66,7 @@
                             </a>
                         </li>
                         <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="text-dark transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="./pages/files.html" data-twe-nav-link-ref>
+                            <a class="text-dark transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.files')}}" data-twe-nav-link-ref>
                                 Files
                             </a>
                         </li>

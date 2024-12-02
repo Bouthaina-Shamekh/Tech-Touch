@@ -51,5 +51,11 @@ class MainController extends Controller
         return view('site.services', compact('service'));
 
     }
+
+    public function files() {
+
+        $file = File::all();
+        return view('site.files', compact('file'));
+    }
 }
 

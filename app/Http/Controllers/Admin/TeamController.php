@@ -37,7 +37,7 @@ class TeamController extends Controller
             'Specialization_en' => 'required',
             'Specialization_ar' => 'required',
 
-        ]);
+        ]); 
         // Insert To Database
         Team::create([
             'name_en' => $request->name_en,

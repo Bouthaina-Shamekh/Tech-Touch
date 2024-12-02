@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name_en');
             $table->string('name_ar')->nullable();
             $table->string('image');
-            $table->timestamps();
+            $table->timestamps();   
         });
     }
 

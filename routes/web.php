@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -54,7 +55,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth','check_user')->group(f
         'work' =>WorkController::class,
         'partner' =>PartnerController::class,
         'hero' =>HeroController::class,
-        'client' =>ClientController::class
+        'client' =>ClientController::class,
+        'project' =>ProjectController::class,
     ]);
 });
 });
@@ -72,6 +74,8 @@ Route::view('not_allowed', 'not_allowed');
 Route::get('/', [MainController::class, 'home'])->name('site.index');
 Route::get('about', [MainController::class, 'about'])->name('site.about');
 Route::get('services', [MainController::class, 'services'])->name('site.services');
+
+Route::get('filles', [MainController::class, 'files'])->name('site.files');
 
 
 
