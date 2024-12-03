@@ -21,8 +21,10 @@ return new class extends Migration
             $table->text('description_ar')->nullable();
             $table->string('image1')->nullable();
             $table->string('image2')->nullable();
-            $table->enum('section' , ['Slider' ,'About','Services','Files','Partners','Works','Teams','Feedback']);
+            $table->string('video')->nullable();
+            $table->enum('section' , ['Slider' ,'About','Services','Files','Partners','Works','Teams','Feedback','Goals','Features']);
             $table->timestamps();
+
         });
     }
 
