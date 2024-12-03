@@ -4,8 +4,8 @@
     @endpush
 
     <x-slot:breadcrumbs>
-        <li class="breadcrumb-item"><a href="{{route('dashboard.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{route('dashboard.setting.index')}}">{{__('Settings')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{route('admin.setting.index')}}">{{__('Settings')}}</a></li>
         <li class="breadcrumb-item" aria-current="page">{{__('Add Setting')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
@@ -75,13 +75,27 @@
                           <button type="submit" class="btn btn-primary">{{__('Add User')}}</button>
                         </form> --}}
 
-                        <form action="{{route('dashboard.setting.update')}}" method="POST"  enctype="multipart/form-data">
-                            @csrf
+                        <form action="{{route('admin.setting.update')}}" method="POST"  enctype="multipart/form-data">
+                            @csrf 
+                            <div class="mb-4">
+                                <label class="form-label">{{ __('Linkedin') }}</label>
+                                <input type="text"  class="form-control" placeholder="linkedin" name="linkedin" value="{{ old('linkedin',$settings['linkedin'] ?? '')}}" />
+                              </div>
+
+                              <div class="mb-4">
+                                <label class="form-label">{{ __('instagram') }}</label>
+                                <input type="text"  class="form-control" placeholder="instagram" name="instagram" value="{{ old('instagram',$settings['instagram'] ?? '')}}" />
+                              </div>
 
 
                             <div class="mb-4">
                                 <label class="form-label">{{ __('Facebook') }}</label>
                                 <input type="text"  class="form-control" placeholder="Facebook" name="facebook" value="{{ old('facebook',$settings['facebook'] ?? '')}}" />
+                              </div>
+
+                              <div class="mb-4">
+                                <label class="form-label">{{ __('Twitter') }}</label>
+                                <input type="text"  class="form-control" placeholder="twitter" name="twitter" value="{{ old('twitter',$settings['twitter'] ?? '')}}" />
                               </div>
 
                               <div class="mb-4">
@@ -141,16 +155,7 @@
                               </div>
 
 
-                              <div class="mb-4">
-                                <label class="form-label">{{ __('About in English') }}</label>
-                                <textarea id="mytextarea" name="about_en" rows="10">{{ old('about_en', $settings['about_en'] ?? '')}}</textarea>
-                              </div>
 
-
-                              <div class="mb-4">
-                                <label class="form-label">{{ __('About in Arabic') }} </label>
-                                <textarea id="mytextarea" name="about_ar" rows="10">{{ old('about_ar', $settings['about_ar'] ?? '')}}</textarea>
-                              </div>
 
 
                               <div class="mb-4">

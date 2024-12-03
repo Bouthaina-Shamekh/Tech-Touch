@@ -32,17 +32,17 @@
                                 <i class="text-lg leading-none ti ti-user"></i>
                                 <span>{{__('admin.My_account')}}</span>
                             </a>
-                            <a href="">
+                            <a href="{{route('admin.setting.index')}}">
                                 <i class="text-lg leading-none ti ti-settings"></i>
                                 <span>{{__('admin.Settings')}}</span>
                             </a>
-                            {{-- <form action="{{ route('logout') }}" method="post">
+                            <form action="{{ route('logout') }}" method="post">
                                 @csrf
                                 <button type="submit" style="display: flex; align-items: center; gap: 5px;">
                                     <i class="text-lg leading-none ti ti-power"></i>
                                     <span>{{__('admin.Logout')}}</span>
                                 </button>
-                            </form> --}}
+                            </form>
                         </div>
                     </div>
                 </div>

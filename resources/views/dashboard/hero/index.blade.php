@@ -14,9 +14,14 @@
             <div class="sm:flex items-center justify-between">
                 <h5 class="mb-3 sm:mb-0">{{__('Hero')}}</h5>
                 <div>
-                    <a href="{{route('admin.hero.create')}}" class="btn btn-primary" >
-                        {{__('Add Hero')}}
-                    </a>
+                    @php
+                    $diff = array_diff($sections, $sectionsMenu);
+                    @endphp
+                    @if (!empty($diff))
+                        <a href="{{route('admin.hero.create')}}" class="btn btn-primary" >
+                            {{__('Add Hero')}}
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>

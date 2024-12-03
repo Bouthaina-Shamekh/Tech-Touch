@@ -12,7 +12,10 @@ class HeroController extends Controller
     public function index()
     {
         $heros = Hero::get();
-        return view('dashboard.hero.index',compact('heros'));
+        $sections = ['Slider' ,'About','Services','Files','Partners','Works','Teams','Feedback','Goals','Features'];
+        $sectionsMenu = Hero::select('section')->distinct()->pluck('section')->toArray();
+
+        return view('dashboard.hero.index',compact('heros','sections','sectionsMenu'));
     }
 
     /**
@@ -23,7 +26,10 @@ class HeroController extends Controller
         $heros = new Hero();
         $heros = Hero::first();
         $images = Media::paginate(100);
-        return view('dashboard.hero.create',compact('heros','images'));
+        $sections = ['Slider' ,'About','Services','Files','Partners','Works','Teams','Feedback','Goals','Features'];
+        $sectionsMenu = Hero::select('section')->distinct()->pluck('section')->toArray();
+        $sections_diff = array_diff($sections, $sectionsMenu);
+        return view('dashboard.hero.create',compact('heros','images','sections','sections_diff'));
     }
 
     /**
@@ -76,7 +82,10 @@ class HeroController extends Controller
     {
         $heros = Hero::findOrFail($id);
         $images = Media::paginate(100);
-        return view('dashboard.hero.edit',compact('heros','images'));
+        $sections = ['Slider' ,'About','Services','Files','Partners','Works','Teams','Feedback','Goals','Features'];
+        $sectionsMenu = Hero::select('section')->distinct()->pluck('section')->toArray();
+        $sections_diff = array_diff($sections, $sectionsMenu);
+        return view('dashboard.hero.edit',compact('heros','images','sections','sections_diff'));
     }
 
     /**

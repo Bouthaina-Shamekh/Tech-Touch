@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -57,7 +58,10 @@ Route::prefix('admin')->name('admin.')->middleware('auth','check_user')->group(f
         'hero' =>HeroController::class,
         'client' =>ClientController::class,
         'project' =>ProjectController::class,
+
     ]);
+    Route::get('/setting',[SettingController::class , 'index'])->name('setting.index');
+    Route::post('/setting/update',[SettingController::class , 'update'])->name('setting.update');
 });
 });
 

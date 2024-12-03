@@ -16,7 +16,7 @@ class SettingController extends Controller
 
         $settings = Setting::whereIn('key', ['linkedin','instagram','twitter','facebook','snapshat','whatsapp','titel_en', 'titel_ar', 'logo', 'contact_email','currency','policy_ar', 'policy_en'])->pluck('value', 'key');
 
-        return view('setting.index',compact('settings'));
+        return view('dashboard.setting.index',compact('settings'));
     }
 
 

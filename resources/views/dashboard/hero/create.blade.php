@@ -39,9 +39,6 @@
                                 <label for="content_en" class="form-label">{{__('Content English')}}</label>
                                 <textarea name="description_en" id="description_en" rows="3" class="form-control"></textarea>
                             </div>
-
-
-
                             <div class="form-group col-6">
                                 <label for="imageFile" class="form-label d-block">{{__('Image')}}</label>
                                 <label class="btn btn-outline-secondary" for="imageFile1">
@@ -66,14 +63,9 @@
                             <div class="form-group col-6 mb-3">
                                 <label for="status" class="form-label">{{__('Section')}}</label>
                                 <select name="section" id="section" class="form-control">
-                                    <option value="Slider" >{{__('Slider')}}</option>
-                                    <option value="About" >{{__('About')}}</option>
-                                    <option value="Services" >{{__('Services')}}</option>
-                                    <option value="Files" >{{__('Files')}}</option>
-                                    <option value="Partners" >{{__('Partners')}}</option>
-                                    <option value="Works" >{{__('Works')}}</option>
-                                    <option value="Teams" >{{__('Teams')}}</option>
-                                    <option value="Feedback" >{{__('Feedback')}}</option>
+                                    @foreach ($sections_diff as $section)
+                                        <option value="{{$section}}">{{$section}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 

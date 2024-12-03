@@ -72,14 +72,9 @@
                             <div class="form-group col-6 mb-3">
                                 <label for="status" class="form-label">{{__('Section')}}</label>
                                 <select name="section" id="section" class="form-control">
-                                    <option value="Slider" @selected($heros->section == 'Slider')>{{__('Slider')}}</option>
-                                    <option value="About" @selected($heros->section == 'About')>{{__('About')}}</option>
-                                    <option value="Services" @selected($heros->section == 'Services')>{{__('Services')}}</option>
-                                    <option value="Files" @selected($heros->section == 'Files')>{{__('Files')}}</option>
-                                    <option value="Partners" @selected($heros->section == 'Partners')>{{__('Partners')}}</option>
-                                    <option value="Works" @selected($heros->section == 'Works')>{{__('Works')}}</option>
-                                    <option value="Teams" @selected($heros->section == 'Teams')>{{__('Teams')}}</option>
-                                    <option value="Feedback" @selected($heros->section == 'Feedback')>{{__('Feedback')}}</option>
+                                    @foreach ($sections_diff as $section)
+                                        <option value="{{$section}}" @selected($section == $heros->section)>{{$section}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
