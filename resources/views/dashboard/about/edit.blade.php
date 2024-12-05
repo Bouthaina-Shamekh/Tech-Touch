@@ -20,9 +20,11 @@
                         @csrf
                         @method('PUT')
                         <div class="row">
+                            @if(in_array($heros->section,['Slider','Files' ,'About','Services','Works','Teams','Feedback']))
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name of about in arabic')}}" required :value="$abouts->name_ar" />
                             </div>
+                            @endif
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of about in english')}}" required :value="$abouts->name_en"/>
                             </div>
@@ -44,7 +46,7 @@
                             </div>
 
 
-                            
+
 
                             <div class="form-group col-6">
                                 <label for="imageFile" class="form-label">{{__('Image')}}</label>
