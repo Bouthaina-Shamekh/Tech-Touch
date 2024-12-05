@@ -20,32 +20,47 @@
                         @csrf
                         @method('PUT')
                         <div class="row">
+                            @if(in_array($heros->section,['Slider','Files' ,'About','Services','Works','Teams','Feedback', 'Partners']))
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name restarant in arabic')}}" required :value="$heros->name_ar" />
                             </div>
+                            @endif
+
+                            @if(in_array($heros->section,['Slider','Files' ,'About','Services','Works','Teams','Feedback', 'Partners']))
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name restarant in english')}}" required :value="$heros->name_en"/>
                             </div>
+                            @endif
 
+                            @if(in_array($heros->section,['About','Services','Works','Teams','Feedback']))
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="title_ar" label="{{__('Title_AR')}}" type="text" placeholder="{{__('enter name restarant in arabic')}}" required :value="$heros->title_ar" />
                             </div>
+                            @endif
 
+
+                            @if(in_array($heros->section,['About','Services','Works','Teams','Feedback']))
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="title_en" label="{{__('Title_EN')}}" type="text" placeholder="{{__('enter name restarant in arabic')}}" required :value="$heros->title_en" />
                             </div>
+                            @endif
 
+                            @if(in_array($heros->section,['Files' ,'About','Services','Teams','Feedback', 'Partners']))
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('Content Arabic')}}</label>
                                 <textarea name="description_ar" id="description_ar" rows="3" class="form-control" required>{{$heros->description_ar}}</textarea>
                             </div>
+                            @endif
+
+                            @if(in_array($heros->section,['Files' ,'About','Services','Teams','Feedback', 'Partners']))
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('Content English')}}</label>
                                 <textarea name="description_en" id="description_en" rows="3" class="form-control" required>{{$heros->description_en}}</textarea>
                             </div>
+                            @endif
 
 
-
+                            @if(in_array($heros->section,['Slider','Files' ,'About','Services','Feedback']))
                             <div class="form-group col-6">
                                 <label for="imageFile" class="form-label d-block">{{__('Image')}}</label>
                                 <label class="btn btn-outline-secondary" for="imageFile1">
@@ -57,6 +72,9 @@
                                 <input type="text" class="form-control mt-2 d-none" id="imagePathInput1" value="" name="imagePath1" accept="image/*" readonly>
                                 <img src="{{asset('storage/' . $heros->image)}}" alt="img...." width="100px" class="mt-3">
                             </div>
+                            @endif
+
+                            @if(in_array($heros->section,['About','Services','Feedback']))
                             <div class="form-group col-6">
                                 <label for="imageFile" class="form-label d-block">{{__('Image2')}}</label>
                                 <label class="btn btn-outline-secondary" for="imageFile2">
@@ -69,14 +87,27 @@
                                 <img src="{{asset('storage/' . $heros->image)}}" alt="img...." width="100px" class="mt-3">
 
                             </div>
-                            <div class="form-group col-6 mb-3">
+                            @endif
+
+                            {{-- @if(in_array($heros->section,['Slider','Files' ,'About','Services','Works','Teams','Feedback'])) --}}
+                            {{-- <div class="form-group col-6 mb-3">
                                 <label for="status" class="form-label">{{__('Section')}}</label>
                                 <select name="section" id="section" class="form-control">
                                     @foreach ($sections_diff as $section)
                                         <option value="{{$section}}" @selected($section == $heros->section)>{{$section}}</option>
                                     @endforeach
                                 </select>
+                            </div> --}}
+                            <div class="form-group col-6 mb-3">
+                                <label for="status" class="form-label">{{__('Section')}}</label>
+                                <select name="section" id="section" class="form-control">
+                                    <option value="{{$heros->section}}">{{$heros->section}}</option>
+                                    @foreach ($sections_diff as $section)
+                                        <option value="{{$section}}" @selected($section == $heros->section)>{{$section}}</option>
+                                    @endforeach
+                                </select>
                             </div>
+                            {{-- @endif --}}
                         </div>
                         <div class="row justify-content-end mt-3">
                             <a href="{{route('admin.hero.index')}}" class="btn btn-secondary col-1 mr-3">

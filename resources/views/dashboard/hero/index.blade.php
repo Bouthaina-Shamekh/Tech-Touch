@@ -1,5 +1,13 @@
 <x-dashboard-layout>
 
+    @php
+    $name = 'name_'.app()->currentLocale();
+    $title = 'title_'.app()->currentLocale();
+    $description = 'description_'.app()->currentLocale();
+
+
+    @endphp
+
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
         <li class="breadcrumb-item" aria-current="page">{{__('Hero')}}</li>
@@ -31,12 +39,9 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>{{__('Name_AR')}}</th>
-                        <th>{{__('Name_EN')}}</th>
-                        <th>{{__('Title_AR')}}</th>
-                        <th>{{__('Title_EN')}}</th>
-                        <th>{{__('Description_AR')}}</th>
-                        <th>{{__('Description_EN')}}</th>
+                        <th>{{__('Name')}}</th>
+                        <th>{{__('Title')}}</th>
+                        <th>{{__('Description')}}</th>
                         <th>{{__('Image')}}</th>
                         <th>{{__('Image')}}</th>
                         <th>{{__('Section')}}</th>
@@ -48,12 +53,10 @@
                         @foreach ($heros as $hero )
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$hero->name_ar}}</td>
-                                <td>{{$hero->name_en}}</td>
-                                <td>{{$hero->title_ar}}</td>
-                                <td>{{$hero->title_en}}</td>
-                                <td>{{$hero->description_ar}}</td>
-                                <td>{{$hero->description_en}}</td>
+                                <td>{{$hero->$name}}</td>
+                                <td>{{$hero->$title}}</td>
+                                <td>{{$hero->$description}}</td>
+                                
                                 <td>
                                     <img src="{{asset('storage/'.$hero->image1)}}" alt="image" class="w-16">
                                 </td>
