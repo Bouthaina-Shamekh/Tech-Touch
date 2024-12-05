@@ -1,4 +1,9 @@
 <x-dashboard-layout>
+    @php
+    $name = 'name_'.app()->currentLocale();
+    $feedback = 'feedback_'.app()->currentLocale();
+
+    @endphp
 
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
@@ -26,10 +31,10 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>{{__('Name_AR')}}</th>
-                        <th>{{__('Name_EN')}}</th>
-                        <th>{{__('Feedback_AR')}}</th>
-                        <th>{{__('Feedback_EN')}}</th>
+                        <th>{{__('Name')}}</th>
+                        {{-- <th>{{__('Name_EN')}}</th> --}}
+                        <th>{{__('Feedbac')}}</th>
+                        {{-- <th>{{__('Feedback_EN')}}</th> --}}
                         <th>{{__('star')}}</th>
                         <th>{{__('Image')}}</th>
                         <th>{{__('Action')}}</th>
@@ -40,10 +45,10 @@
                         @foreach ($clients as $client )
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$client->name_ar}}</td>
-                                <td>{{$client->name_en}}</td>
-                                <td>{{$client->feedback_ar}}</td>
-                                <td>{{$client->feedback_en}}</td>
+                                <td>{{$client->$name}}</td>
+                                {{-- <td>{{$client->name_en}}</td> --}}
+                                <td>{{$client->$feedback}}</td>
+                                {{-- <td>{{$client->feedback_en}}</td> --}}
                                 <td>{{$client->star}}</td>
 
                                 <td>

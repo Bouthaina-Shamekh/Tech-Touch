@@ -1,5 +1,10 @@
 <x-dashboard-layout>
 
+    @php
+    $name = 'name_'.app()->currentLocale();
+    $description = 'description_'.app()->currentLocale();
+    @endphp
+
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
         <li class="breadcrumb-item" aria-current="page">{{__('Services')}}</li>
@@ -26,10 +31,10 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>{{__('Name_AR')}}</th>
-                        <th>{{__('Name_EN')}}</th>
-                        <th>{{__('Description_AR')}}</th>
-                        <th>{{__('Description_EN')}}</th>
+                        {{-- <th>{{__('Name_AR')}}</th> --}}
+                        <th>{{__('Name')}}</th>
+                        <th>{{__('Description')}}</th>
+                        {{-- <th>{{__('Description_EN')}}</th> --}}
 
                         <th>{{__('Image')}}</th>
                         <th>{{__('Action')}}</th>
@@ -40,10 +45,10 @@
                         @foreach ($services as $service )
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$service->name_ar}}</td>
-                                <td>{{$service->name_en}}</td>
-                                <td>{{$service->description_ar}}</td>
-                                <td>{{$service->description_en}}</td>
+                                <td>{{$service-> $name}}</td>
+                                {{-- <td>{{$service->name_en}}</td> --}}
+                                <td>{{$service-> $description}}</td>
+                                {{-- <td>{{$service->description_en}}</td> --}}
 
                                 <td>
                                     <img src="{{asset('storage/'.$service->image)}}" alt="image" class="w-16">

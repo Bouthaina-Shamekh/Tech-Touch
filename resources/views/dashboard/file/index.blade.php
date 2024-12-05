@@ -1,5 +1,12 @@
 <x-dashboard-layout>
 
+    @php
+    $name = 'name_'.app()->currentLocale();
+    $description = 'description_'.app()->currentLocale();
+    $file_name = 'file_name_'.app()->currentLocale();
+
+    @endphp
+
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
         <li class="breadcrumb-item" aria-current="page">{{__('Files')}}</li>
@@ -26,11 +33,9 @@
                     <thead>
                     <tr>
                          <th>#</th>
-                        <th>{{__('File Name_AR')}}</th>
-                        <th>{{__('File Name_EN')}}</th>
+                        <th>{{__('File Name')}}</th>
                         <th>{{__('File')}}</th>
-                        <th>{{__('Description_AR')}}</th>
-                        <th>{{__('Description_EN')}}</th>
+                        <th>{{__('Description')}}</th>
                         <th>{{__('Price')}}</th>
                         <th>{{__('Btn')}}</th>
                         <th>{{__('Action')}}</th>
@@ -41,11 +46,11 @@
                         @foreach ($files as $file )
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$file->file_name_en}}</td>
-                                <td>{{$file->file_name_ar}}</td>
+                                <td>{{$file->$file_name}}</td>
+                                {{-- <td>{{$file->file_name_ar}}</td> --}}
                                 <td>{{ asset('files/' . $file->file) }}</td>
-                                <td>{{$file->description_ar}}</td>
-                                <td>{{$file->description_en}}</td>
+                                <td>{{$file->$description}}</td>
+                                {{-- <td>{{$file->description_en}}</td> --}}
                                 <td>{{$file->price}}</td>
                                 <td>{{$file->btn}}</td>
 

@@ -1,4 +1,9 @@
 <x-dashboard-layout>
+    @php
+    $name = 'name_'.app()->currentLocale();
+    $description = 'description_'.app()->currentLocale();
+
+@endphp
 
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
@@ -26,10 +31,10 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>{{__('Name_AR')}}</th>
-                        <th>{{__('Name_EN')}}</th>
-                        <th>{{__('Description_AR')}}</th>
-                        <th>{{__('Description_EN')}}</th>
+                        <th>{{__('Name')}}</th>
+                        {{-- <th>{{__('Name_EN')}}</th> --}}
+                        <th>{{__('Description')}}</th>
+                        {{-- <th>{{__('Description_EN')}}</th> --}}
                         <th>{{__('Image')}}</th>
                         <th>{{__('Btn')}}</th>
                         <th>{{__('Link')}}</th>
@@ -41,10 +46,10 @@
                         @foreach ($sliders as $slid )
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$slid->name_ar}}</td>
-                                <td>{{$slid->name_en}}</td>
-                                <td>{{$slid->description_ar}}</td>
-                                <td>{{$slid->description_en}}</td>
+                                <td>{{$slid->$name}}</td>
+                                {{-- <td>{{$slid->name_en}}</td> --}}
+                                <td>{{$slid->$description}}</td>
+                                {{-- <td>{{$slid->description_en}}</td> --}}
                                 <td>
                                     <img src="{{asset('storage/'.$slid->image)}}" alt="image" class="w-16">
                                 </td>

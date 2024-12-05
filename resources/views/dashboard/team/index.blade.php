@@ -1,4 +1,9 @@
 <x-dashboard-layout>
+    @php
+    $name = 'name_'.app()->currentLocale();
+    $Specialization = 'Specialization_'.app()->currentLocale();
+
+    @endphp
 
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
@@ -27,9 +32,7 @@
                     <tr>
                         <th>#</th>
                         <th>{{__('Name_AR')}}</th>
-                        <th>{{__('Name_EN')}}</th>
                         <th>{{__('Specialization_AR')}}</th>
-                        <th>{{__('Specialization_EN')}}</th>
                         <th>{{__('Image')}}</th>
                         <th>{{__('Action')}}</th>
 
@@ -39,10 +42,10 @@
                         @foreach ($teams as $team )
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$team->name_ar}}</td>
-                                <td>{{$team->name_en}}</td>
-                                <td>{{$team->Specialization_en}}</td>
-                                <td>{{$team->Specialization_ar}}</td>
+                                <td>{{$team-> $name}}</td>
+                                {{-- <td>{{$team->name_en}}</td> --}}
+                                <td>{{$team->$Specialization}}</td>
+                                {{-- <td>{{$team->Specialization_ar}}</td> --}}
                                 <td>
                                     <img src="{{asset('storage/'.$team->image)}}" alt="image" class="w-16">
                                 </td>
