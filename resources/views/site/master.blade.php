@@ -40,38 +40,40 @@
                 <a class="logo__hero mx-2 my-1 flex items-center lg:mb-0 lg:mt-0" href="./index.html">
                     <img class="me-2" src="{{asset('asset/img/logoBrand.png')}}" style="height: 35px" alt="TE Logo" loading="lazy" />
                 </a>
+                @php
 
+                @endphp
                 <!-- Collapsible navigation container -->
                 <div class="!visible hidden basis-[100%] items-center lg:!flex lg:basis-auto" id="navbarSupportedContent1" data-twe-collapse-item>
                     <!-- navigation links -->
                     <ul class="list-style-none me-auto flex flex-col ps-0 lg:flex-row" data-twe-navbar-nav-ref>
                         <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="text-main transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.index')}}" data-twe-nav-link-ref>
+                            <a class="{{ request()->is('/') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.index')}}" data-twe-nav-link-ref>
                                 Home
                             </a>
                         </li>
                         <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class=" text-dark transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2 " href="{{route('site.about')}}" data-twe-nav-link-ref>
+                            <a class="{{ request()->is('about') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2 " href="{{route('site.about')}}" data-twe-nav-link-ref>
                                 About
                             </a>
                         </li>
                         <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="text-dark transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.services')}}" data-twe-nav-link-ref>
+                            <a class="{{ request()->is('services/*') || request()->is('services') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.services')}}" data-twe-nav-link-ref>
                                 Services
                             </a>
                         </li>
                         <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="text-dark transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.portfolios')}}" data-twe-nav-link-ref>
+                            <a class="{{ request()->is('portfolios/*') || request()->is('portfolios') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.portfolios')}}" data-twe-nav-link-ref>
                                 Portfolio
                             </a>
                         </li>
                         <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="text-dark transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.files')}}" data-twe-nav-link-ref>
+                            <a class="{{ request()->is('file/*') || request()->is('file') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.files')}}" data-twe-nav-link-ref>
                                 Files
                             </a>
                         </li>
                         <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="text-dark transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="./pages/contact.html" data-twe-nav-link-ref>
+                            <a class="{{ request()->is('contact/*') || request()->is('contact') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.contact')}}" data-twe-nav-link-ref>
                                 Content
                             </a>
                         </li>
@@ -126,20 +128,33 @@
 
 
      <!-- Footer -->
-     @php
-            $settings = \App\Models\Setting::get();
-     @endphp
-     <footer class="footer w-full py-3 bg-[#F5F5F5] ">
+    @php
+        $settings = \App\Models\Setting::get();
+
+    @endphp
+    <footer class="footer w-full py-3 bg-[#F5F5F5] ">
         <div class="container">
             <div class="flex justify-between items-start gap-12 md:gap-40 flex-wrap">
                 <div class="flex flex-col flex-1 justify-start items-start my-4">
                     <a class="logo__hero my-2 flex items-center hover:pl-2 transition-all delay-150 ease-in" href="./index.html">
+                        @if($settings->where('key', 'logo')->first() != null)
                         <img class="me-2" src="{{asset('uploads/logos/' . $settings->where('key', 'logo')->first()->value)}}" style="height: 50px" alt="TE Logo" loading="lazy" />
+                        @else
+                        <img class="me-2" src="{{asset('asset/img/logoBrand.png')}}" style="height: 50px" alt="TE Logo" loading="lazy" />
+                        @endif
                     </a>
                     @if (App::getLocale() == 'ar')
-                    <p class="text__footer text-second font-light text-base">{!!$settings->where('key', 'titel_ar')->first()->value!!}</p>
+                        @if($settings->where('key', 'titel_en')->first() != null)
+                        <p class="text__footer text-second font-light text-base">{!!$settings->where('key', 'titel_ar')->first()->value!!}</p>
+                        @else
+                        <p class="text__footer text-second font-light text-base">وصف الموقع</p>
+                        @endif
                     @else
-                    <p class="text__footer text-second font-light text-base">{!!$settings->where('key', 'titel_en')->first()->value!!}</p>
+                        @if($settings->where('key', 'titel_en')->first() != null)
+                        <p class="text__footer text-second font-light text-base">{!!$settings->where('key', 'titel_en')->first()->value!!}</p>
+                        @else
+                        <p class="text__footer text-second font-light text-base">Site Description</p>
+                        @endif
                     @endif
                 </div>
                 <div class="flex flex-col flex-1 justify-start items-start my-4">
@@ -164,16 +179,16 @@
                 <div class="flex flex-col flex-1 justify-start items-center md:items-start  my-4">
                     <h3 class="text-3xl text-second uppercase mb-4 top__footer">social media</h3>
                     <div class="flex justify-between items-start gap-5">
-                        <a href="{{$settings->where('key', 'instagram')->first()->value}}" class="social__footer text-black w-5 h-5 p-5 rounded-full bg-white hover:text-white hover:bg-main hover:scale-105 transition-all delay-150 ease-in flex justify-center items-center">
+                        <a href="{{$settings->where('key', 'instagram')->first() != null ? $settings->where('key', 'instagram')->first()->value : '#'}}" class="social__footer text-black w-5 h-5 p-5 rounded-full bg-white hover:text-white hover:bg-main hover:scale-105 transition-all delay-150 ease-in flex justify-center items-center">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
-                        <a href="{{$settings->where('key', 'linkedin')->first()->value}}" class="social__footer text-black w-5 h-5 p-5 rounded-full bg-white hover:text-white hover:bg-main hover:scale-105 transition-all delay-150 ease-in flex justify-center items-center">
+                        <a href="{{$settings->where('key', 'linkedin')->first() != null ? $settings->where('key', 'linkedin')->first()->value : '#'}}" class="social__footer text-black w-5 h-5 p-5 rounded-full bg-white hover:text-white hover:bg-main hover:scale-105 transition-all delay-150 ease-in flex justify-center items-center">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
-                        <a href="{{$settings->where('key', 'snapshat')->first()->value}}" class="social__footer text-black w-5 h-5 p-5 rounded-full bg-white hover:text-white hover:bg-main hover:scale-105 transition-all delay-150 ease-in flex justify-center items-center">
+                        <a href="{{$settings->where('key', 'snapshat')->first() != null ? $settings->where('key', 'snapshat')->first()->value : '#'}}" class="social__footer text-black w-5 h-5 p-5 rounded-full bg-white hover:text-white hover:bg-main hover:scale-105 transition-all delay-150 ease-in flex justify-center items-center">
                             <i class="fa-brands fa-snapchat"></i>
                         </a>
-                        <a href="{{$settings->where('key', 'twitter')->first()->value}}" class="social__footer text-black w-5 h-5 p-5 rounded-full bg-white hover:text-white hover:bg-main hover:scale-105 transition-all delay-150 ease-in flex justify-center items-center">
+                        <a href="{{$settings->where('key', 'twitter')->first() != null ? $settings->where('key', 'twitter')->first()->value : '#'}}" class="social__footer text-black w-5 h-5 p-5 rounded-full bg-white hover:text-white hover:bg-main hover:scale-105 transition-all delay-150 ease-in flex justify-center items-center">
                             <i class="fa-brands fa-x-twitter"></i>
                         </a>
                     </div>
@@ -206,218 +221,218 @@
     <script src="{{asset('asset/js/main.js')}}"></script>
 
 
- <!-- Hero -->
- <script>
-    $(document).ready(function () {
-        // استهداف جميع عناصر الفقرات داخل القسم
-        const $paragraphs = $('#hero-texts .hero-paragraph');
-        const totalParagraphs = $paragraphs.length;
-        let currentIndex = 0;
-        const $progressBar = $('#progress-bar');
+    <!-- Hero -->
+    <script>
+        $(document).ready(function () {
+            // استهداف جميع عناصر الفقرات داخل القسم
+            const $paragraphs = $('#hero-texts .hero-paragraph');
+            const totalParagraphs = $paragraphs.length;
+            let currentIndex = 0;
+            const $progressBar = $('#progress-bar');
 
-        // وظيفة لتحديث الفقرة الظاهرة وشريط التقدم
-        function updateParagraph(index) {
-            $paragraphs.hide().eq(index).fadeIn(); // إخفاء جميع الفقرات وإظهار الحالية
-            $progressBar.css('width', `${((index + 1) / totalParagraphs) * 100}%`); // تحديث عرض شريط التقدم
-        }
-
-        // الانتقال إلى الفقرة التالية
-        function nextParagraph() {
-            currentIndex = (currentIndex + 1) % totalParagraphs;
-            updateParagraph(currentIndex);
-        }
-
-        // الانتقال إلى الفقرة السابقة
-        function prevParagraph() {
-            currentIndex = (currentIndex - 1 + totalParagraphs) % totalParagraphs;
-            updateParagraph(currentIndex);
-        }
-
-        // ربط الأزرار بوظائف التنقل
-        $('#next-btn').on('click', nextParagraph);
-        $('#prev-btn').on('click', prevParagraph);
-
-        // التبديل التلقائي كل 3 ثوانٍ
-        setInterval(nextParagraph, 3000);
-
-        // إظهار الفقرة الأولى عند بدء التشغيل
-        updateParagraph(currentIndex);
-    });
-</script>
-
-<!-- About -->
-<script>
-    // دالة العد التدريجي
-    function animateCounter(element) {
-        const target = parseInt(element.getAttribute("data-target")); // قيمة الهدف
-        const duration = 2; // مدة العد
-        const increment = target / (duration * 60); // زيادة تدريجية (60 إطار في الثانية)
-
-        let count = 0; // بدء العد
-        const updateCounter = () => {
-            count += increment; // زيادة تدريجية
-            if (count >= target) {
-                count = target; // توقف عند الهدف
-                gsap.ticker.remove(updateCounter); // إيقاف التحديث
+            // وظيفة لتحديث الفقرة الظاهرة وشريط التقدم
+            function updateParagraph(index) {
+                $paragraphs.hide().eq(index).fadeIn(); // إخفاء جميع الفقرات وإظهار الحالية
+                $progressBar.css('width', `${((index + 1) / totalParagraphs) * 100}%`); // تحديث عرض شريط التقدم
             }
-            element.textContent = Math.floor(count); // تحديث النص
-        };
 
-        gsap.ticker.add(updateCounter); // تحديث عند كل إطار
-    }
-    // تفعيل العد عند وصول العنصر
-    document.querySelectorAll('.counter').forEach(counter => {
-        ScrollTrigger.create({
-            trigger: counter,
-            start: "top 85%", // يبدأ عند وصول العنصر إلى الشاشة
-            onEnter: () => animateCounter(counter), // يبدأ العد عند الوصول
+            // الانتقال إلى الفقرة التالية
+            function nextParagraph() {
+                currentIndex = (currentIndex + 1) % totalParagraphs;
+                updateParagraph(currentIndex);
+            }
+
+            // الانتقال إلى الفقرة السابقة
+            function prevParagraph() {
+                currentIndex = (currentIndex - 1 + totalParagraphs) % totalParagraphs;
+                updateParagraph(currentIndex);
+            }
+
+            // ربط الأزرار بوظائف التنقل
+            $('#next-btn').on('click', nextParagraph);
+            $('#prev-btn').on('click', prevParagraph);
+
+            // التبديل التلقائي كل 3 ثوانٍ
+            setInterval(nextParagraph, 3000);
+
+            // إظهار الفقرة الأولى عند بدء التشغيل
+            updateParagraph(currentIndex);
         });
-    });
-</script>
+    </script>
 
-<!-- Files -->
-<script>
-    $(document).ready(function () {
-        // استهداف الحاوية التي تحتوي على العناصر
-        const $itemsContainer = $('#files_view');
-        const $items = $itemsContainer.children();
-        const itemsPerPage = 6; // عدد العناصر في كل صفحة
-        const totalItems = $items.length;
-        const totalPages = Math.ceil(totalItems / itemsPerPage);
-        let currentPage = 0;
+    <!-- About -->
+    <script>
+        // دالة العد التدريجي
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute("data-target")); // قيمة الهدف
+            const duration = 2; // مدة العد
+            const increment = target / (duration * 60); // زيادة تدريجية (60 إطار في الثانية)
 
-        // عناصر التحكم
-        const $progressBar = $('#progress-bar-files');
-        const $prevBtn = $('#prev-btn-files');
-        const $nextBtn = $('#next-btn-files');
+            let count = 0; // بدء العد
+            const updateCounter = () => {
+                count += increment; // زيادة تدريجية
+                if (count >= target) {
+                    count = target; // توقف عند الهدف
+                    gsap.ticker.remove(updateCounter); // إيقاف التحديث
+                }
+                element.textContent = Math.floor(count); // تحديث النص
+            };
 
-        // تحديث العرض وشريط التقدم
-        function updateDisplay() {
-            // إخفاء كل العناصر
-            $items.hide();
-
-            // إظهار العناصر التي تخص الصفحة الحالية
-            const startIndex = currentPage * itemsPerPage;
-            const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
-            $items.slice(startIndex, endIndex).fadeIn();
-
-            // تحديث شريط التقدم
-            const progressWidth = ((currentPage + 1) / totalPages) * 100;
-            $progressBar.css('width', `${progressWidth}%`);
+            gsap.ticker.add(updateCounter); // تحديث عند كل إطار
         }
+        // تفعيل العد عند وصول العنصر
+        document.querySelectorAll('.counter').forEach(counter => {
+            ScrollTrigger.create({
+                trigger: counter,
+                start: "top 85%", // يبدأ عند وصول العنصر إلى الشاشة
+                onEnter: () => animateCounter(counter), // يبدأ العد عند الوصول
+            });
+        });
+    </script>
 
-        // الانتقال إلى الصفحة التالية
-        function nextPage() {
-            if (currentPage < totalPages - 1) {
-                currentPage++;
-                updateDisplay();
+    <!-- Files -->
+    <script>
+        $(document).ready(function () {
+            // استهداف الحاوية التي تحتوي على العناصر
+            const $itemsContainer = $('#files_view');
+            const $items = $itemsContainer.children();
+            const itemsPerPage = 6; // عدد العناصر في كل صفحة
+            const totalItems = $items.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            let currentPage = 0;
+
+            // عناصر التحكم
+            const $progressBar = $('#progress-bar-files');
+            const $prevBtn = $('#prev-btn-files');
+            const $nextBtn = $('#next-btn-files');
+
+            // تحديث العرض وشريط التقدم
+            function updateDisplay() {
+                // إخفاء كل العناصر
+                $items.hide();
+
+                // إظهار العناصر التي تخص الصفحة الحالية
+                const startIndex = currentPage * itemsPerPage;
+                const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+                $items.slice(startIndex, endIndex).fadeIn();
+
+                // تحديث شريط التقدم
+                const progressWidth = ((currentPage + 1) / totalPages) * 100;
+                $progressBar.css('width', `${progressWidth}%`);
             }
-        }
 
-        // الانتقال إلى الصفحة السابقة
-        function prevPage() {
-            if (currentPage > 0) {
-                currentPage--;
-                updateDisplay();
+            // الانتقال إلى الصفحة التالية
+            function nextPage() {
+                if (currentPage < totalPages - 1) {
+                    currentPage++;
+                    updateDisplay();
+                }
             }
-        }
 
-        // ربط الأزرار بوظائف التنقل
-        $nextBtn.on('click', nextPage);
-        $prevBtn.on('click', prevPage);
-
-        // عرض الصفحة الأولى عند بدء التشغيل
-        updateDisplay();
-    });
-
-</script>
-
-<!-- works -->
-<script>
-    const swiper = new Swiper('.slider-wrapper', {
-        loop: true,
-        grabCursor: true,
-        spaceBetween: 30,
-
-        // Pagination bullets
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-            dynamicBullets: true
-        },
-
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-
-        // Responsive breakpoints
-        breakpoints: {
-            0: {
-                slidesPerView: 1
-            },
-            768: {
-                slidesPerView: 2
-            },
-            1024: {
-                slidesPerView: 3
-            },
-            1200: {
-                slidesPerView: 4
+            // الانتقال إلى الصفحة السابقة
+            function prevPage() {
+                if (currentPage > 0) {
+                    currentPage--;
+                    updateDisplay();
+                }
             }
-        }
-    });
-</script>
 
-<!-- out team -->
-<script>
-    const content = document.querySelector('.scroll-wrapper');
-    const overlay = document.createElement('div');
+            // ربط الأزرار بوظائف التنقل
+            $nextBtn.on('click', nextPage);
+            $prevBtn.on('click', prevPage);
 
-    // إضافة الشريط الشفاف كطبقة فوق المحتوى
-    overlay.classList.add('scroll-overlay');
-    document.querySelector('.scroll-wrapper').appendChild(overlay);
+            // عرض الصفحة الأولى عند بدء التشغيل
+            updateDisplay();
+        });
 
-    let isScrolling = false;
-    let startX;
-    let scrollLeft;
+    </script>
 
-    // أحداث الفأرة للتحكم بالتمرير
-    overlay.addEventListener('mousedown', (e) => {
-        isScrolling = true;
-        startX = e.pageX - overlay.offsetLeft;
-        scrollLeft = content.scrollLeft;
-    });
+    <!-- works -->
+    <script>
+        const swiper = new Swiper('.slider-wrapper', {
+            loop: true,
+            grabCursor: true,
+            spaceBetween: 30,
 
-    overlay.addEventListener('mouseleave', () => {
-        isScrolling = false;
-    });
+            // Pagination bullets
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true
+            },
 
-    overlay.addEventListener('mouseup', () => {
-        isScrolling = false;
-    });
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
 
-    overlay.addEventListener('mousemove', (e) => {
-        if (!isScrolling) return;
-        const x = e.pageX - overlay.offsetLeft;
-        const walk = (x - startX) * 2; // تعديل سرعة التمرير
-        content.scrollLeft = scrollLeft - walk;
-    });
+            // Responsive breakpoints
+            breakpoints: {
+                0: {
+                    slidesPerView: 1
+                },
+                768: {
+                    slidesPerView: 2
+                },
+                1024: {
+                    slidesPerView: 3
+                },
+                1200: {
+                    slidesPerView: 4
+                }
+            }
+        });
+    </script>
+
+    <!-- out team -->
+    <script>
+        const content = document.querySelector('.scroll-wrapper');
+        const overlay = document.createElement('div');
+
+        // إضافة الشريط الشفاف كطبقة فوق المحتوى
+        overlay.classList.add('scroll-overlay');
+        document.querySelector('.scroll-wrapper').appendChild(overlay);
+
+        let isScrolling = false;
+        let startX;
+        let scrollLeft;
+
+        // أحداث الفأرة للتحكم بالتمرير
+        overlay.addEventListener('mousedown', (e) => {
+            isScrolling = true;
+            startX = e.pageX - overlay.offsetLeft;
+            scrollLeft = content.scrollLeft;
+        });
+
+        overlay.addEventListener('mouseleave', () => {
+            isScrolling = false;
+        });
+
+        overlay.addEventListener('mouseup', () => {
+            isScrolling = false;
+        });
+
+        overlay.addEventListener('mousemove', (e) => {
+            if (!isScrolling) return;
+            const x = e.pageX - overlay.offsetLeft;
+            const walk = (x - startX) * 2; // تعديل سرعة التمرير
+            content.scrollLeft = scrollLeft - walk;
+        });
 
 
-    // التعديل على الحجم
-    $(document).ready(function() {
-        // حدد القسم المستهدف
-        let recCount = $(".scroll-wrapper .content .rec").length;
-        let imgCount = $(".scroll-wrapper .content img").length;
+        // التعديل على الحجم
+        $(document).ready(function() {
+            // حدد القسم المستهدف
+            let recCount = $(".scroll-wrapper .content .rec").length;
+            let imgCount = $(".scroll-wrapper .content img").length;
 
-        let widthContent = (recCount * 270) + ((recCount - 1) * 200);
-        $(".scroll-wrapper .content").width(widthContent);
-    });
+            let widthContent = (recCount * 270) + ((recCount - 1) * 200);
+            $(".scroll-wrapper .content").width(widthContent);
+        });
 
 
-</script>
+    </script>
 
     <!-- client's feedback -->
     <script>
@@ -540,5 +555,7 @@
             updateContent(3);
         });
     </script>
+
+    @yield('scripts')
 </body>
 </html>

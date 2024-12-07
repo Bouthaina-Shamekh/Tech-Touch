@@ -4,41 +4,46 @@
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{route('admin.service.index')}}">{{__('services')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Edit Services')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.question.index')}}">{{__('Question')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('Edit Question')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
                     {{-- @can('add product') --}}
                 <div class="card-header">
-                    <h5>{{__('Edit Services')}}</h5>
+                    <h5>{{__('Edit Question')}}</h5>
                 </div>
                 {{-- @endcan --}}
                 <div class="card-body">
-                    <form action="{{route('admin.service.update',$services->id) }}" method="post" enctype="multipart/form-data">
+                    {{-- <form action="{{route('admin.Question.update',$Questions->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
+
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name of services in arabic')}}" required :value="$services->name_ar" />
-                            </div>
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of services in english')}}" required :value="$services->name_en"/>
+                                <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name of Question in arabic')}}" required :value="$Questions->name_ar" />
                             </div>
 
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of Question in english')}}" required :value="$Questions->name_en"/>
+                            </div>
 
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="title_ar" label="{{__('Title_AR')}}" type="text" placeholder="{{__('enter title of Question in arabic')}}" required :value="$Questions->title_ar" />
+                            </div>
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="title_en" label="{{__('Title_EN')}}" type="text" placeholder="{{__('enter title of Question in english')}}" required :value="$Questions->title_en"/>
+                            </div>
 
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('Content Arabic')}}</label>
-                                <textarea name="description_ar" id="description_ar" rows="3" class="form-control" required>{{$services->description_ar}}</textarea>
+                                <textarea name="description_ar" id="description_ar" rows="3" class="form-control" required>{{$Questions->description_ar}}</textarea>
                             </div>
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('Content English')}}</label>
-                                <textarea name="description_en" id="description_en" rows="3" class="form-control" required>{{$services->description_en}}</textarea>
+                                <textarea name="description_en" id="description_en" rows="3" class="form-control" required>{{$Questions->description_en}}</textarea>
                             </div>
-
-
 
 
 
@@ -52,15 +57,63 @@
                                 </label>
                                 <button type="button" id="imageFile" class="d-none" data-pc-toggle="modal" data-pc-target="#mediaModal"></button>
                                 <input type="text" class="form-control mt-2 d-none"  id="imagePathInput" value="" name="imagePath" accept="image/*" readonly>
-                                <img src="{{asset('storage/' . $servicess->image)}}" alt="img...." width="100px" class="mt-3">
+                                <img src="{{asset('storage/' . $Questions->image)}}" alt="img...." width="100px" class="mt-3">
                             </div>
                         </div>
                         <div class="row justify-content-end mt-3">
-                            <a href="{{route('admin.services.index')}}" class="btn btn-secondary col-1 mr-3">
+                            <a href="{{route('admin.Question.index')}}" class="btn btn-secondary col-1 mr-3">
                                 {{__('Back')}}
                             </a>
                             <button type="submit" class="btn btn-primary col-1  mr-3">
                                 {{__('Update')}}
+                            </button>
+                        </div>
+                    </form> --}}
+
+                    <form action="{{ route('admin.question.update', $question->id) }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT') <!-- تحديد طريقة HTTP PUT لتحديث البيانات -->
+
+                        <div class="row">
+                            <!-- سؤال باللغة العربية -->
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="name_ar" label="{{ __('Question_AR') }}" type="text" value="{{ old('name_ar', $question->question_ar) }}" placeholder="{{ __('Enter name of the question in Arabic') }}" />
+                            </div>
+
+                            <!-- سؤال باللغة الإنجليزية -->
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="name_en" label="{{ __('Question_EN') }}" type="text" value="{{ old('name_en', $question->question_en) }}" placeholder="{{ __('Enter name of the question in English') }}" />
+                            </div>
+
+                            <!-- خيارات الإجابة (نعم/لا) -->
+                            <div class="form-group col-6 mb-3">
+                                <label for="answer" class="form-label">{{ __('Answer Options') }}</label>
+
+                                <!-- إذا كانت الإجابة "نعم" محددة مسبقًا -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="answer" value="yes" id="yes" {{ old('answer', $question->answer_type) == 'yes' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="yes">
+                                        {{ __('Yes') }}
+                                    </label>
+                                </div>
+
+                                <!-- إذا كانت الإجابة "لا" محددة مسبقًا -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="answer" value="no" id="no" {{ old('answer', $question->answer_type) == 'no' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="no">
+                                        {{ __('No') }}
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row justify-content-end mt-3">
+                            <a href="{{ route('admin.question.index') }}" class="btn btn-secondary col-1 mr-3">
+                                {{ __('Back') }}
+                            </a>
+                            <button type="submit" class="btn btn-primary col-1 mr-3">
+                                {{ $btn_label ?? __('Update') }}
                             </button>
                         </div>
                     </form>

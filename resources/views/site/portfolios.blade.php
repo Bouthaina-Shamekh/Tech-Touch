@@ -75,5 +75,5 @@ $name = 'name_' . app()->currentLocale();
     </section>
 
 
-    @stop
-    <!-- Footer -->
+@stop
+

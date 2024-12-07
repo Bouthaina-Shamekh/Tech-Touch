@@ -53,7 +53,7 @@ class FileController extends Controller
             'description_en' => $request->description_en,
             'price' =>$request->price,
             'btn' =>$request->btn,
-
+            'image' => $request->imagePath,
         ]);
 
         // dd($request->all());
@@ -115,6 +115,10 @@ class FileController extends Controller
         $file_name = $files->file;
     }
 
+    $images = $files->image;
+    if($request->imagePath == null){
+        $images  = $request->imagePath;
+    }
     // تحديث السجل في قاعدة البيانات
     $files->update([
         'file_name_en' => $request->file_name_en,
@@ -124,6 +128,8 @@ class FileController extends Controller
         'description_en' => $request->description_en,
         'price' => $request->price,
         'btn' => $request->btn,
+        'image' => $request->imagePath,
+
     ]);
 
     // إعادة التوجيه مع رسالة نجاح

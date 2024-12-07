@@ -96,10 +96,18 @@ $description = 'description_' . app()->currentLocale();
                 </div>
                 <div class="flex-1/2 hidden lg:block">
                     <div class="img__service sticky top-0 flex justify-end">
+                        @if($services->image1 == null)
+                        <img src="{{asset('asset/img/extra/services_home_01.png')}}" alt="extra" width="67%">
+                        @else
                         <img src="{{asset("storage/" . $services->image1)}}" alt="extra" width="67%">
+                        @endif
                     </div>
                     <div  class="img__service sticky top-0 bg-white flex justify-end mt-8">
-                        <img src="{{asset("storage/" . $services->image2)}}" alt="extra" width="83%">
+                        @if($services->image2 == null)
+                        <img src="{{asset('asset/img/extra/services_home_02.png')}}" alt="extra" width="67%">
+                        @else
+                        <img src="{{asset("storage/" . $services->image2)}}" alt="extra" width="67%">
+                        @endif
                     </div>
                 </div>
             </div>
@@ -124,7 +132,11 @@ $description = 'description_' . app()->currentLocale();
                     </h2>
                     <h3 class="left__files text-base md:text-2xl font-light text-second mb-2">{{$files->$title}}</h3>
                     <div class="left__files hidden md:block">
-                        <img src="{{asset("storage/" .  $files->image1)}}" alt="">
+                        @if($files->image1 == null)
+                            <img src="{{asset('asset/img/extra/files_home.png')}}" alt="extra" width="67%">
+                        @else
+                            <img src="{{asset("storage/" .  $files->image1)}}" alt="">
+                        @endif
                     </div>
                 </div>
                 <!-- Right -->
@@ -195,9 +207,9 @@ $description = 'description_' . app()->currentLocale();
         <div class="container">
             <div class="flex flex-wrap justify-center items-center" style="gap: 0 70px;">
                 @foreach ($partner as $partner)
-                <a href="{{$partner->link}}" class="img__partners">
-                    <img src="{{asset("storage/" . $partner->image)}}" alt="" width="75%" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
-                </a>
+                    <a href="{{$partner->link}}" class="img__partners">
+                        <img src="{{asset("storage/" . $partner->image)}}" alt="" width="75%" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
+                    </a>
                 @endforeach
             </div>
         </div>
