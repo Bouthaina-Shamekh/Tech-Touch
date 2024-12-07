@@ -74,12 +74,14 @@ Route::view('not_allowed', 'not_allowed');
 Route::get('/', [MainController::class, 'home'])->name('site.index');
 Route::get('about', [MainController::class, 'about'])->name('site.about');
 
+Route::get('contact', [MainController::class, 'contact'])->name('site.contact');
 
 Route::get('services', [MainController::class, 'services'])->name('site.services');
 Route::get('services/{id}', [MainController::class, 'services_show'])->name('site.services_show');
+Route::get('services/{id}/order', [MainController::class, 'services_order'])->name('site.services_order');
 
-Route::get('filles', [MainController::class, 'files'])->name('site.files');
-Route::get('files/{id}', [MainController::class, 'file_show'])->name('site.file_show');
+Route::get('file', [MainController::class, 'files'])->name('site.files');
+Route::get('file/{id}', [MainController::class, 'file_show'])->name('site.file_show');
 
 
 Route::get('portfolios', [MainController::class, 'portfolios'])->name('site.portfolios');

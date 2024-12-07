@@ -10,7 +10,11 @@
                     </svg>
                     <!-- العنصر الداخلي -->
                     <div class="hexagon-content">
-                        <img src="{{asset("storage/" . $abouts->image)}}" alt=""  class="w-full h-full object-cover">
+                        @if ($abouts->image == null)
+                            <img src="{{asset('asset/img/extra/about-1.jpg')}}" alt=""  class="w-full h-full object-cover">
+                        @else
+                            <img src="{{asset("storage/" . $abouts->image)}}" alt=""  class="w-full h-full object-cover">
+                        @endif
                     </div>
                 </div>
             </div>
@@ -29,7 +33,7 @@
                         <!-- العنصر الداخلي -->
                         <div class="hexagon-content flex flex-col">
                             <!--  data-target="5" هنا يتم وضع الرقم الذي سيظهر والفكرة لحركة زيادة الارقام -->
-                            <span class="text-5xl font-semibold text-main mb-2 counter" data-target="5">0</span>
+                            <span class="text-5xl font-semibold text-main mb-2 counter" data-target="{{$abouts->partner}}">0</span>
                             <span class="text-xl font-semibold text-second ">Partners</span>
                         </div>
                     </div>
@@ -40,7 +44,7 @@
                         </svg>
                         <!-- العنصر الداخلي -->
                         <div class="hexagon-content flex flex-col">
-                            <span class="text-5xl font-semibold text-main mb-2 counter" data-target="27">0</span>
+                            <span class="text-5xl font-semibold text-main mb-2 counter" data-target="{{$abouts->employee}}">0</span>
                             <span class="text-xl font-semibold text-second ">Employees</span>
                         </div>
                     </div>
@@ -51,7 +55,7 @@
                         </svg>
                         <!-- العنصر الداخلي -->
                         <div class="hexagon-content flex flex-col">
-                            <span class="text-5xl font-semibold text-main mb-2 counter" data-target="221">0</span>
+                            <span class="text-5xl font-semibold text-main mb-2 counter" data-target="{{$abouts->project}}">0</span>
                             <span class="text-xl font-semibold text-second ">Projects</span>
                         </div>
                     </div>

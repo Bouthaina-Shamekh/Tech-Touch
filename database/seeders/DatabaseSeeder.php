@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,8 +22,16 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->call(UsersTableSeeder::class);
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('password'),
+            'type' => 'admin'
+        ]);
+        // $this->call(UsersTableSeeder::class);
+        $this->call(FilesSeeder::class);
+        $this->call(ProfilesSeeder::class);
+        $this->call(ServicesSeeder::class);
         $this->call(HomeSeeder::class);
-        $this->call(SettingsTableSeeder::class);
     }
 }

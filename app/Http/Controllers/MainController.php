@@ -19,7 +19,8 @@ class MainController extends Controller
     public function home()
     {
         $sliders = Slider::all(['name_en', 'description_en']);
-        $abouts = About::first();
+        $abouts = Hero::where('section', 'About')
+                    ->first();
         $services = Hero::where('section', 'Services')
                     ->select('name_en','name_ar', 'title_en', 'title_ar','description_en','description_ar','image1','image2')
                     ->first();
@@ -43,34 +44,43 @@ class MainController extends Controller
 
     public function about(){
 
-        $abouts = About::first();
+        $abouts = Hero::where('section', 'About')
+                    ->first();
         return view('site.about', compact('abouts'));
+
+    }
+    public function contact(){
+
+        $abouts = Hero::where('section', 'About')
+                    ->first();
+        return view('site.contact', compact('abouts'));
 
     }
 
     public function services(){
 
-        $service = Service::all();
-        return view('site.services', compact('service'));
+        $services = Service::all();
+        return view('site.services', compact('services'));
 
     }
 
-    public function services_show(){
+    public function services_show($id){
+        $service = Service::findOrFail($id);
+        return view('site.services_show', compact('service'));
+    }
 
-        $service = Service::all();
-        return view('site.services', compact('service'));
-
+    public function services_order($id){
+        $service = Service::findOrFail($id);
+        return view('site.services_order', compact('service'));
     }
 
     public function files() {
-
-        $file = File::all();
-        return view('site.files', compact('file'));
+        $files = File::paginate(12);
+        return view('site.files', compact('files'));
     }
-    public function file_show() {
-
-        $file = File::all();
-        return view('site.files', compact('file'));
+    public function file_show($id) {
+        $file = File::findOrFail($id);
+        return view('site.file_show', compact('file'));
     }
 
     public function portfolios() {
