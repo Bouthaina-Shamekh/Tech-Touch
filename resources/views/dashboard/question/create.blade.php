@@ -16,12 +16,14 @@
                 </div>
                 {{-- @endcan --}}
                 <div class="card-body">
-                    <form action="{{ route('admin.question.store') }}" method="post" enctype="multipart/form-data">
+                    {{-- <form action="{{ route('admin.question.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="question_ar" label="{{ __('Question_AR') }}" type="text" placeholder="{{ __('Enter name of the question in Arabic') }}" />
                             </div>
+
+
 
 
                             <div class="form-group col-6 mb-3">
@@ -62,6 +64,46 @@
                             </a>
                             <button type="submit" class="btn btn-primary col-1 mr-3">
                                 {{ $btn_label ?? __('Add') }}
+                            </button>
+                        </div>
+                    </form> --}}
+
+                    <form action="{{ route('admin.question.store') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="question_ar" label="{{ __('Question_AR') }}" type="text" placeholder="{{ __('Enter name of the question in Arabic') }}" />
+                            </div>
+
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="question_en" label="{{ __('Question_EN') }}" type="text" placeholder="{{ __('Enter name of the question in English') }}" />
+                            </div>
+
+                            <!-- Answer Options (Yes/No) -->
+                            <div class="form-group col-6 mb-3">
+                                <label for="answer" class="form-label">{{ __('Answer Options') }}</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="answer" value="yes" id="yes" {{ old('answer') == 'yes' ? 'checked' : '' }} required>
+                                    <label class="form-check-label" for="yes">
+                                        {{ __('Yes') }}
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="answer" value="no" id="no" {{ old('answer') == 'no' ? 'checked' : '' }} required>
+                                    <label class="form-check-label" for="no">
+                                        {{ __('No') }}
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row justify-content-end mt-3">
+                            <a href="{{ route('admin.question.index') }}" class="btn btn-secondary col-1 mr-3">
+                                {{ __('Back') }}
+                            </a>
+                            <button type="submit" class="btn btn-primary col-1 mr-3">
+                                {{ __('Add') }}
                             </button>
                         </div>
                     </form>

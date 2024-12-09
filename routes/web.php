@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\QuestionController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -58,12 +59,24 @@ Route::prefix('admin')->name('admin.')->middleware('auth','check_user')->group(f
         'hero' =>HeroController::class,
         'client' =>ClientController::class,
         'project' =>ProjectController::class,
+        'question' =>QuestionController::class,
+
     ]);
     Route::get('/setting',[SettingController::class , 'index'])->name('setting.index');
     Route::post('/setting/update',[SettingController::class , 'update'])->name('setting.update');
 });
 });
 
+
+// Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+// {
+// Route::prefix('admin')->name('admin.')->middleware('check_user')->group(function() {
+//     Route::resources([
+
+//     ]);
+
+// });
+// });
 Auth::routes();
 
 Route::view('not_allowed', 'not_allowed');
@@ -89,6 +102,7 @@ Route::get('portfolios/{id}', [MainController::class, 'portfolio'])->name('site.
 
 
 Route::get('test_idea', [MainController::class, 'test_idea'])->name('site.test_idea');
+Route::post('test_idea', [MainController::class, 'test_idea'])->name('site.test_idea');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

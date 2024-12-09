@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('question_en');
             $table->string('question_ar');
+            // $table->string('type');
+            // $table->json('options');
             $table->timestamps();
         });
     }

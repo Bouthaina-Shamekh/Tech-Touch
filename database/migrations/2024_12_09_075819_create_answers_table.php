@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
-            $table->string('answer_en')->nullable();
-            $table->string('answer_ar')->nullable();
-            $table->enum('answer_type', ['yes', 'no']);
-            $table->foreignId('question_id')->constrained('questions')->cascadeOnDelete();
+            $table->string('answer');
+            $table->foreignId('question_id')->constrained('questions')->onDelete('cascade');
             $table->timestamps();
         });
     }

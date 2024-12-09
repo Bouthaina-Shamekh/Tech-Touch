@@ -9,6 +9,7 @@ use App\Models\About;
 use App\Models\Client;
 use App\Models\Slider;
 use App\Models\Partner;
+use App\Models\Question;
 use App\Models\Service;
 use App\Models\Work;
 use Illuminate\Http\Request;
@@ -39,6 +40,7 @@ class MainController extends Controller
                 ->select('name_en', 'name_ar' ,'title_en','title_ar','description_en','description_ar')->first();
         $team = Team::all();
         $clients = Client::limit(5)->get();
+
         return view('site.home', compact('sliders','abouts','services','service','files','file','partners','partner','work','works','teams','team','clients'));
     }
 
@@ -91,6 +93,13 @@ class MainController extends Controller
 
         $portfolio = Work::with('categories')->findOrFail($id);
         return view('site.portfolio_single', compact('portfolio'));
+    }
+
+   public function test_idea(){
+
+    $question = Question::with('answers')->get();
+    return view('site.test_idea',compact('question'));
+
     }
 }
 
