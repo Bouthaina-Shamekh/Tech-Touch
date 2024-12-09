@@ -105,7 +105,7 @@ class MainController extends Controller
     {
 
     $questions = Question::whereHas('answers', function ($query) {
-        $query->where('answer', 'no'); // البحث عن الإجابات "لا"
+        $query->where('answer', 'no');
     })->with('answers')->get();
 
     return view('site.our_comment', compact('questions')); //
@@ -113,7 +113,7 @@ class MainController extends Controller
 
     public function selectServices(Request $request)
     {
-        // التحقق من أن هناك خدمات تم اختيارها
+
         $request->validate([
             'services' => 'required|array|min:1',
             'services.*' => 'exists:questions,id',
@@ -133,21 +133,20 @@ class MainController extends Controller
 
     public function storeServices(Request $request)
 {
-    // جلب الخدمات المختارة من الشيك بوكس
+
     $services = $request->input('services', []);
 
     foreach ($services as $questionId => $serviceSelections) {
-        // جلب السؤال الذي تم اختياره
+
         $question = Question::findOrFail($questionId);
 
-        // تخزين الخدمات المختارة
+
         foreach ($serviceSelections as $service => $value) {
-            // قم بتخزين الخدمة هنا (مثلاً بإنشاء سجل جديد في جدول "service_selections")
-            // في هذه الحالة، ستحتاج إلى منطق إضافي لحفظ الخدمة في جدول مربوط.
+
         }
     }
 
-    // إعادة التوجيه أو عرض رسالة تأكيد
+   
     return redirect()->route('site.index')->with('success', 'Services selected successfully!');
 }
 

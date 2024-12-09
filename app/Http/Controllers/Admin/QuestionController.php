@@ -97,7 +97,7 @@ class QuestionController extends Controller
         return redirect()->route('admin.question.index');
     }
 
-    // عرض تفاصيل السؤال مع الإجابات
+
     public function show($id)
     {
         $question = Question::findOrFail($id);
@@ -108,20 +108,20 @@ class QuestionController extends Controller
 
     public function showAnswers(Request $request)
     {
-    // تحديد الأسئلة التي تم الإجابة عليها بـ "لا"
+
     $questions = Question::whereHas('answers', function ($query) {
-        $query->where('answer', 'no'); // البحث عن الإجابات "لا"
+        $query->where('answer', 'no');
     })->with('answers')->get();
 
-    return view('user.questions', compact('questions')); // تمرير الأسئلة إلى الصفحة المناسبة
+    return view('user.questions', compact('questions'));
     }
 
-    // حذف السؤال والإجابات المرتبطة به
+
     public function destroy($id)
     {
         $question = Question::findOrFail($id);
-        $question->answers()->delete(); // حذف الإجابات المرتبطة بالسؤال
-        $question->delete(); // حذف السؤال نفسه
+        $question->answers()->delete();
+        $question->delete(); 
 
         return redirect()->route('admin.question.index');
     }

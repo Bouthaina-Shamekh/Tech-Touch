@@ -131,7 +131,7 @@ $name = 'name_' . app()->currentLocale();
                     showStep(currentStep);
                 } else {
                     // alert("Form submitted!"); // يمكنك استبدالها بمنطق إرسال البيانات
-                    window.location.href = "./our_comment.html";
+                    window.location.href = "{{route('site.show_answers')}}";
                 }
             });
 
