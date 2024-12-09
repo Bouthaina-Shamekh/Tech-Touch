@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\File;
 use App\Models\Hero;
 use App\Models\Team;
+use App\Models\Work;
 use App\Models\About;
 use App\Models\Client;
 use App\Models\Slider;
 use App\Models\Partner;
-use App\Models\Question;
 use App\Models\Service;
-use App\Models\Work;
+use App\Models\Question;
 use Illuminate\Http\Request;
+use App\Models\ServiceSelection;
 
 class MainController extends Controller
 {
@@ -95,11 +96,61 @@ class MainController extends Controller
         return view('site.portfolio_single', compact('portfolio'));
     }
 
-   public function test_idea(){
-
-    $question = Question::with('answers')->get();
-    return view('site.test_idea',compact('question'));
-
+    public function test_idea(){
+        $questions = Question::with('answers')->get();
+        return view('site.test_idea',compact('questions'));
     }
+
+    public function showAnswers(Request $request)
+    {
+
+    $questions = Question::whereHas('answers', function ($query) {
+        $query->where('answer', 'no'); // البحث عن الإجابات "لا"
+    })->with('answers')->get();
+
+    return view('site.our_comment', compact('questions')); //
+    }
+
+    public function selectServices(Request $request)
+    {
+        // التحقق من أن هناك خدمات تم اختيارها
+        $request->validate([
+            'services' => 'required|array|min:1',
+            'services.*' => 'exists:questions,id',
+        ]);
+
+
+        foreach ($request->services as $serviceId) {
+            ServiceSelection::create([
+                'question_id' => $serviceId,
+            ]);
+        }
+
+
+        return redirect()->route('user.checkout');
+    }
+
+
+    public function storeServices(Request $request)
+{
+    // جلب الخدمات المختارة من الشيك بوكس
+    $services = $request->input('services', []);
+
+    foreach ($services as $questionId => $serviceSelections) {
+        // جلب السؤال الذي تم اختياره
+        $question = Question::findOrFail($questionId);
+
+        // تخزين الخدمات المختارة
+        foreach ($serviceSelections as $service => $value) {
+            // قم بتخزين الخدمة هنا (مثلاً بإنشاء سجل جديد في جدول "service_selections")
+            // في هذه الحالة، ستحتاج إلى منطق إضافي لحفظ الخدمة في جدول مربوط.
+        }
+    }
+
+    // إعادة التوجيه أو عرض رسالة تأكيد
+    return redirect()->route('site.index')->with('success', 'Services selected successfully!');
+}
+
+
 }
 

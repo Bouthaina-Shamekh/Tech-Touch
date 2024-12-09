@@ -104,6 +104,11 @@ Route::get('portfolios/{id}', [MainController::class, 'portfolio'])->name('site.
 Route::get('test_idea', [MainController::class, 'test_idea'])->name('site.test_idea');
 Route::post('test_idea', [MainController::class, 'test_idea'])->name('site.test_idea');
 
+Route::get('show-answers', [MainController::class, 'showAnswers'])->name('site.show_answers');
+Route::post('select-services', [MainController::class, 'selectServices'])->name('site.select_services');
+Route::post('storeServices', [MainController::class, 'storeServices'])->name('site.storeServices');
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

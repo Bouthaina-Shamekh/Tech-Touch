@@ -50,6 +50,8 @@ $name = 'name_' . app()->currentLocale();
                             <span class="ml-2 text-base font-light ">No</span>
                         </label>
                     </div>
+
+                    @endforeach
                     <!-- Step 2
                     <div class="step-content hidden" data-step="2">
                         <p class="mb-4">Please provide a title for your idea:</p>
@@ -73,7 +75,7 @@ $name = 'name_' . app()->currentLocale();
                     </button>
                 </div>
             </div>
-            @endforeach
+
         </div>
     </section>
 

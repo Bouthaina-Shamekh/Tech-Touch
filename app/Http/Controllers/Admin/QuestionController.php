@@ -105,6 +105,17 @@ class QuestionController extends Controller
         return view('dashboard.question.show', compact('question', 'answers'));
     }
 
+
+    public function showAnswers(Request $request)
+    {
+    // تحديد الأسئلة التي تم الإجابة عليها بـ "لا"
+    $questions = Question::whereHas('answers', function ($query) {
+        $query->where('answer', 'no'); // البحث عن الإجابات "لا"
+    })->with('answers')->get();
+
+    return view('user.questions', compact('questions')); // تمرير الأسئلة إلى الصفحة المناسبة
+    }
+
     // حذف السؤال والإجابات المرتبطة به
     public function destroy($id)
     {
