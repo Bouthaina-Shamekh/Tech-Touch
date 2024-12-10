@@ -33,6 +33,8 @@ class QuestionController extends Controller
         $request->validate([
             'question_ar' => 'required|string',
             'question_en' => 'required|string',
+            'name_ar' => 'required|string',
+            'name_en' => 'required|string',
              'answer' => 'required',
             // 'answer.*' => 'required|string',
         ]);
@@ -43,6 +45,8 @@ class QuestionController extends Controller
         $question = Question::create([
             'question_en' => $request->question_en,
             'question_ar' => $request->question_ar,
+            'name_en' => $request->name_en,
+            'name_ar' => $request->name_ar,
         ]);
 
 
@@ -74,7 +78,9 @@ class QuestionController extends Controller
         $request->validate([
             'question_ar' => 'required|string',
             'question_en' => 'required|string',
-            'answer' => 'required|string',
+            'name_ar' => 'required|string',
+            'name_en' => 'required|string',
+            'answer' => 'required',
         ]);
 
         $question = Question::findOrFail($id);
@@ -82,7 +88,8 @@ class QuestionController extends Controller
         $question->update([
             'question_ar' => $request->question_ar,
             'question_en' => $request->question_en,
-
+            'name_en' => $request->name_en,
+            'name_ar' => $request->name_ar,
         ]);
 
 
@@ -121,7 +128,7 @@ class QuestionController extends Controller
     {
         $question = Question::findOrFail($id);
         $question->answers()->delete();
-        $question->delete(); 
+        $question->delete();
 
         return redirect()->route('admin.question.index');
     }

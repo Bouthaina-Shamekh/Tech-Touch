@@ -4,62 +4,47 @@
 
 @php
 $name = 'name_' . app()->currentLocale();
+$question_name = 'question_' . app()->currentLocale();
 @endphp
 
 
 
 @section('content')
+    <link rel="stylesheet" href="{{asset('asset/css/test_idea.css')}}">
     <!-- Content -->
     <section class="my-20">
         <div class="container ">
             <h2 class="text-5xl font-semibold text-main uppercase mb-6 w-full text-center top__content">Test Your Idea</h2>
             <div class="flex flex-col justify-center items-center w-full">
                 <!-- Progress Bar -->
-                <div class="progress-bar w-[125%] md:w-3/4 flex items-center top__content mb-6 ">
-                    <span class="progress-step completed">1</span>
-                    <span class="progress-line flex-grow"></span>
-                    <span class="progress-step">2</span>
-                    <span class="progress-line flex-grow"></span>
-                    <span class="progress-step">3</span>
-                    <span class="progress-line flex-grow"></span>
-                    <span class="progress-step">4</span>
-                    <span class="progress-line flex-grow"></span>
-                    <span class="progress-step">5</span>
-                    <span class="progress-line flex-grow"></span>
-                    <span class="progress-step">6</span>
-                    <span class="progress-line flex-grow"></span>
-                    <span class="progress-step">7</span>
-                    <span class="progress-line flex-grow"></span>
-                    <span class="progress-step">8</span>
-                </div>
-
-
-                <div class="w-full bg-[#F5F5F5] p-5">
-
-                    @foreach($question as $question)
-                    <!-- Step 1 -->
-                    <div class="step-content" data-step="1">
-                        <h4 class="text-main font-medium mb-4">__ 1</h4>
-                        <p class="mb-4">{{$question->question_en}}?</p>
-                        <label class="flex items-center mb-2">
-                            <input type="radio" name="title" value="yes" class="appearance-none peer w-4 h-4 border border-second rounded-full checked:bg-main checked:border-second focus:outline-none" checked>
-                            <span class="ml-2 text-base font-light">Yes</span>
-                        </label>
-                        <label class="flex items-center mb-2">
-                            <input type="radio" name="title" value="no" class="appearance-none peer w-4 h-4 border border-second rounded-full checked:bg-main checked:border-second focus:outline-none">
-                            <span class="ml-2 text-base font-light ">No</span>
-                        </label>
-                    </div>
-
+                <div class="progress-bar w-[100%] md:w-3/4 flex items-center top__content mb-6 ">
+                    @foreach ($questions as $index => $question)
+                        <span class="progress-step {{$index == 0 ? 'completed' : ''}}">{{ $index + 1 }}</span>
+                        @if ($index < $question->count() - 1)
+                            <span class="progress-line flex-grow"></span>
+                        @endif
                     @endforeach
-                    <!-- Step 2
-                    <div class="step-content hidden" data-step="2">
-                        <p class="mb-4">Please provide a title for your idea:</p>
-                        <input type="text" class="w-full border border-gray-300 rounded-md p-2" placeholder="Enter your title here">
-                    </div>
-                </div> -->
-
-
+                </div>
+                <div class="w-full bg-[#F5F5F5] p-5">
+                    <form action="{{route('site.show_answers')}}" method="post" id="myForm">
+                        @csrf
+                        @foreach ($questions as $question)
+                        <!-- Step 1 -->
+                        <div class="step-content" data-step="{{ $loop->iteration }}">
+                            <h4 class="text-main font-medium mb-4">__ {{ $loop->iteration }}</h4>
+                            <p class="mb-4">{{ $question->$question_name }}</p>
+                            <label class="flex items-center mb-2">
+                                <input type="radio" name="questions[{{ $question->id }}]" value="yes" class="appearance-none peer w-4 h-4 border border-second rounded-full checked:bg-main checked:border-second focus:outline-none" {{ $question->answers->where('answer', 'yes')->first() != null ? 'checked' : '' }}>
+                                <span class="ml-2 text-base font-light">Yes</span>
+                            </label>
+                            <label class="flex items-center mb-2">
+                                <input type="radio" name="questions[{{ $question->id }}]" value="no" class="appearance-none peer w-4 h-4 border border-second rounded-full checked:bg-main checked:border-second focus:outline-none" {{ $question->answers->where('answer', 'no')->first() != null ? 'checked' : '' }}>
+                                <span class="ml-2 text-base font-light">No</span>
+                            </label>
+                        </div>
+                        @endforeach
+                    </form>
+                </div>
 
                 <!-- Navigation Buttons -->
                 <div class="flex justify-between mt-6">
@@ -75,7 +60,6 @@ $name = 'name_' . app()->currentLocale();
                     </button>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -86,7 +70,7 @@ $name = 'name_' . app()->currentLocale();
     <script>
         $(document).ready(function () {
             let currentStep = 1;
-            const totalSteps = 8;
+            const totalSteps = {{ $questions->count() }};
 
             function showStep(step) {
                 // إظهار وإخفاء محتوى الخطوات
@@ -131,7 +115,7 @@ $name = 'name_' . app()->currentLocale();
                     showStep(currentStep);
                 } else {
                     // alert("Form submitted!"); // يمكنك استبدالها بمنطق إرسال البيانات
-                    window.location.href = "{{route('site.show_answers')}}";
+                    $("#myForm").submit();
                 }
             });
 

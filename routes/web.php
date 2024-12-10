@@ -3,6 +3,7 @@
 use App\Models\Slider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Admin\HeroController;
@@ -67,16 +68,6 @@ Route::prefix('admin')->name('admin.')->middleware('auth','check_user')->group(f
 });
 });
 
-
-// Route::group(['prefix' => LaravelLocalization::setLocale()], function()
-// {
-// Route::prefix('admin')->name('admin.')->middleware('check_user')->group(function() {
-//     Route::resources([
-
-//     ]);
-
-// });
-// });
 Auth::routes();
 
 Route::view('not_allowed', 'not_allowed');
@@ -87,7 +78,7 @@ Route::view('not_allowed', 'not_allowed');
 Route::get('/', [MainController::class, 'home'])->name('site.index');
 Route::get('about', [MainController::class, 'about'])->name('site.about');
 
-Route::get('contact', [MainController::class, 'contact'])->name('site.contact');
+
 
 Route::get('services', [MainController::class, 'services'])->name('site.services');
 Route::get('services/{id}', [MainController::class, 'services_show'])->name('site.services_show');
@@ -104,9 +95,15 @@ Route::get('portfolios/{id}', [MainController::class, 'portfolio'])->name('site.
 Route::get('test_idea', [MainController::class, 'test_idea'])->name('site.test_idea');
 Route::post('test_idea', [MainController::class, 'test_idea'])->name('site.test_idea');
 
-Route::get('show-answers', [MainController::class, 'showAnswers'])->name('site.show_answers');
+Route::post('show-answers', [MainController::class, 'showAnswers'])->name('site.show_answers');
 Route::post('select-services', [MainController::class, 'selectServices'])->name('site.select_services');
 Route::post('storeServices', [MainController::class, 'storeServices'])->name('site.storeServices');
+
+Route::get('send-mail', [MailController::class, 'send']);
+Route::get('contact', [MailController::class, 'contact'])->name('site.contact');
+Route::post('contact', [MailController::class, 'contact_data'])->name('site.contact_data');
+
+
 
 
 

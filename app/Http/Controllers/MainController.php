@@ -52,13 +52,7 @@ class MainController extends Controller
         return view('site.about', compact('abouts'));
 
     }
-    public function contact(){
-
-        $abouts = Hero::where('section', 'About')
-                    ->first();
-        return view('site.contact', compact('abouts'));
-
-    }
+    
 
     public function services(){
 
@@ -103,13 +97,27 @@ class MainController extends Controller
 
     public function showAnswers(Request $request)
     {
-
-    $questions = Question::whereHas('answers', function ($query) {
-        $query->where('answer', 'no');
-    })->with('answers')->get();
-
-    return view('site.our_comment', compact('questions')); //
+        $questions = $request->questions;
+        $questionsId = [];
+        $answers = [];
+        foreach ($questions as $key => $value ) {
+            $questionsId[] = $key;
+            $answers[$key] = $value;
+        }
+        $requirementIds = [];
+        $questions = Question::whereIn('id', $questionsId)->with('answers')->get();
+        foreach ($questions as $question) {
+            foreach ($question->answers as $answer) {
+                if ($answer->answer != $answers[$question->id]) {
+                    $requirementIds[] = $question->id;
+                }
+            }
+        }
+        $requirements = Question::whereIn('id', $requirementIds)->with('answers')->get();
+        $preg = number_format(($requirements->count() / $questions->count()) * 100,0);
+        return view('site.our_comment', compact('requirements','preg')); //
     }
+
 
     public function selectServices(Request $request)
     {
@@ -146,7 +154,7 @@ class MainController extends Controller
         }
     }
 
-   
+
     return redirect()->route('site.index')->with('success', 'Services selected successfully!');
 }
 

@@ -7,6 +7,10 @@ $name = 'name_' . app()->currentLocale();
 $question_name = 'question_' . app()->currentLocale();
 @endphp
 
+
+
+@section('content')
+
     <!-- Breadcrumb -->
     <div class="w-full py-3 bg-[#F5F5F5]">
         <div class="container">
@@ -35,7 +39,6 @@ $question_name = 'question_' . app()->currentLocale();
     </div>
 
     <!-- Content -->
-    @section('content')
     <section class="my-20">
         <div class="container">
             <h2 class="text-5xl font-semibold text-main uppercase mb-2 w-full text-center top__content">Our comment on your idea</h2>
@@ -43,59 +46,26 @@ $question_name = 'question_' . app()->currentLocale();
                 <div class="flex justify-start items-center">
                     <span class="text-base me-4 left__content">Maturity Of Your Idea</span>
                     <div class="flex-1  bg-gray-300 h-4 overflow-hidden top__content">
-                        <div class="bg-main h-full " style="width: 70%;"></div> <!-- مثال: تقدم بنسبة 70% -->
+                        <div class="bg-main h-full " style="width: {{$preg}}%;"></div> <!-- مثال: تقدم بنسبة 70% -->
                     </div>
-                    <span class="ms-4 text-lg text-main font-medium right__content">60%</span>
+                    <span class="ms-4 text-lg text-main font-medium right__content">{{$preg}}%</span>
                 </div>
-
-
-
-                {{-- <div class="flex flex-col justify-start items-start mt-6">
-                    <span class="text-base me-4 mb-4">Idea Requirements</span>
-                    <label class="bottom__content flex items-center mb-4">
-                        <input type="radio" name="title" value="Domain" class="appearance-none peer w-4 h-4 border border-dark rounded-full checked:bg-second checked:border-second focus:outline-none" checked>
-                        <span class="ml-2 text-base font-light">Domain</span>
-                    </label>
-                    <label class="bottom__content flex items-center mb-4">
-                        <input type="radio" name="title" value="Introductory Video" class="appearance-none peer w-4 h-4 border border-dark rounded-full checked:bg-second checked:border-second focus:outline-none">
-                        <span class="ml-2 text-base font-light ">Introductory Video</span>
-                    </label>
-                    <label class="bottom__content flex items-center mb-4">
-                        <input type="radio" name="title" value="Profile" class="appearance-none peer w-4 h-4 border border-dark rounded-full checked:bg-second checked:border-second focus:outline-none">
-                        <span class="ml-2 text-base font-light ">Profile</span>
-                    </label>
-                </div> --}}
-
-                <form action="{{ route('site.storeServices') }}" method="POST">
-                    @csrf
-
+                <form action="{{route('site.select_services')}}" method="post">
                     <div class="flex flex-col justify-start items-start mt-6">
                         <span class="text-base me-4 mb-4">Idea Requirements</span>
-
-                        <!-- تكرار الأسئلة التي أجاب المستخدم عليها بـ "لا" -->
-                        @foreach ($questions as $question)
-                            <div class="bottom__content flex items-center mb-4">
-                                <input type="checkbox" name="services[]" value="{{ $question->id }}" class="appearance-none peer w-4 h-4 border border-dark rounded-md checked:bg-second checked:border-second focus:outline-none">
-                                <span class="ml-2 text-base font-light">{{ $question->question_en }}</span>
-                            </div>
+                        @foreach ($requirements as $requirement)
+                        <label class="bottom__content flex items-center mb-4">
+                            <input type="checkbox" name="requirements[{{ $requirement->id }}]" value="{{ $requirement->$name }}" class="appearance-none peer w-4 h-4 border border-dark rounded-full checked:bg-second checked:border-second focus:outline-none" {{ $requirement->answers->where('answer', 'yes')->first() != null ? 'checked' : '' }}>
+                            <span class="ml-2 text-base font-light">{{ $requirement->$name }}</span>
+                        </label>
                         @endforeach
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="relative mb-3 w-full flex justify-center right__content">
+                        <button type="submit" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:-translate-y-1 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">
+                            Buy
+                        </button>
+                    </div>
                 </form>
-
-
-
-
-
-
-
-
-                <div class="relative mb-3 w-full flex justify-center right__content">
-                    <button type="button" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:-translate-y-1 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">
-                        Buy
-                    </button>
-                </div>
             </div>
             <div class="right__content w-full bg-[#F5F5F5] p-10 mt-4">
                 <h2 class="text-2xl font-semibold text-main uppercase mb-4 right__content">Free Consultation</h2>
@@ -110,29 +80,6 @@ $question_name = 'question_' . app()->currentLocale();
         </div>
     </section>
 
-    @stop
+@stop
 
-
-    <!-- Footer -->
-
-
-    <!-- JS Scripts -->
-
-
-
-    <!-- ScrollReveal -->
-
-
-    <!-- Scroll Anemation All sections -->
-    <script src="{{asset('asset/js/scroll.js')}}"></script>
-
-    <!-- My JS -->
-
-    <script>
-        // top__content , left__content ,bottom__content ,right__content
-        sr.reveal(`.top__content`);
-        sr.reveal(`.left__content`, { interval: 100,origin: 'left' }); // عدة عناصر والانتظار بينهم
-        sr.reveal(`.right__content`, { interval: 100,origin: 'right' }); // عدة عناصر والانتظار بينهم
-        sr.reveal(`.bottom__content`, { interval: 100,origin: 'bottom' }); // عدة عناصر والانتظار بينهم
-    </script>
-
+@section('scripts')
