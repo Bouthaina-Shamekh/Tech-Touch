@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hero;
+use App\Models\User;
 use App\Mail\SendMail;
 use App\Mail\ContactUs;
 use Illuminate\Http\Request;
+use App\Events\ContacMessageEvent;
 use Illuminate\Support\Facades\Mail;
+use App\Notifications\ContactNotification;
+use Illuminate\Support\Facades\Notification;
+// use Illuminate\Notifications\Notification;
 
 class MailController extends Controller
 {
@@ -39,6 +44,15 @@ class MailController extends Controller
        // dd($request->all());
        $data = $request->except('_token');
         Mail::to('contactus@gmail.com')->send(new ContactUs($data));
+
+        $user = User::where('type', 'admin')->first();
+        Notification::send($user,new ContactNotification(
+        $request->name,
+        $request->email,
+        $request->phone,
+        $request->message));
+
+        ContacMessageEvent::dispatch($user->id,'contact_us');
 
 
     }

@@ -52,3 +52,47 @@
         </div>
     </div>
     <!-- [ Pre-loader ] End -->
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+
+
+ <script>
+    @auth
+   var JSvar = "<?= Auth::user()->id?>";
+    @endauth
+       // Enable pusher logging - don't include this in production
+       Pusher.logToConsole = true;
+
+    //    var pusher = new Pusher('4e7b4215841c9ad639ad', {
+    //      cluster: 'mt1'
+    //    });
+
+    var pusher = new Pusher('781f8f90926b7f8f25f4', {
+         cluster: 'ap2'
+       });
+
+       var channel = pusher.subscribe('contact');
+       channel.bind('notify', function(data) {
+
+        //    if(data.user_id == JSvar){
+            console.log('data.message');
+           $("#notifications_count").load(window.location.href + " #notifications_count");
+            $.get(window.location.href, function(response) {
+               var updatedContent = $(response).find('#unread').html();
+
+               // Update the #unread div with the fetched content
+               $("#unread").html(updatedContent);
+
+             });
+        //    }else{
+
+        //    }
+
+
+       });
+
+
+
+     </script>
