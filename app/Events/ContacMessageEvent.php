@@ -14,8 +14,8 @@ class ContacMessageEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    protected $user_id;
-    protected $message;
+    public $user_id;
+    public $message;
 
     /**
      * Create a new event instance.

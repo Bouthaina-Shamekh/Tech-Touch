@@ -69,15 +69,17 @@
     //      cluster: 'mt1'
     //    });
 
-    var pusher = new Pusher('781f8f90926b7f8f25f4', {
-         cluster: 'ap2'
+    var pusher = new Pusher('4e7b4215841c9ad639ad', {
+         cluster: 'mt1'
        });
 
        var channel = pusher.subscribe('contact');
        channel.bind('notify', function(data) {
 
-        //    if(data.user_id == JSvar){
-            console.log('data.message');
+
+            // alert(data.user_id);
+            if(data.user_id == JSvar){
+
            $("#notifications_count").load(window.location.href + " #notifications_count");
             $.get(window.location.href, function(response) {
                var updatedContent = $(response).find('#unread').html();
@@ -86,9 +88,9 @@
                $("#unread").html(updatedContent);
 
              });
-        //    }else{
+            }else{
 
-        //    }
+           }
 
 
        });

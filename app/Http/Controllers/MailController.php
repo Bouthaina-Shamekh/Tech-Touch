@@ -45,14 +45,20 @@ class MailController extends Controller
        $data = $request->except('_token');
         Mail::to('contactus@gmail.com')->send(new ContactUs($data));
 
-        $user = User::where('type', 'admin')->first();
-        Notification::send($user,new ContactNotification(
+        $users = User::where('type', 'admin')->get();
+        Notification::send($users,new ContactNotification(
         $request->name,
         $request->email,
         $request->phone,
         $request->message));
 
-        ContacMessageEvent::dispatch($user->id,'contact_us');
+        foreach ($users as $user) {
+            ContacMessageEvent::dispatch($user->id,'contact_us');
+        }
+
+
+
+        return redirect()->route('site.contact')->with('success', __('Item updated successfully.'));
 
 
     }

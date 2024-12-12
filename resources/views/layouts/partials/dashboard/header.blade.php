@@ -102,14 +102,14 @@
                         <svg class="pc-icon">
                             <use xlink:href="#custom-notification"></use>
                         </svg>
-                        <span class="badge bg-success-500 text-white rounded-full z-10 absolute right-0 top-0">3</span>
+                        <span   id="notifications_count"  class="badge bg-success-500 text-white rounded-full z-10 absolute right-0 top-0">{{ auth()->user()->unreadNotifications->count() }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown p-2">
                         <div class="dropdown-header flex items-center justify-between py-4 px-5">
                             <h5 class="m-0">{{__('Notifications')}}</h5>
                             <a href="#!" class="btn btn-link btn-sm">{{__('Mark all read')}}</a>
                         </div>
-                        <div class="dropdown-body header-notification-scroll relative py-4 px-5"
+                        {{-- <div class="dropdown-body header-notification-scroll relative py-4 px-5"
                             style="max-height: calc(100vh - 215px)">
                             <p class="text-span mb-3">{{__('Today')}}</p>
                             <div class="card mb-2">
@@ -211,7 +211,43 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> --}}
+
+
+                         <div id="unread" class="dropdown-body header-notification-scroll relative py-4 px-5"
+                            style="max-height: calc(100vh - 215px)">
+                            <p class="text-span mb-3">{{__('Today')}}</p>
+                            @foreach(auth()->user()->unreadNotifications as $notification)
+
+                            <div class="card mb-2">
+                                <div class="card-body">
+                                    <div class="flex gap-4">
+                                        <div class="shrink-0">
+                                            <svg class="pc-icon text-primary w-[22px] h-[22px]">
+                                                <use xlink:href="#custom-layer"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="grow">
+                                            <span class="float-end text-sm text-muted">{{ $notification->created_at->format('Y-m-d h:i') }}</span>
+                                            <h5 class="text-body mb-2">{{ $notification->data['name'] }}</h5>
+                                            <p class="mb-0">
+                                                {{ $notification->data['email'] }}
+                                            </p>
+                                            <p class="mb-0">
+                                                {{ $notification->data['phone'] }}
+                                            </p>
+                                            <p class="mb-0">
+                                                {{ $notification->data['message'] }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+
                         </div>
+
+
                         <div class="text-center py-2">
                             <a href="#!"
                                 class="text-danger-500 hover:text-danger-600 focus:text-danger-600 active:text-danger-600">
