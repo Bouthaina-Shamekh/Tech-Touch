@@ -108,7 +108,7 @@ Route::post('contact', [MailController::class, 'contact_data'])->name('site.cont
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 
