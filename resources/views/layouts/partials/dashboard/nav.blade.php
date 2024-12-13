@@ -13,12 +13,12 @@
             <div class="card pc-user-card mx-[15px] mb-[15px] bg-theme-sidebaruserbg dark:bg-themedark-sidebaruserbg">
                 <div class="card-body !p-5">
                     <div class="flex items-center">
-                        {{-- <img class="shrink-0 w-[45px] h-[45px] rounded-full" src="{{ Auth::user()->avatar_url }}" --}}
-                            {{-- alt="user-image" /> --}}
-                        {{-- <div class="ml-4 mr-2 grow"> --}}
-                            {{-- <h6 class="mb-0">{{ Auth::user()->name }}</h6> --}}
+                        <img class="shrink-0 w-[45px] h-[45px] rounded-full" src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}"
+                            alt="user-image" />
+                        <div class="ml-4 mr-2 grow">
+                            <h6 class="mb-0">{{ Auth::user()->name }}</h6>
 
-                        {{-- </div> --}}
+                        </div>
                         <a class="shrink-0 btn btn-icon inline-flex btn-link-secondary" data-pc-toggle="collapse"
                             href="#pc_sidebar_userlink">
                             <svg class="pc-icon w-[22px] h-[22px]">
@@ -48,25 +48,103 @@
                 </div>
             </div>
             <ul class="pc-navbar">
-                <li class="pc-item pc-caption">
-                    {{-- <label>{{__('Basic')}}</label> --}}
-                </li>
-
-                @can('view products')
                 <li class="pc-item">
-                    {{-- <a href="{{route('dashboard.products.index')}}" class="pc-link"> --}}
+                    <a href="{{route('admin.home')}}" class="pc-link">
                         <span class="pc-micon">
                             <span class="pc-micon">
-                                <i class="fas fa-hamburger"></i>
+                                <i class="fas fa-home"></i>
                             </span>
                         </span>
-                        <span class="pc-mtext">{{__('admin.Products')}}</span>
+                        <span class="pc-mtext">{{__('admin.Home')}}</span>
                     </a>
                 </li>
-                @endcan
-
-
-
+                <li class="pc-item pc-caption">
+                    <label>{{__('Basic')}}</label>
+                </li>
+                <li class="pc-item pc-hasmenu">
+                    <a href="#!" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="fas fa-h-square"></i>
+                        </span>
+                        <span class="pc-mtext">
+                            {{__('admin.Home Page')}}
+                        </span>
+                        @if (App::getLocale() == 'en')
+                        <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        @else
+                        <span class="pc-arrow"><i data-feather="chevron-left"></i></span>
+                        @endif
+                    </a>
+                    <ul class="pc-submenu">
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.slider.index')}}">
+                                {{__('admin.Slider')}}
+                            </a>
+                        </li>
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.hero.index')}}">
+                                {{__('admin.Hero')}}
+                            </a>
+                        </li>
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.team.index')}}">
+                                {{__('admin.Team')}}
+                            </a>
+                        </li>
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.partner.index')}}">
+                                {{__('admin.Partner')}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="pc-item pc-hasmenu">
+                    <a href="#!" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </span>
+                        <span class="pc-mtext">
+                            {{__('admin.Sections Site')}}
+                        </span>
+                        @if (App::getLocale() == 'en')
+                        <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        @else
+                        <span class="pc-arrow"><i data-feather="chevron-left"></i></span>
+                        @endif
+                    </a>
+                    <ul class="pc-submenu">
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.service.index')}}">
+                                {{__('admin.Service')}}
+                            </a>
+                        </li>
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.file.index')}}">
+                                {{__('admin.File')}}
+                            </a>
+                        </li>
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.work.index')}}">
+                                {{__('admin.Works')}}
+                            </a>
+                        </li>
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.project.index')}}">
+                                {{__('admin.Projects')}}
+                            </a>
+                        </li>
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.question.index')}}">
+                                {{__('admin.Questions')}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="pc-navbar">
+                <li class="pc-item pc-caption">
+                    <label>{{__('Settings')}}</label>
+                </li>
                 <li class="pc-item">
                     <a href="{{route('admin.media.index')}}" class="pc-link">
                         <span class="pc-micon">
@@ -77,118 +155,6 @@
                         <span class="pc-mtext">{{__('admin.Media')}}</span>
                     </a>
                 </li>
-
-
-                <li class="pc-item">
-                    <a href="{{route('admin.hero.index')}}" class="pc-link">
-                        <span class="pc-micon">
-                            <span class="pc-micon">
-                                <i class="fas fa-images"></i>
-                            </span>
-                        </span>
-                        <span class="pc-mtext">{{__('admin.Hero')}}</span>
-                    </a>
-                </li>
-
-
-                {{-- @can('view categories') --}}
-                <li class="pc-item">
-                    <a href="{{route('admin.slider.index')}}" class="pc-link">
-                        <span class="pc-micon">
-                            <i class="material-icons-two-tone pc-icon">grid_on</i>
-                        </span>
-                        <span class="pc-mtext">{{__('admin.Slider')}}</span>
-                    </a>
-                </li>
-                {{-- @endcan --}}
-
-
-                <li class="pc-item">
-                    <a href="{{route('admin.about.index')}}" class="pc-link">
-                        <span class="pc-micon">
-                            <i class="material-icons-two-tone pc-icon">grid_on</i>
-                        </span>
-                        <span class="pc-mtext">{{__('admin.About')}}</span>
-                    </a>
-                </li>
-
-                <li class="pc-item">
-                    <a href="{{route('admin.service.index')}}" class="pc-link">
-                        <span class="pc-micon">
-                            <i class="material-icons-two-tone pc-icon">grid_on</i>
-                        </span>
-                        <span class="pc-mtext">{{__('admin.Service')}}</span>
-                    </a>
-                </li>
-
-
-                <li class="pc-item">
-                    <a href="{{route('admin.file.index')}}" class="pc-link">
-                        <span class="pc-micon">
-                            <i class="material-icons-two-tone pc-icon">grid_on</i>
-                        </span>
-                        <span class="pc-mtext">{{__('admin.File')}}</span>
-                    </a>
-                </li>
-
-                <li class="pc-item">
-                    <a href="{{route('admin.client.index')}}" class="pc-link">
-                        <span class="pc-micon">
-                            <i class="material-icons-two-tone pc-icon">grid_on</i>
-                        </span>
-                        <span class="pc-mtext">{{__('admin.Client')}}</span>
-                    </a>
-                </li>
-
-
-                <li class="pc-item">
-                    <a href="{{route('admin.work.index')}}" class="pc-link">
-                        <span class="pc-micon">
-                            <i class="material-icons-two-tone pc-icon">grid_on</i>
-                        </span>
-                        <span class="pc-mtext">{{__('admin.Work')}}</span>
-                    </a>
-                </li>
-
-
-                <li class="pc-item">
-                    <a href="{{route('admin.team.index')}}" class="pc-link">
-                        <span class="pc-micon">
-                            <i class="material-icons-two-tone pc-icon">grid_on</i>
-                        </span>
-                        <span class="pc-mtext">{{__('admin.Team')}}</span>
-                    </a>
-                </li>
-
-
-
-                <li class="pc-item">
-                    <a href="{{route('admin.partner.index')}}" class="pc-link">
-                        <span class="pc-micon">
-                            <span class="pc-micon">
-                                <i class="fas fa-hamburger"></i>
-                            </span>
-                        </span>
-                        <span class="pc-mtext">{{('admin.Partner')}}</span>
-                    </a>
-                </li>
-
-
-
-                {{-- <li class="pc-item">
-                    <a href="{{route('admin.partner.index')}}" class="pc-link">
-                        <span class="pc-micon">
-                            <i class="material-icons-two-tone pc-icon">grid_on</i>
-                        </span>
-                        <span class="pc-mtext">{{__('admin.Partner')}}</span>
-                    </a>
-                </li> --}}
-
-            </ul>
-            <ul class="pc-navbar">
-                {{-- <li class="pc-item pc-caption">
-                    <label>{{__('Settings')}}</label>
-                </li> --}}
                 <li class="pc-item pc-hasmenu">
                     <a href="#!" class="pc-link">
                         <span class="pc-micon">
@@ -197,31 +163,36 @@
                         <span class="pc-mtext">
                             {{__('admin.Users')}}
                         </span>
+                        @if (App::getLocale() == 'en')
                         <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        @else
+                        <span class="pc-arrow"><i data-feather="chevron-left"></i></span>
+                        @endif
                     </a>
                     <ul class="pc-submenu">
-                        <li class="pc-item">
-                            <a class="pc-link" href="">
-                                {{__('admin.Admins')}}
-                            </a>
-                        </li>
-                        <li class="pc-item">
-                            <a class="pc-link" href="">
-                                {{__('admin.Roles')}}
-                            </a>
-                        </li>
-
                         <li class="pc-item">
                             <a class="pc-link" href="">
                                 {{__('admin.Users')}}
                             </a>
                         </li>
+                        {{-- <li class="pc-item">
+                            <a class="pc-link" href="">
+                                {{__('admin.Roles')}}
+                            </a>
+                        </li> --}}
                     </ul>
-
-
-
-
                 </li>
+                <li class="pc-item">
+                    <a href="{{route('admin.setting.index')}}" class="pc-link">
+                        <span class="pc-micon">
+                            <span class="pc-micon">
+                                <i class="text-lg leading-none ti ti-settings"></i>
+                            </span>
+                        </span>
+                        <span class="pc-mtext">{{__('admin.Settings')}}</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>

@@ -44,30 +44,31 @@ Route::get('admin', function () {
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-Route::prefix('admin')->name('admin.')->middleware('auth','check_user')->group(function() {
-    Route::get('home', [HomeController::class, 'index'])->name('home');
+    Route::prefix('admin')->name('admin.')->middleware('auth','check_user')->group(function() {
+        Route::get('home', [HomeController::class, 'index'])->name('home');
 
-    Route::resources([
-        'about' => AboutController::class,
-        'client' => ClientController::class,
-        'media' => MediaController::class,
-        'slider' =>SliderController::class,
-        'service' =>ServiceController::class,
-        'file' =>FileController::class,
-        'team' =>TeamController::class,
-        'work' =>WorkController::class,
-        'partner' =>PartnerController::class,
-        'hero' =>HeroController::class,
-        'client' =>ClientController::class,
-        'project' =>ProjectController::class,
-        'question' =>QuestionController::class,
+        Route::resources([
+            'client' => ClientController::class,
+            'media' => MediaController::class,
+            'slider' =>SliderController::class,
+            'service' =>ServiceController::class,
+            'file' =>FileController::class,
+            'team' =>TeamController::class,
+            'work' =>WorkController::class,
+            'partner' =>PartnerController::class,
+            'hero' =>HeroController::class,
+            'project' =>ProjectController::class,
+            'question' =>QuestionController::class,
+        ]);
 
-    ]);
-    Route::get('/setting',[SettingController::class , 'index'])->name('setting.index');
-    Route::post('/setting/update',[SettingController::class , 'update'])->name('setting.update');
+
+        Route::get('/setting',[SettingController::class , 'index'])->name('setting.index');
+        Route::post('/setting/update',[SettingController::class , 'update'])->name('setting.update');
+        Route::post('/notification/clearAll',[HomeController::class , 'clearAllNotifications'])->name('notification.clearAll');
+    });
+
+
 });
-});
-
 Auth::routes();
 
 Route::view('not_allowed', 'not_allowed');

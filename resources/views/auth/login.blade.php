@@ -1,73 +1,95 @@
-@extends('layouts.app')
+@include('layouts.partials.dashboard.head', [
+    'title' => __('Login'),
+])
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<!-- [ Main Content ] start -->
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+<div class="auth-main relative">
+    <div class="auth-wrapper v2 flex items-center w-full h-full min-h-screen">
+        <div class="auth-sidecontent">
+            <img src="{{ asset('assets-dashboard/images/authentication/img-auth-sideimg.jpg') }}" alt="images" class="img-fluid h-screen hidden lg:block" />
+        </div>
+        <div
+            class="auth-form flex items-center justify-center grow flex-col min-h-screen bg-cover relative p-6 bg-theme-cardbg dark:bg-themedark-cardbg">
+            <div class="card sm:my-12 w-full max-w-[480px] border-none shadow-none">
+                <div class="card-body sm:!p-10">
+                    <div class="text-center">
+                        <a href="#">
+                            <img src="{{ asset('assets-dashboard/images/logo.png') }}" alt="img" class="mx-auto"
+                                width="80%" />
+                        </a>
+                        @if ($errors->any())
+                            <div class="alert alert-danger" >
+                                <ol>
+                                    @foreach ($errors->getMessages() as $key => $val)
+                                        <li>{{ $key . " : " . $val[0] }} </li>
+                                    @endforeach
+                                </ol>
+                            </div>
+                        @endif
+                        <div class="grid my-4">
+                            <button type="button"
+                                class="btn mt-2 flex items-center justify-center gap-2 text-theme-bodycolor dark:text-themedark-bodycolor bg-theme-bodybg dark:bg-themedark-bodybg border border-theme-border dark:border-themedark-border hover:border-primary-500 dark:hover:border-primary-500">
+                                <img src="{{ asset('assets-dashboard/images/authentication/facebook.svg') }}"
+                                    alt="img" /> <span>{{__('Sign In with Facebook')}}</span>
+                            </button>
+                            <button type="button"
+                                class="btn mt-2 flex items-center justify-center gap-2 text-theme-bodycolor dark:text-themedark-bodycolor bg-theme-bodybg dark:bg-themedark-bodybg border border-theme-border dark:border-themedark-border hover:border-primary-500 dark:hover:border-primary-500">
+                                <img src="{{ asset('assets-dashboard/images/authentication/twitter.svg') }}"
+                                    alt="img" /> <span>{{__('Sign In with Twitter')}}</span>
+                            </button>
+                            <button type="button"
+                                class="btn mt-2 flex items-center justify-center gap-2 text-theme-bodycolor dark:text-themedark-bodycolor bg-theme-bodybg dark:bg-themedark-bodybg border border-theme-border dark:border-themedark-border hover:border-primary-500 dark:hover:border-primary-500">
+                                <img src="{{ asset('assets-dashboard/images/authentication/google.svg') }}"
+                                    alt="img" /> <span>{{__('Sign In with Google')}}</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative my-5">
+                        <div aria-hidden="true" class="absolute flex inset-0 items-center">
+                            <div class="w-full border-t border-theme-border dark:border-themedark-border"></div>
+                        </div>
+                        <div class="relative flex justify-center">
+                            <span class="px-4 bg-theme-cardbg dark:bg-themedark-cardbg">{{__('OR')}}</span>
+                        </div>
+                    </div>
+                    <h4 class="text-center font-medium mb-4">{{__('Login with your email')}}</h4>
+                    <form action="{{ route('login') }}" method="post">
                         @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="{{__('Email Address')}}" />
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="mb-4">
+                            <input type="password" name="password" class="form-control" id="floatingInput1" placeholder="{{__('Password')}}" />
                         </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
+                        <div class="flex mt-1 justify-between items-center flex-wrap">
+                            <div class="form-check">
+                                <input class="form-check-input input-primary" type="checkbox"  name="remember" id="remember_me" checked="" />
+                                <label class="form-check-label text-muted" for="remember_me">{{__('Remember me?')}}</label>
                             </div>
+                            <h6 class="font-normal text-primary-500 mb-0">
+                                <a href="forgot-password-v2.html"> {{__('Forgot Password')}}? </a>
+                            </h6>
                         </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-primary w-full">{{__('Login')}}</button>
                         </div>
                     </form>
+                    <div class="flex justify-between items-end flex-wrap mt-4">
+                        {{-- <h6 class="f-w-500 mb-0">{{__("Don't have an Account")}}?</h6> --}}
+                        {{-- <a href="register-v2.html" class="text-primary-500">{{__('Create Account')}}</a> --}}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+<!-- [ Main Content ] end -->
+
+<style>
+    .floting-button{
+        display: none;
+    }
+</style>
+
+@include('layouts.partials.dashboard.end')

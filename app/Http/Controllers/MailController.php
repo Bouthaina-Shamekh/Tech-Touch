@@ -58,7 +58,7 @@ class MailController extends Controller
 
 
 
-        return redirect()->route('site.contact')->with('success', __('Item updated successfully.'));
+        return redirect()->route('site.contact')->with('successSend', __('Item updated successfully.'));
 
 
     }

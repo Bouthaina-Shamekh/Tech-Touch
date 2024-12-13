@@ -103,6 +103,40 @@ $name = 'name_' . app()->currentLocale();
             </div>
         </div>
     </section>
+    <button
+    type="button"
+    id="DoneModalButton"
+    data-twe-toggle="modal"
+    data-twe-target="#DoneModal"
+    data-twe-ripple-init
+    data-twe-ripple-color="light">
+        DoneModal
+    </button>
+    <!--Vertically centered modal-->
+    <div data-twe-modal-init class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none" id="DoneModal" tabindex="-1" aria-labelledby="DoneModalTitle" aria-modal="true" role="dialog">
+        <div data-twe-modal-dialog-ref class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-8 min-[576px]:max-w-[500px] min-[992px]:max-w-[666px] my-5 mx-4">
+            <div class="pointer-events-auto relative flex w-full flex-col border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark">
+                <!-- Modal body -->
+                <div class="relative p-4">
+                    <div class="flex flex-col justify-center items-center my-10">
+                        <div class="my-2">
+                            <img src="../asset/img/extra/done.png" alt="Order Done" loading="lazy" />
+                        </div>
+                        <span class="font-light w-2/3 text-center my-4">Your Request Has Been Sent Successfully, You Will Receive A Message From Us As Soon As Possible.</span>
+                        <button
+                            type="button"
+                            class="mt-8 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:-translate-y-2 focus:bg-second active:bg-second transition-all duration-150 ease-in-out"
+                            data-twe-modal-dismiss
+                            data-twe-ripple-init
+                            data-twe-ripple-color="light">
+                            Done
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     @stop
@@ -110,7 +144,12 @@ $name = 'name_' . app()->currentLocale();
 
 @section('scripts')
 <script>
-    sr.reveal(`.top__contact`);
+    @if (session()->has('successSend'))
+    $(document).ready(function () {
+        $('#DoneModalButton').click();
+    })
+    @endif
+    sr.revea(`.top__contact`);
     sr.reveal(`.text__contact`, { origin: 'left' });
     sr.reveal(`.right__contact`, { origin: 'right' });
     sr.reveal(`.bottom__contact`, { origin: 'bottom' });

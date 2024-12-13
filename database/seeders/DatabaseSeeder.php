@@ -25,10 +25,14 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         //$this->call(HomeSeeder::class);
         $this->call(SettingsTableSeeder::class);
-        $this->call(AboutsSeeder::class);
         $this->call(HeroSeeder::class);
         $this->call(SliderSeeder::class);
         $this->call(ServiceSeeder::class);
         $this->call(FileSeeder::class);
+        $this->call(ClientSeeder::class);
+        $this->call(PartnerSeeder::class);
+        $this->call(TeamSeeder::class);
+        $this->call(WorkSeeder::class);
+        $this->call(Cat_WorkSeeder::class);
     }
 }

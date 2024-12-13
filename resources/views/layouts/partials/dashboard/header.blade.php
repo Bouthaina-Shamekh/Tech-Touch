@@ -1,6 +1,6 @@
 <header class="pc-header" id="header">
-    <div class="header-wrapper flex max-sm:px-[15px] px-[25px] grow"><!-- [Mobile Media Block] start -->
-        <div class="me-auto pc-mob-drp">
+    <div class="header-wrapper flex justify-between max-sm:px-[15px] px-[25px] grow"><!-- [Mobile Media Block] start -->
+        <div class="pc-mob-drp {{ App::getLocale() == 'ar' ? 'mr-0' : 'me-auto'}}" >
             <ul class="inline-flex *:min-h-header-height *:inline-flex *:items-center">
                 <!-- ======= Menu collapse Icon ===== -->
                 <li class="pc-h-item pc-sidebar-collapse max-lg:hidden lg:inline-flex">
@@ -14,7 +14,7 @@
                     </a>
                 </li>
                 <li class="pc-h-item max-md:hidden md:inline-flex">
-                    <form class="form-search relative">
+                    {{-- <form class="form-search relative">
                         <i class="search-icon absolute top-[14px] left-[15px]">
                             <svg class="pc-icon w-4 h-4">
                                 <use xlink:href="#custom-search-normal-1"></use>
@@ -22,25 +22,21 @@
                         </i>
                         <input type="search" class="form-control px-2.5 pr-3 pl-10 w-[198px] leading-none"
                             placeholder="Ctrl + K" />
-                    </form>
+                    </form> --}}
                 </li>
             </ul>
         </div>
         <!-- [Mobile Media Block end] -->
-        <div class="ms-auto">
+        <div class="{{ App::getLocale() == 'ar' ? 'ml-0' : 'ms-auto'}}">
             <ul class="inline-flex *:min-h-header-height *:inline-flex *:items-center">
-
                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-
-                @if (app()->currentLocale() != $localeCode)
-                <li class="nav-item ">
-                    <a class="nav-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-
-                        <img width="20" src="{{ asset('assets-dashboard/images/'.$properties['flag']) }}" alt="">
-                    </a>
-                </li>
-                @endif
-
+                    @if (app()->currentLocale() != $localeCode)
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle me-0" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            <img width="20" class="pc-icon" src="{{ asset('assets-dashboard/images/'.$properties['flag']) }}" alt="">
+                        </a>
+                    </li>
+                    @endif
                 @endforeach
 
 
@@ -72,30 +68,6 @@
                         </a>
                     </div>
                 </li>
-
-
-
-                <li class="dropdown pc-h-item">
-                    <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="false" aria-expanded="false">
-                        <svg class="pc-icon">
-                            <use xlink:href="#custom-setting-2"></use>
-                        </svg>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end pc-h-dropdown">
-                        <button class="dropdown-item" data-value="false" onclick="layout_rtl_change('false');">
-                            <img src="{{asset('assets-dashboard/images/customizer/ltr.svg')}}" alt="img" class="img-fluid" width="30px" />
-                            <span>ltr</span>
-                        </button>
-                        <button class="dropdown-item" data-value="true" onclick="layout_rtl_change('true');">
-                            <img src="{{asset('assets-dashboard/images/customizer/rtl.svg')}}" alt="img" class="img-fluid" width="30px" />
-
-                            <span>rtl</span>
-                        </button>
-                    </div>
-                </li>
-
-
                 <li class="dropdown pc-h-item">
                     <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
                         aria-haspopup="false" aria-expanded="false">
@@ -107,125 +79,25 @@
                     <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown p-2">
                         <div class="dropdown-header flex items-center justify-between py-4 px-5">
                             <h5 class="m-0">{{__('Notifications')}}</h5>
-                            <a href="#!" class="btn btn-link btn-sm">{{__('Mark all read')}}</a>
+                            {{-- <a href="#!" class="btn btn-link btn-sm">{{__('Mark all read')}}</a> --}}
                         </div>
-                        {{-- <div class="dropdown-body header-notification-scroll relative py-4 px-5"
+                        <div id="unread" class="dropdown-body header-notification-scroll relative py-4 px-5"
                             style="max-height: calc(100vh - 215px)">
-                            <p class="text-span mb-3">{{__('Today')}}</p>
-                            <div class="card mb-2">
-                                <div class="card-body">
-                                    <div class="flex gap-4">
-                                        <div class="shrink-0">
-                                            <svg class="pc-icon text-primary w-[22px] h-[22px]">
-                                                <use xlink:href="#custom-layer"></use>
-                                            </svg>
-                                        </div>
-                                        <div class="grow">
-                                            <span class="float-end text-sm text-muted">2 min ago</span>
-                                            <h5 class="text-body mb-2">UI/UX Design</h5>
-                                            <p class="mb-0">
-                                                Lorem Ipsum has been the industry's standard dummy text ever since the
-                                                1500s, when an unknown printer took a galley of
-                                                type and scrambled it to make a type
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mb-2">
-                                <div class="card-body">
-                                    <div class="flex gap-4">
-                                        <div class="shrink-0">
-                                            <svg class="pc-icon text-primary w-[22px] h-[22px]">
-                                                <use xlink:href="#custom-sms"></use>
-                                            </svg>
-                                        </div>
-                                        <div class="grow">
-                                            <span class="float-end text-sm text-muted">1 hour ago</span>
-                                            <h5 class="text-body mb-2">Message</h5>
-                                            <p class="mb-0">Lorem Ipsum has been the industry's standard dummy text
-                                                ever since the 1500.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="text-span mb-3 mt-4">{{__("Yesterday")}}</p>
-                            <div class="card mb-2">
-                                <div class="card-body">
-                                    <div class="flex gap-4">
-                                        <div class="shrink-0">
-                                            <svg class="pc-icon text-primary w-[22px] h-[22px]">
-                                                <use xlink:href="#custom-document-text"></use>
-                                            </svg>
-                                        </div>
-                                        <div class="grow ms-3">
-                                            <span class="float-end text-sm text-muted">2 hour ago</span>
-                                            <h5 class="text-body mb-2">Forms</h5>
-                                            <p class="mb-0">
-                                                Lorem Ipsum has been the industry's standard dummy text ever since the
-                                                1500s, when an unknown printer took a galley of
-                                                type and scrambled it to make a type
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mb-2">
-                                <div class="card-body">
-                                    <div class="flex gap-4">
-                                        <div class="shrink-0">
-                                            <svg class="pc-icon text-primary w-[22px] h-[22px]">
-                                                <use xlink:href="#custom-user-bold"></use>
-                                            </svg>
-                                        </div>
-                                        <div class="grow ms-3">
-                                            <span class="float-end text-sm text-muted">12 hour ago</span>
-                                            <h5 class="text-body mb-2">Challenge invitation</h5>
-                                            <p class="mb-2">
-                                                <span class="text-dark">Jonny aber</span>
-                                                invites to join the challenge
-                                            </p>
-                                            <button class="btn btn-sm btn-outline-secondary me-2">Decline</button>
-                                            <button class="btn btn-sm btn-primary">Accept</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mb-2">
-                                <div class="card-body">
-                                    <div class="flex gap-4">
-                                        <div class="shrink-0">
-                                            <svg class="pc-icon text-primary w-[22px] h-[22px]">
-                                                <use xlink:href="#custom-security-safe"></use>
-                                            </svg>
-                                        </div>
-                                        <div class="grow ms-3">
-                                            <span class="float-end text-sm text-muted">5 hour ago</span>
-                                            <h5 class="text-body mb-2">Security</h5>
-                                            <p class="mb-0">
-                                                Lorem Ipsum has been the industry's standard dummy text ever since the
-                                                1500s, when an unknown printer took a galley of
-                                                type and scrambled it to make a type
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-
-
-                         <div id="unread" class="dropdown-body header-notification-scroll relative py-4 px-5"
-                            style="max-height: calc(100vh - 215px)">
-                            <p class="text-span mb-3">{{__('Today')}}</p>
+                            {{-- <p class="text-span mb-3">{{__('Today')}}</p> --}}
                             @foreach(auth()->user()->unreadNotifications as $notification)
-
                             <div class="card mb-2">
                                 <div class="card-body">
                                     <div class="flex gap-4">
                                         <div class="shrink-0">
-                                            <svg class="pc-icon text-primary w-[22px] h-[22px]">
-                                                <use xlink:href="#custom-layer"></use>
-                                            </svg>
+                                            @if ($notification->type == 'App\Notifications\ContactNotification')
+                                                <svg class="pc-icon text-primary w-[22px] h-[22px]">
+                                                    <use xlink:href="#custom-sms"></use>
+                                                </svg>
+                                            @else
+                                                <svg class="pc-icon text-primary w-[22px] h-[22px]">
+                                                    <use xlink:href="#custom-document-text"></use>
+                                                </svg>
+                                            @endif
                                         </div>
                                         <div class="grow">
                                             <span class="float-end text-sm text-muted">{{ $notification->created_at->format('Y-m-d h:i') }}</span>
@@ -246,13 +118,11 @@
                             @endforeach
 
                         </div>
-
-
                         <div class="text-center py-2">
-                            <a href="#!"
-                                class="text-danger-500 hover:text-danger-600 focus:text-danger-600 active:text-danger-600">
-                                Clear all Notifications
-                            </a>
+                            <form action="{{ route('admin.notification.clearAll')}}" method="post">
+                                @csrf
+                                <button type="submit" class="text-danger-500 hover:text-danger-600 focus:text-danger-600 active:text-danger-600">{{__('Clear all Notifications')}}</button>
+                            </form>
                         </div>
 
 
@@ -288,7 +158,7 @@
                                     </div>
                                 </div>
                                 <hr class="border-secondary-500/10 my-4" />
-                                <div class="card">
+                                {{-- <div class="card">
                                     <div class="card-body !py-4">
                                         <div class="flex items-center justify-between">
                                             <h5 class="mb-0 inline-flex items-center">
@@ -305,7 +175,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <p class="text-span mb-3">{{__("Manage")}}</p>
                                 <a href="#" class="dropdown-item">
                                     <span>
