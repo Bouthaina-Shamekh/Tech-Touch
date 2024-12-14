@@ -7,10 +7,10 @@
     <div class="card table-card">
         <div class="card-header">
             <div class="sm:flex items-center justify-between">
-                <h5 class="mb-3 sm:mb-0">{{__('Partners')}}</h5>
+                <h5 class="mb-3 sm:mb-0">{{__('admin.Partners')}}</h5>
                 <div>
                     <button type="button" id="createPartnerBtn" class="btn btn-primary" data-pc-toggle="modal" data-pc-target="#createPartner">
-                        {{__('Add Partner')}}
+                        {{__('admin.Add Partner')}}
                     </button>
                 </div>
             </div>
@@ -21,9 +21,9 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{__('LINK')}}</th>
-                            <th>{{__('Image')}}</th>
-                            <th>{{__('Action')}}</th>
+                            <th>{{__('admin.Link')}}</th>
+                            <th>{{__('admin.Image')}}</th>
+                            <th>{{__('admin.Action')}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,7 +41,7 @@
                                     <form action="{{route('admin.partner.destroy',$partner->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary" title="{{__('Delete')}}">
+                                        <button class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary" title="{{__('admin.Delete')}}">
                                             <i class="ti ti-trash text-xl leading-none"></i>
                                         </button>
                                     </form>
@@ -66,7 +66,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title h4" id="mediaModalLabel">
-                    {{__('Choose Image')}}
+                    {{__('admin.Choose Image')}}
                 </h5>
                 <div class="row align-items-center">
                     <form class="col-9" id="uploadForm" action="{{ route('admin.media.store') }}" method="post" enctype="multipart/form-data">

@@ -3,16 +3,16 @@
         <link rel="stylesheet" href="{{asset('assets-dashboard/css/media.css')}}">
     @endpush
     <x-slot:breadcrumbs>
-        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{route('admin.team.index')}}">{{__('Teams')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Add Teams')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{route('admin.team.index')}}">{{__('admin.Teams')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Add Teams')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
                 {{-- @can('add product') --}}
                 <div class="card-header">
-                    <h5>{{__('Add Teams')}}</h5>
+                    <h5>{{__('admin.Add Teams')}}</h5>
                 </div>
                 {{-- @endcan --}}
                 <div class="card-body">
@@ -20,27 +20,27 @@
                         @csrf
                         <div class="row">
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name of teams in arabic')}}"  />
+                                <x-form.input name="name_ar" label="{{__('admin.Name_AR')}}" type="text" placeholder="{{__('admin.enter name of teams in arabic')}}"  />
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of teams in english')}}"/>
+                                <x-form.input name="name_en" label="{{__('admin.Name_EN')}}" type="text" placeholder="{{__('admin.enter name of teams in english')}}"/>
                             </div>
 
 
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="Specialization_en" label="{{__('Specialization_EN')}}" type="text" placeholder="{{__('enterSpecialization of teams in arabic')}}"  />
+                                <x-form.input name="Specialization_en" label="{{__('admin.Specialization_EN')}}" type="text" placeholder="{{__('admin.enterSpecialization of teams in arabic')}}"  />
                             </div>
 
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="Specialization_ar" label="{{__('Specialization_AR')}}" type="text" placeholder="{{__('enter Specialization of teams in arabic')}}"  />
+                                <x-form.input name="Specialization_ar" label="{{__('admin.Specialization_AR')}}" type="text" placeholder="{{__('admin.enter Specialization of teams in arabic')}}"  />
                             </div>
 
-                          
+
 
 
 
                             <div class="form-group col-6">
-                                <label for="imageFile" class="form-label d-block">{{__('Image')}}</label>
+                                <label for="imageFile" class="form-label d-block">{{__('admin.Image')}}</label>
                                 <label class="btn btn-outline-secondary" for="imageFile">
                                     <i class="ti ti-upload me-2"></i>
                                     {{__("Choose Image")}}
@@ -53,10 +53,10 @@
                         </div>
                         <div class="row justify-content-end mt-3">
                             <a href="{{route('admin.team.index')}}" class="btn btn-secondary col-1 mr-3">
-                                {{__('Back')}}
+                                {{__('admin.Back')}}
                             </a>
                             <button type="submit" class="btn btn-primary col-1  mr-3">
-                                {{$btn_label ?? __('Add')}}
+                                {{$btn_label ?? __('admin.Add')}}
                             </button>
                         </div>
                     </form>
@@ -71,7 +71,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title h4" id="mediaModalLabel">
-                        {{__('Choose Image')}}
+                        {{__('admin.Choose Image')}}
                     </h5>
                     <div class="row align-items-center">
                         <form class="col-9" id="uploadForm" action="{{ route('admin.media.store') }}" method="post" enctype="multipart/form-data">

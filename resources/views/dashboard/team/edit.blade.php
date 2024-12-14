@@ -3,16 +3,16 @@
         <link rel="stylesheet" href="{{asset('assets-dashboard/css/media.css')}}">
     @endpush
     <x-slot:breadcrumbs>
-        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{route('admin.team.index')}}">{{__('Teams')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Edit File')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{route('admin.team.index')}}">{{__('admin.Teams')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Edit Team')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
                     {{-- @can('add product') --}}
                 <div class="card-header">
-                    <h5>{{__('Edit File')}}</h5>
+                    <h5>{{__('admin.Edit Team')}}</h5>
                 </div>
                 {{-- @endcan --}}
                 <div class="card-body">
@@ -21,10 +21,10 @@
                         @method('PUT')
                         <div class="row">
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name of teams in arabic')}}" required :value="$teams->name_ar" />
+                                <x-form.input name="name_ar" label="{{__('admin.Name_AR')}}" type="text" placeholder="{{__('admin.enter name of teams in arabic')}}" required :value="$teams->name_ar" />
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of teams in english')}}" required :value="$teams->name_en"/>
+                                <x-form.input name="name_en" label="{{__('admin.Name_EN')}}" type="text" placeholder="{{__('admin.enter name of teams in english')}}" required :value="$teams->name_en"/>
                             </div>
 
 
@@ -32,31 +32,31 @@
 
 
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="Specialization_en" label="{{__('Specialization_EN')}}" type="text" placeholder="{{__('enter price of teams in arabic')}}" required :value="$teams->Specialization_en" />
+                                <x-form.input name="Specialization_en" label="{{__('admin.Specialization_EN')}}" type="text" placeholder="{{__('admin.enter price of teams in arabic')}}" required :value="$teams->Specialization_en" />
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="Specialization_ar" label="{{__('Specialization_AR')}}" type="text" placeholder="{{__('enter btn of teams in english')}}" required :value="$teams->Specialization_ar"/>
+                                <x-form.input name="Specialization_ar" label="{{__('admin.Specialization_AR')}}" type="text" placeholder="{{__('admin.enter btn of teams in english')}}" required :value="$teams->Specialization_ar"/>
                             </div>
 
 
                             <div class="form-group col-6">
-                                <label for="imageFile" class="form-label">{{__('Image')}}</label>
-                                <label class="btn btn-outline-secondary" for="imageFile">
+                                <label for="imageTeam" class="form-label">{{__('admin.Image')}}</label>
+                                <label class="btn btn-outline-secondary" for="imageTeam">
                                     <i class="ti ti-upload me-2"></i>
                                     {{__("Choose Image")}}
                                     <i  id="doneChooseMedia" class="ti ti-check bg-success text-white rounded-circle p-1" style="transition: all 0.3s ease; opacity: 0"></i>
                                 </label>
-                                <button type="button" id="imageFile" class="d-none" data-pc-toggle="modal" data-pc-target="#mediaModal"></button>
+                                <button type="button" id="imageTeam" class="d-none" data-pc-toggle="modal" data-pc-target="#mediaModal"></button>
                                 <input type="text" class="form-control mt-2 d-none"  id="imagePathInput" value="" name="imagePath" accept="image/*" readonly>
                                 <img src="{{asset('storage/' . $teams->image)}}" alt="img...." width="100px" class="mt-3">
                             </div>
                         </div>
                         <div class="row justify-content-end mt-3">
                             <a href="{{route('admin.team.index')}}" class="btn btn-secondary col-1 mr-3">
-                                {{__('Back')}}
+                                {{__('admin.Back')}}
                             </a>
                             <button type="submit" class="btn btn-primary col-1  mr-3">
-                                {{__('Update')}}
+                                {{__('admin.Update')}}
                             </button>
                         </div>
                     </form>
@@ -71,16 +71,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title h4" id="mediaModalLabel">
-                    {{__('Choose Image')}}
+                    {{__('admin.Choose Image')}}
                 </h5>
                 <div class="row align-items-center">
                     <form class="col-9" id="uploadForm" action="{{ route('admin.media.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <label class="btn btn-outline-secondary" for="imageFileUpload">
+                        <label class="btn btn-outline-secondary" for="imageTeamUpload">
                             <i class="ti ti-upload me-2"></i>
                             {{__("Click to Upload")}}
                         </label>
-                        <input type="team" id="imageFileUpload" name="imageFile[]" accept="image/*" hidden multiple>
+                        <input type="team" id="imageTeamUpload" name="imageTeam[]" accept="image/*" hidden multiple>
                     </form>
                     <button id="closeMediaModal"  data-pc-modal-dismiss="#mediaModal" class="text-lg flex items-center justify-center rounded w-7 h-7 text-secondary-500 hover:bg-danger-500/10 hover:text-danger-500">
                         <i class="ti ti-x"></i>
@@ -132,11 +132,11 @@
                 }
             });
         });
-        $('#imageFileUpload').on('change', function() {
+        $('#imageTeamUpload').on('change', function() {
             // إنشاء كائن FormData لتضمين الملفات
             var formData = new FormData();
             formData.append('_token', "{{ csrf_token() }}");
-            formData.append('imageFile', $(this).prop('teams')[0]);
+            formData.append('imageTeam', $(this).prop('teams')[0]);
             $.ajax({
                 url: "{{ route('admin.media.store') }}",
                 type: "POST",

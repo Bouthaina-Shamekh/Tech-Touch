@@ -37,7 +37,7 @@ class TeamController extends Controller
             'Specialization_en' => 'required',
             'Specialization_ar' => 'required',
 
-        ]); 
+        ]);
         // Insert To Database
         Team::create([
             'name_en' => $request->name_en,
@@ -93,7 +93,7 @@ class TeamController extends Controller
         $teams->update([
            'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
-            'image' => $request->imagePath,
+            // 'image' => $request->imagePath,
             'Specialization_en' =>$request->Specialization_en,
             'Specialization_ar' =>$request->Specialization_ar,
 

@@ -3,16 +3,16 @@
         <link rel="stylesheet" href="{{asset('assets-dashboard/css/media.css')}}">
     @endpush
     <x-slot:breadcrumbs>
-        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{route('admin.service.index')}}">{{__('services')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Edit Services')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{route('admin.service.index')}}">{{__('admin.services')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Edit Services')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
                     {{-- @can('add product') --}}
                 <div class="card-header">
-                    <h5>{{__('Edit Services')}}</h5>
+                    <h5>{{__('admin.Edit Services')}}</h5>
                 </div>
                 {{-- @endcan --}}
                 <div class="card-body">
@@ -21,20 +21,20 @@
                         @method('PUT')
                         <div class="row">
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name of services in arabic')}}" required :value="$services->name_ar" />
+                                <x-form.input name="name_ar" label="{{__('admin.Name_AR')}}" type="text" placeholder="{{__('admin.enter name of services in arabic')}}" required :value="$services->name_ar" />
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of services in english')}}" required :value="$services->name_en"/>
+                                <x-form.input name="name_en" label="{{__('admin.Name_EN')}}" type="text" placeholder="{{__('admin.enter name of services in english')}}" required :value="$services->name_en"/>
                             </div>
 
 
 
                             <div class="form-group col-6 mb-3">
-                                <label for="content_en" class="form-label">{{__('Content Arabic')}}</label>
+                                <label for="content_en" class="form-label">{{__('admin.Content Arabic')}}</label>
                                 <textarea name="description_ar" id="description_ar" rows="3" class="form-control" required>{{$services->description_ar}}</textarea>
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <label for="content_en" class="form-label">{{__('Content English')}}</label>
+                                <label for="content_en" class="form-label">{{__('admin.Content English')}}</label>
                                 <textarea name="description_en" id="description_en" rows="3" class="form-control" required>{{$services->description_en}}</textarea>
                             </div>
 
@@ -44,7 +44,7 @@
 
 
                             <div class="form-group col-6">
-                                <label for="imageFile" class="form-label">{{__('Image')}}</label>
+                                <label for="imageFile" class="form-label">{{__('admin.Image')}}</label>
                                 <label class="btn btn-outline-secondary" for="imageFile">
                                     <i class="ti ti-upload me-2"></i>
                                     {{__("Choose Image")}}
@@ -52,15 +52,15 @@
                                 </label>
                                 <button type="button" id="imageFile" class="d-none" data-pc-toggle="modal" data-pc-target="#mediaModal"></button>
                                 <input type="text" class="form-control mt-2 d-none"  id="imagePathInput" value="" name="imagePath" accept="image/*" readonly>
-                                <img src="{{asset('storage/' . $servicess->image)}}" alt="img...." width="100px" class="mt-3">
+                                <img src="{{asset('storage/' . $services->image)}}" alt="img...." width="100px" class="mt-3">
                             </div>
                         </div>
                         <div class="row justify-content-end mt-3">
-                            <a href="{{route('admin.services.index')}}" class="btn btn-secondary col-1 mr-3">
-                                {{__('Back')}}
+                            <a href="{{route('admin.service.index')}}" class="btn btn-secondary col-1 mr-3">
+                                {{__('admin.Back')}}
                             </a>
                             <button type="submit" class="btn btn-primary col-1  mr-3">
-                                {{__('Update')}}
+                                {{__('admin.Update')}}
                             </button>
                         </div>
                     </form>
@@ -75,7 +75,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title h4" id="mediaModalLabel">
-                    {{__('Choose Image')}}
+                    {{__('admin.Choose Image')}}
                 </h5>
                 <div class="row align-items-center">
                     <form class="col-9" id="uploadForm" action="{{ route('admin.media.store') }}" method="post" enctype="multipart/form-data">

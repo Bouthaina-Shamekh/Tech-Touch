@@ -18,40 +18,40 @@
                         @csrf
                         <div class="row">
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_ar" label="{{ __('Name_AR') }}" type="text" placeholder="{{ __('Enter name of the name in Arabic') }}" />
+                                <x-form.input name="name_ar" label="{{ __('admin.Name_AR') }}" type="text" placeholder="{{ __('Enter name of the name in Arabic') }}" />
                             </div>
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="name_en" label="{{ __('Name_EN') }}" type="text" placeholder="{{ __('Enter name of the name in English') }}" />
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="question_ar" label="{{ __('Question_AR') }}" type="text" placeholder="{{ __('Enter name of the question in Arabic') }}" />
+                                <x-form.input name="question_ar" label="{{ __('admin.Question_AR') }}" type="text" placeholder="{{ __('Enter name of the question in Arabic') }}" />
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="question_en" label="{{ __('Question_EN') }}" type="text" placeholder="{{ __('Enter name of the question in English') }}" />
+                                <x-form.input name="question_en" label="{{ __('admin.Question_EN') }}" type="text" placeholder="{{ __('Enter name of the question in English') }}" />
                             </div>
                             <!-- Answer Options (Yes/No) -->
                             <div class="form-group col-6 mb-3">
-                                <label for="answer" class="form-label">{{ __('Answer Options') }}</label>
+                                <label for="answer" class="form-label">{{ __('admin.Answer Options') }}</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="answer" value="yes" id="yes" {{ old('answer') == 'yes' ? 'checked' : '' }} required>
                                     <label class="form-check-label" for="yes">
-                                        {{ __('Yes') }}
+                                        {{ __('admin.Yes') }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="answer" value="no" id="no" {{ old('answer') == 'no' ? 'checked' : '' }} required>
                                     <label class="form-check-label" for="no">
-                                        {{ __('No') }}
+                                        {{ __('admin.No') }}
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div class="row justify-content-end mt-3">
                             <a href="{{ route('admin.question.index') }}" class="btn btn-secondary col-1 mr-3">
-                                {{ __('Back') }}
+                                {{ __('admin.Back') }}
                             </a>
                             <button type="submit" class="btn btn-primary col-1 mr-3">
-                                {{ __('Add') }}
+                                {{ __('admin.Add') }}
                             </button>
                         </div>
                     </form>

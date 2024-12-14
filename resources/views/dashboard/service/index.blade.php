@@ -6,8 +6,8 @@
     @endphp
 
     <x-slot:breadcrumbs>
-        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Services')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Services')}}</li>
     </x-slot:breadcrumb>
 
 
@@ -17,10 +17,10 @@
     <div class="card table-card">
         <div class="card-header">
             <div class="sm:flex items-center justify-between">
-                <h5 class="mb-3 sm:mb-0">{{__('Servic')}}</h5>
+                <h5 class="mb-3 sm:mb-0">{{__('admin.Service')}}</h5>
                 <div>
                     <a href="{{route('admin.service.create')}}" class="btn btn-primary" >
-                        {{__('Add Services')}}
+                        {{__('admin.Add Services')}}
                     </a>
                 </div>
             </div>
@@ -31,13 +31,13 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        {{-- <th>{{__('Name_AR')}}</th> --}}
-                        <th>{{__('Name')}}</th>
-                        <th>{{__('Description')}}</th>
-                        {{-- <th>{{__('Description_EN')}}</th> --}}
+                        {{-- <th>{{__('admin.Name_AR')}}</th> --}}
+                        <th>{{__('admin.Name')}}</th>
+                        <th>{{__('admin.Description')}}</th>
+                        {{-- <th>{{__('admin.Description_EN')}}</th> --}}
 
-                        <th>{{__('Image')}}</th>
-                        <th>{{__('Action')}}</th>
+                        <th>{{__('admin.Image')}}</th>
+                        <th>{{__('admin.Action')}}</th>
 
                     </tr>
                     </thead>
@@ -61,7 +61,7 @@
                                     <form action="{{route('admin.service.destroy',$service->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary" title="{{__('Delete')}}">
+                                        <button class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary" title="{{__('admin.Delete')}}">
                                             <i class="ti ti-trash text-xl leading-none"></i>
                                         </button>
                                     </form>

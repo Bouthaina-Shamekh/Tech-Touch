@@ -3,16 +3,16 @@
         <link rel="stylesheet" href="{{asset('assets-dashboard/css/media.css')}}">
     @endpush
     <x-slot:breadcrumbs>
-        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{route('admin.hero.index')}}">{{__('Slider')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Edit Slider')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{route('admin.hero.index')}}">{{__('admin.Slider')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Edit Slider')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
                     {{-- @can('add product') --}}
                 <div class="card-header">
-                    <h5>{{__('Edit Slider')}}</h5>
+                    <h5>{{__('admin.Edit Slider')}}</h5>
                 </div>
                 {{-- @endcan --}}
                 <div class="card-body">
@@ -22,39 +22,39 @@
                         <div class="row">
                             @if(in_array($heros->section,['Slider','Files' ,'About','Services','Works','Teams','Feedback', 'Partners']))
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name restarant in arabic')}}" required :value="$heros->name_ar" />
+                                <x-form.input name="name_ar" label="{{__('admin.Name_AR')}}" type="text" placeholder="{{__('admin.enter name restarant in arabic')}}" required :value="$heros->name_ar" />
                             </div>
                             @endif
 
                             @if(in_array($heros->section,['Slider','Files' ,'About','Services','Works','Teams','Feedback', 'Partners']))
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name restarant in english')}}" required :value="$heros->name_en"/>
+                                <x-form.input name="name_en" label="{{__('admin.Name_EN')}}" type="text" placeholder="{{__('admin.enter name restarant in english')}}" required :value="$heros->name_en"/>
                             </div>
                             @endif
 
                             @if(in_array($heros->section,['About','Services','Works','Teams','Feedback']))
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="title_ar" label="{{__('Title_AR')}}" type="text" placeholder="{{__('enter name restarant in arabic')}}" required :value="$heros->title_ar" />
+                                <x-form.input name="title_ar" label="{{__('admin.Title_AR')}}" type="text" placeholder="{{__('admin.enter name restarant in arabic')}}" required :value="$heros->title_ar" />
                             </div>
                             @endif
 
 
                             @if(in_array($heros->section,['About','Services','Works','Teams','Feedback']))
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="title_en" label="{{__('Title_EN')}}" type="text" placeholder="{{__('enter name restarant in arabic')}}" required :value="$heros->title_en" />
+                                <x-form.input name="title_en" label="{{__('admin.Title_EN')}}" type="text" placeholder="{{__('admin.enter name restarant in arabic')}}" required :value="$heros->title_en" />
                             </div>
                             @endif
 
                             @if(in_array($heros->section,['Files' ,'About','Services','Teams','Feedback', 'Partners']))
                             <div class="form-group col-6 mb-3">
-                                <label for="content_en" class="form-label">{{__('Content Arabic')}}</label>
+                                <label for="content_en" class="form-label">{{__('admin.Content Arabic')}}</label>
                                 <textarea name="description_ar" id="description_ar" rows="3" class="form-control" required>{{$heros->description_ar}}</textarea>
                             </div>
                             @endif
 
                             @if(in_array($heros->section,['Files' ,'About','Services','Teams','Feedback', 'Partners']))
                             <div class="form-group col-6 mb-3">
-                                <label for="content_en" class="form-label">{{__('Content English')}}</label>
+                                <label for="content_en" class="form-label">{{__('admin.Content English')}}</label>
                                 <textarea name="description_en" id="description_en" rows="3" class="form-control" required>{{$heros->description_en}}</textarea>
                             </div>
                             @endif
@@ -62,7 +62,7 @@
 
                             @if(in_array($heros->section,['Slider','Files' ,'About','Services','Feedback']))
                             <div class="form-group col-6">
-                                <label for="imageFile" class="form-label d-block">{{__('Image')}}</label>
+                                <label for="imageFile" class="form-label d-block">{{__('admin.Image')}}</label>
                                 <label class="btn btn-outline-secondary" for="imageFile1">
                                     <i class="ti ti-upload me-2"></i>
                                     {{__("Choose Image")}}
@@ -76,7 +76,7 @@
 
                             @if(in_array($heros->section,['About','Services','Feedback']))
                             <div class="form-group col-6">
-                                <label for="imageFile" class="form-label d-block">{{__('Image2')}}</label>
+                                <label for="imageFile" class="form-label d-block">{{__('admin.Image2')}}</label>
                                 <label class="btn btn-outline-secondary" for="imageFile2">
                                     <i class="ti ti-upload me-2"></i>
                                     {{__("Choose Image")}}
@@ -91,7 +91,7 @@
 
                             {{-- @if(in_array($heros->section,['Slider','Files' ,'About','Services','Works','Teams','Feedback'])) --}}
                             {{-- <div class="form-group col-6 mb-3">
-                                <label for="status" class="form-label">{{__('Section')}}</label>
+                                <label for="status" class="form-label">{{__('admin.Section')}}</label>
                                 <select name="section" id="section" class="form-control">
                                     @foreach ($sections_diff as $section)
                                         <option value="{{$section}}" @selected($section == $heros->section)>{{$section}}</option>
@@ -99,7 +99,7 @@
                                 </select>
                             </div> --}}
                             <div class="form-group col-6 mb-3">
-                                <label for="status" class="form-label">{{__('Section')}}</label>
+                                <label for="status" class="form-label">{{__('admin.Section')}}</label>
                                 <select name="section" id="section" class="form-control">
                                     <option value="{{$heros->section}}">{{$heros->section}}</option>
                                     @foreach ($sections_diff as $section)
@@ -111,10 +111,10 @@
                         </div>
                         <div class="row justify-content-end mt-3">
                             <a href="{{route('admin.hero.index')}}" class="btn btn-secondary col-1 mr-3">
-                                {{__('Back')}}
+                                {{__('admin.Back')}}
                             </a>
                             <button type="submit" class="btn btn-primary col-1  mr-3">
-                                {{__('Update')}}
+                                {{__('admin.Update')}}
                             </button>
                         </div>
                     </form>
@@ -129,7 +129,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title h4" id="mediaModalLabel">
-                    {{__('Choose Image')}}
+                    {{__('admin.Choose Image')}}
                 </h5>
                 <div class="row align-items-center">
                     <form class="col-9" id="uploadForm" action="{{ route('admin.media.store') }}" method="post" enctype="multipart/form-data">

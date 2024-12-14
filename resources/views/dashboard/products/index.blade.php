@@ -35,19 +35,19 @@
         </style>
     @endpush
     <x-slot:breadcrumbs>
-        <li class="breadcrumb-item"><a href="{{route('dashboard.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Products')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard.home')}}">{{__('admin.Home')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Products')}}</li>
     </x-slot:breadcrumb>
     <!-- Both borders table start -->
     <div class="col-span-12">
         <div class="card table-card">
             <div class="card-header">
                 <div class="sm:flex items-center justify-between">
-                    <h5 class="mb-3 mb-sm-0">{{__('Products')}}</h5>
+                    <h5 class="mb-3 mb-sm-0">{{__('admin.Products')}}</h5>
                     @can('add product')
                     <div>
                         <a href="{{route('dashboard.products.create')}}" class="btn btn-primary">
-                            {{__('Add Product')}}
+                            {{__('admin.Add Product')}}
                         </a>
                     </div>
                     @endcan
@@ -62,13 +62,13 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{__('Name')}}</th>
-                            <th>{{__('Content')}}</th>
-                            <th>{{__('Category')}}</th>
-                            <th>{{__('Quantity')}}</th>
-                            <th>{{__('status')}}</th>
-                            <th>{{__('created_by')}}</th>
-                            <th>{{__('Action')}}</th>
+                            <th>{{__('admin.Name')}}</th>
+                            <th>{{__('admin.Content')}}</th>
+                            <th>{{__('admin.Category')}}</th>
+                            <th>{{__('admin.Quantity')}}</th>
+                            <th>{{__('admin.status')}}</th>
+                            <th>{{__('admin.created_by')}}</th>
+                            <th>{{__('admin.Action')}}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -112,7 +112,7 @@
                                     <form action="{{route('dashboard.products.destroy',$product->slug)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary" title="{{__('Delete')}}">
+                                        <button class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary" title="{{__('admin.Delete')}}">
                                             <i class="ti ti-trash text-xl leading-none"></i>
                                         </button>
                                     </form>

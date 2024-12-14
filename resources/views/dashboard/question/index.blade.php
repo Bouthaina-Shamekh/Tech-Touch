@@ -2,16 +2,16 @@
 
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Question')}}</li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Question')}}</li>
     </x-slot:breadcrumb>
 <div class="col-span-12">
     <div class="card table-card">
         <div class="card-header">
             <div class="sm:flex items-center justify-between">
-                <h5 class="mb-3 sm:mb-0">{{ __('Questions and Answers') }}</h5>
+                <h5 class="mb-3 sm:mb-0">{{ __('admin.Questions and Answers') }}</h5>
                 <div>
                     <a href="{{ route('admin.question.create') }}" class="btn btn-primary">
-                        {{ __('Add Question') }}
+                        {{ __('admin.Add Question') }}
                     </a>
                 </div>
             </div>
@@ -22,10 +22,10 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>{{ __('Name') }}</th>
-                        <th>{{ __('Question') }}</th>
-                        <th>{{ __('Answer') }}</th>
-                        <th>{{ __('Action') }}</th>
+                        <th>{{ __('admin.Name') }}</th>
+                        <th>{{ __('admin.Question') }}</th>
+                        <th>{{ __('admin.Answer') }}</th>
+                        <th>{{ __('admin.Action') }}</th>
                     </tr>
                     </thead>
                     <tbody>

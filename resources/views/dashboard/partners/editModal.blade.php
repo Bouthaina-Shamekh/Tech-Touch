@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editPartnerTitle-{{$partner->id}}">{{__('Edit Partner')}}</h5>
+                <h5 class="modal-title" id="editPartnerTitle-{{$partner->id}}">{{__('admin.Edit Partner')}}</h5>
                 <button data-pc-modal-dismiss="#editPartner-{{$partner->id}}" class="text-lg flex items-center justify-center rounded w-7 h-7 text-secondary-500 hover:bg-danger-500/10 hover:text-danger-500">
                     <i class="ti ti-x"></i>
                 </button>
@@ -12,11 +12,11 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group mb-3">
-                        <label class="form-label">{{__('Link')}}</label>
+                        <label class="form-label">{{__('admin.Link')}}</label>
                         <input type="url" class="form-control" name="link" placeholder="Link" value="{{$partner->link}}">
                     </div>
                     <div class="form-group">
-                        <label for="imageFile" class="form-label d-block">{{__('Image')}}</label>
+                        <label for="imageFile" class="form-label d-block">{{__('admin.Image')}}</label>
                         <label class="btn btn-outline-secondary" for="imageFile">
                             <i class="ti ti-upload me-2"></i>
                             {{__("Choose Image")}}
@@ -28,8 +28,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-pc-modal-dismiss="#editPartner-{{$partner->id}}">{{__('Close')}}</button>
-                    <button type="submit" class="btn btn-primary ml-2">ٍ{{__('Edit')}}</button>
+                    <button type="button" class="btn btn-secondary" data-pc-modal-dismiss="#editPartner-{{$partner->id}}">{{__('admin.Close')}}</button>
+                    <button type="submit" class="btn btn-primary ml-2">ٍ{{__('admin.Edit')}}</button>
                 </div>
             </form>
         </div>

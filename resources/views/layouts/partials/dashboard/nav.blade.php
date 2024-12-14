@@ -58,9 +58,9 @@
                         <span class="pc-mtext">{{__('admin.Home')}}</span>
                     </a>
                 </li>
-                <li class="pc-item pc-caption">
+                {{-- <li class="pc-item pc-caption">
                     <label>{{__('Basic')}}</label>
-                </li>
+                </li> --}}
                 <li class="pc-item pc-hasmenu">
                     <a href="#!" class="pc-link">
                         <span class="pc-micon">
@@ -76,26 +76,32 @@
                         @endif
                     </a>
                     <ul class="pc-submenu">
+
                         <li class="pc-item">
-                            <a class="pc-link" href="{{route('admin.slider.index')}}">
-                                {{__('admin.Slider')}}
+                            <a class="pc-link" href="{{route('admin.question.index')}}">
+                                {{__('admin.Questions')}}
                             </a>
                         </li>
+
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.hero.index')}}">
                                 {{__('admin.Hero')}}
                             </a>
                         </li>
                         <li class="pc-item">
-                            <a class="pc-link" href="{{route('admin.team.index')}}">
-                                {{__('admin.Team')}}
+                            <a class="pc-link" href="{{route('admin.slider.index')}}">
+                                {{__('admin.Slider')}}
                             </a>
                         </li>
+
                         <li class="pc-item">
-                            <a class="pc-link" href="{{route('admin.partner.index')}}">
-                                {{__('admin.Partner')}}
+                            <a class="pc-link" href="{{route('admin.service.index')}}">
+                                {{__('admin.Service')}}
                             </a>
                         </li>
+
+
+
                     </ul>
                 </li>
                 <li class="pc-item pc-hasmenu">
@@ -113,38 +119,50 @@
                         @endif
                     </a>
                     <ul class="pc-submenu">
-                        <li class="pc-item">
-                            <a class="pc-link" href="{{route('admin.service.index')}}">
-                                {{__('admin.Service')}}
-                            </a>
-                        </li>
+
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.file.index')}}">
                                 {{__('admin.File')}}
                             </a>
                         </li>
+
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.partner.index')}}">
+                                {{__('admin.Partner')}}
+                            </a>
+                        </li>
+
+
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.work.index')}}">
                                 {{__('admin.Works')}}
                             </a>
                         </li>
+
                         <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.team.index')}}">
+                                {{__('admin.Team')}}
+                            </a>
+                        </li>
+                        {{-- <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.project.index')}}">
                                 {{__('admin.Projects')}}
                             </a>
-                        </li>
+                        </li> --}}
+
                         <li class="pc-item">
-                            <a class="pc-link" href="{{route('admin.question.index')}}">
-                                {{__('admin.Questions')}}
+                            <a class="pc-link" href="{{route('admin.client.index')}}">
+                                {{__('admin.clients')}}
                             </a>
                         </li>
+
                     </ul>
                 </li>
             </ul>
             <ul class="pc-navbar">
-                <li class="pc-item pc-caption">
+                {{-- <li class="pc-item pc-caption">
                     <label>{{__('Settings')}}</label>
-                </li>
+                </li> --}}
                 <li class="pc-item">
                     <a href="{{route('admin.media.index')}}" class="pc-link">
                         <span class="pc-micon">

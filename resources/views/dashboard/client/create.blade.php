@@ -3,16 +3,16 @@
         <link rel="stylesheet" href="{{asset('assets-dashboard/css/media.css')}}">
     @endpush
     <x-slot:breadcrumbs>
-        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{route('admin.client.index')}}">{{__('Client')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Add Client')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{route('admin.client.index')}}">{{__('admin.Client')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Add Client')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
                 {{-- @can('add product') --}}
                 <div class="card-header">
-                    <h5>{{__('Add Client')}}</h5>
+                    <h5>{{__('admin.Add Client')}}</h5>
                 </div>
                 {{-- @endcan --}}
                 <div class="card-body">
@@ -20,31 +20,31 @@
                         @csrf
                         <div class="row">
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name of clients in arabic')}}"  />
+                                <x-form.input name="name_ar" label="{{__('admin.Name_AR')}}" type="text" placeholder="{{__('admin.enter name of clients in arabic')}}"  />
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of clients in english')}}"/>
+                                <x-form.input name="name_en" label="{{__('admin.Name_EN')}}" type="text" placeholder="{{__('admin.enter name of clients in english')}}"/>
                             </div>
 
 
                             <div class="form-group col-12 mb-3">
-                                <x-form.input name="stars" label="{{__('Stars')}}"  type="number" value="0" required min="0" max="5" placeholder="{{__('enter star')}}"  />
+                                <x-form.input name="stars" label="{{__('admin.Stars')}}"  type="number" value="0" required min="0" max="5" placeholder="{{__('admin.enter star')}}"  />
                             </div>
 
                             <div class="form-group col-6 mb-3">
-                                <label for="content_en" class="form-label">{{__('Feedback Arabic')}}</label>
+                                <label for="content_en" class="form-label">{{__('admin.Feedback Arabic')}}</label>
                                 <textarea name="feedback_ar" id="feedback_ar" rows="3" class="form-control"></textarea>
                             </div>
 
                             <div class="form-group col-6 mb-3">
-                                <label for="content_en" class="form-label">{{__('Feedback English')}}</label>
+                                <label for="content_en" class="form-label">{{__('admin.Feedback English')}}</label>
                                 <textarea name="feedback_en" id="feedback_en" rows="3" class="form-control"></textarea>
                             </div>
 
 
 
                             <div class="form-group col-6">
-                                <label for="imageFile" class="form-label d-block">{{__('Image')}}</label>
+                                <label for="imageFile" class="form-label d-block">{{__('admin.Image')}}</label>
                                 <label class="btn btn-outline-secondary" for="imageFile">
                                     <i class="ti ti-upload me-2"></i>
                                     {{__("Choose Image")}}
@@ -57,10 +57,10 @@
                         </div>
                         <div class="row justify-content-end mt-3">
                             <a href="{{route('admin.client.index')}}" class="btn btn-secondary col-1 mr-3">
-                                {{__('Back')}}
+                                {{__('admin.Back')}}
                             </a>
                             <button type="submit" class="btn btn-primary col-1  mr-3">
-                                {{$btn_label ?? __('Add')}}
+                                {{$btn_label ?? __('admin.Add')}}
                             </button>
                         </div>
                     </form>
@@ -75,7 +75,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title h4" id="mediaModalLabel">
-                        {{__('Choose Image')}}
+                        {{__('admin.Choose Image')}}
                     </h5>
                     <div class="row align-items-center">
                         <form class="col-9" id="uploadForm" action="{{ route('admin.media.store') }}" method="post" enctype="multipart/form-data">

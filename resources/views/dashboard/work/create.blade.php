@@ -3,37 +3,37 @@
         <link rel="stylesheet" href="{{asset('assets-dashboard/css/media.css')}}">
     @endpush
     <x-slot:breadcrumbs>
-        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{route('admin.work.index')}}">{{__('Work')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Add Work')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{route('admin.work.index')}}">{{__('admin.Work')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Add Work')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>{{__('Add Work')}}</h5>
+                    <h5>{{__('admin.Add Work')}}</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{route('admin.work.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_ar" label="{{__('Name_AR')}}" type="text" placeholder="{{__('enter name of works in arabic')}}"  />
+                                <x-form.input name="name_ar" label="{{__('admin.Name_AR')}}" type="text" placeholder="{{__('admin.enter name of works in arabic')}}"  />
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="name_en" label="{{__('Name_EN')}}" type="text" placeholder="{{__('enter name of works in english')}}"/>
+                                <x-form.input name="name_en" label="{{__('admin.Name_EN')}}" type="text" placeholder="{{__('admin.enter name of works in english')}}"/>
                             </div>
                             <div class="form-group col-6">
-                                <label for="description_en" class="form-label">{{__('Description English')}}</label>
+                                <label for="description_en" class="form-label">{{__('admin.Description English')}}</label>
                                 <textarea name="description_en" id="description_en" rows="3" class="form-control">{{ old('description_en') }}</textarea>
                             </div>
 
                             <div class="form-group col-6">
-                                <label for="description_ar" class="form-label">{{__('Description arabic')}}</label>
+                                <label for="description_ar" class="form-label">{{__('admin.Description arabic')}}</label>
                                 <textarea name="description_ar" id="description_ar" rows="3" class="form-control">{{ old('description_ar') }}</textarea>
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="categories" label="{{__('Categories')}}" list="categories" type="text" placeholder="{{__('enter categories')}}"/>
+                                <x-form.input name="categories" label="{{__('admin.Categories')}}" list="categories" type="text" placeholder="{{__('admin.enter categories')}}"/>
                                 <span>{{__("You can add ('tag1, tag2, tag3 ...')")}}</span>
                                 <datalist id="categories">
                                     @if (App::getLocale() == 'en')
@@ -48,10 +48,10 @@
                                 </datalist>
                             </div>
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="link" label="{{__('Link')}}" type="url" placeholder="{{__('enter link')}}"/>
+                                <x-form.input name="link" label="{{__('admin.Link')}}" type="url" placeholder="{{__('admin.enter link')}}"/>
                             </div>
                             <div class="form-group col-6">
-                                <label for="imageFile" class="form-label d-block">{{__('Image')}}</label>
+                                <label for="imageFile" class="form-label d-block">{{__('admin.Image')}}</label>
                                 <label class="btn btn-outline-secondary" for="imageFile">
                                     <i class="ti ti-upload me-2"></i>
                                     {{__("Choose Image")}}
@@ -64,10 +64,10 @@
                         </div>
                         <div class="row justify-content-end mt-3">
                             <a href="{{route('admin.work.index')}}" class="btn btn-secondary col-1 mr-3">
-                                {{__('Back')}}
+                                {{__('admin.Back')}}
                             </a>
                             <button type="submit" class="btn btn-primary col-1  mr-3">
-                                {{$btn_label ?? __('Add')}}
+                                {{$btn_label ?? __('admin.Add')}}
                             </button>
                         </div>
                     </form>
@@ -82,7 +82,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title h4" id="mediaModalLabel">
-                        {{__('Choose Image')}}
+                        {{__('admin.Choose Image')}}
                     </h5>
                     <div class="row align-items-center">
                         <form class="col-9" id="uploadForm" action="{{ route('admin.media.store') }}" method="post" enctype="multipart/form-data">

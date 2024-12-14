@@ -8,8 +8,8 @@
     @endphp
 
     <x-slot:breadcrumbs>
-        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Files')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Files')}}</li>
     </x-slot:breadcrumb>
 
 
@@ -19,10 +19,10 @@
     <div class="card table-card">
         <div class="card-header">
             <div class="sm:flex items-center justify-between">
-                <h5 class="mb-3 sm:mb-0">{{__('Files')}}</h5>
+                <h5 class="mb-3 sm:mb-0">{{__('admin.Files')}}</h5>
                 <div>
                     <a href="{{route('admin.file.create')}}" class="btn btn-primary" >
-                        {{__('Add Files')}}
+                        {{__('admin.Add Files')}}
                     </a>
                 </div>
             </div>
@@ -33,12 +33,12 @@
                     <thead>
                     <tr>
                          <th>#</th>
-                        <th>{{__('File Name')}}</th>
-                        <th>{{__('File')}}</th>
-                        <th>{{__('Description')}}</th>
-                        <th>{{__('Price')}}</th>
-                        <th>{{__('Btn')}}</th>
-                        <th>{{__('Action')}}</th>
+                        <th>{{__('admin.File Name')}}</th>
+                        <th>{{__('admin.File')}}</th>
+                        <th>{{__('admin.Description')}}</th>
+                        <th>{{__('admin.Price')}}</th>
+                        <th>{{__('admin.Btn')}}</th>
+                        <th>{{__('admin.Action')}}</th>
 
                     </tr>
                     </thead>
@@ -62,7 +62,7 @@
                                     <form action="{{route('admin.file.destroy',$file->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary" title="{{__('Delete')}}">
+                                        <button class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary" title="{{__('admin.Delete')}}">
                                             <i class="ti ti-trash text-xl leading-none"></i>
                                         </button>
                                     </form>
