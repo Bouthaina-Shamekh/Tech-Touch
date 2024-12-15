@@ -9,11 +9,13 @@ use App\Models\Work;
 use App\Models\About;
 use App\Models\Client;
 use App\Models\Slider;
+use App\Models\Feature;
 use App\Models\Partner;
 use App\Models\Service;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Models\ServiceSelection;
+use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
@@ -21,6 +23,7 @@ class MainController extends Controller
     public function home()
     {
         $sliders = Slider::all(['name_en', 'description_en']);
+        $slid = Slider::select('btn')->first();
         $abouts = Hero::where('section', 'About')
                     ->first();
         $services = Hero::where('section', 'Services')
@@ -41,15 +44,28 @@ class MainController extends Controller
                 ->select('name_en', 'name_ar' ,'title_en','title_ar','description_en','description_ar')->first();
         $team = Team::orderBy('id','desc')->get();
         $clients = Client::limit(5)->get();
+        $partnersCount = DB::table('partners')->count();
+        $teamCount = DB::table('teams')->count();
+        $workCount = DB::table('works')->count();
 
-        return view('site.home', compact('sliders','abouts','services','service','files','file','partners','partner','work','works','teams','team','clients'));
+        return view('site.home', compact('sliders','slid','abouts','services','service','files','file','partners','partner','work','works','teams','team','clients','partnersCount','teamCount','workCount'));
     }
 
     public function about(){
 
         $abouts = Hero::where('section', 'About')
                     ->first();
-        return view('site.about', compact('abouts'));
+        $goals = Hero::where('section', 'Goals')
+                    ->select('name_en','name_ar', 'description_en','description_ar')
+                    ->first();
+        $item = Hero::where('section', 'Features')
+                    ->select('name_en','name_ar', 'description_en','description_ar')
+                    ->first();
+        $features = Feature::all();
+        $partnersCount = DB::table('partners')->count();
+        $teamCount = DB::table('teams')->count();
+        $workCount = DB::table('works')->count();
+        return view('site.about', compact('abouts','features','goals','item','partnersCount','teamCount','workCount'));
 
     }
 

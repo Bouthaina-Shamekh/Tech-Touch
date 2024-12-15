@@ -152,6 +152,12 @@
                             </a>
                         </li>
 
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.feature.index')}}">
+                                {{__('admin.Feature')}}
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
             </ul>

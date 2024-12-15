@@ -20,13 +20,13 @@
                         @csrf
                         @method('PUT')
                         <div class="row">
-                            @if(in_array($heros->section,['Slider','Files' ,'About','Services','Works','Teams','Feedback', 'Partners']))
+                            @if(in_array($heros->section,['Slider','Files' ,'About','Services','Works','Teams','Feedback', 'Partners','Goals','Features']))
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="name_ar" label="{{__('admin.Name_AR')}}" type="text" placeholder="{{__('admin.enter name restarant in arabic')}}" required :value="$heros->name_ar" />
                             </div>
                             @endif
 
-                            @if(in_array($heros->section,['Slider','Files' ,'About','Services','Works','Teams','Feedback', 'Partners']))
+                            @if(in_array($heros->section,['Slider','Files' ,'About','Services','Works','Teams','Feedback', 'Partners','Goals','Features']))
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="name_en" label="{{__('admin.Name_EN')}}" type="text" placeholder="{{__('admin.enter name restarant in english')}}" required :value="$heros->name_en"/>
                             </div>
@@ -45,14 +45,14 @@
                             </div>
                             @endif
 
-                            @if(in_array($heros->section,['Files' ,'About','Services','Teams','Feedback', 'Partners']))
+                            @if(in_array($heros->section,['Files' ,'About','Services','Teams','Feedback', 'Partners','Goals','Features']))
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('admin.Content Arabic')}}</label>
                                 <textarea name="description_ar" id="description_ar" rows="3" class="form-control" required>{{$heros->description_ar}}</textarea>
                             </div>
                             @endif
 
-                            @if(in_array($heros->section,['Files' ,'About','Services','Teams','Feedback', 'Partners']))
+                            @if(in_array($heros->section,['Files' ,'About','Services','Teams','Feedback', 'Partners','Goals','Features']))
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('admin.Content English')}}</label>
                                 <textarea name="description_en" id="description_en" rows="3" class="form-control" required>{{$heros->description_en}}</textarea>

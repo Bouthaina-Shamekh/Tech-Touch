@@ -109,5 +109,13 @@ return [
      'Contact Email' =>  'Contact Email',
      'Policy in English' => 'Policy in English',
      'Policy in Arabic' =>'Policy in Arabic',
+     'Features' => 'Features',
+     'Feature' => 'Feature',
+     'Add Features' => 'Add Features',
+     'Edit Features' => 'Edit Features',
+     'Feature_AR' => 'Feature Arabic',
+     'Feature_EN' => 'Feature English',
+
+
 
 ];

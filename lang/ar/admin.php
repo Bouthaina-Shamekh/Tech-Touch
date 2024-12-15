@@ -109,6 +109,14 @@ return [
      'Contact Email' => 'ايميل التواصل',
      'Policy in English' => 'سياسات بالانجليزي',
      'Policy in Arabic' => 'سياسات بالعربي',
+     'Features' => 'المميزات',
+     'Feature' => 'المميزات',
+     'Add Feature' => 'اضافة مميزات',
+     'Edit Feature' => 'تعديل المميزات',
+     'Feature Arabic' => 'المميزات بالعربي',
+     'Feature English' => 'المميزات بالانجليزي',
+     'Feature_AR' => 'المميزات بالعربي',
+     'Feature_EN' => 'المميزات بالانجليزي',
 
 
 

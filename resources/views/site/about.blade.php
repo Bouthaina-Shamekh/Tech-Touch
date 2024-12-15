@@ -4,6 +4,7 @@
 
 @php
 $name = 'name_' . app()->currentLocale();
+$feature = 'feature_'.app()->currentLocale();
 @endphp
 
 @section('content')
@@ -35,15 +36,19 @@ $name = 'name_' . app()->currentLocale();
             <div class="flex flex-wrap justify-between items-start">
                 <!-- Text -->
                 <div class="flex flex-col flex-1/2 justify-start items-center md:items-start text-center md:text-left pr-8">
-                    <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4">Our goals</h2>
-                    <p class="left__section__second text-dark font-light text-base leading-6">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod</p>
+                    <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4">{{ $goals->name_en}}</h2>
+                    <p class="left__section__second text-dark font-light text-base leading-6">{{ $goals->description_en}}</p>
                     <div class="flex flex-col justify-start items-center md:items-start mt-10">
-                        <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4">Our features</h2>
-                        <p class="left__section__second text-dark font-light text-base leading-6">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna </p>
+                        <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4"> {{$item->name_en}}</h2>
+                        <p class="left__section__second text-dark font-light text-base leading-6"> {{$item->description_en}}</p>
                         <ul class="list-inside list-image-[url(../img/icon/Icon-material-done.png)] mt-4">
-                            <li class="left__section__second text-dark font-light text-base ">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr,</li>
-                            <li class="left__section__second text-dark font-light text-base ">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr,</li>
-                            <li class="left__section__second text-dark font-light text-base ">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr,</li>
+                            @foreach ($features as $features )
+
+
+                            <li class="left__section__second text-dark font-light text-base ">{{$features->$feature}}</li>
+                            @endforeach
+                            {{-- <li class="left__section__second text-dark font-light text-base ">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr,</li>
+                            <li class="left__section__second text-dark font-light text-base ">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr,</li> --}}
                         </ul>
                     </div>
                 </div>

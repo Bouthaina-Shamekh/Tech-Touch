@@ -36,7 +36,7 @@ $description = 'description_' . app()->currentLocale();
                     @endforeach
                     <div class="relative mb-3 w-full flex justify-start my-8">
                         <a href="{{route('site.test_idea')}}" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:ml-4 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">
-                            Start Now
+                            {{$slid->btn}}
                         </a>
                     </div>
                     <div class="flex justify-between items-center w-full">

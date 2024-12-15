@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('file_name', 'file_name_' . app()->currentLocale());
         View::share('feedback', 'feedback_' . app()->currentLocale());
         View::share('Specialization', 'Specialization_' . app()->currentLocale());
+        View::share('feature', 'feature_' . app()->currentLocale());
 
     }
 }

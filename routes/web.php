@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -59,6 +60,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
             'hero' =>HeroController::class,
             'project' =>ProjectController::class,
             'question' =>QuestionController::class,
+            'feature' =>FeatureController::class,
         ]);
 
 
