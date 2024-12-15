@@ -11,7 +11,7 @@ class FileController extends Controller
 {
     public function index()
     {
-        $files = File::get();
+        $files = File::Orderby('id','desc')->get();
         return view('dashboard.file.index',compact('files'));
     }
 

@@ -31,11 +31,8 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        {{-- <th>{{__('admin.Name_AR')}}</th> --}}
                         <th>{{__('admin.Name')}}</th>
-                        <th>{{__('admin.Description')}}</th>
-                        {{-- <th>{{__('admin.Description_EN')}}</th> --}}
-
+                        {{-- <th>{{__('admin.Description')}}</th> --}}
                         <th>{{__('admin.Image')}}</th>
                         <th>{{__('admin.Action')}}</th>
 
@@ -46,10 +43,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$service-> $name}}</td>
-                                {{-- <td>{{$service->name_en}}</td> --}}
-                                <td>{{$service-> $description}}</td>
-                                {{-- <td>{{$service->description_en}}</td> --}}
-
+                                {{-- <td>{{$service-> $description}}</td> --}}
                                 <td>
                                     <img src="{{asset('storage/'.$service->image)}}" alt="image" class="w-16">
                                 </td>

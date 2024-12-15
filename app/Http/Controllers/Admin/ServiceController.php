@@ -11,7 +11,7 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::get();
+        $services = Service::Orderby('id','desc')->get();
         return view('dashboard.service.index',compact('services'));
     }
 

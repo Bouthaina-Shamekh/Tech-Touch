@@ -26,20 +26,20 @@ class MainController extends Controller
         $services = Hero::where('section', 'Services')
                     ->select('name_en','name_ar', 'title_en', 'title_ar','description_en','description_ar','image1','image2')
                     ->first();
-        $service = Service::all();
+        $service = Service::orderBy('id','desc')->get();
         $files = Hero::where('section', 'Files')
                 ->select('name_en', 'name_ar' ,'description_en','description_ar','image1')->first();
-        $file = File::all();
+        $file = File::orderBy('id','desc')->get();
         $partners = Hero::where('section', 'Partners')
                     ->select('name_en', 'name_ar' ,'description_en','description_ar')->first();
-        $partner = Partner::all();
+        $partner = Partner::orderBy('id','desc')->get();
         $work = Hero::where('section', 'Works')
                 ->select('name_en', 'name_ar' ,'title_en','title_ar')->first();
 
-        $works = Work::with('categories')->get();
+        $works = Work::with('categories')->orderBy('id','desc')->get();
         $teams = Hero::where('section', 'Teams')
                 ->select('name_en', 'name_ar' ,'title_en','title_ar','description_en','description_ar')->first();
-        $team = Team::all();
+        $team = Team::orderBy('id','desc')->get();
         $clients = Client::limit(5)->get();
 
         return view('site.home', compact('sliders','abouts','services','service','files','file','partners','partner','work','works','teams','team','clients'));
@@ -52,7 +52,7 @@ class MainController extends Controller
         return view('site.about', compact('abouts'));
 
     }
-    
+
 
     public function services(){
 

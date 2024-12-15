@@ -5,7 +5,7 @@
                 <!-- ========   Change your logo from here   ============ -->
                 <img src="{{asset('assets-dashboard/images/logo-dark.svg')}}" class="img-fluid logo-lg" alt="logo" style="display: none"  />
                 <div  style="width: 232px;">
-                    <img src="{{asset('assets-dashboard/images/logo.png')}}" class="img-fluid logo-lg" alt="logo" />
+                    <img src="{{asset('asset/img/logoBrand.png')}}" class="img-fluid logo-lg" alt="logo" />
                 </div>
             </a>
         </div>
@@ -144,11 +144,7 @@
                                 {{__('admin.Team')}}
                             </a>
                         </li>
-                        {{-- <li class="pc-item">
-                            <a class="pc-link" href="{{route('admin.project.index')}}">
-                                {{__('admin.Projects')}}
-                            </a>
-                        </li> --}}
+
 
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.client.index')}}">

@@ -13,7 +13,7 @@ class WorkController extends Controller
 {
     public function index()
     {
-        $works = Work::with('categories')->get();
+        $works = Work::with('categories')->orderBy('id', 'desc')->get();
         return view('dashboard.work.index',compact('works'));
     }
 

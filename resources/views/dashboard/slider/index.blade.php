@@ -32,10 +32,7 @@
                     <tr>
                         <th>#</th>
                         <th>{{__('admin.Name')}}</th>
-                        {{-- <th>{{__('admin.Name_EN')}}</th> --}}
                         <th>{{__('admin.Description')}}</th>
-                        {{-- <th>{{__('admin.Description_EN')}}</th> --}}
-                        <th>{{__('admin.Image')}}</th>
                         <th>{{__('admin.Btn')}}</th>
                         <th>{{__('admin.Link')}}</th>
                         <th>{{__('admin.Action')}}</th>
@@ -47,12 +44,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$slid->$name}}</td>
-                                {{-- <td>{{$slid->name_en}}</td> --}}
                                 <td>{{$slid->$description}}</td>
-                                {{-- <td>{{$slid->description_en}}</td> --}}
-                                <td>
-                                    <img src="{{asset('storage/'.$slid->image)}}" alt="image" class="w-16">
-                                </td>
                                 <td>{{$slid->btn}}</td>
                                 <td>{{$slid->link}}</td>
                                 <td>

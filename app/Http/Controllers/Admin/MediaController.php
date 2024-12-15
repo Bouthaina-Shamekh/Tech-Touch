@@ -96,14 +96,13 @@ class MediaController extends Controller
         $image  = Media::findOrFail($id);
 
         // الفحص في جدول الأصناف والمنتجات اذا وجدت الصورة
-        $aboutImage = About::where('image', $image->path)->first();
         $workImage = Work::where('image', $image->path)->first();
         $partnerImage = Partner::where('image', $image->path)->first();
         $serviceImage = Service::where('image', $image->path)->first();
         $clientImage = Client::where('image', $image->path)->first();
         $teamImage = Team::where('image', $image->path)->first();
 
-        if($aboutImage != null || $workImage != null || $partnerImage != null || $serviceImage != null || $clientImage != null || $teamImage != null){
+        if($workImage != null || $partnerImage != null || $serviceImage != null || $clientImage != null || $teamImage != null){
             $confirmation_deletion = $request->confirmation_deletion;
             if($confirmation_deletion == null){
                 return response()->json(['error' => 'لا يمكن حذف هذه الصورة بسبب تحميلها لاحدى المنتجات والأصناف', 'confirmation_deletion' => false], 400);
@@ -112,10 +111,6 @@ class MediaController extends Controller
         $image_old = $image->path;
         if($image_old != null){
             Storage::delete('public/'.$image_old);
-        }
-        if($aboutImage != null){
-            $aboutImage->image = null;
-            $aboutImage->save();
         }
         if($workImage != null){
             $workImage->image = null;

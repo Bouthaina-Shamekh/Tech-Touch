@@ -11,7 +11,7 @@ class ClientController extends Controller
 {
     public function index()
     {
-        $clients = Client::get();
+        $clients = Client::Orderby('id','desc')->get();
         return view('dashboard.client.index',compact('clients'));
     }
 

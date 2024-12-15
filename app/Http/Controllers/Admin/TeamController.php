@@ -11,7 +11,7 @@ class TeamController extends Controller
 {
     public function index()
     {
-        $teams = Team::get();
+        $teams = Team::Orderby('id','desc')->get();
         return view('dashboard.team.index',compact('teams'));
     }
 

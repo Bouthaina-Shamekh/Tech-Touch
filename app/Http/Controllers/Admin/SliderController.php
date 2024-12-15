@@ -11,7 +11,7 @@ class SliderController extends Controller
 {
     public function index()
     {
-        $sliders = Slider::get();
+        $sliders = Slider::Orderby('id','desc')->get();
         return view('dashboard.slider.index',compact('sliders'));
     }
 
@@ -21,8 +21,8 @@ class SliderController extends Controller
     public function create()
     {
         $slid = Slider::first();
-        $images = Media::paginate(100);
-        return view('dashboard.slider.create',compact('slid','images'));
+        // $images = Media::paginate(100);
+        return view('dashboard.slider.create',compact('slid'));
     }
 
     /**
@@ -35,7 +35,6 @@ class SliderController extends Controller
             'name_ar' => 'required|string|max:255',
             'description_en' => 'required',
             'description_ar' => 'required',
-            'imagePath' => 'required',
             'btn' => 'nullable',
             'link' => 'nullable',
 
@@ -46,7 +45,6 @@ class SliderController extends Controller
             'name_ar' => $request->name_ar,
             'description_ar' => $request->description_ar,
             'description_en' => $request->description_en,
-            'image' => $request->imagePath,
             'btn' => $request->btn,
             'link' => $request->link,
         ]);
@@ -68,8 +66,8 @@ class SliderController extends Controller
     public function edit(string $id)
     {
         $slid = Slider::findOrFail($id);
-        $images = Media::paginate(100);
-        return view('dashboard.slider.edit',compact('slid','images'));
+
+        return view('dashboard.slider.edit',compact('slid'));
     }
 
     /**
@@ -82,16 +80,12 @@ class SliderController extends Controller
             'name_ar' => 'required|string|max:255',
             'description_en' => 'required',
             'description_ar' => 'required',
-            'imagePath' => 'nullable',
             'btn' => 'nullable',
             'link' => 'nullable',
         ]);
 
         $slid = Slider::findOrFail($id);
-        $image = $request->imagePath;
-        if($image == null){
-            $image = $slid->image;
-        }
+
 
         // Insert To Database
         $slid->update([
@@ -99,7 +93,6 @@ class SliderController extends Controller
            'name_ar' => $request->name_ar,
            'description_ar' => $request->description_ar,
            'description_en' => $request->description_en,
-           'image' => $image,
            'btn' => $request->btn,
            'link' => $request->link,
         ]);

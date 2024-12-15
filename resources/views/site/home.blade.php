@@ -78,20 +78,27 @@ $description = 'description_' . app()->currentLocale();
                     <h3 class="text__service text-xl md:text-3xl font-semibold text-second uppercase mb-2">{{$services->$title}}</h3>
                     <p class="text__service text-dark font-light text-base leading-6">{{$services->$description}}</p>
                     <div class="flex flex-col justify-start items-start my-4">
-                        @foreach ($service as $service )
+                        @foreach ($service as $item )
                         <div class="service__box flex justify-between items-center gap-4 h-full p-3 border-y border-[#AEB4C0]">
                             <div class="flex items-center justify-center  w-1/4">
-                                <img src="{{asset("storage/" . $service->image)}}" alt="service" class="w-3/4">
+                                <img src="{{asset("storage/" . $item->image)}}" alt="service" class="w-3/4">
                             </div>
                             <div class="flex flex-col flex-1 justify-start items-start my-4">
-                                <h3 class="text-2xl font-medium text-second mb-4">{{$service->$name}}</h3>
-                                <p class="text-second font-light text-sm leading-6">{{$service->$description}}</p>
-                                <a href="{{route('site.services_show', $service->id)}}" class="my-2 text-main underline hover:pl-2 transition-all delay-150 ease-in">
+                                <h3 class="text-2xl font-medium text-second mb-4">{{$item->$name}}</h3>
+                                <p class="text-second font-light text-sm leading-6">{{$item->$description}}</p>
+                                <a href="{{route('site.services_show', $item->id)}}" class="my-2 text-main underline hover:pl-2 transition-all delay-150 ease-in">
                                     Read MORE
                                 </a>
                             </div>
                         </div>
                         @endforeach
+                        @if(count($service) >= 5)
+                        <div class="service__box relative my-8 w-full flex justify-start">
+                            <a href="{{route('site.services')}}" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:ml-4 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">Show All</a>
+                        </div>
+
+                        لهف
+                        @endif
                     </div>
                 </div>
                 <div class="flex-1/2 hidden lg:block">
@@ -216,7 +223,7 @@ $description = 'description_' . app()->currentLocale();
     </section>
 
     <!-- works -->
-    <section class="my-6 relative" style="background-image: url('{{asset('asset/img/extra/work_bg.png')}});">
+    <section class="my-6 relative" style="background-image: url('{{asset('asset/img/extra/work_bg.png')}}">
         <div class="container py-16">
             <div class="flex flex-col justify-center items-center">
                 <h3 class="text-xl md:text-4xl font-semibold text-main mb-2 text__work">{{$work->name_en}}</h3>

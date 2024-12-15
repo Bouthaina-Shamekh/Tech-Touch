@@ -69,13 +69,13 @@
                                     <a href="{{route('admin.hero.edit',$hero->id)}}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
                                         <i class="ti ti-edit text-xl leading-none"></i>
                                     </a>
-                                    <form action="{{route('admin.hero.destroy',$hero->id)}}" method="post">
+                                    {{-- <form action="{{route('admin.hero.destroy',$hero->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary" title="{{__('admin.Delete')}}">
                                             <i class="ti ti-trash text-xl leading-none"></i>
                                         </button>
-                                    </form>
+                                    </form> --}}
                                 </td>
                             </tr>
                         @endforeach
