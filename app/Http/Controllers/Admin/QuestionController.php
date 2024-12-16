@@ -35,7 +35,6 @@ class QuestionController extends Controller
             'question_en' => 'required|string',
             'name_ar' => 'required|string',
             'name_en' => 'required|string',
-             'answer' => 'required',
             // 'answer.*' => 'required|string',
         ]);
 
@@ -53,7 +52,7 @@ class QuestionController extends Controller
 
         Answer::create([
             'question_id' => $question->id,
-            'answer' => $request->answer, // الإجابة التي اختارها المستخدم
+            'answer' =>'yes', // الإجابة التي اختارها المستخدم
         ]);
 
         // dd($request->all());
@@ -80,7 +79,6 @@ class QuestionController extends Controller
             'question_en' => 'required|string',
             'name_ar' => 'required|string',
             'name_en' => 'required|string',
-            'answer' => 'required',
         ]);
 
         $question = Question::findOrFail($id);
@@ -98,7 +96,7 @@ class QuestionController extends Controller
 
         Answer::create([
             'question_id' => $question->id,
-            'answer' => $request->answer,
+            'answer' => 'yes',
         ]);
 
         return redirect()->route('admin.question.index');

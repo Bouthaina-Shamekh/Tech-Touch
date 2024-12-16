@@ -138,7 +138,7 @@
                 <div class="flex flex-col flex-1 justify-start items-start my-4">
                     <a class="logo__hero my-2 flex items-center hover:pl-2 transition-all delay-150 ease-in" href="./index.html">
                         @if($settings->where('key', 'logo')->first() != null)
-                        <img class="me-2" src="{{asset('uploads/logos/' . $settings->where('key', 'logo')->first()->value)}}" style="height: 50px" alt="TE Logo" loading="lazy" />
+                        <img class="me-2" src="{{ asset( 'uploads/logos/'.$settings->where('key', 'logo')->first()->value )}}" style="height: 50px" alt="TE Logo" loading="lazy" />
                         @else
                         <img class="me-2" src="{{asset('asset/img/logoBrand.png')}}" style="height: 50px" alt="TE Logo" loading="lazy" />
                         @endif

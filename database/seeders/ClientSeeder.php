@@ -17,7 +17,7 @@ class ClientSeeder extends Seeder
             [
                 'name_en' => 'Hazem',
                 'name_ar' => 'حازم',
-                'image' => 'storage/images/client-01.png',
+                'image' => 'null',
                 'feedback_en' => 'Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt',
                 'feedback_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
                 'stars' => '2',
@@ -27,7 +27,7 @@ class ClientSeeder extends Seeder
             [
                 'name_en' => 'Bouthaina',
                 'name_ar' => 'بثينة',
-                'image' => 'storage/images/client-01.png',
+                'image' => 'null',
                 'feedback_en' => 'Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt',
                 'feedback_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
                 'stars' => '3',
@@ -37,7 +37,7 @@ class ClientSeeder extends Seeder
             [
                 'name_en' => 'Amer',
                 'name_ar' => 'عامر',
-                'image' => 'storage/images/client-01.png',
+                'image' => 'null',
                 'feedback_en' => 'Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt',
                 'feedback_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
                 'stars' => '4',

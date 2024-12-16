@@ -27,7 +27,7 @@
                                 </ol>
                             </div>
                         @endif
-                        <div class="grid my-4">
+                        {{-- <div class="grid my-4">
                             <button type="button"
                                 class="btn mt-2 flex items-center justify-center gap-2 text-theme-bodycolor dark:text-themedark-bodycolor bg-theme-bodybg dark:bg-themedark-bodybg border border-theme-border dark:border-themedark-border hover:border-primary-500 dark:hover:border-primary-500">
                                 <img src="{{ asset('assets-dashboard/images/authentication/facebook.svg') }}"
@@ -43,15 +43,15 @@
                                 <img src="{{ asset('assets-dashboard/images/authentication/google.svg') }}"
                                     alt="img" /> <span>{{__('Sign In with Google')}}</span>
                             </button>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="relative my-5">
                         <div aria-hidden="true" class="absolute flex inset-0 items-center">
-                            <div class="w-full border-t border-theme-border dark:border-themedark-border"></div>
+                            <div class="w-full "></div>
                         </div>
-                        <div class="relative flex justify-center">
+                        {{-- <div class="relative flex justify-center">
                             <span class="px-4 bg-theme-cardbg dark:bg-themedark-cardbg">{{__('OR')}}</span>
-                        </div>
+                        </div> --}}
                     </div>
                     <h4 class="text-center font-medium mb-4">{{__('Login with your email')}}</h4>
                     <form action="{{ route('login') }}" method="post">

@@ -35,9 +35,6 @@ class SliderController extends Controller
             'name_ar' => 'required|string|max:255',
             'description_en' => 'required',
             'description_ar' => 'required',
-            'btn' => 'nullable',
-            'link' => 'nullable',
-
         ]);
         // Insert To Database
         Slider::create([
@@ -45,8 +42,6 @@ class SliderController extends Controller
             'name_ar' => $request->name_ar,
             'description_ar' => $request->description_ar,
             'description_en' => $request->description_en,
-            'btn' => $request->btn,
-            'link' => $request->link,
         ]);
 
         return redirect()->route('admin.slider.index')->with('success', __('Item updated successfully.'));
@@ -80,8 +75,6 @@ class SliderController extends Controller
             'name_ar' => 'required|string|max:255',
             'description_en' => 'required',
             'description_ar' => 'required',
-            'btn' => 'nullable',
-            'link' => 'nullable',
         ]);
 
         $slid = Slider::findOrFail($id);
@@ -93,8 +86,6 @@ class SliderController extends Controller
            'name_ar' => $request->name_ar,
            'description_ar' => $request->description_ar,
            'description_en' => $request->description_en,
-           'btn' => $request->btn,
-           'link' => $request->link,
         ]);
 
         return redirect()->route('admin.slider.index')->with('success', __('Item updated successfully.'));

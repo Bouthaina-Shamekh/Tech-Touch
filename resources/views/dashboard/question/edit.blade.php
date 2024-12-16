@@ -34,27 +34,6 @@
                                 <x-form.input name="question_en" label="{{ __('admin.Question_EN') }}" type="text" value="{{ old('question_en', $question->question_en) }}" placeholder="{{ __('Enter name of the question in English') }}" />
                             </div>
 
-                            <!-- خيارات الإجابة (نعم/لا) -->
-                            <div class="form-group col-6 mb-3">
-                                <label for="answer" class="form-label">{{ __('admin.Answer Options') }}</label>
-
-                                <!-- إذا كانت الإجابة "نعم" محددة مسبقًا -->
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="answer" value="yes" id="yes" {{ old('answer', $question->answers->where('answer', 'yes')->first() != null) ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="yes">
-                                        {{ __('admin.Yes') }}
-                                    </label>
-                                </div>
-
-                                <!-- إذا كانت الإجابة "لا" محددة مسبقًا -->
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="answer" value="no" id="no" {{ old('answer', $question->answers->where('answer', 'no')->first() != null) ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="no">
-                                        {{ __('admin.No') }}
-                                    </label>
-                                </div>
-                            </div>
-
                         </div>
 
                         <div class="row justify-content-end mt-3">

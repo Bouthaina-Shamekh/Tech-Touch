@@ -8,6 +8,22 @@
 
     @endphp
 
+    <style>
+        .description{
+            width: 100px;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+        .description:hover{
+            white-space: pre-wrap;
+            overflow-y: visible;
+            /* overflow-x: visible; */
+            /* width: 100%; */
+        }
+    </style>
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
         <li class="breadcrumb-item" aria-current="page">{{__('admin.Hero')}}</li>
@@ -55,7 +71,9 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$hero->$name}}</td>
                                 <td>{{$hero->$title}}</td>
-                                <td>{{$hero->$description}}</td>
+                                <td>
+                                 <span class="description">   {{$hero->$description}} </span>
+                                </td>
 
                                 <td>
                                     <img src="{{asset('storage/'.$hero->image1)}}" alt="image" class="w-16">

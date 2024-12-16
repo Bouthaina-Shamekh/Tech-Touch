@@ -25,7 +25,15 @@ $name = 'name_' . app()->currentLocale();
             </nav>
         </div>
     </div>
-
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <!-- Content -->
     <section class="my-20">
         <div class="container">
@@ -80,7 +88,7 @@ $name = 'name_' . app()->currentLocale();
                             </label>
                         </div>
                         <div class="right__contact relative mb-3 flex-auto" data-twe-input-wrapper-init>
-                            <input name="phone" type="text" class="peer block min-h-[auto] w-full border-0 bg-[#F5F5F5] px-3 py-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" id="exampleFormControlInputText" placeholder="Example label" />
+                            <input name="phone" type="number" class="peer block min-h-[auto] w-full border-0 bg-[#F5F5F5] px-3 py-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" id="exampleFormControlInputText" placeholder="Example label" />
                             <label for="exampleFormControlInputText" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-4 leading-[1.6] text-neutral-300 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary">
                                 Phone Number *
                             </label>
@@ -106,6 +114,7 @@ $name = 'name_' . app()->currentLocale();
     <button
     type="button"
     id="DoneModalButton"
+    class="hidden"
     data-twe-toggle="modal"
     data-twe-target="#DoneModal"
     data-twe-ripple-init
@@ -145,9 +154,10 @@ $name = 'name_' . app()->currentLocale();
 @section('scripts')
 <script>
     @if (session()->has('successSend'))
-    $(document).ready(function () {
-        $('#DoneModalButton').click();
-    })
+        $(document).ready(function () {
+            $('#DoneModalButton').click();
+            console.log('done');
+        })
     @endif
     sr.revea(`.top__contact`);
     sr.reveal(`.text__contact`, { origin: 'left' });

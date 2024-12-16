@@ -24,7 +24,6 @@
                         <th>#</th>
                         <th>{{ __('admin.Name') }}</th>
                         <th>{{ __('admin.Question') }}</th>
-                        <th>{{ __('admin.Answer') }}</th>
                         <th>{{ __('admin.Action') }}</th>
                     </tr>
                     </thead>
@@ -39,12 +38,6 @@
                                 <td>{{ $question->name_ar }}</td>
                                 <td>{{ $question->question_ar }}</td>
                                 @endif
-                                <td>
-                                    <!-- تكرار الأسئلة مع الإجابات المرتبطة بها -->
-                                    @foreach ($question->answers as $answer) <!-- assuming "answers" is a relationship in the Question model -->
-                                        <span>{{ $answer->answer }}</span>
-                                    @endforeach
-                                </td>
                                 <td>
                                     <!-- تعديل السؤال -->
                                     <a href="{{ route('admin.question.edit', $question->id) }}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">

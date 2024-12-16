@@ -115,6 +115,7 @@ return [
      'Edit Features' => 'Edit Features',
      'Feature_AR' => 'Feature Arabic',
      'Feature_EN' => 'Feature English',
+     'Add Slider' => 'Add Slider',
 
 
 

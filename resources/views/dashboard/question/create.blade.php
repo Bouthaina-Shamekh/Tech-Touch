@@ -29,22 +29,6 @@
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="question_en" label="{{ __('admin.Question_EN') }}" type="text" placeholder="{{ __('Enter name of the question in English') }}" />
                             </div>
-                            <!-- Answer Options (Yes/No) -->
-                            <div class="form-group col-6 mb-3">
-                                <label for="answer" class="form-label">{{ __('admin.Answer Options') }}</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="answer" value="yes" id="yes" {{ old('answer') == 'yes' ? 'checked' : '' }} required>
-                                    <label class="form-check-label" for="yes">
-                                        {{ __('admin.Yes') }}
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="answer" value="no" id="no" {{ old('answer') == 'no' ? 'checked' : '' }} required>
-                                    <label class="form-check-label" for="no">
-                                        {{ __('admin.No') }}
-                                    </label>
-                                </div>
-                            </div>
                         </div>
                         <div class="row justify-content-end mt-3">
                             <a href="{{ route('admin.question.index') }}" class="btn btn-secondary col-1 mr-3">

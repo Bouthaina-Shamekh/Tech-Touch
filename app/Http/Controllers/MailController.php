@@ -40,25 +40,27 @@ class MailController extends Controller
             'phone' => 'required',
             'message' => 'required',
         ]);
+        try {
+            // dd($request->all());
+            $data = $request->except('_token');
+            Mail::to('contactus@gmail.com')->send(new ContactUs($data));
 
-       // dd($request->all());
-       $data = $request->except('_token');
-        Mail::to('contactus@gmail.com')->send(new ContactUs($data));
+            $users = User::where('type', 'admin')->get();
+            Notification::send($users,new ContactNotification(
+            $request->name,
+            $request->email,
+            $request->phone,
+            $request->message));
 
-        $users = User::where('type', 'admin')->get();
-        Notification::send($users,new ContactNotification(
-        $request->name,
-        $request->email,
-        $request->phone,
-        $request->message));
+            foreach ($users as $user) {
+                // ContacMessageEvent::dispatch($user->id,'contact_us');
+            }
 
-        foreach ($users as $user) {
-            ContacMessageEvent::dispatch($user->id,'contact_us');
+        } catch (\Throwable $th) {
+            throw $th;
         }
 
-
-
-        return redirect()->route('site.contact')->with('successSend', __('Item updated successfully.'));
+        return redirect()->back()->with('successSend', true);
 
 
     }

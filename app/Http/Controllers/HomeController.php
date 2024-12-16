@@ -13,8 +13,4 @@ class HomeController extends Controller
         return view('dashboard.index');
     }
 
-    public function clearAllNotifications(Request $request){
-        Notification::where('notifiable_id', auth()->user()->id)->delete();
-        return redirect()->back();
-    }
 }

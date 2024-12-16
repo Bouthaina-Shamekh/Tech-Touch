@@ -33,16 +33,6 @@
                                 <label for="content_en" class="form-label">{{__('Content English')}}</label>
                                 <textarea name="description_en" id="description_en" rows="3" class="form-control"></textarea>
                             </div>
-
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="btn" label="{{__('btn')}}" type="text" placeholder="{{__('enter btn the slide')}}"  />
-                            </div>
-
-                            <div class="form-group col-6 mb-3">
-                                <x-form.input name="link" label="{{__('link')}}" type="text" placeholder="{{__('enter link the slide')}}"  />
-                            </div>
-
-
                         </div>
                         <div class="row justify-content-end mt-3">
                             <a href="{{route('admin.slider.index')}}" class="btn btn-secondary col-1 mr-3">
@@ -59,7 +49,7 @@
     </div>
 
 
-    
+
 
 
 

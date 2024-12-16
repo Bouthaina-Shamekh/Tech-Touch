@@ -52,7 +52,9 @@ $question_name = 'question_' . app()->currentLocale();
                 </div>
                 <form action="{{route('site.select_services')}}" method="post">
                     <div class="flex flex-col justify-start items-start mt-6">
+                        @if ($preg != 100)
                         <span class="text-base me-4 mb-4">Idea Requirements</span>
+                        @endif
                         @foreach ($requirements as $requirement)
                         <label class="bottom__content flex items-center mb-4">
                             <input type="checkbox" name="requirements[{{ $requirement->id }}]" value="{{ $requirement->$name }}" class="appearance-none peer w-4 h-4 border border-dark rounded-full checked:bg-second checked:border-second focus:outline-none" {{ $requirement->answers->where('answer', 'yes')->first() != null ? 'checked' : '' }}>

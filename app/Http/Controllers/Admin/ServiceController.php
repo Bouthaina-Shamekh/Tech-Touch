@@ -97,7 +97,7 @@ class ServiceController extends Controller
             'name_ar' => $request->name_ar,
             'description_ar' => $request->description_ar,
             'description_en' => $request->description_en,
-            'image' => $request->imagePath,
+            'image' => $image,
 
 
         ]);

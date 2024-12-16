@@ -23,13 +23,12 @@ class MainController extends Controller
     public function home()
     {
         $sliders = Slider::all(['name_en', 'description_en']);
-        $slid = Slider::select('btn')->first();
         $abouts = Hero::where('section', 'About')
                     ->first();
         $services = Hero::where('section', 'Services')
                     ->select('name_en','name_ar', 'title_en', 'title_ar','description_en','description_ar','image1','image2')
                     ->first();
-        $service = Service::orderBy('id','desc')->get();
+        $service = Service::orderBy('id','desc')->limit(5)->get();
         $files = Hero::where('section', 'Files')
                 ->select('name_en', 'name_ar' ,'description_en','description_ar','image1')->first();
         $file = File::orderBy('id','desc')->get();
@@ -48,7 +47,7 @@ class MainController extends Controller
         $teamCount = DB::table('teams')->count();
         $workCount = DB::table('works')->count();
 
-        return view('site.home', compact('sliders','slid','abouts','services','service','files','file','partners','partner','work','works','teams','team','clients','partnersCount','teamCount','workCount'));
+        return view('site.home', compact('sliders','abouts','services','service','files','file','partners','partner','work','works','teams','team','clients','partnersCount','teamCount','workCount'));
     }
 
     public function about(){
@@ -123,14 +122,16 @@ class MainController extends Controller
         $requirementIds = [];
         $questions = Question::whereIn('id', $questionsId)->with('answers')->get();
         foreach ($questions as $question) {
-            foreach ($question->answers as $answer) {
-                if ($answer->answer != $answers[$question->id]) {
-                    $requirementIds[] = $question->id;
-                }
+            if($answers[$question->id] == 'no') {
+                $requirementIds[] = $question->id;
             }
         }
+
         $requirements = Question::whereIn('id', $requirementIds)->with('answers')->get();
-        $preg = number_format(($requirements->count() / $questions->count()) * 100,0);
+
+        $count = $requirements->count() == 0 ? $questions->count() : ($requirements->count() == $questions->count() ? 0 : $requirements->count());
+
+        $preg = number_format(($count / $questions->count()) * 100,0);
         return view('site.our_comment', compact('requirements','preg')); //
     }
 

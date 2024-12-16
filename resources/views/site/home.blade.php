@@ -36,7 +36,7 @@ $description = 'description_' . app()->currentLocale();
                     @endforeach
                     <div class="relative mb-3 w-full flex justify-start my-8">
                         <a href="{{route('site.test_idea')}}" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:ml-4 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">
-                            {{$slid->btn}}
+                            {{__('Start Now')}}
                         </a>
                     </div>
                     <div class="flex justify-between items-center w-full">
@@ -97,7 +97,7 @@ $description = 'description_' . app()->currentLocale();
                             <a href="{{route('site.services')}}" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:ml-4 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">Show All</a>
                         </div>
 
-                        لهف
+
                         @endif
                     </div>
                 </div>
@@ -277,33 +277,46 @@ $description = 'description_' . app()->currentLocale();
         </div>
         <div class="scroll-wrapper">
             <div class="content flex justify-center items-center gap-[200px] mt-[90px] overflow-x-auto h-[371px]">
-                @foreach ($team->chunk(2) as $chunk)
+                @foreach ($team->chunk(2) as $index => $chunk)
+                    @php
+                    $index = $index != 0 ? $index + 1 : $index;
+                    $index = $index == 3 ? $index + 1 : $index;
+                    @endphp
                     <div class="rec">
-                        @if (isset($chunk[0]))
+                        @if (isset($chunk[$index]))
                             <div class="f img-about">
                                 <div class="hexagon-container" style="width: 150px; height: 140px;">
                                     <!-- SVG للشكل السداسي بحدود متقطعة -->
                                     <div class="hexagon-content bg-main" style="width: 162px; height: 162px; background-color: #50ada3;">
-                                        <img src="{{ asset('storage/' . $chunk[0]->image) }}" alt="" class="w-[140px] h-[140px] object-cover">
+                                        @if ($chunk[$index]->image == 'null')
+                                        <img src="{{ asset('asset/img/extra/team-01.png') }}" alt="" class="w-[140px] h-[140px] object-cover">
+                                        @else
+                                        <img src="{{ asset('storage/' . $chunk[$index]->image) }}" alt="" class="w-[140px] h-[140px] object-cover">
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="flex flex-col justify-center items-center mt-4">
-                                    <span class="text-second font-semibold text-xl">{{ $chunk[0]->name }}</span>
-                                    <span class="text-second font-light text-base">{{ $chunk[0]->Specialization_en }}</span>
+                                    <span class="text-second font-semibold text-xl">{{ $chunk[$index]->name }}</span>
+                                    <span class="text-second font-light text-base">{{ $chunk[$index]->Specialization_en }}</span>
                                 </div>
                             </div>
                         @endif
                         <div class="left"></div>
                         <div class="right"></div>
-                        @if (isset($chunk[1]))
+                        @if (isset($chunk[$index + 1]))
                             <div class="l img-about">
                                 <div class="flex flex-col justify-center items-center mt-4">
-                                    <span class="text-second font-semibold text-xl">{{ $chunk[1]->name }}</span>
-                                    <span class="text-second font-light text-base">{{ $chunk[1]->Specialization_en }}</span>
+                                    <span class="text-second font-semibold text-xl">{{ $chunk[$index + 1]->name }}</span>
+                                    <span class="text-second font-light text-base">{{ $chunk[$index + 1]->Specialization_en }}</span>
                                 </div>
                                 <div class="hexagon-container" style="width: 150px; height: 140px;">
                                     <div class="hexagon-content bg-main" style="width: 162px; height: 162px; background-color: #50ada3;">
-                                        <img src="{{ asset('storage/' . $chunk[1]->image) }}" alt="" class="w-[140px] h-[140px] object-cover">
+
+                                        @if ($chunk[$index + 1]->image == 'null')
+                                        <img src="{{ asset('asset/img/extra/team-02.png') }}" alt="" class="w-[140px] h-[140px] object-cover">
+                                        @else
+                                        <img src="{{ asset('storage/' . $chunk[$index + 1]->image) }}" alt="" class="w-[140px] h-[140px] object-cover">
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -331,7 +344,11 @@ $description = 'description_' . app()->currentLocale();
                 <div class="mt-6">
                     <div class="image-slider" id="image-slider">
                     @foreach ($clients as $index => $client )
+                        @if ($client->image != 'null')
                         <img src="{{ asset('storage/' . $client->image) }}" alt="Client {{ $index + 1 }}" class="w-20 h-20 rounded-full border-2 border-teal-500 cursor-pointer {{ $index === 2 ? 'active' : 'inactive' }} img__client" data-client="{{ $index + 1 }}">
+                        @else
+                        <img src="{{ asset('asset/img/extra/client-01.png') }}" alt="Client {{ $index + 1 }}" class="w-20 h-20 rounded-full border-2 border-teal-500 cursor-pointer {{ $index === 2 ? 'active' : 'inactive' }} img__client" data-client="{{ $index + 1 }}">
+                        @endif
                     @endforeach
                     </div>
                 </div>
