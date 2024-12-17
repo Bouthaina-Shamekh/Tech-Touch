@@ -20,32 +20,40 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>{{ __('admin.Source') }}</th>
+                                <th>{{ __('admin.Name') }}</th>
+                                <th>{{ __('admin.Email') }}</th>
+                                <th>{{ __('admin.Phone') }}</th>
                                 <th>{{ __('admin.Message') }}</th>
+                                <th>{{ __('admin.Source') }}</th>
                                 <th>{{ __('admin.Date') }}</th>
                                 <th>{{ __('admin.Status') }}</th>
                                 <th>{{ __('admin.Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($notification as $notification)
+                            @foreach (auth()->user()->unreadNotifications as $notificationS)
                                 <tr>
-                                    <td>{{ $notification->id }}</td>
-                                    <td>{{ $notification->data['source'] ?? 'Unknown' }}</td>
-                                    <td>{{ $notification->data['message'] }}</td>
-                                    <td>{{ $notification->created_at->format('Y-m-d h:i') }}</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $notificationS->data['name'] }}</td>
+                                    <td>{{ $notificationS->data['email'] }}</td>
+                                    <td>{{ $notificationS->data['phone'] }}</td>
+                                    <td>{{ $notificationS->data['message'] }}</td>
                                     <td>
-                                        @if ($notification->read_at)
+                                        <span class="badge bg-info-500">{{ $notificationS->data['source'] ?? 'Unknown' }}</span>
+                                    </td>
+                                    <td>{{ $notificationS->created_at->format('Y-m-d h:i') }}</td>
+                                    <td>
+                                        @if ($notificationS->read_at)
                                             <span class="badge bg-success">{{ __('admin.Read') }}</span>
                                         @else
                                             <span class="badge bg-warning">{{ __('admin.Unread') }}</span>
                                         @endif
                                     </td>
                                     <td>
-                                        @if ($notification->deleted_at)
+                                        @if ($notificationS->deleted_at)
                                             <span class="badge bg-danger">{{ __('admin.Deleted') }}</span>
                                         @else
-                                            <a href="{{ route('admin.notification.show', $notification->id) }}" class="btn btn-info btn-sm">{{ __('admin.View') }}</a>
+                                            <a href="{{ route('admin.notification.show', $notificationS['id']) }}" class="badge bg-success">{{ __('admin.View') }}</a>
                                         @endif
                                     </td>
                                 </tr>

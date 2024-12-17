@@ -13,8 +13,27 @@ class HomeController extends Controller
 
     public function index()
     {
-        
+
         return view('dashboard.index');
+    }
+
+
+    public function notificationsIndex()
+    {
+        return view('dashboard.notifications.index');
+    }
+
+
+
+
+
+    public function show($id)
+    {
+
+        $notification = Notification::withTrashed()->findOrFail($id);
+        $notificationData = $notification->data;
+
+        return view('dashboard.notifications.show', compact('notification', 'notificationData'));
     }
 
 
@@ -27,16 +46,7 @@ class HomeController extends Controller
 
 
 
-public function show($id)
-{
 
-    $notification = Notification::withTrashed()->findOrFail($id);
-
-
-    $notificationData = json_decode($notification->data, true);
-
-    return view('dashboard.notifications.show', compact('notification', 'notificationData'));
-}
 
 
 

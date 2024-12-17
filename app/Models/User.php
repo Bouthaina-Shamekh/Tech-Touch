@@ -53,10 +53,10 @@ class User extends Authenticatable
         return $this->hasMany(File::class);
     }
 
-    public function notifications()
-{
-    return $this->morphMany(Notification::class, 'notifiable');
-}
+//     public function notifications()
+// {
+//     return $this->morphMany(Notification::class, 'notifiable');
+// }
 
 
 

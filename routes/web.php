@@ -63,7 +63,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
             'feature' =>FeatureController::class,
         ]);
 
-        Route::get('notifications', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('notification.index');
+        Route::get('notifications', [App\Http\Controllers\Admin\HomeController::class, 'notificationsIndex'])->name('notification.index');
 
         Route::get('notifications/{id}', [App\Http\Controllers\Admin\HomeController::class, 'show'])->name('notification.show');
 

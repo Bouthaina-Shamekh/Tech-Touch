@@ -77,6 +77,16 @@
                     </a>
                     <ul class="pc-submenu">
 
+
+                        <li class="pc-item">
+                            <a href="{{route('admin.notification.index')}}" class="pc-link">
+                                <svg class="pc-micon">
+                                    <use xlink:href="#custom-notification"></use>
+                                </svg>
+                                <span class="pc-mtext">{{__('admin.Notifications')}}</span>
+                            </a>
+                        </li>
+
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.question.index')}}">
                                 {{__('admin.Questions')}}
