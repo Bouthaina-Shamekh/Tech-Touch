@@ -16,14 +16,17 @@ class ContacMessageEvent implements ShouldBroadcast
 
     public $user_id;
     public $message;
+    public $source;
 
     /**
      * Create a new event instance.
      */
-    public function __construct($user_id,$message)
+    public function __construct($user_id,$message,$source = 'contact')
     {
         $this->user_id = $user_id;
         $this->message = $message;
+        $this->source = $source;
+
     }
 
     /**
@@ -45,5 +48,15 @@ class ContacMessageEvent implements ShouldBroadcast
         return 'notify';
 
 
+    }
+
+
+    public function broadcastWith()
+    {
+        return [
+            'user_id' => $this->user_id,
+            'message' => $this->message,
+            'source' => $this->source,  
+        ];
     }
 }

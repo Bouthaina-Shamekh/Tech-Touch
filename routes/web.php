@@ -63,6 +63,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
             'feature' =>FeatureController::class,
         ]);
 
+        Route::get('notifications', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('notification.index');
+
+        Route::get('notifications/{id}', [App\Http\Controllers\Admin\HomeController::class, 'show'])->name('notification.show');
+
 
         Route::get('/setting',[SettingController::class , 'index'])->name('setting.index');
         Route::post('/setting/update',[SettingController::class , 'update'])->name('setting.update');

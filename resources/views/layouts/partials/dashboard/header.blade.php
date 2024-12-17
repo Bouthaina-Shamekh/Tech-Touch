@@ -68,7 +68,9 @@
                         </a>
                     </div>
                 </li>
-                <li class="dropdown pc-h-item">
+
+
+                {{-- <li class="dropdown pc-h-item">
                     <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
                         aria-haspopup="false" aria-expanded="false">
                         <svg class="pc-icon">
@@ -79,11 +81,11 @@
                     <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown p-2">
                         <div class="dropdown-header flex items-center justify-between py-4 px-5">
                             <h5 class="m-0">{{__('Notifications')}}</h5>
-                            {{-- <a href="#!" class="btn btn-link btn-sm">{{__('Mark all read')}}</a> --}}
+
                         </div>
                         <div id="unread" class="dropdown-body header-notification-scroll relative py-4 px-5"
                             style="max-height: calc(100vh - 215px)">
-                            {{-- <p class="text-span mb-3">{{__('Today')}}</p> --}}
+
                             @foreach(auth()->user()->unreadNotifications as $notification)
                             <div class="card mb-2">
                                 <div class="card-body">
@@ -134,7 +136,75 @@
 
 
 
+                </li> --}}
+
+                <li class="dropdown pc-h-item">
+                    <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="false" aria-expanded="false">
+                        <svg class="pc-icon">
+                            <use xlink:href="#custom-notification"></use>
+                        </svg>
+                        <span id="notifications_count" class="badge bg-success-500 text-white rounded-full z-10 absolute right-0 top-0">
+                            {{ auth()->user()->unreadNotifications->whereNull('deleted_at')->count() }}
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown p-2">
+                        <div class="dropdown-header flex items-center justify-between py-4 px-5">
+                            <h5 class="m-0">{{__('Notifications')}}</h5>
+                        </div>
+                        <div id="unread" class="dropdown-body header-notification-scroll relative py-4 px-5"
+                            style="max-height: calc(100vh - 215px)">
+                            @foreach(auth()->user()->unreadNotifications->whereNull('deleted_at') as $notification)
+                                <div class="card mb-2">
+                                    <div class="card-body">
+                                        <div class="flex gap-4">
+                                            <div class="shrink-0">
+                                                @if ($notification->type == 'App\Notifications\ContactNotification')
+                                                    <svg class="pc-icon text-primary w-[22px] h-[22px]">
+                                                        <use xlink:href="#custom-sms"></use>
+                                                    </svg>
+                                                @else
+                                                    <svg class="pc-icon text-primary w-[22px] h-[22px]">
+                                                        <use xlink:href="#custom-document-text"></use>
+                                                    </svg>
+                                                @endif
+                                            </div>
+                                            <div class="grow">
+                                                <span class="float-end text-sm text-muted">{{ $notification->created_at->format('Y-m-d h:i') }}</span>
+                                                <h5 class="text-body mb-2">{{ $notification->data['name'] }}</h5>
+                                                <p class="mb-0">
+                                                    {{ $notification->data['email'] }}
+                                                </p>
+                                                <p class="mb-0">
+                                                    {{ $notification->data['phone'] }}
+                                                </p>
+                                                <p class="mb-0">
+                                                    {{ $notification->data['message'] }}
+                                                </p>
+                                                <p class="text-sm text-muted mb-0">
+                                                    <strong>Source: </strong>{{ $notification->data['source'] ?? 'Unknown' }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- <a href="{{route('admin.notification.show', $notification->id)}}" class="stretched-link"></a> --}}
+
+                                    <a href="{{ route('admin.notification.show', $notification->id) }}" class="stretched-link"></a>
+
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="text-center py-2">
+                            <form action="{{ route('admin.notification.clearAll') }}" method="post">
+                                @csrf
+                                <button type="submit" class="text-danger-500 hover:text-danger-600 focus:text-danger-600 active:text-danger-600">{{__('Clear all Notifications')}}</button>
+                            </form>
+                        </div>
+                    </div>
                 </li>
+
+
+
                 <li class="dropdown pc-h-item header-user-profile">
                     <a class="pc-head-link dropdown-toggle arrow-none me-0" data-pc-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" data-pc-auto-close="outside" aria-expanded="false">

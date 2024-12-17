@@ -14,17 +14,19 @@ class ContactNotification extends Notification
    protected $email;
    protected $phone;
    protected $message;
+   protected $source;
 
 
     /**
      * Create a new notification instance.
      */
-    public function __construct($name ,$email, $phone, $message)
+    public function __construct($name ,$email, $phone, $message,$source = 'contact')
     {
         $this->name =$name;
         $this->email =$email;
         $this->phone =$phone;
         $this->message =$message;
+        $this->source = $source;
     }
 
     /**
@@ -47,6 +49,7 @@ class ContactNotification extends Notification
             'name' => $this->name,
             'phone' => $this->phone,
             'message' => $this->message,
+            'source' => $this->source,
         ];
     }
 
@@ -55,5 +58,5 @@ class ContactNotification extends Notification
      *
      * @return array<string, mixed>
      */
-   
+
 }

@@ -15,11 +15,18 @@ use Illuminate\Support\Facades\Notification;
 
 class MailController extends Controller
 {
+
+
+
+
     public function send()
     {
         Mail::to('bou@gmail.com')->send(new SendMail());
         return 'Done';
     }
+
+    
+
 
     public function contact(){
 
@@ -39,6 +46,7 @@ class MailController extends Controller
             'email' => 'required',
             'phone' => 'required',
             'message' => 'required',
+
         ]);
         try {
             // dd($request->all());
@@ -50,7 +58,10 @@ class MailController extends Controller
             $request->name,
             $request->email,
             $request->phone,
-            $request->message));
+            $request->message,
+            'contact'
+
+        ));
 
             foreach ($users as $user) {
                 // ContacMessageEvent::dispatch($user->id,'contact_us');
