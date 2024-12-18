@@ -14,7 +14,7 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        $partners = Partner::all();
+        $partners = Partner::Orderby('id','desc')->get();
         $images = Media::paginate(100);
 
         return view('dashboard.partners.index',compact('partners','images'));

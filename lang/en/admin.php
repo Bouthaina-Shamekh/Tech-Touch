@@ -116,6 +116,16 @@ return [
      'Feature_AR' => 'Feature Arabic',
      'Feature_EN' => 'Feature English',
      'Add Slider' => 'Add Slider',
+     'Notifications' => 'Notifications',
+     'Email' => 'Email',
+     'Phone' => 'Phone',
+     'Message' => 'Message',
+     'Source' => 'Source',
+     'Date'=>'Date',
+     'Status' => 'Status',
+     'Services' => 'Services',
+     'Back to Notifications' => 'Back to Notifications',
+
 
 
 

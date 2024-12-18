@@ -110,6 +110,9 @@ Route::get('send-mail', [MailController::class, 'send']);
 Route::get('contact', [MailController::class, 'contact'])->name('site.contact');
 Route::post('contact', [MailController::class, 'contact_data'])->name('site.contact_data');
 
+Route::get('consultation', [MailController::class, 'consultation'])->name('site.consultation');
+Route::post('consultation/send-data', [MailController::class, 'consultation_data'])->name('site.consultation_data');
+
 
 
 

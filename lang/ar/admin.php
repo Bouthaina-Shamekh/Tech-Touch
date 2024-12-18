@@ -118,6 +118,14 @@ return [
      'Feature_AR' => 'المميزات بالعربي',
      'Feature_EN' => 'المميزات بالانجليزي',
      'Add Slider' => 'اضافة سلايدر',
+     'Notifications' => 'الاشعارات',
+     'Email' => 'الايميل',
+     'Phone' => 'رقم الموبايل',
+     'Message' => 'المسج',
+     'Source' => 'المصدر',
+     'Date'=>'التاريخ',
+     'Status' => 'الحالة',
+     'Back to Notifications' => 'العودة الى الاشعارات',
 
 
 

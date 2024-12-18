@@ -146,8 +146,6 @@
                         </svg>
                         <span id="notifications_count" class="badge bg-success-500 text-white rounded-full z-10 absolute right-0 top-0">
                             {{ auth()->user()->notifications->whereNull('read_at')->whereNull('deleted_at')->count() }}
-
-
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown p-2">
@@ -171,6 +169,7 @@
                                                     </svg>
                                                 @endif
                                             </div>
+                                            @if ($notification->data['source'] == 'contact')
                                             <div class="grow">
                                                 <span class="float-end text-sm text-muted">{{ $notification->created_at->format('Y-m-d h:i') }}</span>
                                                 <h5 class="text-body mb-2">{{ $notification->data['name'] }}</h5>
@@ -178,9 +177,18 @@
                                                     <strong>Source: </strong>{{ $notification->data['source'] ?? 'Unknown' }}
                                                 </p>
                                             </div>
+                                            @else
+                                            <div class="grow">
+                                                <span class="float-end text-sm text-muted">{{ $notification->created_at->format('Y-m-d h:i') }}</span>
+                                                <h5 class="text-body mb-2">{{ $notification->data['first_name'] }} {{ $notification->data['last_name'] }}</h5>
+                                                <p class="badge text-white bg-info-500">
+                                                    <strong>Source: </strong>{{ $notification->data['source'] ?? 'Unknown' }}
+                                                </p>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
-                                    
+                                    {{-- <a href="{{route('admin.notification.show', $notification->id)}}" class="stretched-link"></a> --}}
                                     <a href="{{ route('admin.notification.show', $notification->id) }}" class="stretched-link"></a>
                                 </div>
                             @endforeach

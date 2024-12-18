@@ -32,6 +32,7 @@
                         </thead>
                         <tbody>
                             @foreach (auth()->user()->unreadNotifications as $notificationS)
+                                @if ($notificationS->data['source'] == 'contact')
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $notificationS->data['name'] }}</td>
@@ -57,6 +58,34 @@
                                         @endif
                                     </td>
                                 </tr>
+                                @else
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $notificationS->data['first_name'] }} {{ $notificationS->data['last_name'] }}</td>
+                                    <td>{{ $notificationS->data['email'] }}</td>
+                                    <td>{{ $notificationS->data['phone'] }}</td>
+                                    <td></td>
+                                    <td>
+                                        <span class="badge bg-primary-500">{{ $notificationS->data['source'] ?? 'Unknown' }}</span>
+                                    </td>
+                                    <td>{{ $notificationS->created_at->format('Y-m-d h:i') }}</td>
+                                    <td>
+                                        @if ($notificationS->read_at)
+                                            <span class="badge bg-success">{{ __('admin.Read') }}</span>
+                                        @else
+                                            <span class="badge bg-warning">{{ __('admin.Unread') }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($notificationS->deleted_at)
+                                            <span class="badge bg-danger">{{ __('admin.Deleted') }}</span>
+                                        @else
+                                            <a href="{{ route('admin.notification.show', $notificationS['id']) }}" class="badge bg-success">{{ __('admin.View') }}</a>
+                                        @endif
+                                    </td>
+                                </tr>
+                                @endif
+
                             @endforeach
                         </tbody>
                     </table>

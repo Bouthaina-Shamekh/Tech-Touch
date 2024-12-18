@@ -85,7 +85,7 @@
                 <!-- Right elements -->
                 <div class="right__hero relative flex items-center">
                     <div class="relative group">
-                        <a href="./pages/free_consultation.html" class="inline-block bg-second px-6 pb-2 pt-2.5 text-base font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-dark hover:shadow-md focus:bg-dark focus:shadow-md focus:outline-none focus:ring-0 active:bg-dark active:shadow-md motion-reduce:transition-none">
+                        <a href="{{route('site.consultation')}}" class="inline-block bg-second px-6 pb-2 pt-2.5 text-base font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-dark hover:shadow-md focus:bg-dark focus:shadow-md focus:outline-none focus:ring-0 active:bg-dark active:shadow-md motion-reduce:transition-none">
                         Free Consultation
                         </a>
                         <div class="absolute top-1/2 -right-[16px] -translate-y-1/2 group-hover:transform group-hover:rotate-90 group-hover:-translate-y-1/2 group-hover:-translate-x-1/3 transition-all delay-200 ease-in">

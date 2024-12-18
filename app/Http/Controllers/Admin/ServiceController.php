@@ -68,7 +68,7 @@ class ServiceController extends Controller
     {
         $services = Service::findOrFail($id);
         $images = Media::paginate(100);
-        return view('dashboard.Service.edit',compact('services','images'));
+        return view('dashboard.service.edit',compact('services','images'));
     }
 
     /**

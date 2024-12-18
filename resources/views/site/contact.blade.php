@@ -13,7 +13,7 @@ $name = 'name_' . app()->currentLocale();
             <nav class="w-full rounded-md">
                 <ol class="list-reset flex">
                     <li>
-                        <a href="../index.html" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
+                        <a href="{{route('site.index')}}" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
                             Home
                         </a>
                     </li>
