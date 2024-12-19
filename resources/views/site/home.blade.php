@@ -288,7 +288,8 @@ $description = 'description_' . app()->currentLocale();
                             <div class="f img-about">
                                 <div class="hexagon-container" style="width: 150px; height: 140px;">
                                     <!-- SVG للشكل السداسي بحدود متقطعة -->
-                                    <div class="hexagon-content bg-main" style="width: 162px; height: 162px; background-color: #50ada3;">
+                                    <!-- العنصر الداخلي -->
+                                    <div class="hexagon-content bg-main"  style="width: 162px; height: 162px; background-color: #50ada3;">
                                         @if ($chunk[$index]->image == 'null')
                                         <img src="{{ asset('asset/img/extra/team-01.png') }}" alt="" class="w-[140px] h-[140px] object-cover">
                                         @else
@@ -297,7 +298,7 @@ $description = 'description_' . app()->currentLocale();
                                     </div>
                                 </div>
                                 <div class="flex flex-col justify-center items-center mt-4">
-                                    <span class="text-second font-semibold text-xl">{{ $chunk[$index]->name }}</span>
+                                    <span class="text-second font-semibold text-xl">{{ $chunk[$index]->name_en }}</span>
                                     <span class="text-second font-light text-base">{{ $chunk[$index]->Specialization_en }}</span>
                                 </div>
                             </div>
@@ -306,12 +307,12 @@ $description = 'description_' . app()->currentLocale();
                         <div class="right"></div>
                         @if (isset($chunk[$index + 1]))
                             <div class="l img-about">
-                                <div class="flex flex-col justify-center items-center mt-4">
-                                    <span class="text-second font-semibold text-xl">{{ $chunk[$index + 1]->name }}</span>
+                                <div class="flex flex-col justify-center items-center mb-4">
+                                    <span class="text-second font-semibold text-xl">{{ $chunk[$index + 1]->name_en }}</span>
                                     <span class="text-second font-light text-base">{{ $chunk[$index + 1]->Specialization_en }}</span>
                                 </div>
                                 <div class="hexagon-container" style="width: 150px; height: 140px;">
-                                    <div class="hexagon-content bg-main" style="width: 162px; height: 162px; background-color: #50ada3;">
+                                    <div class="hexagon-content bg-main"  style="width: 162px; height: 162px; background-color: #50ada3;">
 
                                         @if ($chunk[$index + 1]->image == 'null')
                                         <img src="{{ asset('asset/img/extra/team-02.png') }}" alt="" class="w-[140px] h-[140px] object-cover">

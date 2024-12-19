@@ -428,7 +428,7 @@
             let imgCount = $(".scroll-wrapper .content img").length;
 
             let widthContent = (recCount * 270) + ((recCount - 1) * 200);
-            $(".scroll-wrapper .content").width(widthContent);
+            $(".scroll-wrapper .content").width(widthContent);           
         });
 
 
