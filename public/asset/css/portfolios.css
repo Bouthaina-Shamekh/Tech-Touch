@@ -20,11 +20,8 @@
     overflow: hidden;
     transition: transform 0.3s;
 }
-.masonry-item:not(:nth-child(4)) , .masonry-item:not(:nth-child(7))  {
-    height: 530px !important;
-}
 .masonry-item:nth-child(4) , .masonry-item:nth-child(7)  {
-    height: 253px !important;
+    height: 254px !important;
 }
 .masonry-item::before {
     content: '';

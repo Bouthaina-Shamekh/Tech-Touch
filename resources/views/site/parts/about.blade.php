@@ -28,18 +28,12 @@
                     <div class="card__about hexagon-container w-[70%] md:w-[30%]">
                         <!-- SVG للشكل السداسي بحدود متقطعة -->
                         <svg width="100%" height="100%" viewBox="0 0 100 100">
-                            <polygon points="25,6.7,75 6.7,100 50,75 93.3,25 93.3,0 50" fill="none" stroke="#D2D2D2" stroke-width="0.5" stroke-dasharray="0" />
+                            <polygon points="25,6.7,75 6.7,100 50,75 93.3,25 93.3,0 50" fill="none" stroke="#D2D2D2" 
+                            stroke-width="0.5" stroke-dasharray="0" />
                         </svg>
                         <!-- العنصر الداخلي -->
-                        {{-- <div class="hexagon-content flex flex-col">
-                            <!--  data-target="5" هنا يتم وضع الرقم الذي سيظهر والفكرة لحركة زيادة الارقام -->
-                            <span class="text-5xl font-semibold text-main mb-2 counter" data-target="{{$abouts->partner}}">0</span>
-                            <span class="text-xl font-semibold text-second ">Partners</span>
-                        </div> --}}
-
                         <div class="hexagon-content flex flex-col">
-                            <!--  data-target="5" هنا يتم وضع الرقم الذي سيظهر والفكرة لحركة زيادة الارقام -->
-                            <span class="text-5xl font-semibold text-main mb-2 counter" data-target="{{ $partnersCount }}">{{ $partnersCount }}</span>
+                            <span class="text-7xl font-semibold text-main mb-2 counter" data-target="5">0</span> 
                             <span class="text-xl font-semibold text-second ">Partners</span>
                         </div>
                     </div>
@@ -50,7 +44,7 @@
                         </svg>
                         <!-- العنصر الداخلي -->
                         <div class="hexagon-content flex flex-col">
-                            <span class="text-5xl font-semibold text-main mb-2 counter" data-target="{{ $teamCount }}">{{ $teamCount }}</span>
+                            <span class="text-7xl font-semibold text-main mb-2 counter" data-target="27">0</span>
                             <span class="text-xl font-semibold text-second ">Employees</span>
                         </div>
                     </div>
@@ -61,7 +55,7 @@
                         </svg>
                         <!-- العنصر الداخلي -->
                         <div class="hexagon-content flex flex-col">
-                            <span class="text-5xl font-semibold text-main mb-2 counter" data-target="{{$workCount}}">{{$workCount}}</span>
+                            <span class="text-7xl font-semibold text-main mb-2 counter" data-target="221">0</span>
                             <span class="text-xl font-semibold text-second ">Projects</span>
                         </div>
                     </div>

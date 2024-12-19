@@ -29,7 +29,7 @@
     <!-- My css -->
     <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
 </head>
-<body class="min-h-screen relative overflow-x-hidden">
+<body class="min-h-screen relative overflow-x-hidden" style="padding-right: 0 !important;">
     <!-- Header -->
     <header>
         <!-- Main navigation container -->
