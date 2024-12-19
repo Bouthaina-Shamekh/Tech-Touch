@@ -327,6 +327,7 @@ $description = 'description_' . app()->currentLocale();
                 @endforeach
                 <div class="rec">
                     <div class="left"></div>
+                    <div class="right"></div>
                 </div>
             </div>
         </div>
@@ -336,7 +337,7 @@ $description = 'description_' . app()->currentLocale();
     <section class="mt-10 relative">
         <div class="container py-10">
             <div class="flex flex-col justify-center items-center">
-                <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2">CLIENT'S FEEDBACK</h2>
+                <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2 text-center">CLIENT'S FEEDBACK</h2>
                 <h3 class="text__client text-xl md:text-3xl font-semibold text-second mb-2">What People Say About Us</h3>
             </div>
         </div>
@@ -347,9 +348,9 @@ $description = 'description_' . app()->currentLocale();
                     <div class="image-slider" id="image-slider">
                     @foreach ($clients as $index => $client )
                         @if ($client->image != 'null')
-                        <img src="{{ asset('storage/' . $client->image) }}" alt="Client {{ $index + 1 }}" class="w-20 h-20 rounded-full border-2 border-teal-500 cursor-pointer {{ $index === 2 ? 'active' : 'inactive' }} img__client" data-client="{{ $index + 1 }}">
+                        <img src="{{ asset('storage/' . $client->image) }}" alt="Client 1" class="w-12 h-12 md:w-20 md:h-20 rounded-full border-2 border-teal-500 cursor-pointer {{ $index === 2 ? 'active' : 'inactive' }} img__client" data-client="{{ $index + 1 }}">
                         @else
-                        <img src="{{ asset('asset/img/extra/client-01.png') }}" alt="Client {{ $index + 1 }}" class="w-20 h-20 rounded-full border-2 border-teal-500 cursor-pointer {{ $index === 2 ? 'active' : 'inactive' }} img__client" data-client="{{ $index + 1 }}">
+                        <img src="{{ asset('asset/img/extra/client-01.png') }}" alt="Client" class="w-12 h-12 md:w-20 md:h-20 rounded-full border-2 border-teal-500 cursor-pointer {{ $index === 2 ? 'active' : 'inactive' }} img__client" data-client="{{ $index + 1 }}">
                         @endif
                     @endforeach
                     </div>
@@ -357,7 +358,7 @@ $description = 'description_' . app()->currentLocale();
             </div>
 
             <!-- المراجعات -->
-            <div class="review__arrow relative mt-8 bg-teal-50 p-6 rounded-lg shadow-md text-center w-1/4">
+            <div class="review__arrow relative mt-8 bg-teal-50 p-6 rounded-lg shadow-md text-center w-[80%]">
                 <div class="review__arrow absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[22px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="63" height="23" viewBox="0 0 63 23">
                         <path id="Polygon_28" data-name="Polygon 28" d="M31.5,0,63,23H0Z" fill="#ebebeb"/>
