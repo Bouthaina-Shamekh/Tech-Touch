@@ -229,19 +229,19 @@
             const totalParagraphs = $paragraphs.length;
             let currentIndex = 0;
             const $progressBar = $('#progress-bar');
-
+            
             // وظيفة لتحديث الفقرة الظاهرة وشريط التقدم
             function updateParagraph(index) {
                 $paragraphs.hide().eq(index).fadeIn(); // إخفاء جميع الفقرات وإظهار الحالية
                 $progressBar.css('width', `${((index + 1) / totalParagraphs) * 100}%`); // تحديث عرض شريط التقدم
             }
-
+            
             // الانتقال إلى الفقرة التالية
             function nextParagraph() {
                 currentIndex = (currentIndex + 1) % totalParagraphs;
                 updateParagraph(currentIndex);
             }
-
+            
             // الانتقال إلى الفقرة السابقة
             function prevParagraph() {
                 currentIndex = (currentIndex - 1 + totalParagraphs) % totalParagraphs;

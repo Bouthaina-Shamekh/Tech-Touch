@@ -12,14 +12,15 @@ $description = 'description_' . app()->currentLocale();
 
 @section('content')
     <!-- hero -->
-    <section class="hero mt-12 mb-32 relative">
+    <section class="hero mt-32 mb-36 md:mt-12 md:mb-32 relative">
         <div class="container">
             <div class="flex flex-wrap justify-between items-center text-center md:text-left">
                 <!-- Text -->
                 <div class="text__hero flex flex-col  flex-1/2 justify-start items-center md:items-start">
                     <h1 class="text-5xl md:text-[5rem] font-bold">
                         <span class="text-second">Test Your</span>
-                        <span class="text-main" id="typewriter_hero"></span>
+                        <br class="block md:hidden">
+                        <span class="text-main h-[67px] block md:inline" id="typewriter_hero"></span>
                         <!-- الكلمات مخزنة في HTML -->
                         @foreach ( $sliders as $slide)
                         <div id="word-list" class="hidden">
@@ -27,19 +28,19 @@ $description = 'description_' . app()->currentLocale();
                         </div>
                         @endforeach
                     </h1>
-                    @foreach ( $sliders as $slide)
+                    @foreach ( $sliders as $index => $slide)
                     <div id="hero-texts" class="relative space-y-4 mt-4">
-                        <p class="hero-paragraph font-light leading-6 text-xl md:text-2xl text-dark">
+                        <p class="hero-paragraph font-light leading-6 text-xl md:text-2xl text-dark {{ $index > 0 ? 'hidden' : '' }}">
                             {{$slide->description_en}}
                         </p>
                     </div>
                     @endforeach
-                    <div class="relative mb-3 w-full flex justify-start my-8">
+                    <div class="relative mb-3 w-full flex justify-center md:justify-start my-8">
                         <a href="{{route('site.test_idea')}}" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:ml-4 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">
                             {{__('Start Now')}}
                         </a>
                     </div>
-                    <div class="flex justify-between items-center w-full">
+                    <div class="flex flex-col md:flex-row justify-between items-center w-full">
                         <!-- شريط التقدم -->
                         <div class="relative mt-6 w-3/4">
                             <div id="progress-bar" class="absolute bottom-0 left-0 h-1 bg-main"></div>
@@ -79,13 +80,13 @@ $description = 'description_' . app()->currentLocale();
                     <p class="text__service text-dark font-light text-base leading-6">{{$services->$description}}</p>
                     <div class="flex flex-col justify-start items-start my-4">
                         @foreach ($service as $item )
-                        <div class="service__box flex justify-between items-center gap-4 h-full p-3 border-y border-[#AEB4C0]">
-                            <div class="flex items-center justify-center  w-1/4">
+                        <div class="service__box flex flex-col md:flex-row justify-between items-start md:items-center gap-4 h-full p-3 border-y border-[#AEB4C0]">
+                            <div class="flex items-center justify-center w-1/2  md:w-1/4">
                                 <img src="{{asset("storage/" . $item->image)}}" alt="service" class="w-3/4">
                             </div>
                             <div class="flex flex-col flex-1 justify-start items-start my-4">
-                                <h3 class="text-2xl font-medium text-second mb-4">{{$item->$name}}</h3>
-                                <p class="text-second font-light text-sm leading-6">{{$item->$description}}</p>
+                                <h3 class="text-lg md:text-2xl font-medium text-second mb-4">{{$item->$name}}</h3>
+                                <p class="text-second font-light text-xs md:text-sm  md:leading-6">{{$item->$description}}</p>
                                 <a href="{{route('site.services_show', $item->id)}}" class="my-2 text-main underline hover:pl-2 transition-all delay-150 ease-in">
                                     Read MORE
                                 </a>
@@ -96,8 +97,6 @@ $description = 'description_' . app()->currentLocale();
                         <div class="service__box relative my-8 w-full flex justify-start">
                             <a href="{{route('site.services')}}" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:ml-4 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">Show All</a>
                         </div>
-
-
                         @endif
                     </div>
                 </div>
@@ -137,10 +136,10 @@ $description = 'description_' . app()->currentLocale();
                         <br>
                         {{$files->$name}}
                     </h2>
-                    <h3 class="left__files text-base md:text-2xl font-light text-second mb-2">{{$files->$title}}</h3>
+                    <h3 class="left__files text-base md:text-2xl font-light text-second mb-2">{{$files->$description}}</h3>
                     <div class="left__files hidden md:block">
                         @if($files->image1 == null)
-                            <img src="{{asset('asset/img/extra/files_home.png')}}" alt="extra" width="67%">
+                            <img src="{{asset('asset/img/extra/files_home.png')}}" alt="extra" >
                         @else
                             <img src="{{asset("storage/" .  $files->image1)}}" alt="">
                         @endif
@@ -148,7 +147,7 @@ $description = 'description_' . app()->currentLocale();
                 </div>
                 <!-- Right -->
                 <div class="flex flex-col flex-auto justify-start items-center md:items-start  md:w-2/3 md:pl-10">
-                    <div class="top__files flex justify-between items-center w-full">
+                    <div class="top__files flex flex-col md:flex-row justify-between items-center w-full">
                         <!-- شريط التقدم -->
                         <div class="relative mt-6 w-3/4">
                             <div id="progress-bar-files" class="absolute bottom-0 left-0 h-1 bg-main"></div>
@@ -203,7 +202,7 @@ $description = 'description_' . app()->currentLocale();
             <div class="flex flex-col justify-center items-center center__partners">
                 <h3 class="text-xl md:text-3xl font-semibold text-second mb-2">Tech Touch</h3>
                 <h2 class="text-5xl md:text-7xl font-semibold text-main uppercase mb-2">{{$partners->$name}} </h2>
-                <p class="text-dark font-light text-base leading-6 text-center w-[165%]">{{$partners->$description}}</p>
+                <p class="text-dark font-light text-base leading-6 text-center w-[140%] md:w-[165%]">{{$partners->$description}}</p>
             </div>
             <div class="right_partners">
                 <svg xmlns="http://www.w3.org/2000/svg" width="677.327" height="136.595" viewBox="0 0 677.327 136.595">
@@ -214,9 +213,11 @@ $description = 'description_' . app()->currentLocale();
         <div class="container">
             <div class="flex flex-wrap justify-center items-center" style="gap: 0 70px;">
                 @foreach ($partner as $partner)
+                <div class="img__partners">
                     <a href="{{$partner->link}}" class="img__partners">
                         <img src="{{asset("storage/" . $partner->image)}}" alt="" width="75%" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
                     </a>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -227,7 +228,7 @@ $description = 'description_' . app()->currentLocale();
         <div class="container py-16">
             <div class="flex flex-col justify-center items-center">
                 <h3 class="text-xl md:text-4xl font-semibold text-main mb-2 text__work">{{$work->name_en}}</h3>
-                <h2 class="text-3xl md:text-5xl font-semibold text-white uppercase mb-2 text__work">{{$work->title_en}}</h2>
+                <h2 class="text-3xl md:text-5xl font-semibold text-white uppercase mb-2 text__work text-center md:text-left">{{$work->title_en}}</h2>
             </div>
             <div class="swiper p-0">
                 <div class="slider-wrapper">
