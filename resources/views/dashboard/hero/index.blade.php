@@ -72,7 +72,7 @@
                                 <td>{{$hero->$name}}</td>
                                 <td>{{$hero->$title}}</td>
                                 <td>
-                                 <span class="description">   {{$hero->$description}} </span>
+                                 <span class="description">   {!!$hero->$description!!} </span>
                                 </td>
 
                                 <td>

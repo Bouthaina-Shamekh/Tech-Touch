@@ -1,6 +1,7 @@
 <x-dashboard-layout>
     @push('styles')
         <link rel="stylesheet" href="{{asset('assets-dashboard/css/media.css')}}">
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
@@ -29,11 +30,11 @@
 
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('Content Arabic')}}</label>
-                                <textarea name="description_ar" id="description_ar" rows="3" class="form-control" required>{{$slid->description_ar}}</textarea>
+                                <textarea name="description_ar" id="mytextarea" rows="3" class="form-control" required>{{$slid->description_ar}}</textarea>
                             </div>
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('Content English')}}</label>
-                                <textarea name="description_en" id="description_en" rows="3" class="form-control" required>{{$slid->description_en}}</textarea>
+                                <textarea name="description_en" id="mytextarea" rows="3" class="form-control" required>{{$slid->description_en}}</textarea>
                             </div>
                         </div>
                         <div class="row justify-content-end mt-3">
@@ -49,6 +50,19 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.4.1/tinymce.
+min.js" referrerpolicy="origin"></script>
+
+<script>
+    tinymce.init({
+      selector: '#mytextarea'
+    });
+  </script>
+
+    @endpush
 
 
 

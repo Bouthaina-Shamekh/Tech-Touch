@@ -35,7 +35,7 @@
                          <th>#</th>
                         <th>{{__('admin.File Name')}}</th>
                         <th>{{__('admin.File')}}</th>
-                        <th>{{__('admin.Description')}}</th>
+                        <th>{!!__('admin.Description')!!}</th>
                         <th>{{__('admin.Price')}}</th>
                         <th>{{__('admin.Btn')}}</th>
                         <th>{{__('admin.Action')}}</th>
@@ -49,7 +49,7 @@
                                 <td>{{$file->$file_name}}</td>
                                 {{-- <td>{{$file->file_name_ar}}</td> --}}
                                 <td>{{ asset('files/' . $file->file) }}</td>
-                                <td>{{$file->$description}}</td>
+                                <td>{!!$file->$description!!}</td>
                                 {{-- <td>{{$file->description_en}}</td> --}}
                                 <td>{{$file->price}}</td>
                                 <td>{{$file->btn}}</td>

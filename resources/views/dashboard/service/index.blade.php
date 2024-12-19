@@ -32,7 +32,6 @@
                     <tr>
                         <th>#</th>
                         <th>{{__('admin.Name')}}</th>
-                        {{-- <th>{{__('admin.Description')}}</th> --}}
                         <th>{{__('admin.Image')}}</th>
                         <th>{{__('admin.Action')}}</th>
 

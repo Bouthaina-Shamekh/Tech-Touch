@@ -27,53 +27,7 @@
 
 
                     <div class="card-body">
-                        {{-- <form action="{{route('dashboard.user.store')}}" method="post" enctype="multipart/form-data">
-                          @csrf
-
-
-                            <div class="grid grid-cols-12 gap-6">
-
-                            <div class="col-span-12 md:col-span-6 mb-4">
-                                <label class="form-label" for="inputAddress">{{__('admin.User Name')}}</label>
-                                <input type="text" class="form-control" name="name" id="inputAddress" placeholder="Enter your Name" />
-                              </div>
-
-                            <div class="col-span-12 md:col-span-6 mb-4">
-                              <label class="form-label" for="inputEmail4">{{__('admin.Email')}}</label>
-                              <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email" />
-                            </div>
-                            <div class="col-span-12 md:col-span-6 mb-4">
-                              <label class="form-label" for="inputPassword4">{{__('admin.Password')}}</label>
-                              <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password" />
-                            </div>
-
-                            <div class="col-span-12 md:col-span-6 mb-4">
-                                <label class="form-label" for="inputPassword4">{{__('admin.Confirm Password')}}</label>
-                                <input type="password" class="form-control" name="confirm-password" id="inputPassword4" placeholder="Confirm Password" />
-                              </div>
-                          </div>
-
-
-                          <div class="grid grid-cols-12 gap-6">
-
-                            <div class="col-span-12 md:col-span-4 mb-4">
-                              <label class="form-label" for="inputState">{{__('admin.Status')}}</label>
-                              <select id="inputState" class="form-select" name="status">
-                                <option value="online" selected>{{__('admin.Online')}}</option>
-                                <option value="ofline">{{__('admin.Ofline')}}</option>
-                              </select>
-                            </div>
-
-                            <div class="col-span-12 md:col-span-4 mb-4">
-                                <label class="form-label" for="inputState">{{__('admin.Role Name')}}</label>
-                                {!! Form::select('roles_name[]', $roles,[], array('class' => ['form-control','basic-multiple'],'multiple')) !!}
-                              </div>
-
-
-                          </div>
-
-                          <button type="submit" class="btn btn-primary">{{__('admin.Add User')}}</button>
-                        </form> --}}
+                       
 
                         <form action="{{route('admin.setting.update')}}" method="POST"  enctype="multipart/form-data">
                             @csrf

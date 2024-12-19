@@ -125,7 +125,11 @@ return [
      'Status' => 'Status',
      'Services' => 'Services',
      'Back to Notifications' => 'Back to Notifications',
-
+     'Edit File' => 'Edit File',
+     'File Name_AR' =>'File Name Arabic',
+     'File Name_EN' => 'File Name English',
+     'File Name EN' => 'File Name EN',
+     'Services' => 'Services',
 
 
 

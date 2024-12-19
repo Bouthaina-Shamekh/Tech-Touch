@@ -11,6 +11,7 @@ class ClientController extends Controller
 {
     public function index()
     {
+        $this->authorize('view', Client::class);
         $clients = Client::Orderby('id','desc')->get();
         return view('dashboard.client.index',compact('clients'));
     }
@@ -20,6 +21,7 @@ class ClientController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Client::class);
         $clients = Client::first();
         $images = Media::paginate(100);
         return view('dashboard.client.create',compact('clients','images'));
@@ -30,6 +32,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Client::class);
         $request->validate([
             'name_en' => 'required|string|max:255',
             'name_ar' => 'required|string|max:255',
@@ -66,6 +69,7 @@ class ClientController extends Controller
      */
     public function edit(string $id)
     {
+        $this->authorize('edit', Client::class);
         $clients = Client::findOrFail($id);
         $images = Media::paginate(100);
         return view('dashboard.client.edit',compact('clients','images'));
@@ -76,6 +80,7 @@ class ClientController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $this->authorize('edit', Client::class);
         $request->validate([
             'name_en' => 'required|string|max:255',
             'name_ar' => 'required|string|max:255',
@@ -110,6 +115,7 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('delete', Client::class);
         $clients = Client::findOrFail($id);
         $clients->delete();
         return redirect()->route('admin.client.index')->with('success', __('Item deleted successfully.'));

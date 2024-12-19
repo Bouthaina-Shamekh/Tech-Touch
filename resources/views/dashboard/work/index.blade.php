@@ -1,5 +1,5 @@
 <x-dashboard-layout>
-    
+
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
         <li class="breadcrumb-item" aria-current="page">{{__('admin.Works')}}</li>
@@ -43,7 +43,7 @@
                                 <td>{{$loop->iteration}}</td>
                                 @if (App::getLocale() == 'ar')
                                 <td>{{$work->name_ar}}</td>
-                                <td>{{$work->description_ar}}</td>
+                                <td>{!!$work->description_ar!!}</td>
                                 @else
                                 <td>{{$work->name_en}}</td>
                                 <td>{{$work->description_en}}</td>

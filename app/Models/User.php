@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -21,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'super_admin',
     ];
 
     /**
@@ -58,6 +60,12 @@ class User extends Authenticatable
 //     return $this->morphMany(Notification::class, 'notifiable');
 // }
 
+
+
+    public function roles() :HasMany
+    {
+        return $this->hasMany(RoleUser::class,'user_id','id');
+    }
 
 
 

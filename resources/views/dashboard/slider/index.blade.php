@@ -42,7 +42,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$slid->$name}}</td>
-                                <td>{{$slid->$description}}</td>
+                                <td>{!! $slid->$description!!}</td>
                                 <td>
                                     <a href="{{route('admin.slider.edit',$slid->id)}}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
                                         <i class="ti ti-edit text-xl leading-none"></i>

@@ -1,6 +1,7 @@
 <x-dashboard-layout>
     @push('styles')
         <link rel="stylesheet" href="{{asset('assets-dashboard/css/media.css')}}">
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
@@ -26,15 +27,17 @@
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="name_en" label="{{__('admin.Name_EN')}}" type="text" placeholder="{{__('admin.enter name of works in english')}}" required :value="$works->name_en"/>
                             </div>
-                            <div class="form-group col-6">
-                                <label for="description_en" class="form-label">{{__('admin.Description English')}}</label>
-                                <textarea name="description_en" id="description_en" rows="3" class="form-control">{{ old('description_en',$works->description_en) }}</textarea>
-                            </div>
 
                             <div class="form-group col-6">
                                 <label for="description_ar" class="form-label">{{__('admin.Description arabic')}}</label>
-                                <textarea name="description_ar" id="description_ar" rows="3" class="form-control">{{ old('description_ar',$works->description_ar) }}</textarea>
+                                <textarea name="description_ar" id="mytextarea" rows="3" class="form-control">{{ old('description_ar',$works->description_ar) }}</textarea>
                             </div>
+                            <div class="form-group col-6">
+                                <label for="description_en" class="form-label">{{__('admin.Description English')}}</label>
+                                <textarea name="description_en" id="mytextarea" rows="3" class="form-control">{{ old('description_en',$works->description_en) }}</textarea>
+                            </div>
+
+
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="link" label="{{__('admin.Link')}}" type="url" :value="$works->link" placeholder="{{__('admin.enter link')}}"/>
                             </div>
@@ -202,5 +205,14 @@
 
     });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.4.1/tinymce.
+min.js" referrerpolicy="origin"></script>
+
+<script>
+    tinymce.init({
+      selector: '#mytextarea'
+    });
+  </script>
+
     @endpush
 </x-dashboard-layout>

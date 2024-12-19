@@ -126,6 +126,12 @@ return [
      'Date'=>'التاريخ',
      'Status' => 'الحالة',
      'Back to Notifications' => 'العودة الى الاشعارات',
+     'Edit File' => 'تعديل الملفات',
+     'File Name_AR' =>'اسم الملف بالعربي',
+     'File Name_EN' => 'اسم الملف بالانجليزي',
+     'File Name EN' => 'اسم الملف بالانجليزي',
+     'Edit Services' => 'تعديل الخدمات',
+
 
 
 

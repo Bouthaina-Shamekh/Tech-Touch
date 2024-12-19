@@ -189,7 +189,7 @@
             });
         });
     </script>
-    @endpush
+    @endpush 
 
 
 </x-dashboard-layout>

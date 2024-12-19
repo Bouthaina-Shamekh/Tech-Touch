@@ -1,6 +1,7 @@
 <x-dashboard-layout>
     @push('styles')
         <link rel="stylesheet" href="{{asset('assets-dashboard/css/media.css')}}">
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
@@ -48,14 +49,14 @@
                             @if(in_array($heros->section,['Files' ,'About','Services','Teams','Feedback', 'Partners','Goals','Features']))
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('admin.Content Arabic')}}</label>
-                                <textarea name="description_ar" id="description_ar" rows="3" class="form-control" required>{{$heros->description_ar}}</textarea>
+                                <textarea name="description_ar" id="mytextarea" rows="3" class="form-control" required>{{$heros->description_ar}}</textarea>
                             </div>
                             @endif
 
                             @if(in_array($heros->section,['Files' ,'About','Services','Teams','Feedback', 'Partners','Goals','Features']))
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('admin.Content English')}}</label>
-                                <textarea name="description_en" id="description_en" rows="3" class="form-control" required>{{$heros->description_en}}</textarea>
+                                <textarea name="description_en" id="mytextarea" rows="3" class="form-control" required>{{$heros->description_en}}</textarea>
                             </div>
                             @endif
 
@@ -248,5 +249,13 @@
 
     });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.4.1/tinymce.
+    min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+          selector: '#mytextarea'
+        });
+      </script>
     @endpush
 </x-dashboard-layout>

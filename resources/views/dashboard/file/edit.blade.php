@@ -1,6 +1,7 @@
 <x-dashboard-layout>
     @push('styles')
         <link rel="stylesheet" href="{{asset('assets-dashboard/css/media.css')}}">
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
@@ -29,7 +30,7 @@
                             </div>
 
 
-                            <div class="form-group col-6 mb-3">
+                            <div class="form-group col-12 mb-3">
                                 <x-form.input name="file" label="{{__('admin.Edit UR File')}}" type="file" placeholder="{{__('admin.enter name of files in english')}}"/>
                                 <!-- عرض اسم الملف الحالي -->
                                 @if ($files->file)
@@ -42,13 +43,18 @@
                                 @endif
                             </div>
 
+                            {{-- <div class="mb-4">
+                                <label class="form-label">{{ __('admin.Policy in English') }}</label>
+                                <textarea id="mytextarea"  name="policy_en" rows="10">{{ old('policy_en', $settings ['policy_en'] ?? '')}}</textarea>
+                              </div> --}}
+
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('admin.Content Arabic')}}</label>
-                                <textarea name="description_ar" id="description_ar" rows="3" class="form-control" required>{{$files->description_ar}}</textarea>
+                                <textarea name="description_ar"  id="mytextarea" rows="3" class="form-control" required>{{$files->description_ar}}</textarea>
                             </div>
                             <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('admin.Content English')}}</label>
-                                <textarea name="description_en" id="description_en" rows="3" class="form-control" required>{{$files->description_en}}</textarea>
+                                <textarea name="description_en" id="mytextarea" rows="3" class="form-control" required>{{$files->description_en}}</textarea>
                             </div>
 
 
@@ -204,5 +210,15 @@
 
         });
     </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.4.1/tinymce.
+min.js" referrerpolicy="origin"></script>
+
+<script>
+    tinymce.init({
+      selector: '#mytextarea'
+    });
+  </script>
+  
     @endpush
 </x-dashboard-layout>

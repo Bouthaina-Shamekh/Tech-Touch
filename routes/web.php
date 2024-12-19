@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\UserController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -48,6 +49,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::prefix('admin')->name('admin.')->middleware('auth','check_user')->group(function() {
         Route::get('home', [HomeController::class, 'index'])->name('home');
 
+        Route::get('users/{user}/profile', [UserController::class, 'profile'])->name('users.profile');
+
         Route::resources([
             'client' => ClientController::class,
             'media' => MediaController::class,
@@ -61,6 +64,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
             'project' =>ProjectController::class,
             'question' =>QuestionController::class,
             'feature' =>FeatureController::class,
+            'users' => UserController::class,
         ]);
 
         Route::get('notifications', [App\Http\Controllers\Admin\HomeController::class, 'notificationsIndex'])->name('notification.index');

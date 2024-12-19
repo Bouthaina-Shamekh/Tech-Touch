@@ -29,7 +29,7 @@
                                 <x-form.input name="file_name_ar" label="{{__('admin.File Name_AR')}}" type="text" placeholder="{{__('admin.enter file name of files in arabic')}}"  />
                             </div>
 
-                            <div class="form-group col-6 mb-3">
+                            <div class="form-group col-12 mb-3">
                                 <x-form.input name="file" label="{{__('admin.Upload Ur File')}}" type="file" placeholder="{{__('admin.upload ur file')}}"  />
                             </div>
 
@@ -39,15 +39,20 @@
                             </div> --}}
 
                             <div class="form-group col-6 mb-3">
-                                 <label class="form-label">{{ __('admin.Title in English') }}</label>
+                                <label class="form-label">{{ __('admin.Content English') }}</label>
+                               <textarea id="mytextarea" rows="5"name="description_en" class="form-control"></textarea>
+                             </div>
+
+                            <div class="form-group col-6 mb-3">
+                                 <label class="form-label">{{ __('admin.Content Arabic') }}</label>
                                 <textarea id="mytextarea" rows="5"name="description_ar" class="form-control"></textarea>
                               </div>
 
 
-                            <div class="form-group col-6 mb-3">
+                            {{-- <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('admin.Content English')}}</label>
                                 <textarea name="description_en" id="description_en" rows="3" class="form-control"></textarea>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="price" label="{{__('admin.Price')}}" type="text" placeholder="{{__('admin.enter price of files in arabic')}}"  />
