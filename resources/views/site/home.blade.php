@@ -132,7 +132,7 @@ $description = 'description_' . app()->currentLocale();
                 <!-- left -->
                 <div class="flex flex-col justify-center img-about md:w-1/3 md:pr-10">
                     <h2 class="left__files text-4xl md:text-7xl font-bold text-main uppercase mb-2">
-                        <span class="text-second font-bold text-3xl md:text-5xl">Our</span>
+                        <span class="text-second font-bold text-3xl md:text-5xl"></span>
                         <br>
                         {{$files->$name}}
                     </h2>

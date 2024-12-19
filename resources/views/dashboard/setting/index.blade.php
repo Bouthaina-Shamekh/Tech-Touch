@@ -183,7 +183,8 @@
 
     @push('scripts')
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.4.1/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.4.1/tinymce.
+    min.js" referrerpolicy="origin"></script>
 
     <script>
         tinymce.init({

@@ -168,6 +168,8 @@
                 success: function(response) {
                     console.log(response);
                     let pathImage = response.path;
+                    let typeAction = $('#type').val();
+                    let rowId = $('#idRow').val();
                     $('#imagePathInput').val(pathImage); // تخزين المسار في حقل إدخال مخفي أو عرضه في مكان آخر
                     $('#closeMediaModal').click();
                     $('#doneChooseMedia').css('opacity', '1');
@@ -191,6 +193,16 @@
                                     </div>
                                 `;
                                 $('.masonry-column').append(imageHtml);
+                            }
+                            if(typeAction == 'create'){
+                                setTimeout(function() {
+                                    $('#createPartnerBtn').click();
+                                }, 700);
+                            }
+                            if(typeAction == 'edit'){
+                                setTimeout(function() {
+                                    $('#editPartnerBtn-' + rowId).click();
+                                }, 700);
                             }
                         },
                         error: function(xhr) {

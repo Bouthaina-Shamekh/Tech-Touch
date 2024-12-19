@@ -70,12 +70,14 @@
     </div>
 
 
+   
+
     <div class="modal fade" id="mediaModal" tabindex="-1" role="dialog" aria-labelledby="mediaModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg  modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title h4" id="mediaModalLabel">
-                        {{__('admin.Choose Image')}}
+                        {{__('Choose Image')}}
                     </h5>
                     <div class="row align-items-center">
                         <form class="col-9" id="uploadForm" action="{{ route('admin.media.store') }}" method="post" enctype="multipart/form-data">
@@ -84,7 +86,7 @@
                                 <i class="ti ti-upload me-2"></i>
                                 {{__("Click to Upload")}}
                             </label>
-                            <input type="client" id="imageFileUpload" name="imageFile[]" accept="image/*" hidden multiple>
+                            <input type="file" id="imageFileUpload" name="imageFile[]" accept="image/*" hidden multiple>
                         </form>
                         <button id="closeMediaModal" data-pc-modal-dismiss="#mediaModal" class="text-lg flex items-center justify-center rounded w-7 h-7 text-secondary-500 hover:bg-danger-500/10 hover:text-danger-500">
                             <i class="ti ti-x"></i>
@@ -96,7 +98,7 @@
                         <div class="masonry-item relative" data-image-path="{{$image->path}}" id="image-{{$image->id}}">
                             <img src="{{asset('storage/'.$image->path)}}" alt="صورة 1">
                             <div class="caption">
-                                {{$image->client_name}} - {{ App\Helpers\FormatSize::formatSize($image->size) }}
+                                {{$image->file_name}} - {{ App\Helpers\FormatSize::formatSize($image->size) }}
                             </div>
                             <div class="absolute p-[9px] text-white del" id="del-{{$image->id}}" data-id="{{$image->id}}">
                                 <button>X</button>
@@ -113,6 +115,8 @@
 
     @push('scripts')
     <!-- Include jQuery first -->
+
+
 
     <script>
         $(document).ready(function() {
@@ -146,7 +150,7 @@
                 // إنشاء كائن FormData لتضمين الملفات
                 var formData = new FormData();
                 formData.append('_token', "{{ csrf_token() }}");
-                formData.append('imageFile', $(this).prop('clients')[0]);
+                formData.append('imageFile', $(this).prop('files')[0]);
                 $.ajax({
                     url: "{{ route('admin.media.store') }}",
                     type: "POST",
@@ -171,7 +175,7 @@
                                         <div class="masonry-item relative" data-image-path="${item.path}" id="image-${item.id}">
                                             <img src="/storage/${item.path}" alt="صورة 1">
                                             <div class="caption">
-                                                ${item.client_name}
+                                                ${item.file_name}
                                             </div>
                                             <div class="absolute p-[9px] text-white del" id="del-${item.id}" data-id="${item.id}">
                                                 <button>X</button>

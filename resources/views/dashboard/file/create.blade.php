@@ -1,18 +1,20 @@
 <x-dashboard-layout>
     @push('styles')
         <link rel="stylesheet" href="{{asset('assets-dashboard/css/media.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
     @endpush
     <x-slot:breadcrumbs>
-        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.admin.Home')}}</a></li>
-        <li class="breadcrumb-item"><a href="{{route('admin.file.index')}}">{{__('admin.admin.Files')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('admin.admin.Add Files')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{route('admin.file.index')}}">{{__('admin.Files')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Add Files')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
                 {{-- @can('add product') --}}
                 <div class="card-header">
-                    <h5>{{__('admin.admin.Add Files')}}</h5>
+                    <h5>{{__('admin.Add Files')}}</h5>
                 </div>
                 {{-- @endcan --}}
                 <div class="card-body">
@@ -20,35 +22,42 @@
                         @csrf
                         <div class="row">
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="file_name_en" label="{{__('admin.admin.File Name EN')}}" type="text" placeholder="{{__('admin.admin.enter file name of files in english')}}"/>
+                                <x-form.input name="file_name_en" label="{{__('admin.File Name EN')}}" type="text" placeholder="{{__('admin.enter file name of files in english')}}"/>
                             </div>
 
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="file_name_ar" label="{{__('admin.admin.File Name_AR')}}" type="text" placeholder="{{__('admin.admin.enter file name of files in arabic')}}"  />
+                                <x-form.input name="file_name_ar" label="{{__('admin.File Name_AR')}}" type="text" placeholder="{{__('admin.enter file name of files in arabic')}}"  />
                             </div>
 
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="file" label="{{__('admin.admin.Upload Ur File')}}" type="file" placeholder="{{__('admin.admin.upload ur file')}}"  />
+                                <x-form.input name="file" label="{{__('admin.Upload Ur File')}}" type="file" placeholder="{{__('admin.upload ur file')}}"  />
                             </div>
 
-                            <div class="form-group col-6 mb-3">
+                            {{-- <div class="form-group col-6 mb-3">
                                 <label for="content_en" class="form-label">{{__('admin.admin.Content Arabic')}}</label>
                                 <textarea name="description_ar" id="description_ar" rows="3" class="form-control"></textarea>
-                            </div>
+                            </div> --}}
+
                             <div class="form-group col-6 mb-3">
-                                <label for="content_en" class="form-label">{{__('admin.admin.Content English')}}</label>
+                                 <label class="form-label">{{ __('admin.Title in English') }}</label>
+                                <textarea id="mytextarea" rows="5"name="description_ar" class="form-control"></textarea>
+                              </div>
+
+
+                            <div class="form-group col-6 mb-3">
+                                <label for="content_en" class="form-label">{{__('admin.Content English')}}</label>
                                 <textarea name="description_en" id="description_en" rows="3" class="form-control"></textarea>
                             </div>
 
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="price" label="{{__('admin.admin.Price')}}" type="text" placeholder="{{__('admin.admin.enter price of files in arabic')}}"  />
+                                <x-form.input name="price" label="{{__('admin.Price')}}" type="text" placeholder="{{__('admin.enter price of files in arabic')}}"  />
                             </div>
 
                             <div class="form-group col-6 mb-3">
-                                <x-form.input name="btn" label="{{__('admin.admin.Btn')}}" type="text" placeholder="{{__('admin.admin.enter btn of files in arabic')}}"  />
+                                <x-form.input name="btn" label="{{__('admin.Btn')}}" type="text" placeholder="{{__('admin.enter btn of files in arabic')}}"  />
                             </div>
                             <div class="form-group col-6">
-                                <label for="imageFile" class="form-label d-block">{{__('admin.admin.Image')}}</label>
+                                <label for="imageFile" class="form-label d-block">{{__('admin.Image')}}</label>
                                 <label class="btn btn-outline-secondary" for="imageFile">
                                     <i class="ti ti-upload me-2"></i>
                                     {{__("Choose Image")}}
@@ -61,10 +70,10 @@
                         </div>
                         <div class="row justify-content-end mt-3">
                             <a href="{{route('admin.file.index')}}" class="btn btn-secondary col-1 mr-3">
-                                {{__('admin.admin.Back')}}
+                                {{__('admin.Back')}}
                             </a>
                             <button type="submit" class="btn btn-primary col-1  mr-3">
-                                {{$btn_label ?? __('Add')}}
+                                {{$btn_label ?? __('admin.Add')}}
                             </button>
                         </div>
                     </form>
@@ -79,7 +88,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title h4" id="mediaModalLabel">
-                        {{__('admin.admin.Choose Image')}}
+                        {{__('admin.Choose Image')}}
                     </h5>
                     <div class="row align-items-center">
                         <form class="col-9" id="uploadForm" action="{{ route('admin.media.store') }}" method="post" enctype="multipart/form-data">
@@ -197,6 +206,15 @@
             });
         });
     </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.4.1/tinymce.
+min.js" referrerpolicy="origin"></script>
+
+<script>
+    tinymce.init({
+      selector: '#mytextarea'
+    });
+  </script>
     @endpush
 
 

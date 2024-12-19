@@ -49,7 +49,7 @@
                                 {{-- <td>{{$client->name_en}}</td> --}}
                                 <td>{{$client->$feedback}}</td>
                                 {{-- <td>{{$client->feedback_en}}</td> --}}
-                                <td>{{$client->star}}</td>
+                                <td>{{$client->stars}}</td>
 
                                 <td>
                                     <img src="{{asset('storage/'.$client->image)}}" alt="image" class="w-16">
