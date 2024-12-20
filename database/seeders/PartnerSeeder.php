@@ -15,37 +15,55 @@ class PartnerSeeder extends Seeder
     {
         DB::table('partners')->insert([
             [
-              'image' => 'partners/images/1733291024 - partners-03.png',
+              'image' => '../asset/img/extra/partners-01.png',
                 'link' => 'https://google.com',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'image' => 'partners/images/1733291024 - partners-02.png.png',
+                'image' => '../asset/img/extra/partners-02.png',
                   'link' => 'https://google.com',
                   'created_at' => now(),
                   'updated_at' => now(),
               ],
               [
-                'image' => 'partners/images/1733291024 - partners-01.png',
+                'image' => '../asset/img/extra/partners-03.png',
                   'link' => 'https://google.com',
                   'created_at' => now(),
                   'updated_at' => now(),
               ],
               [
-                'image' => 'partners/images/1733291024 - partners-03.png',
+                'image' => '../asset/img/extra/partners-01.png',
                   'link' => 'https://google.com',
                   'created_at' => now(),
                   'updated_at' => now(),
               ],
               [
-                  'image' => 'partners/images/1733291024 - partners-02.png.png',
+                  'image' => '../asset/img/extra/partners-02.png',
                     'link' => 'https://google.com',
                     'created_at' => now(),
                     'updated_at' => now(),
                 ],
                 [
-                  'image' => 'partners/images/1733291024 - partners-01.png',
+                  'image' => '../asset/img/extra/partners-03.png',
+                    'link' => 'https://google.com',
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ],
+                [
+                  'image' => '../asset/img/extra/partners-01.png',
+                    'link' => 'https://google.com',
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ],
+                [
+                  'image' => '../asset/img/extra/partners-02.png',
+                    'link' => 'https://google.com',
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ],
+                [
+                  'image' => '../asset/img/extra/partners-03.png',
                     'link' => 'https://google.com',
                     'created_at' => now(),
                     'updated_at' => now(),
