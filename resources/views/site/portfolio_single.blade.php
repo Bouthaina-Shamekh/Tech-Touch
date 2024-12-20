@@ -51,7 +51,7 @@ $description = 'description_' . app()->currentLocale();
                 <!-- Text -->
                 <div class="flex flex-col  flex-1/2 justify-start items-center md:items-start">
                     <h2 class="text-3xl md:text-5xl font-semibold text-main uppercase mb-2 top__portfolio">{{$portfolio->$name}}</h2>
-                    <p class="text-dark font-light text-base leading-6 right__portfolio">{{$portfolio->$description}}</p>
+                    <p class="text-dark font-light text-base leading-6 right__portfolio">{!!$portfolio->$description!!}</p>
                     <div class="flex flex-col justify-start items-start ">
                         <h3 class="text-3xl text-second my-4 bottom__portfolio">Links</h3>
                         <a href="{{$portfolio->link}}" target="_blank" class="bottom__portfolio text-main my-2 hover:text-main hover:pl-2 transition-all delay-150 ease-in  font-light uppercase underline text-base">

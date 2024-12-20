@@ -46,7 +46,7 @@
                                 <td>{!!$work->description_ar!!}</td>
                                 @else
                                 <td>{{$work->name_en}}</td>
-                                <td>{{$work->description_en}}</td>
+                                <td>{!!$work->description_en!!}</td>
                                 @endif
                                 <td>{{$work->link}}</td>
                                 <td>
