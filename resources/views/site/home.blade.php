@@ -192,6 +192,7 @@ $description = 'description_' . app()->currentLocale();
     </section>
 
     <!-- partners -->
+
     <section class="mt-[102px] mb-[169px] relative">
         <div class="flex justify-center items-end overflow-hidden">
             <div class="left_partners">

@@ -41,22 +41,24 @@ $description = 'description_' . app()->currentLocale();
         <div class="container">
             <div class="flex flex-wrap justify-between items-center text-center md:text-left" style="gap: 90px;">
                 <!-- Img -->
-                <div class="img__content animate-oscillate hidden md:flex md:justify-start img-about" style="flex: 1 1 40%;">
+                <div class="img__content animate-oscillate flex md:justify-start img-about" style="flex: 1 1 40%;">
                     @if($service->image == null)
-                        <img class="me-2" src="{{asset('asset/img/extra/hero.png')}}" alt="TE Logo" loading="lazy" width="100%" />
+                        <img class="me-2" src="{{asset('asset/img/extra/hero.png')}}" alt="TE Logo" loading="lazy" />
                     @else
-                        <img class="me-2" src="{{asset('storage/' . $service->image)}}" alt="TE Logo" loading="lazy" width="100%" />
+                        <img class="me-2" src="{{asset('storage/' . $service->image)}}" alt="TE Logo" loading="lazy" />
                     @endif
+                    
                 </div>
                 <!-- Text -->
                 <div class="flex flex-col flex-1/2 justify-start items-center md:items-start">
                     <h2 class="text-5xl font-semibold text-main uppercase mb-2 top__content">{{$service->$name}}</h2>
-                    <p class="text-dark font-light text-base leading-6 right__content">{{$service->$description}}</p>
+                    <p class="text-dark font-light text-base leading-6 right__content">{!!$service->$description!!}</p>
                     <a href="{{route('site.services_order', $service->id)}}" class="bottom__content mt-4 inline-block px-4 py-2 text-white bg-main hover:bg-second hover:ml-2 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">Order Now</a>
                 </div>
             </div>
         </div>
     </section>
+
 
 @stop
 

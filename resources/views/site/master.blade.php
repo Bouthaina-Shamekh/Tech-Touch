@@ -30,100 +30,76 @@
     <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
 </head>
 <body class="min-h-screen relative overflow-x-hidden" style="padding-right: 0 !important;">
-    <!-- Header -->
-    <header>
-        <!-- Main navigation container -->
-        <nav class="flex-no-wrap relative flex w-full items-center justify-between bg-white py-2 lg:flex-wrap lg:justify-start lg:py-4">
-            <div class="container flex w-full flex-wrap items-center justify-between px-3">
-
-                <!-- Logo -->
-                <a class="logo__hero mx-2 my-1 flex items-center lg:mb-0 lg:mt-0" href="./index.html">
-                    <img class="me-2" src="{{asset('asset/img/logoBrand.png')}}" style="height: 35px" alt="TE Logo" loading="lazy" />
-                </a>
-                @php
-
-                @endphp
-                <!-- Collapsible navigation container -->
-                <div class="!visible hidden basis-[100%] items-center lg:!flex lg:basis-auto" id="navbarSupportedContent1" data-twe-collapse-item>
-                    <!-- navigation links -->
-                    <ul class="list-style-none me-auto flex flex-col ps-0 lg:flex-row" data-twe-navbar-nav-ref>
-                        <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="{{ request()->is('/') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.index')}}" data-twe-nav-link-ref>
-                                Home
+        <!-- Header -->
+        <header>
+            <!-- Main navigation container -->
+            <nav class="flex-no-wrap relative flex w-full items-center justify-center bg-white py-2 lg:flex-wrap lg:justify-center lg:py-4">
+                <div class="container flex w-full flex-wrap items-center justify-between px-3">
+                    <!-- Logo -->
+                    <a class="logo__hero mx-2 my-1 flex items-center lg:mb-0 lg:mt-0" href="./index.html">
+                        <img class="me-2" src="{{asset('asset/img/logoBrand.png')}}" style="height: 35px" alt="TE Logo" loading="lazy" />
+                    </a>
+    
+                    <!-- Collapsible navigation container -->
+                    <div class="!visible hidden basis-[100%] items-center lg:!flex lg:basis-auto" id="navbarSupportedContent1" data-twe-collapse-item>
+                        <!-- navigation links -->
+                        <ul class="list-style-none me-auto flex flex-col ps-0 lg:flex-row" data-twe-navbar-nav-ref>
+                            <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
+                                <a class="{{ request()->is('/') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.index') }}" data-twe-nav-link-ref>Home</a>
+                            </li>
+                            <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
+                                <a class="{{ request()->is('about') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2 " href="{{route('site.about')}}" data-twe-nav-link-ref>About</a>
+                            </li>
+                            <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
+                                <a class="{{ request()->is('services') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.services') }}" data-twe-nav-link-ref>Services</a>
+                            </li>
+                            <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
+                                <a class="{{ request()->is('portfolios') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.portfolios') }}" data-twe-nav-link-ref>Portfolio</a>
+                            </li>
+                            <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
+                                <a class="{{ request()->is('file/*') || request()->is('file') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.files') }}" data-twe-nav-link-ref>Files</a>
+                            </li>
+                            <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
+                                <a class="{{ request()->is('contact') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.contact') }}" data-twe-nav-link-ref>Content</a>
+                            </li>
+    
+                        </ul>
+                        <!-- links -->
+                    </div>
+    
+                    <!-- Right elements -->
+                    <div class="right__hero relative hidden lg:!flex items-center ">
+                        <div class="relative group">
+                            <a href="{{route('site.consultation')}}" class="inline-block bg-second px-6 pb-2 pt-2.5 text-base font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-dark hover:shadow-md focus:bg-dark focus:shadow-md focus:outline-none focus:ring-0 active:bg-dark active:shadow-md motion-reduce:transition-none">
+                            Free Consultation
                             </a>
-                        </li>
-                        <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="{{ request()->is('about') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2 " href="{{route('site.about')}}" data-twe-nav-link-ref>
-                                About
-                            </a>
-                        </li>
-                        <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="{{ request()->is('services/*') || request()->is('services') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.services')}}" data-twe-nav-link-ref>
-                                Services
-                            </a>
-                        </li>
-                        <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="{{ request()->is('portfolios/*') || request()->is('portfolios') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.portfolios')}}" data-twe-nav-link-ref>
-                                Portfolio
-                            </a>
-                        </li>
-                        <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="{{ request()->is('file/*') || request()->is('file') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.files')}}" data-twe-nav-link-ref>
-                                Files
-                            </a>
-                        </li>
-                        <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-                            <a class="{{ request()->is('contact/*') || request()->is('contact') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{route('site.contact')}}" data-twe-nav-link-ref>
-                                Content
-                            </a>
-                        </li>
-
-                    </ul>
-                    <!-- links -->
-                </div>
-
-                <!-- Right elements -->
-                <div class="right__hero relative flex items-center">
-                    <div class="relative group">
-                        <a href="{{route('site.consultation')}}" class="inline-block bg-second px-6 pb-2 pt-2.5 text-base font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-dark hover:shadow-md focus:bg-dark focus:shadow-md focus:outline-none focus:ring-0 active:bg-dark active:shadow-md motion-reduce:transition-none">
-                        Free Consultation
-                        </a>
-                        <div class="absolute top-1/2 -right-[16px] -translate-y-1/2 group-hover:transform group-hover:rotate-90 group-hover:-translate-y-1/2 group-hover:-translate-x-1/3 transition-all delay-200 ease-in">
-                            <img src="{{asset('asset/img/icon/arrow-down.png')}}" alt="" width="33px">
+                            <div class="absolute top-1/2 -right-[16px] -translate-y-1/2 group-hover:transform group-hover:rotate-90 group-hover:-translate-y-1/2 group-hover:-translate-x-1/3 transition-all delay-200 ease-in">
+                                <img src="{{asset('asset/img/icon/arrow-down.png')}}" alt="" width="33px">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Right elements -->
-                <!-- Hamburger button for mobile view -->
-                <button
-                    class="block border-0 bg-transparent px-2 text-black/50 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
-                    type="button"
-                    data-twe-collapse-init
-                    data-twe-target="#navbarSupportedContent1"
-                    aria-controls="navbarSupportedContent1"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <!-- Hamburger icon -->
-                    <span
-                    class="[&>svg]:w-7 [&>svg]:stroke-black/50 dark:[&>svg]:stroke-neutral-200">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                        fill-rule="evenodd"
-                        d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
-                        clip-rule="evenodd" />
-                    </svg>
+                    <!-- Right elements -->
+                    <!-- Hamburger button for mobile view -->
+                    <button 
+                        type="button" 
+                        class="block border-0 bg-transparent px-2 text-black/50 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+                        data-twe-toggle="modal"
+                        data-twe-target="#NavBar"
+                        data-twe-ripple-init
+                        data-twe-ripple-color="light"
+                    >
+                    <span class="[&>svg]:w-7 [&>svg]:stroke-black/50 dark:[&>svg]:stroke-neutral-200">
+                        <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">                      <path
+                                fill-rule="evenodd"
+                                d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                                clip-rule="evenodd" />
+                            </svg>
                     </span>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-
-
-
+                    </button>
+                </div>
+            </nav>
+        </header>
+  
     @yield('content')
 
 
@@ -199,6 +175,31 @@
             <p class="text-[#909090] font-light text-base uppercase">© All Copyright 2023 by tech touch</p>
         </div>
     </footer>
+
+    <div data-twe-modal-init class="fixed left-0 top-0 z-[1055] hidden h-[100vh] w-full overflow-y-auto overflow-x-hidden outline-none pr-0" id="NavBar" tabindex="-1" aria-labelledby="NavBar" aria-modal="true" role="dialog">
+        <div data-twe-modal-dialog-ref class="pointer-events-none relative w-auto h-full translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-8 min-[576px]:max-w-[500px] min-[992px]:max-w-[666px] my-5 mx-4 flex justify-center items-center">
+            <div class="pointer-events-auto relative flex w-[86%] flex-col border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark rounded-2xl">
+                <!-- Modal body -->
+                <div class="relative p-4">
+                    <ul class="flex flex-col justify-start items-start w-100">
+                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('/') || request()->is('/') ? 'text-main' : 'text-dark' }} pl-2 hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in font-light uppercase text-base" href="{{ route('site.index') }}">Home</a></li>
+                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('about/*') || request()->is('about') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.about') }}">About Us</a></li>
+                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('services/*') || request()->is('services') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.services') }}">Services</a></li>
+                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('portfolios/*') || request()->is('portfolios') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.portfolios') }}">Portfolio</a></li>
+                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('files/*') || request()->is('files') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.files') }}">Files</a></li>
+                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('contact/*') || request()->is('contact') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.contact') }}">Content</a></li>
+                    </ul>   
+                    <div class="right__hero relative !flex items-center justify-center py-2">
+                        <div class="relative group">
+                            <a href="{{route('site.consultation')}}" class="inline-block bg-second px-6 pb-2 pt-2.5 text-base font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-dark hover:shadow-md focus:bg-dark focus:shadow-md focus:outline-none focus:ring-0 active:bg-dark active:shadow-md motion-reduce:transition-none">
+                            Free Consultation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- JS Scripts -->
     <!-- JQuery -->
