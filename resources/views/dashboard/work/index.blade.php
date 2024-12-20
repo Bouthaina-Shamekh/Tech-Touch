@@ -25,11 +25,9 @@
                 <table class="table table-hover table-bordered" id="pc-dt-simple">
                     <thead>
                     <tr>
-                        <th></th>
                         <th>#</th>
+                        <th>{{__('admin.Image')}}</th>
                         <th>{{__('admin.Name')}}</th>
-                        <th>{{__('admin.Description')}}</th>
-                        <th>{{__('admin.Link')}}</th>
                         <th>{{__('admin.Categories')}}</th>
                         <th>{{__('admin.Action')}}</th>
                     </tr>
@@ -37,18 +35,17 @@
                     <tbody>
                         @foreach ($works as $work )
                             <tr>
+                                <td>{{$loop->iteration}}</td>
                                 <td>
                                     <img src="{{asset('storage/'.$work->image)}}" alt="image" width="50">
                                 </td>
-                                <td>{{$loop->iteration}}</td>
                                 @if (App::getLocale() == 'ar')
                                 <td>{{$work->name_ar}}</td>
-                                <td>{!!$work->description_ar!!}</td>
+                               
                                 @else
                                 <td>{{$work->name_en}}</td>
-                                <td>{!!$work->description_en!!}</td>
+                                
                                 @endif
-                                <td>{{$work->link}}</td>
                                 <td>
                                     @foreach ($work->categories as $category )
                                         <span class="badge bg-primary">{{$category->name_ar}}</span>

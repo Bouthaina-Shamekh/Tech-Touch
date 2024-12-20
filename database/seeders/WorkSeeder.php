@@ -15,33 +15,132 @@ class WorkSeeder extends Seeder
     {
         DB::table('works')->insert([
         [
-            'name_en' => 'Programming',
+            'name_en' => 'The Project Name',
             'name_ar' => 'البرمجة ',
-            'image' => 'storage/images/1733291024 - portfolio-01.png',
-            'link' => 'images/1733291024 - services-01.png.png',
-            'description_en' => 'Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt',
+            'image' => '../asset/img/extra/portfolio-01.png',
+            'link' => 'https://google.com',
+            'description_en' => '<p class="text-dark font-light text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.</p>
+                    <p class="text-dark  font-light  text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p>',
             'description_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
 
             'created_at' => now(),
             'updated_at' => now(),
         ],
         [
-            'name_en' => 'Math',
+            'name_en' => 'The Project Name',
             'name_ar' => 'الرياضيات',
-            'image' => 'storage/images/1733291024 - portfolio-01.png',
-            'link' => 'images/1733291024 - services-01.png.png',
-            'description_en' => 'Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt',
+            'image' => '../asset/img/extra/portfolio-01.png',
+            'link' => 'https://google.com',
+            'description_en' => '<p class="text-dark font-light text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.</p>
+                    <p class="text-dark  font-light  text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p>',
             'description_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
 
             'created_at' => now(),
             'updated_at' => now(),
         ],
         [
-            'name_en' => 'Sience',
+            'name_en' => 'The Project Name',
             'name_ar' => 'العلوم',
-            'image' => 'storage/images/1733291024 - portfolio-01.png',
-            'link' => 'images/1733291024 - services-01.png.png',
-            'description_en' => 'Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt',
+            'image' => '../asset/img/extra/portfolio-01.png',
+            'link' => 'https://google.com',
+            'description_en' => '<p class="text-dark font-light text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.</p>
+                    <p class="text-dark  font-light  text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p>',
+            'description_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
+
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'name_en' => 'The Project Name',
+            'name_ar' => 'العلوم',
+            'image' => '../asset/img/extra/portfolio-01.png',
+            'link' => 'https://google.com',
+            'description_en' => '<p class="text-dark font-light text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.</p>
+                    <p class="text-dark  font-light  text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p>',
+            'description_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
+
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'name_en' => 'The Project Name',
+            'name_ar' => 'العلوم',
+            'image' => '../asset/img/extra/portfolio-01.png',
+            'link' => 'https://google.com',
+            'description_en' => '<p class="text-dark font-light text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.</p>
+                    <p class="text-dark  font-light  text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p>',
+            'description_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
+
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'name_en' => 'The Project Name',
+            'name_ar' => 'العلوم',
+            'image' => '../asset/img/extra/portfolio-01.png',
+            'link' => 'https://google.com',
+            'description_en' => '<p class="text-dark font-light text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.</p>
+                    <p class="text-dark  font-light  text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p>',
+            'description_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
+
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'name_en' => 'The Project Name',
+            'name_ar' => 'العلوم',
+            'image' => '../asset/img/extra/portfolio-01.png',
+            'link' => 'https://google.com',
+            'description_en' => '<p class="text-dark font-light text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.</p>
+                    <p class="text-dark  font-light  text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p>',
+            'description_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
+
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'name_en' => 'The Project Name',
+            'name_ar' => 'العلوم',
+            'image' => '../asset/img/extra/portfolio-01.png',
+            'link' => 'https://google.com',
+            'description_en' => '<p class="text-dark font-light text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.</p>
+                    <p class="text-dark  font-light  text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p>',
+            'description_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
+
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'name_en' => 'The Project Name',
+            'name_ar' => 'العلوم',
+            'image' => '../asset/img/extra/portfolio-01.png',
+            'link' => 'https://google.com',
+            'description_en' => '<p class="text-dark font-light text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.</p>
+                    <p class="text-dark  font-light  text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p>',
+            'description_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
+
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'name_en' => 'The Project Name',
+            'name_ar' => 'العلوم',
+            'image' => '../asset/img/extra/portfolio-01.png',
+            'link' => 'https://google.com',
+            'description_en' => '<p class="text-dark font-light text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.</p>
+                    <p class="text-dark  font-light  text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p>',
+            'description_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
+
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'name_en' => 'The Project Name',
+            'name_ar' => 'العلوم',
+            'image' => '../asset/img/extra/portfolio-01.png',
+            'link' => 'https://google.com',
+            'description_en' => '<p class="text-dark font-light text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.</p>
+                    <p class="text-dark  font-light  text-base leading-6 right__portfolio">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p>',
             'description_ar' => 'نقدم خدمات تطوير ويب احترافية لتحويل أفكارك إلى واقع.',
 
             'created_at' => now(),

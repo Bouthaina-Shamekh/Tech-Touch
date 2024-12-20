@@ -33,7 +33,7 @@ $name = 'name_' . app()->currentLocale();
             <div class="card-body pt-3 masonry-column">
                 @foreach ($works as $work)
                 <div class="card__content masonry-item relative h-[530px]  flex flex-col justify-start items-start group">
-                    <div class="img__card w-full h-full bg-center bg-cover bg-no-repeat  group-hover:bg-170 transition-all delay-200 ease-in" style="background-image: url(../asset/img/extra/portfolio-01.png);">
+                    <div class="img__card w-full h-full bg-center bg-cover bg-no-repeat  group-hover:bg-170 transition-all delay-200 ease-in" style="background-image: url('{{ asset('storage/' . $work->image) }}');">
                     </div>
                     <div class="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all delay-200 ease-in opacity-0 group-hover:opacity-100">
                         <div class="flex flex-col justify-start items-center my-4">
