@@ -100,9 +100,9 @@ class HeroSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name_en' => 'CLIENTS FEEDBACK',
+                'name_en' => 'OUR TEAM',
                 'name_ar' => 'خدماتنا',
-                'title_en' => 'What People Say About Us',
+                'title_en' => 'Meet Our Team',
                 'title_ar' => 'ما الذي نقدمه',
                 'description_en' => 'Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat',
                 'description_ar' => 'اكتشف مجموعة الخدمات التي نقدمها.',

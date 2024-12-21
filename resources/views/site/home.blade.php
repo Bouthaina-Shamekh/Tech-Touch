@@ -195,7 +195,6 @@ $description = 'description_' . app()->currentLocale();
     </section>
 
     <!-- partners -->
-
     <section class="mt-[102px] mb-[169px] relative">
         <div class="flex justify-center items-end overflow-hidden">
             <div class="left_partners">
@@ -204,8 +203,8 @@ $description = 'description_' . app()->currentLocale();
                 </svg>
             </div>
             <div class="flex flex-col justify-center items-center center__partners">
-                <h3 class="text-xl md:text-3xl font-semibold text-second mb-2">Tech Touch</h3>
-                <h2 class="text-5xl md:text-7xl font-semibold text-main uppercase mb-2">{{$partners->$name}} </h2>
+                <h3 class="text-xl md:text-3xl font-semibold text-second mb-2">{{$partners->$name}}</h3>
+                <h2 class="text-5xl md:text-7xl font-semibold text-main uppercase mb-2">partners</h2>
                 <p class="text-dark font-light text-base leading-6 text-center w-[140%] md:w-[165%]">{{$partners->$description}}</p>
             </div>
             <div class="right_partners">
@@ -217,15 +216,15 @@ $description = 'description_' . app()->currentLocale();
         <div class="container">
             <div class="flex flex-wrap justify-center items-center" style="gap: 0 70px;">
                 @foreach ($partner as $partner)
-                <div class="img__partners">
-                    <a href="{{$partner->link}}" class="img__partners">
-                        <img src="{{asset("storage/" . $partner->image)}}" alt="" width="75%" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
-                    </a>
-                </div>
+                <a href="{{$partner->link}}" class="img__partners">
+                    <img src="{{asset("storage/" . $partner->image)}}" alt="" width="75%" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
+                </a>
                 @endforeach
+ 
             </div>
         </div>
     </section>
+
 
     <!-- works -->
     <section class="my-6 relative" style="background-image: url('{{asset('asset/img/extra/work_bg.png')}}">
@@ -276,7 +275,7 @@ $description = 'description_' . app()->currentLocale();
         <div class="container py-10">
             <div class="flex flex-col justify-center items-center">
                 <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2">{{$teams->$name}}</h2>
-                <h3 class="text__client text-xl md:text-3xl font-semibold text-second mb-2">{{$teams->$title}}[</h3>]
+                <h3 class="text__client text-xl md:text-3xl font-semibold text-second mb-2">{{$teams->$title}}</h3>
                 <p class="text__client w-3/4 text-dark font-light text-base leading-6 text-center">{{$teams->$description}}</p>
             </div>
         </div>
