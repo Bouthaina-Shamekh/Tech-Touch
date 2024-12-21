@@ -43,6 +43,7 @@ $description = 'description_' . app()->currentLocale();
                                 <p class="text-second font-light text-base leading-6">{!! Str::limit($service->$description, 50) !!}
 
                                 </p>
+
                                 <a href="{{route('site.services_show', $service->id)}}" class="my-2 text-main underline hover:pl-2 transition-all delay-150 ease-in">
                                     {{__('Read MORE')}}
                                 </a>
