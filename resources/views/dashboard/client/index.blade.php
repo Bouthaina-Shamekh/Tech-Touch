@@ -35,6 +35,7 @@
                     <tr>
                         <th>#</th>
                         <th>{{__('admin.Name')}}</th>
+                        <th>{{__('admin.Job')}}</th>
                         <th>{{__('admin.Feedbac')}}</th>
                         <th>{{__('admin.star')}}</th>
                         <th>{{__('admin.Image')}}</th>
@@ -47,7 +48,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$client->$name}}</td>
-                                {{-- <td>{{$client->name_en}}</td> --}}
+                               <td>{{$client->job}}</td>
                                 <td>{{$client->$feedback}}</td>
                                 {{-- <td>{{$client->feedback_en}}</td> --}}
                                 <td>{{$client->stars}}</td>

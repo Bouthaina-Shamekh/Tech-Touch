@@ -32,9 +32,9 @@
                             <td>{{$loop->iteration}}</td>
                             <td>
                                 <div class="flex items-center w-44">
-                                    <div class="shrink-0">
+                                    {{-- <div class="shrink-0">
                                         <img src="{{ $user->image_url }}" alt="user image" class="rounded-full w-10" />
-                                    </div>
+                                    </div> --}}
                                     <div class="grow ltr:ml-3 rtl:mr-3">
                                         <h6 class="mb-0">{{$user->name}}</h6>
                                     </div>

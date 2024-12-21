@@ -131,6 +131,7 @@ return [
      'File Name EN' => 'File Name EN',
      'Services' => 'Services',
      'Protfolio' => 'Portfolio',
+     'Job' => 'Job',
 
 
 

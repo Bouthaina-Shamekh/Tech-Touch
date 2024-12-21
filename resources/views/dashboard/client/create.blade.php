@@ -28,6 +28,9 @@
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="name_en" label="{{__('admin.Name_EN')}}" type="text" placeholder="{{__('admin.enter name of clients in english')}}"/>
                             </div>
+                            <div class="form-group col-6 mb-3">
+                                <x-form.input name="job" label="{{__('admin.Job')}}" type="text" placeholder="{{__('admin.enter job of client')}}"/>
+                            </div>
 
 
                             <div class="form-group col-12 mb-3">

@@ -132,6 +132,7 @@ return [
      'File Name EN' => 'اسم الملف بالانجليزي',
      'Edit Services' => 'تعديل الخدمات',
      'Protfolio' => 'المشاريع',
+     'Job' => 'المهنة',
 
 
 

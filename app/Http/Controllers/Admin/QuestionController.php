@@ -11,7 +11,7 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        $this->authorize('view', Question::class);
+       
         $questions = Question::with('answers')->get();
         return view('dashboard.question.index', compact('questions'));
     }

@@ -370,7 +370,7 @@ $description = 'description_' . app()->currentLocale();
                 @foreach ($clients as $index => $client )
                     <div class="review" data-client="{{ $index + 1 }}">
                         <h3 class="text-lg font-bold text-gray-700">{{ $client->name_en }}</h3>
-                        {{-- <p class="text-sm text-gray-500">{{ $client->job }}</p> --}}
+                        <p class="text-sm text-gray-500">{{ $client->job }}</p>
                         <p class="mt-2 text-gray-600">
                             {{ $client->feedback_en }}
                         </p>

@@ -15,6 +15,7 @@ class Client extends Model
         'name_en',
         'name_ar',
         'image',
+        'job',
         'feedback_en',
         'feedback_ar',
         'stars',

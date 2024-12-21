@@ -37,6 +37,7 @@ class ClientController extends Controller
             'name_en' => 'required|string|max:255',
             'name_ar' => 'required|string|max:255',
             'imagePath' => 'required',
+            'job' => 'required',
             'feedback_en' => 'nullable',
             'feedback_ar' => 'nullable',
             'stars' => 'nullable|numeric',
@@ -47,6 +48,7 @@ class ClientController extends Controller
         Client::create([
             'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
+            'job' => $request->job,
             'feedback_en' => $request->feedback_en,
             'feedback_ar' => $request->feedback_ar,
             'image' => $request->imagePath,
@@ -84,6 +86,7 @@ class ClientController extends Controller
         $request->validate([
             'name_en' => 'required|string|max:255',
             'name_ar' => 'required|string|max:255',
+            'job' => 'required',
             'imagePath' => 'nullable',
             'feedback_en' => 'nullable',
             'feedback_ar' => 'nullable',
@@ -101,6 +104,7 @@ class ClientController extends Controller
         $clients->update([
             'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
+            'job' => $request->job,
             'feedback_en' => $request->feedback_en,
             'feedback_ar' => $request->feedback_ar,
             'image' => $image ,
