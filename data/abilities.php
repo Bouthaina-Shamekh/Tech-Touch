@@ -6,8 +6,7 @@
             'create' => __('admin.Create User'),
             'edit' => __('admin.Edit User'),
             'delete' => __('admin.Delete User'),
-            'import' => __('admin.Import Users'),
-            'export' => __('admin.Export Users'),
+            'super' => __('admin.Super Admin'),
         ],
         'features' => [
             'name' => __('admin.Features'),
@@ -44,13 +43,13 @@
             'edit' => __('admin.Edit Hero'),
             'delete' => __('admin.Delete Hero'),
         ],
-        'majors' => [
-            'name' => __('admin.Major'),
-            'view' => __('admin.View Major'),
-            'create' => __('admin.Create Major'),
-            'edit' => __('admin.Edit Major'),
-            'delete' => __('admin.Delete Major'),
-        ],
+        // 'projects' => [
+        //     'name' => __('admin.Project'),
+        //     'view' => __('admin.View Project'),
+        //     'create' => __('admin.Create Project'),
+        //     'edit' => __('admin.Edit Project'),
+        //     'delete' => __('admin.Delete Project'),
+        // ],
         'medias' => [
             'name' => __('admin.Media'),
             'view' => __('admin.View Media'),
@@ -99,6 +98,14 @@
             'create' => __('admin.Create Team'),
             'edit' => __('admin.Edit Team'),
             'delete' => __('admin.Delete Team'),
+        ],
+
+        'notifications' => [
+            'name' => __('admin.Notification'),
+            'view' => __('admin.View Notification'),
+            'create' => __('admin.Create Notification'),
+            'edit' => __('admin.Edit Notification'),
+            'delete' => __('admin.Delete Notification'),
         ],
     ];
 

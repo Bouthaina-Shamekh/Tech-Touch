@@ -11,6 +11,7 @@ class ServiceController extends Controller
 {
     public function index()
     {
+        $this->authorize('view', Service::class);
         $services = Service::Orderby('id','desc')->get();
         return view('dashboard.service.index',compact('services'));
     }
@@ -20,6 +21,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Service::class);
         $services = new Service();
         $images = Media::paginate(100);
         return view('dashboard.service.create',compact('services','images'));
@@ -30,6 +32,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Service::class);
         $request->validate([
             'name_en' => 'required|string|max:255',
             'name_ar' => 'required|string|max:255',
@@ -66,6 +69,7 @@ class ServiceController extends Controller
      */
     public function edit(string $id)
     {
+        $this->authorize('edit', Service::class);
         $services = Service::findOrFail($id);
         $images = Media::paginate(100);
         return view('dashboard.service.edit',compact('services','images'));
@@ -76,6 +80,7 @@ class ServiceController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $this->authorize('edit', Service::class);
         $request->validate([
             'name_en' => 'required|string|max:255',
             'name_ar' => 'required|string|max:255',
@@ -110,6 +115,7 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('delete', Service::class);
         $services = Service::findOrFail($id);
         $services->delete();
         return redirect()->route('admin.service.index')->with('success', __('Item deleted successfully.'));

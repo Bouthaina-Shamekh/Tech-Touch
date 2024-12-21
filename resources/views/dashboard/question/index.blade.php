@@ -10,12 +10,15 @@
             <div class="sm:flex items-center justify-between">
                 <h5 class="mb-3 sm:mb-0">{{ __('admin.Questions and Answers') }}</h5>
                 <div>
+                    @can('create', 'App\\Models\Question')
                     <a href="{{ route('admin.question.create') }}" class="btn btn-primary">
                         {{ __('admin.Add Question') }}
                     </a>
+                    @endcan
                 </div>
             </div>
         </div>
+        @can('view', 'App\\Models\Question')
         <div class="card-body pt-3">
             <div class="table-responsive" style="margin: 0 15px;">
                 <table class="table table-hover table-bordered" id="pc-dt-simple">
@@ -40,9 +43,13 @@
                                 @endif
                                 <td>
                                     <!-- تعديل السؤال -->
+                                    @can('edit', 'App\\Models\Question')
                                     <a href="{{ route('admin.question.edit', $question->id) }}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
                                         <i class="ti ti-edit text-xl leading-none"></i>
                                     </a>
+                                    @endcan
+
+                                    @can('delete', 'App\\Models\Question')
                                     <!-- حذف السؤال مع الإجابات -->
                                     <form action="{{ route('admin.question.destroy', $question->id) }}" method="POST" style="display:inline;">
                                         @csrf
@@ -51,6 +58,7 @@
                                             <i class="ti ti-trash text-xl leading-none"></i>
                                         </button>
                                     </form>
+                                    @endcan
                                 </td>
                             </tr>
 
@@ -60,6 +68,7 @@
                 </table>
             </div>
         </div>
+        @endcan
     </div>
 </div>
 

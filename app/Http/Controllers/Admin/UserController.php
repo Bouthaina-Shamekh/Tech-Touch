@@ -7,13 +7,12 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     use AuthorizesRequests;
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $this->authorize('view', User::class);
@@ -21,9 +20,7 @@ class UserController extends Controller
         return view('dashboard.users.index', compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create(Request $request)
     {
         $this->authorize('create', User::class);
@@ -31,9 +28,7 @@ class UserController extends Controller
         return view('dashboard.users.create', compact('user'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         $this->authorize('create', User::class);
@@ -48,6 +43,8 @@ class UserController extends Controller
         ]);
         DB::beginTransaction();
         try{
+            $request['password'] = Hash::make($request->password);
+            $request['type'] = 'admin';
             $user = User::create($request->all());
             foreach ($request->abilities as $role) {
                 RoleUser::create([
@@ -64,17 +61,13 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'تم اضافة مستخدم جديد');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(User $user)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function profile(User $user)
     {
         if(auth()->user()->id != $user->id){
@@ -84,9 +77,7 @@ class UserController extends Controller
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(Request $request, User $user)
     {
         $this->authorize('edit', User::class);
@@ -94,9 +85,7 @@ class UserController extends Controller
         return view('dashboard.users.edit', compact('user', 'btn_label'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, User $user)
     {
         $this->authorize('edit', User::class);
@@ -109,11 +98,15 @@ class UserController extends Controller
         DB::beginTransaction();
         try{
             if($request->password != null){
+                $request['password'] = Hash::make($request->password);
+                $request['type'] = 'admin';
                 $user->update($request->all());
             }
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
+                'super_admin' => $request->super_admin,
+                'type' => 'admin',
             ]);
             if ($request->abilities != null) {
                 $role_old = RoleUser::where('user_id', $user->id)->pluck('role_name')->toArray();

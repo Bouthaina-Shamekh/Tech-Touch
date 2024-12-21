@@ -11,6 +11,7 @@ class SliderController extends Controller
 {
     public function index()
     {
+        $this->authorize('view', Slider::class);
         $sliders = Slider::Orderby('id','desc')->get();
         return view('dashboard.slider.index',compact('sliders'));
     }
@@ -20,6 +21,7 @@ class SliderController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Slider::class);
         $slid = Slider::first();
         // $images = Media::paginate(100);
         return view('dashboard.slider.create',compact('slid'));
@@ -30,6 +32,7 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Slider::class);
         $request->validate([
             'name_en' => 'required|string|max:255',
             'name_ar' => 'required|string|max:255',
@@ -60,6 +63,7 @@ class SliderController extends Controller
      */
     public function edit(string $id)
     {
+        $this->authorize('edit', Slider::class);
         $slid = Slider::findOrFail($id);
 
         return view('dashboard.slider.edit',compact('slid'));
@@ -70,6 +74,7 @@ class SliderController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $this->authorize('edit', Slider::class);
         $request->validate([
             'name_en' => 'required|string|max:255',
             'name_ar' => 'required|string|max:255',
@@ -96,6 +101,7 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('delete', Slider::class);
         $slid = Slider::findOrFail($id);
         $slid->delete();
         return redirect()->route('admin.slider.index')->with('success', __('Item deleted successfully.'));

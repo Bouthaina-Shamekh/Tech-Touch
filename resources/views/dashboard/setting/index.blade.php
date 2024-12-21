@@ -8,6 +8,7 @@
         <li class="breadcrumb-item"><a href="{{route('admin.setting.index')}}">{{__('admin.Settings')}}</a></li>
         <li class="breadcrumb-item" aria-current="page">{{__('admin.Add Setting')}}</li>
     </x-slot:breadcrumb>
+    @can('edit', 'App\\Models\Setting')
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
@@ -27,7 +28,7 @@
 
 
                     <div class="card-body">
-                       
+
 
                         <form action="{{route('admin.setting.update')}}" method="POST"  enctype="multipart/form-data">
                             @csrf
@@ -134,6 +135,7 @@
             </div>
         </div>
     </div>
+     @endcan
 
     @push('scripts')
 

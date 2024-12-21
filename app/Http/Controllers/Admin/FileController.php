@@ -11,6 +11,7 @@ class FileController extends Controller
 {
     public function index()
     {
+        $this->authorize('view', File::class);
         $files = File::Orderby('id','desc')->get();
         return view('dashboard.file.index',compact('files'));
     }
@@ -20,6 +21,7 @@ class FileController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', File::class);
         $files = File::first();
         $images = Media::paginate(100);
         return view('dashboard.file.create',compact('files','images'));
@@ -30,6 +32,7 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', File::class);
         $request->validate([
             'file_name_en'=> 'required',
             'file_name_ar'=> 'required',
@@ -74,6 +77,7 @@ class FileController extends Controller
      */
     public function edit(string $id)
     {
+        $this->authorize('edit', File::class);
         $files = File::findOrFail($id);
         $images = Media::paginate(100);
         return view('dashboard.file.edit',compact('files','images'));
@@ -84,6 +88,7 @@ class FileController extends Controller
      */
     public function update(Request $request, string $id)
 {
+    $this->authorize('edit', File::class);
     $request->validate([
         'file_name_en' => 'required',
         'file_name_ar' => 'required',
@@ -142,6 +147,7 @@ class FileController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('delete', File::class);
         $files = File::findOrFail($id);
         $files->delete();
         return redirect()->route('admin.file.index')->with('success', __('Item deleted successfully.'));

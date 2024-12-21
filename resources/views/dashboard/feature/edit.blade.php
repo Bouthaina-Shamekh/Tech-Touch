@@ -4,17 +4,19 @@
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        @can('view', 'App\\Models\Feature')
         <li class="breadcrumb-item"><a href="{{route('admin.feature.index')}}">{{__('admin.Featuress')}}</a></li>
+        @endcan
         <li class="breadcrumb-item" aria-current="page">{{__('admin.Edit Features')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
-                    {{-- @can('add product') --}}
+                @can('edit', 'App\\Models\Feature')
                 <div class="card-header">
                     <h5>{{__('admin.Edit Features')}}</h5>
                 </div>
-                {{-- @endcan --}}
+               @endcan
                 <div class="card-body">
                     <form action="{{route('admin.feature.update',$features->id) }}" method="post" enctype="multipart/form-data">
                         @csrf

@@ -5,7 +5,9 @@
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        @can('view', 'App\\Models\Service')
         <li class="breadcrumb-item"><a href="{{route('admin.service.index')}}">{{__('admin.Services')}}</a></li>
+        @endcan
         <li class="breadcrumb-item" aria-current="page">{{__('admin.Edit Services')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
@@ -16,6 +18,7 @@
                     <h5>{{__('admin.Edit Services')}}</h5>
                 </div>
                 {{-- @endcan --}}
+                @can('edit', 'App\\Models\Service')
                 <div class="card-body">
                     <form action="{{route('admin.service.update',$services->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -66,6 +69,7 @@
                         </div>
                     </form>
                 </div>
+                @endcan
             </div>
         </div>
     </div>

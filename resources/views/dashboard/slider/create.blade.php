@@ -5,7 +5,9 @@
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
+        @can('view', 'App\\Models\Slider')
         <li class="breadcrumb-item"><a href="{{route('admin.slider.index')}}">{{__('Slider')}}</a></li>
+        @endcan
         <li class="breadcrumb-item" aria-current="page">{{__('Add Slider')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
@@ -16,6 +18,7 @@
                     <h5>{{__('Add Slider')}}</h5>
                 </div>
                 {{-- @endcan --}}
+                @can('create', 'App\\Models\Slider')
                 <div class="card-body">
                     <form action="{{route('admin.slider.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -45,6 +48,7 @@
                         </div>
                     </form>
                 </div>
+                @endcan
             </div>
         </div>
     </div>

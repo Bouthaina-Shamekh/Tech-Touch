@@ -15,6 +15,7 @@
                 </div>
             </div>
         </div>
+        @can('view', 'App\\Models\Partner')
         <div class="card-body pt-3">
             <div class="table-responsive" style="margin: 0 15px;">
                 <table class="table table-hover table-bordered" id="pc-dt-simple">
@@ -35,9 +36,12 @@
                                     <img src="{{asset('storage/'.$partner->image)}}" alt="image" class="w-16">
                                 </td>
                                 <td class="text-center d-flex" style="height: 100%;">
+                                    @can('edit', 'App\\Models\Hero')
                                     <button type="button" id="editPartnerBtn-{{$partner->id}}" data-id="{{$partner->id}}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary editPartnerBtn" data-pc-toggle="modal" data-pc-target="#editPartner-{{$partner->id}}">
                                         <i class="ti ti-edit text-xl leading-none"></i>
                                     </button>
+                                    @endcan
+                                    @can('delete', 'App\\Models\Hero')
                                     <form action="{{route('admin.partner.destroy',$partner->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
@@ -45,6 +49,7 @@
                                             <i class="ti ti-trash text-xl leading-none"></i>
                                         </button>
                                     </form>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach
@@ -52,6 +57,7 @@
                 </table>
             </div>
         </div>
+        @endcan
     </div>
 </div>
 

@@ -4,17 +4,20 @@
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        @can('view', 'App\\Models\Client')
         <li class="breadcrumb-item"><a href="{{route('admin.client.index')}}">{{__('admin.Clients')}}</a></li>
+        @endcan
         <li class="breadcrumb-item" aria-current="page">{{__('admin.Edit Client')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
-                    {{-- @can('add product') --}}
+                @can('edit', 'App\\Models\Client')
                 <div class="card-header">
                     <h5>{{__('admin.Edit Client')}}</h5>
                 </div>
-                {{-- @endcan --}}
+                 @endcan
+                 @can('edit', 'App\\Models\Client')
                 <div class="card-body">
                     <form action="{{route('admin.client.update',$clients->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -68,6 +71,7 @@
                         </div>
                     </form>
                 </div>
+                @endcan
             </div>
         </div>
     </div>

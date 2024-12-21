@@ -86,7 +86,9 @@ $description = 'description_' . app()->currentLocale();
                             </div>
                             <div class="flex flex-col flex-1 justify-start items-start my-4">
                                 <h3 class="text-lg md:text-2xl font-medium text-second mb-4">{{$item->$name}}</h3>
-                                <p class="text-second font-light text-xs md:text-sm  md:leading-6">{!!$item->$description!!}</p>
+                                <p class="text-second font-light text-xs md:text-sm  md:leading-6">
+                                    {!! Str::limit($item->$description, 50) !!}
+                                    {{-- {!!$item->$description!!} --}}</p>
                                 <a href="{{route('site.services_show', $item->id)}}" class="my-2 text-main underline hover:pl-2 transition-all delay-150 ease-in">
                                     Read MORE
                                 </a>
@@ -273,7 +275,7 @@ $description = 'description_' . app()->currentLocale();
         <div class="container py-10">
             <div class="flex flex-col justify-center items-center">
                 <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2">{{$teams->$name}}</h2>
-                <h3 class="text__client text-xl md:text-3xl font-semibold text-second mb-2">{{$teams->$title}}</h3>
+                <h3 class="text__client text-xl md:text-3xl font-semibold text-second mb-2">{{$teams->$title}}[</h3>]
                 <p class="text__client w-3/4 text-dark font-light text-base leading-6 text-center">{{$teams->$description}}</p>
             </div>
         </div>

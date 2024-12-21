@@ -18,13 +18,16 @@
         <div class="card-header">
             <div class="sm:flex items-center justify-between">
                 <h5 class="mb-3 sm:mb-0">{{__('admin.Teams')}}</h5>
+                @can('create', 'App\\Models\Team')
                 <div>
                     <a href="{{route('admin.team.create')}}" class="btn btn-primary" >
                         {{__('admin.Add Teams')}}
                     </a>
                 </div>
+                @endcan
             </div>
         </div>
+        @can('view', 'App\\Models\Team')
         <div class="card-body pt-3">
             <div class="table-responsive" style="margin: 0 15px;">
                 <table class="table table-hover table-bordered" id="pc-dt-simple">
@@ -68,6 +71,7 @@
                 </table>
             </div>
         </div>
+        @endcan
     </div>
 </div>
 

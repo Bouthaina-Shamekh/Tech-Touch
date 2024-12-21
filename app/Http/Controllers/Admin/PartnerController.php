@@ -14,6 +14,7 @@ class PartnerController extends Controller
      */
     public function index()
     {
+        $this->authorize('view', Partner::class);
         $partners = Partner::Orderby('id','desc')->get();
         $images = Media::paginate(100);
 
@@ -24,6 +25,7 @@ class PartnerController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Partner::class);
         $request->validate([
             'link' => 'nullable|string|url',
             'imagePath' => 'required|string',
@@ -48,6 +50,7 @@ class PartnerController extends Controller
      */
     public function update(Request $request, Partner $partner)
     {
+        $this->authorize('edit', Partner::class);
         $request->validate([
             'link' => 'nullable|string|url',
             'imagePath' => 'nullable|string',
@@ -70,6 +73,7 @@ class PartnerController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('delete', Partner::class);
         $partner = Partner::findOrFail($id);
         $partner->delete();
         return redirect()->route('admin.partner.index')->with('success', __('Item deleted successfully.'));

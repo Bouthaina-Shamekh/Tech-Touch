@@ -6,17 +6,20 @@
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        @can('view', 'App\\Models\Hero')
         <li class="breadcrumb-item"><a href="{{route('admin.hero.index')}}">{{__('admin.Hero')}}</a></li>
+        @endcan
         <li class="breadcrumb-item" aria-current="page">{{__('admin.Add Hero')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
-                {{-- @can('add product') --}}
+                @can('create', 'App\\Models\Hero')
                 <div class="card-header">
                     <h5>{{__('admin.Add Hero')}}</h5>
                 </div>
-                {{-- @endcan --}}
+                 @endcan
+                 @can('create', 'App\\Models\Hero')
                 <div class="card-body">
                     <form action="{{route('admin.hero.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -82,6 +85,7 @@
                         </div>
                     </form>
                 </div>
+                @endcan
             </div>
         </div>
     </div>

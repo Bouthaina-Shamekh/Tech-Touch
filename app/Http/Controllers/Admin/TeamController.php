@@ -11,6 +11,7 @@ class TeamController extends Controller
 {
     public function index()
     {
+        $this->authorize('view', Team::class);
         $teams = Team::Orderby('id','desc')->get();
         return view('dashboard.team.index',compact('teams'));
     }
@@ -20,6 +21,7 @@ class TeamController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Team::class);
         $teams = Team::first();
         $images = Media::paginate(100);
         return view('dashboard.team.create',compact('teams','images'));
@@ -30,6 +32,7 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Team::class);
         $request->validate([
             'name_en' => 'required|string|max:255',
             'name_ar' => 'required|string|max:255',
@@ -64,6 +67,7 @@ class TeamController extends Controller
      */
     public function edit(string $id)
     {
+        $this->authorize('edit', Team::class);
         $teams = Team::findOrFail($id);
         $images = Media::paginate(100);
         return view('dashboard.Team.edit',compact('teams','images'));
@@ -74,6 +78,7 @@ class TeamController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $this->authorize('edit', Team::class);
         $request->validate([
             'name_en' => 'required|string|max:255',
             'name_ar' => 'required|string|max:255',
@@ -107,6 +112,7 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('delete', Team::class);
         $teams = Team::findOrFail($id);
         $teams->delete();
         return redirect()->route('admin.team.index')->with('success', __('Item deleted successfully.'));

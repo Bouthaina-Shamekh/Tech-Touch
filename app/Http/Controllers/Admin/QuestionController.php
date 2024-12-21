@@ -9,12 +9,9 @@ use App\Http\Controllers\Controller;
 
 class QuestionController extends Controller
 {
-
-
-
-
     public function index()
     {
+        $this->authorize('view', Question::class);
         $questions = Question::with('answers')->get();
         return view('dashboard.question.index', compact('questions'));
     }
@@ -22,6 +19,7 @@ class QuestionController extends Controller
 
     public function create()
     {
+        $this->authorize('create', Question::class);
         return view('dashboard.question.create');
     }
 
@@ -29,6 +27,7 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
 
+        $this->authorize('create', Question::class);
 
         $request->validate([
             'question_ar' => 'required|string',
@@ -63,6 +62,7 @@ class QuestionController extends Controller
     // عرض نموذج تعديل السؤال
     public function edit($id)
     {
+        $this->authorize('edit', Question::class);
         $question = Question::findOrFail($id);
         return view('dashboard.question.edit', compact('question'));
     }
@@ -71,6 +71,7 @@ class QuestionController extends Controller
     public function update(Request $request, $id)
     {
 
+        $this->authorize('edit', Question::class);
 
 // dd($request->all());
 
@@ -105,6 +106,7 @@ class QuestionController extends Controller
 
     public function show($id)
     {
+        $this->authorize('view', Question::class);
         $question = Question::findOrFail($id);
         $answers = Answer::where('question_id', $id)->get();
         return view('dashboard.question.show', compact('question', 'answers'));
@@ -124,6 +126,7 @@ class QuestionController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('delete', Question::class);
         $question = Question::findOrFail($id);
         $question->answers()->delete();
         $question->delete();

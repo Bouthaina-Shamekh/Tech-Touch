@@ -6,17 +6,20 @@
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        @can('view', 'App\\Models\File')
         <li class="breadcrumb-item"><a href="{{route('admin.file.index')}}">{{__('admin.Files')}}</a></li>
+        @endcan
         <li class="breadcrumb-item" aria-current="page">{{__('admin.Add Files')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
-                {{-- @can('add product') --}}
+                @can('create', 'App\\Models\File')
                 <div class="card-header">
                     <h5>{{__('admin.Add Files')}}</h5>
                 </div>
-                {{-- @endcan --}}
+              @endcan
+              @can('create', 'App\\Models\File')
                 <div class="card-body">
                     <form action="{{route('admin.file.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -33,11 +36,6 @@
                                 <x-form.input name="file" label="{{__('admin.Upload Ur File')}}" type="file" placeholder="{{__('admin.upload ur file')}}"  />
                             </div>
 
-                            {{-- <div class="form-group col-6 mb-3">
-                                <label for="content_en" class="form-label">{{__('admin.admin.Content Arabic')}}</label>
-                                <textarea name="description_ar" id="description_ar" rows="3" class="form-control"></textarea>
-                            </div> --}}
-
                             <div class="form-group col-6 mb-3">
                                 <label class="form-label">{{ __('admin.Content English') }}</label>
                                <textarea id="mytextarea" rows="5"name="description_en" class="form-control"></textarea>
@@ -49,10 +47,7 @@
                               </div>
 
 
-                            {{-- <div class="form-group col-6 mb-3">
-                                <label for="content_en" class="form-label">{{__('admin.Content English')}}</label>
-                                <textarea name="description_en" id="description_en" rows="3" class="form-control"></textarea>
-                            </div> --}}
+                           
 
                             <div class="form-group col-6 mb-3">
                                 <x-form.input name="price" label="{{__('admin.Price')}}" type="text" placeholder="{{__('admin.enter price of files in arabic')}}"  />
@@ -83,6 +78,7 @@
                         </div>
                     </form>
                 </div>
+                @endcan
             </div>
         </div>
     </div>

@@ -11,6 +11,7 @@ class HeroController extends Controller
 {
     public function index()
     {
+        $this->authorize('view', Hero::class);
         $heros = Hero::get();
         $sections = ['Slider' ,'About','Services','Files','Partners','Works','Teams','Feedback','Goals','Features'];
         $sectionsMenu = Hero::select('section')->distinct()->pluck('section')->toArray();
@@ -23,6 +24,7 @@ class HeroController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Hero::class);
         $heros = new Hero();
         $heros = Hero::first();
         $images = Media::paginate(100);
@@ -37,6 +39,7 @@ class HeroController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Hero::class);
         $request->validate([
             'name_en' => 'required|string|max:255',
             'name_ar' => 'required|string|max:255',
@@ -80,6 +83,7 @@ class HeroController extends Controller
      */
     public function edit(string $id)
     {
+        $this->authorize('edit', Hero::class);
         $heros = Hero::findOrFail($id);
         $images = Media::paginate(100);
         $sections = ['Slider' ,'About','Services','Files','Partners','Works','Teams','Feedback','Goals','Features'];
@@ -93,6 +97,7 @@ class HeroController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $this->authorize('edit', Hero::class);
         $request->validate([
            'name_en' => 'required|string|max:255',
             'name_ar' => 'required|string|max:255',
@@ -136,6 +141,7 @@ class HeroController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('delete', Hero::class);
         $heros = Hero::findOrFail($id);
         $heros->delete();
         return redirect()->route('admin.hero.index')->with('success', __('Item deleted successfully.'));

@@ -18,13 +18,16 @@
         <div class="card-header">
             <div class="sm:flex items-center justify-between">
                 <h5 class="mb-3 sm:mb-0">{{__('admin.Service')}}</h5>
+                @can('create', 'App\\Models\Service')
                 <div>
                     <a href="{{route('admin.service.create')}}" class="btn btn-primary" >
                         {{__('admin.Add Services')}}
                     </a>
                 </div>
+                @endcan
             </div>
         </div>
+        @can('view', 'App\\Models\Service')
         <div class="card-body pt-3">
             <div class="table-responsive" style="margin: 0 15px;">
                 <table class="table table-hover table-bordered" id="pc-dt-simple">
@@ -48,9 +51,13 @@
                                 </td>
 
                                 <td>
+                                    @can('edit', 'App\\Models\Service')
                                     <a href="{{route('admin.service.edit',$service->id)}}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
                                         <i class="ti ti-edit text-xl leading-none"></i>
                                     </a>
+                                    @endcan
+
+                                    @can('delete', 'App\\Models\Service')
                                     <form action="{{route('admin.service.destroy',$service->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
@@ -58,6 +65,7 @@
                                             <i class="ti ti-trash text-xl leading-none"></i>
                                         </button>
                                     </form>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach
@@ -65,6 +73,7 @@
                 </table>
             </div>
         </div>
+        @endcan
     </div>
 </div>
 

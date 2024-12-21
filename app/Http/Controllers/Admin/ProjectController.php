@@ -10,8 +10,9 @@ use App\Http\Controllers\Controller;
 
 class ProjectController extends Controller
 {
-    public function index(){
-
+    public function index()
+    {
+        $this->authorize('view', Project::class);
         $projects = Project::get();
         return view('dashboard.project.index',compact('projects'));
 
@@ -20,6 +21,7 @@ class ProjectController extends Controller
 
     public function create()
     {
+        $this->authorize('view', Project::class);
         $projects = Project::first();
         $major = Major::get();
         $images = Media::paginate(100);
@@ -29,6 +31,7 @@ class ProjectController extends Controller
 
     public function store(Request $request)
 {
+    $this->authorize('view', Project::class);
     $request->validate([
         'name_en' => 'required',
         'name_ar' => 'required',
@@ -52,6 +55,7 @@ class ProjectController extends Controller
 
 public function edit(string $id)
     {
+        $this->authorize('view', Project::class);
         $projects = Project::findOrFail($id);
         $images = Media::paginate(100);
         return view('dashboard.Project.edit',compact('projects','images'));
@@ -60,6 +64,7 @@ public function edit(string $id)
 
     public function update(Request $request, $id)
 {
+    $this->authorize('view', Project::class);
     $request->validate([
        'name_en' => 'required',
         'name_ar' => 'required',

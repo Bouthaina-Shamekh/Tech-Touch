@@ -13,6 +13,7 @@
 
 
 <!-- Both borders table start -->
+@can('view', 'App\\Models\Slider')
 <div class="col-span-12">
     <div class="card table-card">
         <div class="card-header">
@@ -44,9 +45,13 @@
                                 <td>{{$slid->$name}}</td>
                                 <td>{!! $slid->$description!!}</td>
                                 <td>
+                                    @can('edit', 'App\\Models\Slider')
                                     <a href="{{route('admin.slider.edit',$slid->id)}}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
                                         <i class="ti ti-edit text-xl leading-none"></i>
                                     </a>
+                                    @endcan
+
+                                    @can('delete', 'App\\Models\Slider')
                                     <form action="{{route('admin.slider.destroy',$slid->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
@@ -54,6 +59,7 @@
                                             <i class="ti ti-trash text-xl leading-none"></i>
                                         </button>
                                     </form>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach
@@ -63,6 +69,7 @@
         </div>
     </div>
 </div>
+@endcan
 
 <!-- Both borders table end -->
 

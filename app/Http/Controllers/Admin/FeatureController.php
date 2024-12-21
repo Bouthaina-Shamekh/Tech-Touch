@@ -10,6 +10,7 @@ class FeatureController extends Controller
 {
     public function index()
     {
+        $this->authorize('view', Feature::class);
         $features = Feature::Orderby('id','desc')->get();
         return view('dashboard.feature.index',compact('features'));
     }
@@ -19,6 +20,7 @@ class FeatureController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Feature::class);
         $features = Feature::first();
         return view('dashboard.feature.create',compact('features'));
     }
@@ -28,12 +30,10 @@ class FeatureController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Feature::class);
         $request->validate([
             'feature_en' => 'required',
             'feature_ar' => 'required',
-
-
-
         ]);
         // Insert To Database
         Feature::create([
@@ -57,6 +57,7 @@ class FeatureController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('edit', Feature::class);
         $features = Feature::findOrFail($id);
 
         return view('dashboard.feature.edit',compact('features'));
@@ -67,6 +68,7 @@ class FeatureController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $this->authorize('edit', Feature::class);
         $request->validate([
             'feature_en' => 'required',
             'feature_ar' => 'required',
@@ -90,6 +92,7 @@ class FeatureController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('delete', Feature::class);
         $features = Feature::findOrFail($id);
         $features->delete();
         return redirect()->route('admin.feature.index')->with('success', __('Item deleted successfully.'));

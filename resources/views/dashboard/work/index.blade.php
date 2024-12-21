@@ -13,13 +13,16 @@
         <div class="card-header">
             <div class="sm:flex items-center justify-between">
                 <h5 class="mb-3 sm:mb-0">{{__('admin.Works')}}</h5>
+                @can('create', 'App\\Models\Work')
                 <div>
                     <a href="{{route('admin.work.create')}}" class="btn btn-primary" >
                         {{__('admin.Add Works')}}
                     </a>
                 </div>
+                @endcan
             </div>
         </div>
+        @can('view', 'App\\Models\Work')
         <div class="card-body pt-3">
             <div class="table-responsive" style="margin: 0 15px;">
                 <table class="table table-hover table-bordered" id="pc-dt-simple">
@@ -41,10 +44,10 @@
                                 </td>
                                 @if (App::getLocale() == 'ar')
                                 <td>{{$work->name_ar}}</td>
-                               
+
                                 @else
                                 <td>{{$work->name_en}}</td>
-                                
+
                                 @endif
                                 <td>
                                     @foreach ($work->categories as $category )
@@ -52,9 +55,13 @@
                                     @endforeach
                                 </td>
                                 <td class="d-flex">
+                                    @can('edit', 'App\\Models\Work')
                                     <a href="{{route('admin.work.edit',$work->id)}}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
                                         <i class="ti ti-edit text-xl leading-none"></i>
                                     </a>
+                                    @endcan
+
+                                    @can('delete', 'App\\Models\Work')
                                     <form action="{{route('admin.work.destroy',$work->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
@@ -62,6 +69,7 @@
                                             <i class="ti ti-trash text-xl leading-none"></i>
                                         </button>
                                     </form>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach
@@ -69,6 +77,7 @@
                 </table>
             </div>
         </div>
+        @endcan
     </div>
 </div>
 

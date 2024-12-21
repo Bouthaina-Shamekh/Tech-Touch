@@ -30,6 +30,17 @@
         @endif
     </div>
 
+    @can('super','App\\Models\User')
+    <div class="form-group col-6 mb-3">
+        <label for="super_admin">{{__('Super Admin')}}</label>
+        <select name="super_admin" id="super_admin" class="form-control">
+                        <option value="" disabled>{{__('Super Admin')}}</option>
+            <option value="0" @selected($user->super_admin == 0)>{{__('No')}}</option>
+            <option value="1" @selected($user->super_admin == 1)>{{__('Yes')}}</option>
+        </select>
+    </div>
+    @endcan
+
 </div>
 <div class="row justify-content-end mt-3">
     <a href="{{route('admin.users.index')}}" class="btn btn-secondary col-1 mr-3">

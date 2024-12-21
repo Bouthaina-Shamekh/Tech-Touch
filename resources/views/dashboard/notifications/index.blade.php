@@ -9,6 +9,7 @@
         <li class="breadcrumb-item" aria-current="page">{{ __('admin.Notifications') }}</li>
     </x-slot:breadcrumbs>
 
+    @can('view', 'App\\Models\Notification')
     <div class="col-span-12 mb-4">
         <div class="card">
             <div class="card-header">
@@ -93,4 +94,5 @@
             </div>
         </div>
     </div>
+    @endcan
 </x-dashboard-layout>

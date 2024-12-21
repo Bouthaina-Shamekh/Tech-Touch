@@ -18,13 +18,16 @@
         <div class="card-header">
             <div class="sm:flex items-center justify-between">
                 <h5 class="mb-3 sm:mb-0">{{__('admin.Clients')}}</h5>
+                @can('create', 'App\\Models\Client')
                 <div>
                     <a href="{{route('admin.client.create')}}" class="btn btn-primary" >
                         {{__('admin.Add Clients')}}
                     </a>
                 </div>
+                @endcan
             </div>
         </div>
+        @can('view', 'App\\Models\Client')
         <div class="card-body pt-3">
             <div class="table-responsive" style="margin: 0 15px;">
                 <table class="table table-hover table-bordered" id="pc-dt-simple">
@@ -32,9 +35,7 @@
                     <tr>
                         <th>#</th>
                         <th>{{__('admin.Name')}}</th>
-                        {{-- <th>{{__('admin.Name_EN')}}</th> --}}
                         <th>{{__('admin.Feedbac')}}</th>
-                        {{-- <th>{{__('admin.Feedback_EN')}}</th> --}}
                         <th>{{__('admin.star')}}</th>
                         <th>{{__('admin.Image')}}</th>
                         <th>{{__('admin.Action')}}</th>
@@ -56,9 +57,12 @@
                                 </td>
 
                                 <td>
+                                    @can('edit', 'App\\Models\Client')
                                     <a href="{{route('admin.client.edit',$client->id)}}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
                                         <i class="ti ti-edit text-xl leading-none"></i>
                                     </a>
+                                    @endcan
+                                    @can('delete', 'App\\Models\Client')
                                     <form action="{{route('admin.client.destroy',$client->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
@@ -66,6 +70,7 @@
                                             <i class="ti ti-trash text-xl leading-none"></i>
                                         </button>
                                     </form>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach
@@ -73,6 +78,7 @@
                 </table>
             </div>
         </div>
+        @endcan
     </div>
 </div>
 

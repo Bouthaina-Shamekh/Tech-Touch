@@ -5,9 +5,14 @@
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+
+        @can('view', 'App\\Models\Work')
         <li class="breadcrumb-item"><a href="{{route('admin.work.index')}}">{{__('admin.Work')}}</a></li>
+        @endcan
         <li class="breadcrumb-item" aria-current="page">{{__('admin.Add Work')}}</li>
     </x-slot:breadcrumb>
+
+    @can('create', 'App\\Models\Team')
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
@@ -28,7 +33,7 @@
                                 <label for="description_ar" class="form-label">{{__('admin.Description arabic')}}</label>
                                 <textarea name="description_ar" id="mytextarea" rows="3" class="form-control">{{ old('description_ar') }}</textarea>
                             </div>
-                            
+
                             <div class="form-group col-6">
                                 <label for="description_en" class="form-label">{{__('admin.Description English')}}</label>
                                 <textarea name="description_en" id="mytextarea" rows="3" class="form-control">{{ old('description_en') }}</textarea>
@@ -78,6 +83,7 @@
             </div>
         </div>
     </div>
+    @endcan
 
 
 

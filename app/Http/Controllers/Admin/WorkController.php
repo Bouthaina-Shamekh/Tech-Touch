@@ -13,6 +13,7 @@ class WorkController extends Controller
 {
     public function index()
     {
+        $this->authorize('view', Work::class);
         $works = Work::with('categories')->orderBy('id', 'desc')->get();
         return view('dashboard.work.index',compact('works'));
     }
@@ -22,6 +23,7 @@ class WorkController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Work::class);
         $works = Work::first();
         $images = Media::paginate(100);
         $categories = Cat_Work::get();
@@ -33,6 +35,7 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Work::class);
         $request->validate([
             'name_en' => 'required|string|max:255',
             'name_ar' => 'required|string|max:255',
@@ -78,6 +81,7 @@ class WorkController extends Controller
      */
     public function edit(string $id)
     {
+        $this->authorize('edit', Work::class);
         $works = Work::findOrFail($id);
         $images = Media::paginate(100);
         $categories = Cat_Work::get();
@@ -90,6 +94,7 @@ class WorkController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $this->authorize('edit', Work::class);
 
         $request->validate([
             'name_en' => 'required|string|max:255',
@@ -135,6 +140,7 @@ class WorkController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('delete', Work::class);
         $works = Work::findOrFail($id);
         $works->delete();
         return redirect()->route('admin.work.index')->with('success', __('Item deleted successfully.'));

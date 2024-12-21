@@ -11,6 +11,9 @@
     </x-slot:breadcrumb>
 
     <!-- تفاصيل الإشعار -->
+    @can('view', 'App\\Models\Notification')
+
+
     <div class="col-span-12 mb-4">
         <div class="card">
             <div class="card-header">
@@ -72,4 +75,5 @@
             </div>
         </div>
     </div>
+    @endcan
 </x-dashboard-layout>

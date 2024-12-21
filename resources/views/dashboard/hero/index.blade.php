@@ -42,13 +42,16 @@
                     $diff = array_diff($sections, $sectionsMenu);
                     @endphp
                     @if (!empty($diff))
+                    @can('add', 'App\\Models\Hero')
                         <a href="{{route('admin.hero.create')}}" class="btn btn-primary" >
                             {{__('admin.Add Hero')}}
                         </a>
+                    @endcan
                     @endif
                 </div>
             </div>
         </div>
+        @can('view', 'App\\Models\Hero')
         <div class="card-body pt-3">
             <div class="table-responsive" style="margin: 0 15px;">
                 <table class="table table-hover table-bordered" id="pc-dt-simple">
@@ -84,9 +87,11 @@
                                 <td>{{$hero->section}}</td>
 
                                 <td>
+                                    @can('edit', 'App\\Models\Hero')
                                     <a href="{{route('admin.hero.edit',$hero->id)}}" class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
                                         <i class="ti ti-edit text-xl leading-none"></i>
                                     </a>
+                                    @endcan
                                     {{-- <form action="{{route('admin.hero.destroy',$hero->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
@@ -101,6 +106,7 @@
                 </table>
             </div>
         </div>
+        @endcan
     </div>
 </div>
 

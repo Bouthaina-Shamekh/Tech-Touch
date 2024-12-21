@@ -4,7 +4,9 @@
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        @can('view', 'App\\Models\Client')
         <li class="breadcrumb-item"><a href="{{route('admin.client.index')}}">{{__('admin.Client')}}</a></li>
+        @endcan
         <li class="breadcrumb-item" aria-current="page">{{__('admin.Add Client')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
@@ -15,6 +17,7 @@
                     <h5>{{__('admin.Add Client')}}</h5>
                 </div>
                 {{-- @endcan --}}
+                @can('create', 'App\\Models\Client')
                 <div class="card-body">
                     <form action="{{route('admin.client.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -65,12 +68,13 @@
                         </div>
                     </form>
                 </div>
+                @endcan
             </div>
         </div>
     </div>
 
 
-   
+
 
     <div class="modal fade" id="mediaModal" tabindex="-1" role="dialog" aria-labelledby="mediaModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg  modal-dialog-centered">

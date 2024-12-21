@@ -28,14 +28,16 @@
                     </div>
                     <div class="hidden pc-user-links" id="pc_sidebar_userlink">
                         <div class="pt-3 *:flex *:items-center *:py-2 *:gap-2.5 hover:*:text-primary-500">
-                            <a href="#!">
+                            <a href="{{route('admin.users.profile', Auth::user()->id)}}">
                                 <i class="text-lg leading-none ti ti-user"></i>
                                 <span>{{__('admin.My_account')}}</span>
                             </a>
+                            @can('view', 'App\\Models\Setting')
                             <a href="{{route('admin.setting.index')}}">
                                 <i class="text-lg leading-none ti ti-settings"></i>
                                 <span>{{__('admin.Settings')}}</span>
                             </a>
+                            @endcan
                             <form action="{{ route('logout') }}" method="post">
                                 @csrf
                                 <button type="submit" style="display: flex; align-items: center; gap: 5px;">
@@ -77,7 +79,7 @@
                     </a>
                     <ul class="pc-submenu">
 
-
+                        @can('view', 'App\\Models\Notification')
                         <li class="pc-item">
                             <a href="{{route('admin.notification.index')}}" class="pc-link">
                                 <svg class="pc-micon">
@@ -86,29 +88,39 @@
                                 <span class="pc-mtext">{{__('admin.Notifications')}}</span>
                             </a>
                         </li>
+                        @endcan
 
+                        @can('view', 'App\\Models\Question')
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.question.index')}}">
                                 {{__('admin.Questions')}}
                             </a>
                         </li>
+                        @endcan
 
+                        @can('view', 'App\\Models\Hero')
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.hero.index')}}">
                                 {{__('admin.Hero')}}
                             </a>
                         </li>
+                        @endcan
+
+                        @can('view', 'App\\Models\Slider')
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.slider.index')}}">
                                 {{__('admin.Slider')}}
                             </a>
                         </li>
+                        @endcan
 
+                        @can('view', 'App\\Models\Service')
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.service.index')}}">
                                 {{__('admin.Service')}}
                             </a>
                         </li>
+                        @endcan
 
 
 
@@ -130,51 +142,61 @@
                     </a>
                     <ul class="pc-submenu">
 
+                        @can('view', 'App\\Models\File')
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.file.index')}}">
                                 {{__('admin.File')}}
                             </a>
                         </li>
+                        @endcan
 
+                        @can('view', 'App\\Models\Partner')
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.partner.index')}}">
                                 {{__('admin.Partner')}}
                             </a>
                         </li>
+                        @endcan
 
 
+                        @can('view', 'App\\Models\Work')
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.work.index')}}">
-                                {{__('admin.Works')}}
+                                {{__('admin.Protfolio')}}
                             </a>
                         </li>
+                        @endcan
 
+                        @can('view', 'App\\Models\Team')
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.team.index')}}">
                                 {{__('admin.Team')}}
                             </a>
                         </li>
+                        @endcan
 
-
+                        @can('view', 'App\\Models\Client')
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.client.index')}}">
                                 {{__('admin.clients')}}
                             </a>
                         </li>
+                        @endcan
 
+                        @can('view', 'App\\Models\Feature')
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.feature.index')}}">
                                 {{__('admin.Feature')}}
                             </a>
                         </li>
+                        @endcan
 
                     </ul>
                 </li>
             </ul>
             <ul class="pc-navbar">
-                {{-- <li class="pc-item pc-caption">
-                    <label>{{__('Settings')}}</label>
-                </li> --}}
+
+                @can('view', 'App\\Models\Media')
                 <li class="pc-item">
                     <a href="{{route('admin.media.index')}}" class="pc-link">
                         <span class="pc-micon">
@@ -185,6 +207,9 @@
                         <span class="pc-mtext">{{__('admin.Media')}}</span>
                     </a>
                 </li>
+                @endcan
+
+                @can('view', 'App\\Models\User')
                 <li class="pc-item pc-hasmenu">
                     <a href="#!" class="pc-link">
                         <span class="pc-micon">
@@ -212,6 +237,9 @@
                         </li> --}}
                     </ul>
                 </li>
+                @endcan
+
+                @can('view', 'App\\Models\Setting')
                 <li class="pc-item">
                     <a href="{{route('admin.setting.index')}}" class="pc-link">
                         <span class="pc-micon">
@@ -222,6 +250,7 @@
                         <span class="pc-mtext">{{__('admin.Settings')}}</span>
                     </a>
                 </li>
+                @endcan
 
             </ul>
         </div>

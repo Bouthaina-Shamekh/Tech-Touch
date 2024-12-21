@@ -6,6 +6,7 @@
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
         <li class="breadcrumb-item" aria-current="page">{{__('Media')}}</li>
     </x-slot:breadcrumb>
+    @can('view', 'App\\Models\Media')
     <!-- Both borders table start -->
     <div class="col-span-12">
         <div class="card table-card">
@@ -45,6 +46,7 @@
             </div>
         </div>
     </div>
+    @endcan
     <!-- Both borders table end -->
     <div class="modal fade" id="mediaModal" tabindex="-1" role="dialog" aria-labelledby="mediaModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg  modal-dialog-centered">

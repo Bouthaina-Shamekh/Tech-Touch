@@ -19,6 +19,7 @@ class MediaController extends Controller
 {
     public function index(Request $request)
     {
+        $this->authorize('view', Media::class);
         if($request->ajax()){
             return Media::paginate(100);
         }
@@ -32,6 +33,7 @@ class MediaController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Media::class);
         if(is_array($request->imageFile)){
             $request->validate([
                 'imageFile' => 'required|array|min:1',
@@ -93,6 +95,7 @@ class MediaController extends Controller
      */
     public function destroy(Request $request, $id)
     {
+        $this->authorize('delete', Media::class);
         $image  = Media::findOrFail($id);
 
         // الفحص في جدول الأصناف والمنتجات اذا وجدت الصورة

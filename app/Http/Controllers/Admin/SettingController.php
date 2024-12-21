@@ -13,7 +13,7 @@ class SettingController extends Controller
     public function index(){
 
         // return "bou";
-
+        $this->authorize('view', Setting::class);
         $settings = Setting::whereIn('key', ['linkedin','instagram','twitter','facebook','snapshat','whatsapp','titel_en', 'titel_ar', 'logo', 'contact_email','currency','policy_ar', 'policy_en'])->pluck('value', 'key');
 
         return view('dashboard.setting.index',compact('settings'));
@@ -23,9 +23,7 @@ class SettingController extends Controller
 
     public function update(Request $request)
 {
-
-
-
+    $this->authorize('edit', Setting::class);
     $request->validate([
         'linkedin' => 'required',
         'instagram'=> 'required',

@@ -7,6 +7,7 @@
                     <i class="ti ti-x"></i>
                 </button>
             </div>
+            @can('create', 'App\\Models\Hero')
             <form action="{{route('admin.partner.store')}}" method="post">
                 <div class="modal-body">
                     @csrf
@@ -30,6 +31,7 @@
                     <button type="submit" class="btn btn-primary ml-2">ٍ{{__('admin.Add')}}</button>
                 </div>
             </form>
+            @endcan
         </div>
     </div>
 </div>

@@ -14,6 +14,18 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
+
+        DB::table('users')->insert([
+            'name' => 'Administrator',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('admin'),
+            'type' => 'admin',
+            'super_admin' => 1,
+            'email_verified_at' => now(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        
         DB::table('users')->insert([
             'name' => 'Bouthaina',
             'email' => 'bou@gmail.com',
@@ -24,13 +36,15 @@ class UsersTableSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
+
+
         // إضافة مستخدم من نوع user
         DB::table('users')->insert([
             'name' => 'Ayat',
             'email' => 'ayat@gmail.com',
             'password' => Hash::make('12345678'),
             'type' => 'user',
-            'email_verified_at' => now(), 
+            'email_verified_at' => now(),
             'created_at' => now(),
             'updated_at' => now(),
         ]);

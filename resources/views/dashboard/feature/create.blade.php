@@ -4,17 +4,20 @@
     @endpush
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        @can('view', 'App\\Models\Feature')
         <li class="breadcrumb-item"><a href="{{route('admin.feature.index')}}">{{__('admin.Feature')}}</a></li>
+        @endcan
         <li class="breadcrumb-item" aria-current="page">{{__('admin.Add Feature')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
-                {{-- @can('add product') --}}
+                @can('create', 'App\\Models\Feature')
                 <div class="card-header">
                     <h5>{{__('admin.Add Feature')}}</h5>
                 </div>
-                {{-- @endcan --}}
+                @endcan
+                @can('create', 'App\\Models\Feature')
                 <div class="card-body">
                     <form action="{{route('admin.feature.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -40,6 +43,7 @@
                         </div>
                     </form>
                 </div>
+                @endcan
             </div>
         </div>
     </div>
@@ -50,7 +54,7 @@
 
 
 
- 
+
 
 
 </x-dashboard-layout>

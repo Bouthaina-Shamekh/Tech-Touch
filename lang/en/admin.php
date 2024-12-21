@@ -130,6 +130,7 @@ return [
      'File Name_EN' => 'File Name English',
      'File Name EN' => 'File Name EN',
      'Services' => 'Services',
+     'Protfolio' => 'Portfolio',
 
 
 
