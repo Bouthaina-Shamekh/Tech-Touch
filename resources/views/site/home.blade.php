@@ -87,8 +87,8 @@ $description = 'description_' . app()->currentLocale();
                             <div class="flex flex-col flex-1 justify-start items-start my-4">
                                 <h3 class="text-lg md:text-2xl font-medium text-second mb-4">{{$item->$name}}</h3>
                                 <p class="text-second font-light text-xs md:text-sm  md:leading-6">
-                                    {!! Str::limit($item->$description, 50) !!}
-                                    {{-- {!!$item->$description!!} --}}</p>
+                                    {{-- {!! Str::limit($item->$description, 50) !!} --}}له
+                                    {!!$item->$description!!}</p>
                                 <a href="{{route('site.services_show', $item->id)}}" class="my-2 text-main underline hover:pl-2 transition-all delay-150 ease-in">
                                     Read MORE
                                 </a>

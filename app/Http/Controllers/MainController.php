@@ -71,7 +71,7 @@ class MainController extends Controller
 
     public function services(){
 
-        $services = Service::all();
+        $services = Service::Orderby('id','desc')->get();
         return view('site.services', compact('services'));
 
     }
