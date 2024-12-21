@@ -45,7 +45,7 @@ $description = 'description_' . app()->currentLocale();
                                 <i class="left__file fa-solid fa-file text-[#818B90] me-2"></i>
                                 <span class="left__file">{{$file->$file_name}}</span>
                             </h4>
-                            <p class="text-dark font-light text-base left__file">{{$file->$description}} </p>
+                            <p class="text-dark font-light text-base left__file">{!! \Illuminate\Support\Str::words($file->$description, 16, '...') !!}</p>
                             <div class="flex justify-start items-center gap-4 mt-4">
                                 <span class="text-main font-light text-lg bottom__file">${{$file->price}}</span>
                                 <a href="{{route('site.file_show', $file->id)}}" class="bottom__file px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">

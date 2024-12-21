@@ -31,9 +31,10 @@ class HeroSeeder extends Seeder
             [
                 'name_en' => 'About Us Section',
                 'name_ar' => 'قسم من نحن',
-                'title_en' => 'About Our Journey',
+                'title_en' => 'What Are tech touch',
                 'title_ar' => 'حول رحلتنا',
-                'description_en' => 'Learn more about our story and values.',
+                'description_en' => 'Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.
+                                    Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo',
                 'description_ar' => 'تعرف على قصتنا وقيمنا.',
                 'image1' => 'about_image1.jpg',
                 'image2' => null,

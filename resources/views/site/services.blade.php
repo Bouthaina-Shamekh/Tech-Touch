@@ -40,7 +40,7 @@ $description = 'description_' . app()->currentLocale();
                             </div>
                             <div class="content__card flex flex-col flex-1 justify-start items-start my-4">
                                 <h3 class="text-3xl font-medium text-second mb-4">{{$service->$name}}</h3>
-                                <p class="text-second font-light text-base leading-6">{!! Str::limit($service->$description, 50) !!}
+                                <p class="text-second font-light text-base leading-6">{!! \Illuminate\Support\Str::words($service->$description, 20, '...') !!}
 
                                 </p>
 

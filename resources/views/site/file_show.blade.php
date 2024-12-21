@@ -55,7 +55,7 @@ $name = 'name_' . app()->currentLocale();
                         <i class="text-2xl md:text-4xl fa-solid fa-file text-[#818B90] me-2"></i>
                         {{$file->$file_name}}
                     </h2>
-                    <p class="text__files text-dark font-light text-base leading-6">{{$file->$description}}</p>
+                    <p class="text__files text-dark font-light text-base leading-6">{!!$file->$description!!}</p>
                     <div class=" flex flex-col justify-start items-start ">
                         <h3 class="text-xl text-second my-4 bottom__files">{{__('Price')}}</h3>
                         <span class="text-3xl text-second font-light bottom__files">${{$file->price}}</span>

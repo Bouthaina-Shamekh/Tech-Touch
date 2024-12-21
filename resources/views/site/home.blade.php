@@ -87,8 +87,8 @@ $description = 'description_' . app()->currentLocale();
                             <div class="flex flex-col flex-1 justify-start items-start my-4">
                                 <h3 class="text-lg md:text-2xl font-medium text-second mb-4">{{$item->$name}}</h3>
                                 <p class="text-second font-light text-xs md:text-sm  md:leading-6">
-                                    {!! Str::limit($item->$description, 50) !!}
-                                     {!!$item->$description!!}</p>
+                                    {!! \Illuminate\Support\Str::words($item->$description, 20, '...') !!}
+                                     </p>
                                     {{-- <p class="text__service text-dark font-light text-base leading-6" style="white-space: pre-wrap; word-wrap: break-word; width: 100%;">{{$services->$description}}</p> --}}
                                 <a href="{{route('site.services_show', $item->id)}}" class="my-2 text-main underline hover:pl-2 transition-all delay-150 ease-in">
                                     Read MORE
@@ -171,7 +171,7 @@ $description = 'description_' . app()->currentLocale();
                                         <i class="fa-solid fa-file text-[#818B90] me-2"></i>
                                         <span>{{$file->$file_name }}</span>
                                     </h4>
-                                    <p class="text-dark font-light text-sm">{!!$file->$description!!} </p>
+                                    <p class="text-dark font-light text-sm">{!! \Illuminate\Support\Str::words($file->$description, 20, '...') !!}</p>
                                     <div class="flex justify-start items-center gap-4 mt-4">
                                         <span class="text-main font-light text-lg">${{$file->price}}</span>
                                         <a href="{{route('site.file_show', $file->id)}}" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
