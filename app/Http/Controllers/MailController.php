@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\ConsultationMessageEvent;
 use App\Models\Hero;
 use App\Models\User;
 use App\Mail\SendMail;
 use App\Mail\ContactUs;
+use App\Models\Setting;
 use Illuminate\Http\Request;
-use App\Events\ContacMessageEvent;
 use App\Mail\ConsultationMail;
-use App\Notifications\ConsultationNotification;
+use App\Events\ContacMessageEvent;
 use Illuminate\Support\Facades\Mail;
+use App\Events\ConsultationMessageEvent;
 use App\Notifications\ContactNotification;
 use Illuminate\Support\Facades\Notification;
+use App\Notifications\ConsultationNotification;
 // use Illuminate\Notifications\Notification;
 
 class MailController extends Controller
@@ -31,11 +32,19 @@ class MailController extends Controller
 
 
 
+    // public function contact(){
+    //     // $abouts = Hero::where('section', 'About')
+    //     //             ->first();
+
+    //     $settings = Setting::whereIn('key', ['about_ar', 'about_en','phone','location'])->pluck('value', 'key');
+    //     return view('site.contact', compact('settings'));
+    // }
+
     public function contact(){
-        $abouts = Hero::where('section', 'About')
-                    ->first();
-        return view('site.contact', compact('abouts'));
+        $settings = Setting::whereIn('key', ['about_ar', 'about_en', 'phone', 'location','contact_email'])->get();;
+        return view('site.contact', compact('settings'));
     }
+
 
     public function contact_data(Request $request){
 

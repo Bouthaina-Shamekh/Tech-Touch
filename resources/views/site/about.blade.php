@@ -16,7 +16,7 @@ $feature = 'feature_'.app()->currentLocale();
             <nav class="w-full rounded-md">
                 <ol class="list-reset flex">
                     <li>
-                        <a href="../index.html" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
+                        <a href="{{route('site.index')}}" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
                             Home
                         </a>
                     </li>
@@ -60,12 +60,12 @@ $feature = 'feature_'.app()->currentLocale();
                             <div class="card__about hexagon-container w-[70%] md:w-[30%]">
                                 <!-- SVG للشكل السداسي بحدود متقطعة -->
                                 <svg width="100%" height="100%" viewBox="0 0 100 100">
-                                    <polygon points="25,6.7,75 6.7,100 50,75 93.3,25 93.3,0 50" fill="none" stroke="#D2D2D2" 
+                                    <polygon points="25,6.7,75 6.7,100 50,75 93.3,25 93.3,0 50" fill="none" stroke="#D2D2D2"
                                     stroke-width="0.5" stroke-dasharray="0" />
                                 </svg>
                                 <!-- العنصر الداخلي -->
                                 <div class="hexagon-content flex flex-col">
-                                    <span class="text-7xl font-semibold text-main mb-2 counter" data-target="5">0</span> 
+                                    <span class="text-7xl font-semibold text-main mb-2 counter" data-target="{{$partnersCount}}">{{$partnersCount}}</span>
                                     <span class="text-xl font-semibold text-second ">Partners</span>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@ $feature = 'feature_'.app()->currentLocale();
                                 </svg>
                                 <!-- العنصر الداخلي -->
                                 <div class="hexagon-content flex flex-col">
-                                    <span class="text-7xl font-semibold text-main mb-2 counter" data-target="27">0</span>
+                                    <span class="text-7xl font-semibold text-main mb-2 counter" data-target="{{$teamCount}}">{{$teamCount}}</span>
                                     <span class="text-xl font-semibold text-second ">Employees</span>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@ $feature = 'feature_'.app()->currentLocale();
                                 </svg>
                                 <!-- العنصر الداخلي -->
                                 <div class="hexagon-content flex flex-col">
-                                    <span class="text-7xl font-semibold text-main mb-2 counter" data-target="221">0</span>
+                                    <span class="text-7xl font-semibold text-main mb-2 counter" data-target="{{$workCount}}">{{$workCount}}</span>
                                     <span class="text-xl font-semibold text-second ">Projects</span>
                                 </div>
                             </div>
@@ -96,22 +96,22 @@ $feature = 'feature_'.app()->currentLocale();
                 </div>
             </div>
         </section>
-        
+
 
         <section class="my-20">
             <div class="container">
                 <div class="flex flex-wrap justify-between items-start">
                     <!-- Text -->
                     <div class="flex flex-col flex-1/2 justify-start items-center md:items-start text-justify md:text-left md:pr-8">
-                        <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4">Our goals</h2>
-                        <p class="left__section__second text-dark font-light text-base leading-6">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod</p>
+                        <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4">{{ $goals->name_en}}</h2>
+                        <p class="left__section__second text-dark font-light text-base leading-6">{{ $goals->description_en}}</p>
                         <div class="flex flex-col justify-start items-center md:items-start mt-10">
-                            <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4">Our features</h2>
-                            <p class="left__section__second text-dark font-light text-base leading-6">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna </p>
+                            <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4">{{$item->name_en}}</h2>
+                            <p class="left__section__second text-dark font-light text-base leading-6">{{ $goals->description_en}} </p>
                             <ul class="list-inside list-image-[url(../img/icon/Icon-material-done.png)] mt-4">
-                                <li class="left__section__second text-dark font-light text-base ">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr,</li>
-                                <li class="left__section__second text-dark font-light text-base ">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr,</li>
-                                <li class="left__section__second text-dark font-light text-base ">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr,</li>
+                                @foreach ($features as $features )
+                                <li class="left__section__second text-dark font-light text-base ">{{$features->$feature}}</li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -134,62 +134,10 @@ $feature = 'feature_'.app()->currentLocale();
             </div>
         </section>
 
-    <!-- Content -->
-   {{-- @include('site.parts.about') --}}
 
 
-   <!--<section class="my-6">
-        <div class="container">
-            <div class="flex flex-wrap justify-between items-center md:items-start text-justify md:text-left">
-                 <!-- Img 
-                 <div class="img__about flex md:justify-start img-about" style="flex: 1 1 40%;">
-                    <div class="animate-oscillate hexagon-container">
-                        <!-- SVG للشكل السداسي بحدود متقطعة 
-                        <svg viewBox="0 0 100 100">
-                            <polygon points="25,6.7,75 6.7,100 50,75 93.3,25 93.3,0 50" fill="none" stroke="#43516D" stroke-width="0.3" stroke-dasharray="0.7" />
-                        </svg>
-                        <!-- العنصر الداخلي 
-                        <div class="hexagon-content">
-                            <img src="../asset/img/extra/about-1.jpg" alt=""  class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                </div>
-                <!-- Text 
-                <div class="flex flex-col flex-1/2 justify-start items-center md:items-start text-center md:text-left pr-8">
-                    <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4">{{ $goals->name_en}}</h2>
-                    <p class="left__section__second text-dark font-light text-base leading-6">{{ $goals->description_en}}</p>
-                    <div class="flex flex-col justify-start items-center md:items-start mt-10">
-                        <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4"> {{$item->name_en}}</h2>
-                        <p class="left__section__second text-dark font-light text-base leading-6"> {{$item->description_en}}</p>
-                        <ul class="list-inside list-image-[url(../img/icon/Icon-material-done.png)] mt-4">
-                            @foreach ($features as $features )
 
 
-                            <li class="left__section__second text-dark font-light text-base ">{{$features->$feature}}</li>
-                            @endforeach
-                            {{-- <li class="left__section__second text-dark font-light text-base ">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr,</li>
-                            <li class="left__section__second text-dark font-light text-base ">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr,</li> --}}
-                        </ul>
-                    </div>
-                </div>
-                <!-- Video 
-                <div class="hidden md:flex flex-col md:justify-start img-about" style="flex: 1 1 40%;">
-                    <h2 class="top__section_second text-7xl font-semibold text-main uppercase mb-2">Video</h2>
-                    <h3 class="top__section_second text-3xl font-semibold text-second uppercase mb-8">Demonstration</h3>
-                    <div class="img__section__second hexagon-container">
-                        <!-- SVG للشكل السداسي بحدود متقطعة 
-                        <svg width="620" height="590" viewBox="0 0 100 100">
-                            <polygon points="25,6.7,75 6.7,100 50,75 93.3,25 93.3,0 50" fill="none" stroke="#43516D" stroke-width="0.3" stroke-dasharray="0.7" />
-                        </svg>
-                        <!-- العنصر الداخلي 
-                        <div class="hexagon-content">
-                            <img src="../asset/img/extra/about-2.png" style="transform:rotate(90deg);" alt=""  class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <div data-twe-modal-init
         class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
@@ -200,10 +148,14 @@ $feature = 'feature_'.app()->currentLocale();
                 class="pointer-events-auto relative flex w-[75%] flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark">
                 <!-- Modal body -->
                 <div class="relative flex-auto p-4" data-twe-modal-body-ref>
-                    <video width="100%" class="w-full object-cover" controls >
-                        <source src="../asset/فيديو موشن جرافيك إعلاني قصير .mp4" type="video/mp4">
+                    {{-- <video width="100%" class="w-full object-cover" controls >
+                        <source src="{{$abouts->video}}" type="video/mp4">
                         Your browser does not support the video tag.
-                    </video>
+                    </video> --}}
+                    <div class="video-container">
+                        <span>{{$abouts->video}}</span>
+                        <iframe width="100%" height="700" src="https://www.youtube.com/embed/{{$abouts->video}}" title="خسارة تعيش حياة عادية | د.حازم شومان" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div>

@@ -52,21 +52,20 @@ $name = 'name_' . app()->currentLocale();
                 <!-- Text -->
                 <div class="flex flex-col flex-1/2 justify-start items-center md:items-start text-center md:text-left pr-8">
                     <h2 class="top__contact text-3xl font-semibold text-main uppercase mb-4">Get in touch with us</h2>
-                    <p class="text__contact text-dark font-light text-base leading-6">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore</p>
+                     <p class="text__contact text-dark font-light text-base leading-6">{!! $settings->where('key', 'about_en')->first()->value ?? '' !!}</p>
                     <div class="flex flex-col justify-start items-center md:items-start mt-10">
                         <div class="text__contact flex justify-start items-center mb-4">
                             <i class="fa-regular fa-envelope  text-3xl text-main me-8"></i>
-                            <span class="text-xl text-dark">Gizmos@Example.Com</span>
+                            <span class="text-xl text-dark">{!! $settings->where('key', 'contact_email')->first()->value ?? '' !!}</span>
                         </div>
                         <div class="text__contact flex justify-start items-center mb-4">
                             <i class="fa-solid fa-phone  text-3xl text-main me-8"></i>
-                            <span class="text-xl text-dark">(+55) 654 - 545 - 5418</span>
+                            <span class="text-xl text-dark">{{$settings->where('key', 'phone')->first()->value ?? '' }}</span>
                         </div>
                         <div class="text__contact flex justify-start items-center mb-4">
                             <i class="fa-solid fa-headphones-simple  text-3xl text-main me-8"></i>
                             <span class="text-xl text-dark">
-                                Monday To Friday: 9Am-9Pm <br>
-                                Saturday To Sunday: 9Am-10Pm
+                                {{$settings->where('key', 'location')->first()->value ?? '' }}
                             </span>
                         </div>
                     </div>

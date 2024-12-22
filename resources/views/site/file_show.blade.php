@@ -16,7 +16,7 @@ $name = 'name_' . app()->currentLocale();
             <nav class="w-full rounded-md">
                 <ol class="list-reset flex">
                     <li>
-                        <a href="../index.html" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
+                        <a href="{{route('site.index')}}" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
                             Home
                         </a>
                     </li>
@@ -24,14 +24,14 @@ $name = 'name_' . app()->currentLocale();
                         <span class="mx-2 text-neutral-400">/</span>
                     </li>
                     <li>
-                        <a href="./files.html" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
+                        <a href="{{route('site.files')}}" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
                             Files
                         </a>
                     </li>
                     <li>
                         <span class="mx-2 text-neutral-400">/</span>
                     </li>
-                    <li class="text-neutral-400">File Name</li>
+                    <li class="text-neutral-400">{{$file->$file_name}}</li>
                 </ol>
             </nav>
         </div>

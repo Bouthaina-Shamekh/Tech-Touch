@@ -50,10 +50,22 @@ class MainController extends Controller
         return view('site.home', compact('sliders','abouts','services','service','files','file','partners','partner','work','works','teams','team','clients','partnersCount','teamCount','workCount'));
     }
 
+    public function getVideoIdAttribute($video)
+    {
+        // استخراج المعرف باستخدام parse_url و parse_str
+        parse_str(parse_url($video, PHP_URL_QUERY), $queryParams);
+
+        // استخراج المعرف (ID) من الرابط
+        $videoId = isset($queryParams['v']) ? $queryParams['v'] : null;
+        return $videoId;
+    }
+
+
     public function about(){
 
         $abouts = Hero::where('section', 'About')
                     ->first();
+        $abouts->video = $this->getVideoIdAttribute($abouts->video); // استخراج المعرف
         $goals = Hero::where('section', 'Goals')
                     ->select('name_en','name_ar', 'description_en','description_ar')
                     ->first();

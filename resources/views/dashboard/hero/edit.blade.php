@@ -89,7 +89,15 @@
                                 <button type="button" id="imageFile2" class="d-none imageFile" data-pc-toggle="modal" data-pc-target="#mediaModal" data-media='2'></button>
                                 <input type="text" class="form-control mt-2 d-none" id="imagePathInput2" value="" name="imagePath2" accept="image/*" readonly>
                                 <img src="{{asset('storage/' . $heros->image)}}" alt="img...." width="100px" class="mt-3">
-
+                            </div>
+                            @endif
+                            @if($heros->section == 'About')
+                            <div class="form-group col-6">
+                                <x-form.input name="video" label="{{__('admin.URL Video')}}" type="url" placeholder="{{__('admin.enter url video in youtube')}}" required :value="$heros->video" />
+                                <video width="100px" class="mt-3" controls="">
+                                    <source src="{{$heros->video}}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
                             @endif
 

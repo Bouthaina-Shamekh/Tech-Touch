@@ -14,7 +14,7 @@ class SettingController extends Controller
 
         // return "bou";
         $this->authorize('view', Setting::class);
-        $settings = Setting::whereIn('key', ['linkedin','instagram','twitter','facebook','snapshat','whatsapp','titel_en', 'titel_ar', 'logo', 'contact_email','currency','policy_ar', 'policy_en'])->pluck('value', 'key');
+        $settings = Setting::whereIn('key', ['linkedin','instagram','twitter','facebook','snapshat','whatsapp','titel_en', 'titel_ar', 'logo', 'contact_email','currency','policy_ar', 'policy_en','about_ar', 'about_en','phone','location'])->pluck('value', 'key');
 
         return view('dashboard.setting.index',compact('settings'));
     }
@@ -38,6 +38,10 @@ class SettingController extends Controller
         'currency' => 'required',
         'policy_ar' => 'required',
         'policy_en' => 'required',
+        'about_ar' => 'required',
+        'about_en' => 'required',
+        'phone' => 'required',
+        'location' => 'required',
     ]);
 
 

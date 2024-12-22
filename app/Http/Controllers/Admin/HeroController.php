@@ -50,8 +50,7 @@ class HeroController extends Controller
             'imagePath1' => 'nullable',
             'imagePath2' => 'nullable',
             'section' => 'required',
-
-
+            'video' => 'nullable',
         ]);
         // Insert To Database
         Hero::create([
@@ -64,7 +63,7 @@ class HeroController extends Controller
             'image1' => $request->imagePath1,
             'image2' => $request->imagePath2,
             'section' => $request->section,
-
+            'video' => $request->video,
         ]);
 
         return redirect()->route('admin.hero.index')->with('success', __('Item updated successfully.'));
@@ -108,6 +107,7 @@ class HeroController extends Controller
             'imagePath1' => 'nullable',
             'imagePath2' => 'nullable',
             'section' => 'required',
+            'video' => 'nullable',
         ]);
 
         $heros = Hero::findOrFail($id);
@@ -131,6 +131,7 @@ class HeroController extends Controller
             'image1' => $image1,
             'image2' => $image2,
             'section' => $request->section,
+            'video' => $request->video ?? $heros->video,
         ]);
 
         return redirect()->route('admin.hero.index')->with('success', __('Item updated successfully.'));

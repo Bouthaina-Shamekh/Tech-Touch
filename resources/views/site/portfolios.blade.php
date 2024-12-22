@@ -15,7 +15,7 @@ $name = 'name_' . app()->currentLocale();
             <nav class="w-full rounded-md">
                 <ol class="list-reset flex">
                     <li>
-                        <a href="../index.html" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
+                        <a href="{{route('site.index')}}" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
                             Home
                         </a>
                     </li>
@@ -44,7 +44,7 @@ $name = 'name_' . app()->currentLocale();
                                 @endforeach
                             </div>
                         </div>
-                        <a href="{{route('site.portfolio', $work->id)}}" class="link__card mb-4 px-8 py-4 flex items-center justify-center text-white transition-all delay-200 ease-out"> 
+                        <a href="{{route('site.portfolio', $work->id)}}" class="link__card mb-4 px-8 py-4 flex items-center justify-center text-white transition-all delay-200 ease-out">
                             <span class="me-4">Read More</span>
                             <i class="fa-solid fa-arrow-right ms-2 text-main"></i>
                         </a>
