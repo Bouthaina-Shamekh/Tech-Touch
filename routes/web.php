@@ -74,6 +74,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 
         Route::get('/setting',[SettingController::class , 'index'])->name('setting.index');
         Route::post('/setting/update',[SettingController::class , 'update'])->name('setting.update');
+        Route::get('/shows-sections',[SettingController::class , 'showsSection'])->name('setting.showsSection');
+        Route::post('/shows-sections',[SettingController::class , 'showSection'])->name('setting.showSection');
         Route::post('/notification/clearAll',[HomeController::class , 'clearAllNotifications'])->name('notification.clearAll');
     });
 

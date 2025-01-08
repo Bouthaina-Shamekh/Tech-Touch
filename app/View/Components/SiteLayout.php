@@ -12,12 +12,16 @@ use Illuminate\View\Component;
 class SiteLayout extends Component
 {
     public $title;
+    public $sections;
+
     /**
      * Create a new component instance.
      */
     public function __construct($title = null)
     {
         $this->title = $title ?? Config::get('app.name');
+        $this->sections = Setting::where('key','sections_show')->first() ? json_decode(Setting::where('key','sections_show')->first()->value) : [];
+
     }
 
     /**

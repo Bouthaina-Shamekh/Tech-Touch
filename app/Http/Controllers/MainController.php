@@ -15,6 +15,7 @@ use App\Models\Service;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Models\ServiceSelection;
+use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
@@ -47,7 +48,9 @@ class MainController extends Controller
         $teamCount = DB::table('teams')->count();
         $workCount = DB::table('works')->count();
 
-        return view('site.home', compact('sliders','abouts','services','service','files','file','partners','partner','work','works','teams','team','clients','partnersCount','teamCount','workCount'));
+        $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting::where('key','sections_show')->first()->value) : [];
+
+        return view('site.home', compact('sections','sliders','abouts','services','service','files','file','partners','partner','work','works','teams','team','clients','partnersCount','teamCount','workCount'));
     }
 
     public function getVideoIdAttribute($video)
@@ -62,7 +65,6 @@ class MainController extends Controller
 
 
     public function about(){
-
         $abouts = Hero::where('section', 'About')
                     ->first();
         $abouts->video = $this->getVideoIdAttribute($abouts->video); // استخراج المعرف

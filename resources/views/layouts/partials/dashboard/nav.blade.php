@@ -250,6 +250,16 @@
                         <span class="pc-mtext">{{__('admin.Settings')}}</span>
                     </a>
                 </li>
+                <li class="pc-item">
+                    <a href="{{route('admin.setting.showsSection')}}" class="pc-link">
+                        <span class="pc-micon">
+                            <span class="pc-micon">
+                                <i class="text-lg leading-none ti ti-settings"></i>
+                            </span>
+                        </span>
+                        <span class="pc-mtext">{{__('admin.Settings Sections')}}</span>
+                    </a>
+                </li>
                 @endcan
 
             </ul>

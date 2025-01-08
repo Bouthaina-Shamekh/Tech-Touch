@@ -12,7 +12,7 @@ $description = 'description_' . app()->currentLocale();
 
 @section('content')
     <!-- hero -->
-    <section class="hero mt-32 mb-36 md:mt-12 md:mb-32 relative">
+    <section class="hero mt-32 mb-36 md:mt-12 md:mb-32 relative {{ $sections->hero == false ? 'hidden' : ''}}" >
         <div class="container">
             <div class="flex flex-wrap justify-between items-center text-center md:text-left">
                 <!-- Text -->
@@ -71,7 +71,7 @@ $description = 'description_' . app()->currentLocale();
 
     <!-- Services -->
 
-    <section class="relative my-6">
+    <section class="relative my-6 {{ $sections->services == false ? 'hidden' : ''}}" >
         <div class="container">
             <div class=" w-full flex flex-wrap justify-between items-center md:items-start">
                 <div class="flex-1/2">
@@ -129,7 +129,7 @@ $description = 'description_' . app()->currentLocale();
     </section>
 
     <!-- files -->
-    <section class="my-6 relative">
+    <section class="my-6 relative {{ $sections->files == false ? 'hidden' : '' }}">
         <div class="container w-full">
             <div class="flex flex-wrap justify-between items-center md:items-start text-center md:text-left">
                 <!-- left -->
@@ -195,7 +195,7 @@ $description = 'description_' . app()->currentLocale();
     </section>
 
     <!-- partners -->
-    <section class="mt-[102px] mb-[169px] relative">
+    <section class="mt-[102px] mb-[169px] relative {{ $sections->partners == false ? 'hidden' : '' }}">
         <div class="flex justify-center items-end overflow-hidden">
             <div class="left_partners">
                 <svg xmlns="http://www.w3.org/2000/svg" width="677.327" height="136.595" viewBox="0 0 677.327 136.595">
@@ -220,14 +220,14 @@ $description = 'description_' . app()->currentLocale();
                     <img src="{{asset("storage/" . $partner->image)}}" alt="" width="75%" class="transition-all delay-200 ease grayscale hover:grayscale-0 hover:scale-105">
                 </a>
                 @endforeach
- 
+
             </div>
         </div>
     </section>
 
 
     <!-- works -->
-    <section class="my-6 relative" style="background-image: url('{{asset('asset/img/extra/work_bg.png')}}">
+    <section class="my-6 relative {{ $sections->work == false ? 'hidden' : '' }}" style="background-image: url('{{asset('asset/img/extra/work_bg.png')}}">
         <div class="container py-16">
             <div class="flex flex-col justify-center items-center">
                 <h3 class="text-xl md:text-4xl font-semibold text-main mb-2 text__work">{{$work->name_en}}</h3>
@@ -271,7 +271,7 @@ $description = 'description_' . app()->currentLocale();
     </section>
 
     <!-- our team -->
-    <section class="my-10 relative">
+    <section class="my-10 relative {{ $sections->teams == false ? 'hidden' : '' }}">
         <div class="container py-10">
             <div class="flex flex-col justify-center items-center">
                 <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2">{{$teams->$name}}</h2>
@@ -337,7 +337,7 @@ $description = 'description_' . app()->currentLocale();
     </section>
 
     <!-- client's feedback -->
-    <section class="mt-10 relative">
+    <section class="mt-10 relative {{ $sections->clients == false ? 'hidden' : '' }}">
         <div class="container py-10">
             <div class="flex flex-col justify-center items-center">
                 <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2 text-center">CLIENT'S FEEDBACK</h2>

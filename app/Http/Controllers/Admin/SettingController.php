@@ -51,8 +51,7 @@ class SettingController extends Controller
 
     try {
         foreach ($data as $key => $value) {
-            Setting::updateOrCreate(['key' => $key],
-             ['value' => $value]);
+            Setting::updateOrCreate(['key' => $key],['value' => $value]);
         }
     } catch (\Exception $e) {
         return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -64,33 +63,52 @@ class SettingController extends Controller
     if ($request->logo) {
 
         $logos = Setting::Where('key','logo')->first();
-     if($logos){
+        if($logos){
 
-        $destination = 'uploads/logos/' . $logos->value;
+            $destination = 'uploads/logos/' . $logos->value;
 
 
-        if (Storage::exists($destination)) {
-            Storage::delete($destination);
+            if (Storage::exists($destination)) {
+                Storage::delete($destination);
+            }
+
+
+            }
+
+            $file = $request->file('logo');
+
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extention;
+            $file->move(public_path('uploads/logos'), $filename);
+
+
+            Setting::updateOrCreate(
+                ['key' => 'logo'],
+                ['value' => $filename]
+            );
+
         }
-
-
-         }
-
-        $file = $request->file('logo');
-
-        $extention = $file->getClientOriginalExtension();
-        $filename = time() . '.' . $extention;
-        $file->move(public_path('uploads/logos'), $filename);
-
-
-        Setting::updateOrCreate(
-            ['key' => 'logo'],
-            ['value' => $filename]
-        );
-
-    }
 
 
         return redirect()->back()->with('success', __('Updated successfully'));
 }
+
+    public function showsSection(){
+
+        $this->authorize('view', Setting::class);
+        $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting::where('key','sections_show')->first()->value) : [];
+
+        return view('dashboard.setting.sections',compact('sections'));
+    }
+    public function showSection(Request $request){
+        $key = $request->key;
+        $value = $request->value;
+        $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting::where('key','sections_show')->first()->value) : [];
+        $sections->$key = ($value == 1) ? true : false;
+        Setting::updateOrCreate(
+            ['key' => 'sections_show'],
+            ['value' => json_encode($sections)]
+        );
+        return response()->json(['success' => true]);
+    }
 }

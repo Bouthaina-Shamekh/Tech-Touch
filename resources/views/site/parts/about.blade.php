@@ -1,4 +1,4 @@
-<section class="my-6 relative lg:h-[956px]" >
+<section class="my-6 relative lg:h-[956px] {{ $sections->about == false ? 'hidden' : '' }}" >
     <div class="container w-full">
         <div class="flex justify-between items-center md:items-start text-center md:text-left">
             <!-- Img -->

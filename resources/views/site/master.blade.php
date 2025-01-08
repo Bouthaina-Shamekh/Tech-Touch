@@ -1,3 +1,8 @@
+@php
+use App\Models\Setting;
+$sections = Setting::where('key','sections_show')->first() ? json_decode(Setting::where('key','sections_show')->first()->value) : [];
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +34,7 @@
     <!-- My css -->
     <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
 </head>
+
 <body class="min-h-screen relative overflow-x-hidden" style="padding-right: 0 !important;">
         <!-- Header -->
         <header>
@@ -39,7 +45,7 @@
                     <a class="logo__hero mx-2 my-1 flex items-center lg:mb-0 lg:mt-0" href="./index.html">
                         <img class="me-2" src="{{asset('asset/img/logoBrand.png')}}" style="height: 35px" alt="TE Logo" loading="lazy" />
                     </a>
-    
+
                     <!-- Collapsible navigation container -->
                     <div class="!visible hidden basis-[100%] items-center lg:!flex lg:basis-auto" id="navbarSupportedContent1" data-twe-collapse-item>
                         <!-- navigation links -->
@@ -47,26 +53,26 @@
                             <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
                                 <a class="{{ request()->is('/') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.index') }}" data-twe-nav-link-ref>Home</a>
                             </li>
-                            <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
+                            <li class="mb-4 lg:mb-0 lg:pe-2 {{ $sections->about == false ? 'hidden' : ''}}" data-twe-nav-item-ref>
                                 <a class="{{ request()->is('about') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2 " href="{{route('site.about')}}" data-twe-nav-link-ref>About</a>
                             </li>
-                            <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
+                            <li class="mb-4 lg:mb-0 lg:pe-2 {{ $sections->services == false ? 'hidden' : ''}}" data-twe-nav-item-ref>
                                 <a class="{{ request()->is('services') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.services') }}" data-twe-nav-link-ref>Services</a>
                             </li>
-                            <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
+                            <li class="mb-4 lg:mb-0 lg:pe-2 {{ $sections->work == false ? 'hidden' : ''}}" data-twe-nav-item-ref>
                                 <a class="{{ request()->is('portfolios') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.portfolios') }}" data-twe-nav-link-ref>Portfolio</a>
                             </li>
-                            <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
+                            <li class="mb-4 lg:mb-0 lg:pe-2 {{ $sections->files == false ? 'hidden' : ''}}" data-twe-nav-item-ref>
                                 <a class="{{ request()->is('file/*') || request()->is('file') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.files') }}" data-twe-nav-link-ref>Files</a>
                             </li>
-                            <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
+                            <li class="mb-4 lg:mb-0 lg:pe-2 {{ $sections->contact == false ? 'hidden' : ''}}" data-twe-nav-item-ref>
                                 <a class="{{ request()->is('contact') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.contact') }}" data-twe-nav-link-ref>Content</a>
                             </li>
-    
+
                         </ul>
                         <!-- links -->
                     </div>
-    
+
                     <!-- Right elements -->
                     <div class="right__hero relative hidden lg:!flex items-center ">
                         <div class="relative group">
@@ -80,8 +86,8 @@
                     </div>
                     <!-- Right elements -->
                     <!-- Hamburger button for mobile view -->
-                    <button 
-                        type="button" 
+                    <button
+                        type="button"
                         class="block border-0 bg-transparent px-2 text-black/50 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
                         data-twe-toggle="modal"
                         data-twe-target="#NavBar"
@@ -99,13 +105,16 @@
                 </div>
             </nav>
         </header>
+
   
+
     @yield('content')
 
 
      <!-- Footer -->
     @php
         $settings = \App\Models\Setting::get();
+        
 
     @endphp
     <footer class="footer w-full py-3 bg-[#F5F5F5] ">
@@ -188,7 +197,7 @@
                         <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('portfolios/*') || request()->is('portfolios') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.portfolios') }}">Portfolio</a></li>
                         <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('files/*') || request()->is('files') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.files') }}">Files</a></li>
                         <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('contact/*') || request()->is('contact') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.contact') }}">Content</a></li>
-                    </ul>   
+                    </ul>
                     <div class="right__hero relative !flex items-center justify-center py-2">
                         <div class="relative group">
                             <a href="{{route('site.consultation')}}" class="inline-block bg-second px-6 pb-2 pt-2.5 text-base font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-dark hover:shadow-md focus:bg-dark focus:shadow-md focus:outline-none focus:ring-0 active:bg-dark active:shadow-md motion-reduce:transition-none">
@@ -230,19 +239,19 @@
             const totalParagraphs = $paragraphs.length;
             let currentIndex = 0;
             const $progressBar = $('#progress-bar');
-            
+
             // وظيفة لتحديث الفقرة الظاهرة وشريط التقدم
             function updateParagraph(index) {
                 $paragraphs.hide().eq(index).fadeIn(); // إخفاء جميع الفقرات وإظهار الحالية
                 $progressBar.css('width', `${((index + 1) / totalParagraphs) * 100}%`); // تحديث عرض شريط التقدم
             }
-            
+
             // الانتقال إلى الفقرة التالية
             function nextParagraph() {
                 currentIndex = (currentIndex + 1) % totalParagraphs;
                 updateParagraph(currentIndex);
             }
-            
+
             // الانتقال إلى الفقرة السابقة
             function prevParagraph() {
                 currentIndex = (currentIndex - 1 + totalParagraphs) % totalParagraphs;
@@ -429,7 +438,7 @@
             let imgCount = $(".scroll-wrapper .content img").length;
 
             let widthContent = (recCount * 270) + ((recCount - 1) * 200);
-            $(".scroll-wrapper .content").width(widthContent);           
+            $(".scroll-wrapper .content").width(widthContent);
         });
 
 
