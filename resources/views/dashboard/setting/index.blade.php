@@ -96,7 +96,7 @@
                              <input type="file" class="form-control"  name="logo"/>
 
                                 //<?php
-       // $logos = App\Models\Setting::Where('key','logo')->first();
+      
                                 ?>
                         @if ($logos)
                             <img src="{{ asset('uploads/logos/'.$logos->value) }}" alt="Logo" style="max-width: 100px; max-height: 100px;">

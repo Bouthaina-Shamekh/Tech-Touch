@@ -15,7 +15,7 @@ use App\Events\ConsultationMessageEvent;
 use App\Notifications\ContactNotification;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\ConsultationNotification;
-// use Illuminate\Notifications\Notification;
+
 
 class MailController extends Controller
 {
@@ -29,16 +29,6 @@ class MailController extends Controller
         return 'Done';
     }
 
-
-
-
-    // public function contact(){
-    //     // $abouts = Hero::where('section', 'About')
-    //     //             ->first();
-
-    //     $settings = Setting::whereIn('key', ['about_ar', 'about_en','phone','location'])->pluck('value', 'key');
-    //     return view('site.contact', compact('settings'));
-    // }
 
     public function contact(){
         $settings = Setting::whereIn('key', ['about_ar', 'about_en', 'phone', 'location','contact_email'])->get();;

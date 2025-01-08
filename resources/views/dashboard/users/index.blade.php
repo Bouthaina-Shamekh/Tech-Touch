@@ -1,16 +1,16 @@
 <x-dashboard-layout>
     <x-slot:breadcrumbs>
-        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Users')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Users')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12">
     <div class="card">
         <div class="card-header">
             <div class="sm:flex items-center justify-between">
-                <h5 class="mb-3 mb-sm-0">{{__('Users List')}}</h5>
+                <h5 class="mb-3 mb-sm-0">{{__('admin.Users List')}}</h5>
                 <div>
                     <a href="{{route('admin.users.create')}}" class="btn btn-primary">
-                        {{__('Add User')}}
+                        {{__('admin.Add User')}}
                     </a>
                 </div>
             </div>
@@ -21,8 +21,8 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{__('Name')}}</th>
-                            <th>{{__('Email')}}</th>
+                            <th>{{__('admin.Name')}}</th>
+                            <th>{{__('admin.Email')}}</th>
                             <th></th>
                         </tr>
                     </thead>

@@ -3,8 +3,8 @@
         <link rel="stylesheet" href="{{asset('assets-dashboard/css/media.css')}}">
     @endpush
     <x-slot:breadcrumbs>
-        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('Home')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('Media')}}</li>
+        <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Media')}}</li>
     </x-slot:breadcrumb>
     @can('view', 'App\\Models\Media')
     <!-- Both borders table start -->
@@ -12,7 +12,7 @@
         <div class="card table-card">
             <div class="card-header" style="padding: 15px 25px;">
                 <div class="sm:flex items-center justify-between">
-                    <h5 class="mb-3 sm:mb-0">{{__('Media Gallery')}}</h5>
+                    <h5 class="mb-3 sm:mb-0">{{__('admin.Media Gallery')}}</h5>
                     <div>
                         <form id="uploadForm" action="{{ route('admin.media.store') }}" method="post" enctype="multipart/form-data">
                             @csrf

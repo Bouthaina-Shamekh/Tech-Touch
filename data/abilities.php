@@ -24,10 +24,10 @@
         ],
         'works' => [
             'name' => __('admin.Works'),
-            'view' => __('admin.View Works'),
-            'create' => __('admin.Create Work'),
-            'edit' => __('admin.Edit Work'),
-            'delete' => __('admin.Delete Work'),
+            'view' => __('admin.View Protfolio'),
+            'create' => __('admin.Create Protfolio'),
+            'edit' => __('admin.Edit Protfolio'),
+            'delete' => __('admin.Delete Protfolio'),
         ],
         'files' => [
             'name' => __('admin.Files'),
@@ -43,13 +43,7 @@
             'edit' => __('admin.Edit Hero'),
             'delete' => __('admin.Delete Hero'),
         ],
-        // 'projects' => [
-        //     'name' => __('admin.Project'),
-        //     'view' => __('admin.View Project'),
-        //     'create' => __('admin.Create Project'),
-        //     'edit' => __('admin.Edit Project'),
-        //     'delete' => __('admin.Delete Project'),
-        // ],
+        
         'medias' => [
             'name' => __('admin.Media'),
             'view' => __('admin.View Media'),

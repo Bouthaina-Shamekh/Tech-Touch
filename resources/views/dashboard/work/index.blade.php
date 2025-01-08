@@ -2,7 +2,7 @@
 
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
-        <li class="breadcrumb-item" aria-current="page">{{__('admin.Works')}}</li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Protfolio')}}</li>
     </x-slot:breadcrumb>
 
 
@@ -12,11 +12,11 @@
     <div class="card table-card">
         <div class="card-header">
             <div class="sm:flex items-center justify-between">
-                <h5 class="mb-3 sm:mb-0">{{__('admin.Works')}}</h5>
+                <h5 class="mb-3 sm:mb-0">{{__('admin.Protfolio')}}</h5>
                 @can('create', 'App\\Models\Work')
                 <div>
                     <a href="{{route('admin.work.create')}}" class="btn btn-primary" >
-                        {{__('admin.Add Works')}}
+                        {{__('admin.Add Protfolio')}}
                     </a>
                 </div>
                 @endcan

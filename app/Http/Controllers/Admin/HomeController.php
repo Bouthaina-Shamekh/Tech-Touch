@@ -37,32 +37,13 @@ class HomeController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // public function clearAllNotifications(Request $request){
-    //     Notification::where('notifiable_id', auth()->user()->id)->delete();
-    //     return redirect()->back();
-    // }
-
     public function clearAllNotifications(Request $request)
-{
+   {
 
     Notification::where('notifiable_id', auth()->user()->id)
         ->whereNull('deleted_at')
         ->update(['deleted_at' => now()]);
 
     return redirect()->back();
-}
+  }
 }

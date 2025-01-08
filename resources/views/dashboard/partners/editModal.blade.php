@@ -1,3 +1,4 @@
+
 <div id="editPartner-{{$partner->id}}" class="modal fade animate" tabindex="-1" role="dialog" aria-labelledby="editPartnerTitle-{{$partner->id}}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">

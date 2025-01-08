@@ -6,9 +6,9 @@
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
         @can('view', 'App\\Models\Hero')
-        <li class="breadcrumb-item"><a href="{{route('admin.hero.index')}}">{{__('admin.Slider')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{route('admin.hero.index')}}">{{__('admin.Hero')}}</a></li>
         @endcan
-        <li class="breadcrumb-item" aria-current="page">{{__('admin.Edit Slider')}}</li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Edit Hero')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">

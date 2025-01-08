@@ -6,16 +6,16 @@
     <x-slot:breadcrumbs>
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">{{__('admin.Home')}}</a></li>
         @can('view', 'App\\Models\Work')
-        <li class="breadcrumb-item"><a href="{{route('admin.work.index')}}">{{__('admin.Works')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{route('admin.work.index')}}">{{__('admin.Protfolio')}}</a></li>
         @endcan
-        <li class="breadcrumb-item" aria-current="page">{{__('admin.Edit Work')}}</li>
+        <li class="breadcrumb-item" aria-current="page">{{__('admin.Edit Protfolio')}}</li>
     </x-slot:breadcrumb>
     <div class="col-span-12 xl:col-span-12">
         <div class="col-md-12">
             <div class="card">
                     {{-- @can('add product') --}}
                 <div class="card-header">
-                    <h5>{{__('admin.Edit Work')}}</h5>
+                    <h5>{{__('admin.Edit Protfolio')}}</h5>
                 </div>
                 {{-- @endcan --}}
 

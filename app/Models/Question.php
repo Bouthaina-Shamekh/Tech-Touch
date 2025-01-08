@@ -11,9 +11,7 @@ class Question extends Model
 
     protected $fillable = ['question_en', 'question_ar','name_ar' ,'name_en'];
 
-    // protected $casts = [
-    //     'options' => 'array',
-    // ];
+    
 
     public function answers()
     {
