@@ -2,7 +2,6 @@
     @php
     $name = 'name_'.app()->currentLocale();
     $feedback = 'feedback_'.app()->currentLocale();
-
     @endphp
 
     <x-slot:breadcrumbs>

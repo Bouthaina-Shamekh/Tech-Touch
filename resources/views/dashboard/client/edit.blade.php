@@ -88,7 +88,7 @@
                     <h5 class="modal-title h4" id="mediaModalLabel">
                         {{__('admin.Choose Image')}}
                     </h5>
-                    <div class="row align-items-center">
+                    <div class="row align-items-center col-4">
                         <form class="col-9" id="uploadForm" action="{{ route('admin.media.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <label class="btn btn-outline-secondary" for="imageFileUpload">
