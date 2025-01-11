@@ -13,7 +13,7 @@ class SettingController extends Controller
     public function index(){
 
         // return "bou";
-        $this->authorize('view', Setting::class);
+        $this->authorize('edit', Setting::class);
         $settings = Setting::whereIn('key', ['linkedin','instagram','twitter','facebook','snapshat','whatsapp','titel_en', 'titel_ar', 'logo', 'contact_email','currency','policy_ar', 'policy_en','about_ar', 'about_en','phone','location'])->pluck('value', 'key');
 
         return view('dashboard.setting.index',compact('settings'));
@@ -95,7 +95,7 @@ class SettingController extends Controller
 
     public function showsSection(){
 
-        $this->authorize('view', Setting::class);
+        $this->authorize('edit', Setting::class);
         $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting::where('key','sections_show')->first()->value) : [];
 
         return view('dashboard.setting.sections',compact('sections'));

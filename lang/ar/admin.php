@@ -200,6 +200,8 @@ return [
      'Edit Notification'=>'تعديل الاشعارات',
      'Delete Notification'=>'حذف الاشعارات',
      'Notification'=>'الاشعارات',
+     'Settings Sections'=>'أقسام الموقع',
+     'Notification Details'=>'تفاصيل الاشعار',
 
 
 

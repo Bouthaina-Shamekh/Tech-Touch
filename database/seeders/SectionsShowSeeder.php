@@ -13,6 +13,7 @@ class SectionsShowSeeder extends Seeder
      */
     public function run(): void
     {
+        
         $sections = [
             'herder' => true,
             'hero' => true,

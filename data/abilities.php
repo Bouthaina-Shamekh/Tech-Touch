@@ -74,10 +74,8 @@
         ],
         'settings' => [
             'name' => __('admin.Settings'),
-            'view' => __('admin.View Settings'),
-            'create' => __('admin.Create Setting'),
             'edit' => __('admin.Edit Setting'),
-            'delete' => __('admin.Delete Setting'),
+            
         ],
         'sliders' => [
             'name' => __('admin.Slider'),
@@ -97,9 +95,9 @@
         'notifications' => [
             'name' => __('admin.Notification'),
             'view' => __('admin.View Notification'),
-            'create' => __('admin.Create Notification'),
-            'edit' => __('admin.Edit Notification'),
-            'delete' => __('admin.Delete Notification'),
+            // 'create' => __('admin.Create Notification'),
+            // 'edit' => __('admin.Edit Notification'),
+            // 'delete' => __('admin.Delete Notification'),
         ],
     ];
 

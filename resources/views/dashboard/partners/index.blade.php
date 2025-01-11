@@ -74,13 +74,16 @@
                 <h5 class="modal-title h4" id="mediaModalLabel">
                     {{__('admin.Choose Image')}}
                 </h5>
-                <div class="row align-items-center">
+                <div class="row align-items-center col-4">
                     <form class="col-9" id="uploadForm" action="{{ route('admin.media.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <label class="btn btn-outline-secondary" for="imageFileUpload">
                             <i class="ti ti-upload me-2"></i>
                             {{__("Click to Upload")}}
                         </label>
+
+                    
+                       
                         <input type="file" id="imageFileUpload" name="imageFile[]" accept="image/*" hidden multiple>
                     </form>
                     <button id="closeMediaModal" data-pc-modal-dismiss="#mediaModal" class="text-lg flex items-center justify-center rounded w-7 h-7 text-secondary-500 hover:bg-danger-500/10 hover:text-danger-500">

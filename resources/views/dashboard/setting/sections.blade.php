@@ -12,7 +12,7 @@
                 <h5 class="mb-3 sm:mb-0">{{__('admin.Settings Sections')}}</h5>
             </div>
         </div>
-        @can('view', 'App\\Models\Section')
+        @can('edit', 'App\\Models\Section')
         <div class="card-body pt-3">
             <div class="table-responsive" style="margin: 0 15px;">
                 <table class="table table-hover table-bordered" id="pc-dt-simple">

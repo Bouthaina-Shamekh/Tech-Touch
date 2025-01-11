@@ -239,7 +239,7 @@
                 </li>
                 @endcan
 
-                @can('view', 'App\\Models\Setting')
+                @can('edit', 'App\\Models\Setting')
                 <li class="pc-item">
                     <a href="{{route('admin.setting.index')}}" class="pc-link">
                         <span class="pc-micon">

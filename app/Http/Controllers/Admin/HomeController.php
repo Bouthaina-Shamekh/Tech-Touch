@@ -13,13 +13,14 @@ class HomeController extends Controller
 
     public function index()
     {
-
+       
         return view('dashboard.index');
     }
 
 
     public function notificationsIndex()
     {
+        $this->authorize('view', Notification::class);
         return view('dashboard.notifications.index');
     }
 
@@ -29,7 +30,7 @@ class HomeController extends Controller
 
     public function show($id)
     {
-
+        $this->authorize('view', Notification::class);
         $notification = Notification::withTrashed()->findOrFail($id);
         $notificationData = $notification->data;
 
@@ -39,6 +40,8 @@ class HomeController extends Controller
 
     public function clearAllNotifications(Request $request)
    {
+
+    $this->authorize('delete', Notification::class);
 
     Notification::where('notifiable_id', auth()->user()->id)
         ->whereNull('deleted_at')

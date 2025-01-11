@@ -199,6 +199,8 @@ return [
      'Edit Notification'=>'Edit Notification',
      'Delete Notification'=>'.Delete Notification',
      'Notification'=>'Notification',
+     'Settings Sections'=>'Settings Sections',
+     'Notification Details'=>'Notification Details',
      
      
 

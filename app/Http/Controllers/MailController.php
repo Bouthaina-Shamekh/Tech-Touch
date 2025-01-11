@@ -31,6 +31,7 @@ class MailController extends Controller
 
 
     public function contact(){
+        
         $settings = Setting::whereIn('key', ['about_ar', 'about_en', 'phone', 'location','contact_email'])->get();;
         return view('site.contact', compact('settings'));
     }
