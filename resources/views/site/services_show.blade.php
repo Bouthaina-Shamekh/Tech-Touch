@@ -16,7 +16,7 @@ $description = 'description_' . app()->currentLocale();
                 <ol class="list-reset flex">
                     <li>
                         <a href="{{route('site.index')}}" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
-                            Home
+                            {{__('admin.Home')}}
                         </a>
                     </li>
                     <li>
@@ -24,7 +24,7 @@ $description = 'description_' . app()->currentLocale();
                     </li>
                     <li>
                         <a href="{{route('site.services')}}" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
-                            Services
+                           {{__('admin.Services')}}
                         </a>
                     </li>
                     <li>
@@ -59,7 +59,7 @@ $description = 'description_' . app()->currentLocale();
                    style="white-space: normal; word-wrap: break-word; overflow-wrap: break-word; width: 200px;">
                   {!!$service->$description!!}
                    </p>
-                    <a href="{{route('site.services_order', $service->id)}}" class="bottom__content mt-4 inline-block px-4 py-2 text-white bg-main hover:bg-second hover:ml-2 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">Order Now</a>
+                    <a href="{{route('site.services_order', $service->id)}}" class="bottom__content mt-4 inline-block px-4 py-2 text-white bg-main hover:bg-second hover:ml-2 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">{{__('admin.Order Now')}}</a>
                 </div>
             </div>
         </div>

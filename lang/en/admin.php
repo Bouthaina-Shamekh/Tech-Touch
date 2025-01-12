@@ -201,6 +201,15 @@ return [
      'Notification'=>'Notification',
      'Settings Sections'=>'Settings Sections',
      'Notification Details'=>'Notification Details',
+     'Contact'=>'Contact',
+     'Free Consultation'=>'Free Consultation',
+     'About US'=>'About Us',
+     'Portfolio'=>'Protfolio',
+     'Tese Idea'=>'Test Idea',
+     'Our Comment'=>'Our Comment',
+     'Payment Method'=>'Payment Method',
+     'Terms Of Payment'=>'Terms Of Payment',
+
      
      
 

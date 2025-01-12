@@ -54,19 +54,19 @@ $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting
                                 <a class="{{ request()->is('/') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.index') }}" data-twe-nav-link-ref>Home</a>
                             </li>
                             <li class="mb-4 lg:mb-0 lg:pe-2 {{ $sections->about == false ? 'hidden' : ''}}" data-twe-nav-item-ref>
-                                <a class="{{ request()->is('about') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2 " href="{{route('site.about')}}" data-twe-nav-link-ref>About</a>
+                                <a class="{{ request()->is('about') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2 " href="{{route('site.about')}}" data-twe-nav-link-ref>{{__('admin.About')}}</a>
                             </li>
                             <li class="mb-4 lg:mb-0 lg:pe-2 {{ $sections->services == false ? 'hidden' : ''}}" data-twe-nav-item-ref>
-                                <a class="{{ request()->is('services') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.services') }}" data-twe-nav-link-ref>Services</a>
+                                <a class="{{ request()->is('services') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.services') }}" data-twe-nav-link-ref>{{__('admin.Services')}}</a>
                             </li>
                             <li class="mb-4 lg:mb-0 lg:pe-2 {{ $sections->work == false ? 'hidden' : ''}}" data-twe-nav-item-ref>
-                                <a class="{{ request()->is('portfolios') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.portfolios') }}" data-twe-nav-link-ref>Portfolio</a>
+                                <a class="{{ request()->is('portfolios') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.portfolios') }}" data-twe-nav-link-ref>{{__('admin.Protfolio')}}</a>
                             </li>
                             <li class="mb-4 lg:mb-0 lg:pe-2 {{ $sections->files == false ? 'hidden' : ''}}" data-twe-nav-item-ref>
-                                <a class="{{ request()->is('file/*') || request()->is('file') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.files') }}" data-twe-nav-link-ref>Files</a>
+                                <a class="{{ request()->is('file/*') || request()->is('file') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.files') }}" data-twe-nav-link-ref>{{__('admin.Files')}}</a>
                             </li>
                             <li class="mb-4 lg:mb-0 lg:pe-2 {{ $sections->contact == false ? 'hidden' : ''}}" data-twe-nav-item-ref>
-                                <a class="{{ request()->is('contact') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.contact') }}" data-twe-nav-link-ref>Content</a>
+                                <a class="{{ request()->is('contact') ? 'text-main' : 'text-dark' }} transition duration-200 hover:text-main hover:ease-in-out focus:text-main active:text-main motion-reduce:transition-none lg:px-2" href="{{ route('site.contact') }}" data-twe-nav-link-ref>{{__('admin.Contact')}}</a>
                             </li>
 
                         </ul>
@@ -77,7 +77,7 @@ $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting
                     <div class="right__hero relative hidden lg:!flex items-center ">
                         <div class="relative group">
                             <a href="{{route('site.consultation')}}" class="inline-block bg-second px-6 pb-2 pt-2.5 text-base font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-dark hover:shadow-md focus:bg-dark focus:shadow-md focus:outline-none focus:ring-0 active:bg-dark active:shadow-md motion-reduce:transition-none">
-                            Free Consultation
+                           {{__('admin.Free Consultation')}}
                             </a>
                             <div class="absolute top-1/2 -right-[16px] -translate-y-1/2 group-hover:transform group-hover:rotate-90 group-hover:-translate-y-1/2 group-hover:-translate-x-1/3 transition-all delay-200 ease-in">
                                 <img src="{{asset('asset/img/icon/arrow-down.png')}}" alt="" width="33px">
@@ -146,18 +146,18 @@ $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting
                     <h3 class="text-3xl text-second uppercase mb-4 top__footer">Pages</h3>
                     <div class="flex justify-between items-start w-full">
                     <ul class="flex flex-col justify-start items-start w-1/2">
-                            <li class="links__footer my-1"><a class="text-main pl-2 hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in font-light uppercase text-base" href="./index.html">Home</a></li>
-                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="./pages/about.html">About Us</a></li>
-                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="./pages/services.html">Services</a></li>
-                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="./pages/portfolios.html">Portfolio</a></li>
-                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="./pages/files.html">Files</a></li>
+                            <li class="links__footer my-1"><a class="text-main pl-2 hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in font-light uppercase text-base" href="{{route('site.index')}}">{{__('admin.Home')}}</a></li>
+                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{route('site.about')}}">{{__('admin.About US')}}</a></li>
+                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{route('site.services')}}">{{__('admin.Services')}}</a></li>
+                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{route('site.portfolios')}}">{{__('admin.Portfolio')}}</a></li>
+                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{route('site.files')}}">{{__('admin.Files')}}</a></li>
                         </ul>
                         <ul class="flex flex-col justify-start items-start w-1/2">
-                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="./pages/terms_conditions.html">Terms Of Payment</a></li>
-                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="./pages/contact.html">Content</a></li>
-                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="./pages/test_idea.html">Test Idea</a></li>
-                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="./pages/our_comment.html">Our Comment</a></li>
-                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="./pages/payment_method.html">Pyment Method</a></li>
+                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="./pages/terms_conditions.html">{{__('admin.Terms Of Payment')}}</a></li>
+                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{route('site.contact')}}"></a>{{__('admin.Contact')}}</li>
+                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{route('site.test_idea')}}">{{__('admin.Tese Idea')}}</a></li>
+                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="./pages/our_comment.html">{{__('admin.Our Comment')}}</a></li>
+                            <li class="links__footer my-1"><a class="text-black hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="./pages/payment_method.html">{{__('admin.Payment Method')}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -191,17 +191,17 @@ $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting
                 <!-- Modal body -->
                 <div class="relative p-4">
                     <ul class="flex flex-col justify-start items-start w-100">
-                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('/') || request()->is('/') ? 'text-main' : 'text-dark' }} pl-2 hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in font-light uppercase text-base" href="{{ route('site.index') }}">Home</a></li>
-                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('about/*') || request()->is('about') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.about') }}">About Us</a></li>
-                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('services/*') || request()->is('services') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.services') }}">Services</a></li>
-                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('portfolios/*') || request()->is('portfolios') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.portfolios') }}">Portfolio</a></li>
-                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('files/*') || request()->is('files') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.files') }}">Files</a></li>
-                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('contact/*') || request()->is('contact') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.contact') }}">Contact</a></li>
+                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('/') || request()->is('/') ? 'text-main' : 'text-dark' }} pl-2 hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in font-light uppercase text-base" href="{{ route('site.index') }}">{{__('admin.Home')}}</a></li>
+                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('about/*') || request()->is('about') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.about') }}">{{__('admin.About Us')}}</a></li>
+                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('services/*') || request()->is('services') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.services') }}">{{__('admin.Services')}}</a></li>
+                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('portfolios/*') || request()->is('portfolios') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.portfolios') }}">{{__('admin.Services')}}</a></li>
+                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('files/*') || request()->is('files') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.files') }}">{{__('admin.Files')}}</a></li>
+                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('contact/*') || request()->is('contact') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.contact') }}">{{__('admin.Contact')}}</a></li>
                     </ul>
                     <div class="right__hero relative !flex items-center justify-center py-2">
                         <div class="relative group">
                             <a href="{{route('site.consultation')}}" class="inline-block bg-second px-6 pb-2 pt-2.5 text-base font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-dark hover:shadow-md focus:bg-dark focus:shadow-md focus:outline-none focus:ring-0 active:bg-dark active:shadow-md motion-reduce:transition-none">
-                            Free Consultation
+                            {{__('admin.Free Consultation')}}
                             </a>
                         </div>
                     </div>

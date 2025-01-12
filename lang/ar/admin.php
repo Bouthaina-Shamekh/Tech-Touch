@@ -202,6 +202,14 @@ return [
      'Notification'=>'الاشعارات',
      'Settings Sections'=>'أقسام الموقع',
      'Notification Details'=>'تفاصيل الاشعار',
+     'Contact'=>'تواصل معنا',
+     'Free Consultation'=>'استشارة مجانية',
+     'About US'=>'من نحن',
+     'Portfolio'=>'المشاريع',
+     'Tese Idea'=>'تجربة الفكرة',
+     'Our Comment'=>'مجتمعنا',
+     'Payment Method'=>'طرق الدفع',
+     'Terms Of Payment'=>'Terms Of Payment',
 
 
 

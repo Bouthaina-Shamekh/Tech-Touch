@@ -5,6 +5,7 @@
 
 @php
 $name = 'name_' . app()->currentLocale();
+$file_name = 'file_name_' . app()->currentLocale();
 @endphp
 
 @section('content')
@@ -17,7 +18,7 @@ $name = 'name_' . app()->currentLocale();
                 <ol class="list-reset flex">
                     <li>
                         <a href="{{route('site.index')}}" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
-                            Home
+                            {{__('admin.Home')}}
                         </a>
                     </li>
                     <li>
@@ -25,7 +26,7 @@ $name = 'name_' . app()->currentLocale();
                     </li>
                     <li>
                         <a href="{{route('site.files')}}" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
-                            Files
+                            {{__('admin.Files')}}
                         </a>
                     </li>
                     <li>

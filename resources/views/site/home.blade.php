@@ -8,6 +8,8 @@ $name = 'name_' . app()->currentLocale();
 $file_name = 'file_name_' . app()->currentLocale();
 $title = 'title_' . app()->currentLocale();
 $description = 'description_' . app()->currentLocale();
+$feedback = 'feedback_' . app()->currentLocale();
+$specialization = 'Specialization_' . app()->currentLocale();
 @endphp
 
 @section('content')
@@ -24,14 +26,14 @@ $description = 'description_' . app()->currentLocale();
                         <!-- الكلمات مخزنة في HTML -->
                         @foreach ( $sliders as $slide)
                         <div id="word-list" class="hidden">
-                            <span>{{$slide->name_en}}</span>
+                            <span>{{$slide->$name}}</span>
                         </div>
                         @endforeach
                     </h1>
                     @foreach ( $sliders as $index => $slide)
                     <div id="hero-texts" class="relative space-y-4 mt-4">
                         <p class="hero-paragraph font-light leading-6 text-xl md:text-2xl text-dark {{ $index > 0 ? 'hidden' : '' }}">
-                            {!!$slide->description_en!!}
+                            {!!$slide->$description!!}
                         </p>
                     </div>
                     @endforeach
@@ -169,7 +171,7 @@ $description = 'description_' . app()->currentLocale();
                                 <div class="flex flex-col justify-start items-start my-4 pl-3">
                                     <h4 class="text-xl text-black mb-4">
                                         <i class="fa-solid fa-file text-[#818B90] me-2"></i>
-                                        <span>{{$file->$file_name }}</span>
+                                        <span>{{$file->$file_name}}</span>
                                     </h4>
                                     <p class="text-dark font-light text-sm">{!! \Illuminate\Support\Str::words($file->$description, 20, '...') !!}</p>
                                     <div class="flex justify-start items-center gap-4 mt-4">
@@ -301,8 +303,8 @@ $description = 'description_' . app()->currentLocale();
                                     </div>
                                 </div>
                                 <div class="flex flex-col justify-center items-center mt-4">
-                                    <span class="text-second font-semibold text-xl">{{ $chunk[$index]->name_en }}</span>
-                                    <span class="text-second font-light text-base">{{ $chunk[$index]->Specialization_en }}</span>
+                                    <span class="text-second font-semibold text-xl">{{ $chunk[$index]->$name}}</span>
+                                    <span class="text-second font-light text-base">{{ $chunk[$index]->$Specialization}}</span>
                                 </div>
                             </div>
                         @endif
@@ -311,8 +313,8 @@ $description = 'description_' . app()->currentLocale();
                         @if (isset($chunk[$index + 1]))
                             <div class="l img-about">
                                 <div class="flex flex-col justify-center items-center mb-4">
-                                    <span class="text-second font-semibold text-xl">{{ $chunk[$index + 1]->name_en }}</span>
-                                    <span class="text-second font-light text-base">{{ $chunk[$index + 1]->Specialization_en }}</span>
+                                    <span class="text-second font-semibold text-xl">{{ $chunk[$index + 1]->$name}}</span>
+                                    <span class="text-second font-light text-base">{{ $chunk[$index + 1]->$Specialization}}</span>
                                 </div>
                                 <div class="hexagon-container" style="width: 150px; height: 140px;">
                                     <div class="hexagon-content bg-main"  style="width: 162px; height: 162px; background-color: #50ada3;">
