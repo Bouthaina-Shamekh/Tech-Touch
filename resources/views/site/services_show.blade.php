@@ -50,16 +50,16 @@ $description = 'description_' . app()->currentLocale();
 
                 </div>
                 <!-- Text -->
-                <div class="flex flex-col flex-1/2 justify-start items-center md:items-start">
+                <div class="flex flex-col flex-1/2 justify-start items-center md:items-star content">
                     <h2 class="text-5xl font-semibold text-main uppercase mb-2 top__content">{{$service->$name}}</h2>
                     {{-- <p class="text-dark font-light text-base leading-6 right__content">{!!$service->$description!!}</p> --}}
             
                     <p
                    class="text__service text-dark font-light text-base leading-6"
                    style="white-space: normal; word-wrap: break-word; overflow-wrap: break-word; width: 200px;">
-                  {!!$service->$description!!}
+                        {!!$service->$description!!}
                    </p>
-                    <a href="{{route('site.services_order', $service->id)}}" class="bottom__content mt-4 inline-block px-4 py-2 text-white bg-main hover:bg-second hover:ml-2 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">{{__('admin.Order Now')}}</a>
+                    <a href="{{route('site.services_order', $service->id)}}" class="bottom__content mt-4 inline-block px-4 py-2 text-white bg-main hover:bg-second hover:ml-2 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">{{__('site.Order now')}}</a>
                 </div>
             </div>
         </div>
@@ -69,11 +69,7 @@ $description = 'description_' . app()->currentLocale();
 @stop
 
 @section('scripts')
-    <script>
-        // top__content , img__content ,bottom__content ,right__content
-        sr.reveal(`.top__content`);
-        sr.reveal(`.img__content`, { origin: 'left' });
-        sr.reveal(`.right__content`, { origin: 'right' , interval: 150});
-        sr.reveal(`.bottom__content`, { origin: 'bottom' });
-    </script>
+
+<script src="{{ asset('asset/js/pages/services_show.js') }}"></script>
+
 @endsection

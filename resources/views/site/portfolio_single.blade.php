@@ -49,7 +49,7 @@ $description = 'description_' . app()->currentLocale();
                     @endif
                 </div>
                 <!-- Text -->
-                <div class="flex flex-col  flex-1/2 justify-start items-center md:items-start">
+                <div class="flex flex-col  flex-1/2 justify-start items-center md:items-start content">
                     <h2 class="text-3xl md:text-5xl font-semibold text-main uppercase mb-2 top__portfolio">{{$portfolio->$name}}</h2>
                     <p class="text-dark font-light text-base leading-6 right__portfolio">{!!$portfolio->$description!!}</p>
                     <div class="flex flex-col justify-start items-start ">
@@ -66,12 +66,10 @@ $description = 'description_' . app()->currentLocale();
 
 
     @stop
-@section('scripts')
-<script>
-    // top__portfolio , img__portfolio , bottom__portfolio ,right__portfolio
-    sr.reveal(`.top__portfolio`);
-    sr.reveal(`.img__portfolio`, { origin: 'left' });
-    sr.reveal(`.right__portfolio`, { origin: 'right' });
-    sr.reveal(`.bottom__portfolio`, { origin: 'bottom' , interval: 200});
-</script>
-@endsection
+
+    @section('scripts')
+
+    <script src="{{ asset('asset/js/pages/pagesScroller.js') }}"></script>
+    <script src="{{ asset('asset/js/main.js') }}"></script>
+    
+    @endsection

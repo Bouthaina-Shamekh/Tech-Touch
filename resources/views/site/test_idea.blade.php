@@ -35,11 +35,11 @@ $question_name = 'question_' . app()->currentLocale();
                             <p class="mb-4">{{ $question->$question_name }}</p>
                             <label class="flex items-center mb-2">
                                 <input type="radio" name="questions[{{ $question->id }}]" value="yes" class="appearance-none peer w-4 h-4 border border-second rounded-full checked:bg-main checked:border-second focus:outline-none" {{ $question->answers->where('answer', 'yes')->first() != null ? 'checked' : '' }}>
-                                <span class="ml-2 text-base font-light">Yes</span>
+                                <span class="ml-2 text-base font-light">{{ __('site.Yes') }}</span>
                             </label>
                             <label class="flex items-center mb-2">
                                 <input type="radio" name="questions[{{ $question->id }}]" value="no" class="appearance-none peer w-4 h-4 border border-second rounded-full checked:bg-main checked:border-second focus:outline-none" {{ $question->answers->where('answer', 'no')->first() != null ? 'checked' : '' }}>
-                                <span class="ml-2 text-base font-light">No</span>
+                                <span class="ml-2 text-base font-light">{{ __('site.No') }}</span>
                             </label>
                         </div>
                         @endforeach
@@ -52,10 +52,10 @@ $question_name = 'question_' . app()->currentLocale();
                 <div class="relative mb-3 bottom__content">
                     <button id="prevBtn" class="mt-2 px-8  py-4 text-gray-500 bg-gray-100 hover:bg-gray-300 hover:-translate-y-1 focus:bg-gray-300  transition-all duration-150 ease-in-out" disabled >
                         <i class="fa-solid fa-arrow-left ms-3"></i>
-                        Back
+                        {{ __('site.Back') }}
                     </button>
                     <button id="nextBtn" type="button" class="mt-2 inline-block px-8  py-4 text-white bg-main hover:bg-second hover:-translate-y-1 focus:bg-second transition-all duration-150 ease-in-out" >
-                        <span id="nextBtnText">Next</span>
+                        <span id="nextBtnText">{{ __('site.Next') }}</span>
                         <i class="fa-solid fa-arrow-right ms-3"></i>
                     </button>
                 </div>
@@ -67,76 +67,11 @@ $question_name = 'question_' . app()->currentLocale();
 
     @section('scripts')
 
-    <script>
-        $(document).ready(function () {
-            let currentStep = 1;
-            const totalSteps = {{ $questions->count() }};
-
-            function showStep(step) {
-                // إظهار وإخفاء محتوى الخطوات
-                $(".step-content").addClass("hidden");
-                $(`.step-content[data-step="${step}"]`).removeClass("hidden");
-
-                // تحديث مظهر شريط التقدم
-                $(".progress-bar .progress-step").each(function (index) {
-                    if (index + 1 < step) {
-                        // الخطوات التي تم تجاوزها
-                        $(this)
-                            .removeClass("bg-white border border-[#B2B2B2] text-[#B2B2B2]")
-                            .addClass("bg-second text-white completed");
-
-                        // تغيير لون الخط بعد الخطوات المكتملة
-                        $(this).next(".progress-line").addClass("done");
-                    } else if (index + 1 === step) {
-                        // الخطوة الحالية
-                        $(this)
-                            .removeClass("bg-white border border-[#B2B2B2] text-[#B2B2B2]")
-                            .addClass("bg-second text-white p-2 relative after:absolute after:inset-0 after:-z-10 after:rounded-full after:border-2 after:border-second after:scale-125");
-                    } else {
-                        // الخطوات القادمة
-                        $(this)
-                            .removeClass("bg-second text-white completed p-2 relative after:absolute after:inset-0 after:-z-10 after:rounded-full after:border-2 after:border-second after:scale-125")
-                            .addClass("bg-white border border-[#B2B2B2] text-[#B2B2B2]");
-                        // إزالة اللون من الخط بعد الخطوات القادمة
-                        $(this).next(".progress-line").removeClass("done").addClass("");
-                    }
-                });
-
-
-                // تحديث الأزرار
-                $("#prevBtn").prop("hidden", step === 1);
-                $("#prevBtn").prop("disabled", step === 1);
-                $("#nextBtnText").text(step === totalSteps ? "Submit" : "Next");
-            }
-
-            $("#nextBtn").on("click", function () {
-                if (currentStep < totalSteps) {
-                    currentStep++;
-                    showStep(currentStep);
-                } else {
-                    // alert("Form submitted!"); // يمكنك استبدالها بمنطق إرسال البيانات
-                    $("#myForm").submit();
-                }
-            });
-
-            $("#prevBtn").on("click", function () {
-                if (currentStep > 1) {
-                currentStep--;
-                showStep(currentStep);
-                }
-            });
-
-            showStep(currentStep); // تهيئة الخطوة الأولى
-        });
-    </script>
-
-    <script>
-        sr.reveal(`.top__content`);
-        sr.reveal(`.bottom__content`, { origin: 'bottom' });
-    </script>
-
-    @stop
-
+    <script src="{{ asset('asset/js/pages/pagesScroller2.js') }}"></script>
+    <script src="{{ asset('asset/js/pages/test_idea.js') }}"></script>
+    
+    @endsection
+    
 
 
 

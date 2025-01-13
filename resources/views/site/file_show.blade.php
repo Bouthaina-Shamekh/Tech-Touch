@@ -51,7 +51,7 @@ $file_name = 'file_name_' . app()->currentLocale();
                     @endif
                 </div>
                 <!-- Text -->
-                <div class="flex flex-col  flex-1/2 justify-start items-center md:items-start">
+                <div class="flex flex-col  flex-1/2 justify-start items-center md:items-start content">
                     <h2 class="top__files text-3xl md:text-5xl font-semibold text-main uppercase mb-2">
                         <i class="text-2xl md:text-4xl fa-solid fa-file text-[#818B90] me-2"></i>
                         {{$file->$file_name}}
@@ -62,7 +62,7 @@ $file_name = 'file_name_' . app()->currentLocale();
                         <span class="text-3xl text-second font-light bottom__files">${{$file->price}}</span>
                     </div>
                     <a href="{{asset($file->file)}}" target="_blank" download="" class="bottom__files mt-4 inline-block px-10 py-3 text-white bg-main hover:bg-second hover:ml-2 focus:bg-second active:bg-second transition-all duration-2 50 ease-in-out">
-                        {{__('Download')}}
+                        {{__('siDownload')}}
                     </a>
                 </div>
             </div>

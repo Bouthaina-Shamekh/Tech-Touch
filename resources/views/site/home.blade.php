@@ -20,15 +20,16 @@ $specialization = 'Specialization_' . app()->currentLocale();
                 <!-- Text -->
                 <div class="text__hero flex flex-col  flex-1/2 justify-start items-center md:items-start">
                     <h1 class="text-5xl md:text-[5rem] font-bold">
-                        <span class="text-second">Test Your</span>
+                        <span class="text-second" id="hero-title">Test Your</span>
                         <br class="block md:hidden">
                         <span class="text-main h-[67px] block md:inline" id="typewriter_hero"></span>
                         <!-- الكلمات مخزنة في HTML -->
-                        @foreach ( $sliders as $slide)
                         <div id="word-list" class="hidden">
-                            <span>{{$slide->$name}}</span>
+                            @foreach ( $sliders as $slide)
+                                <span class="en" style="{{ app()->currentLocale() == 'ar' ? 'display:none;' : '' }}">{{$slide->name_en}}</span>
+                                <span class="ar" style="{{ app()->currentLocale() == 'en' ? 'display:none;' : '' }}">{{$slide->name_ar}}</span>
+                            @endforeach
                         </div>
-                        @endforeach
                     </h1>
                     @foreach ( $sliders as $index => $slide)
                     <div id="hero-texts" class="relative space-y-4 mt-4">
@@ -73,7 +74,7 @@ $specialization = 'Specialization_' . app()->currentLocale();
 
     <!-- Services -->
 
-    <section class="relative my-6 {{ $sections->services == false ? 'hidden' : ''}}" >
+    <section class="relative my-6 {{ $sections->services == false ? 'hidden' : ''}}"  id="services">
         <div class="container">
             <div class=" w-full flex flex-wrap justify-between items-center md:items-start">
                 <div class="flex-1/2">
@@ -123,7 +124,7 @@ $specialization = 'Specialization_' . app()->currentLocale();
                 </div>
             </div>
         </div>
-        <div class="hidden lg:block absolute right-0 top-0 -z-10">
+        <div class="hidden lg:block absolute right-0 top-0 -z-10 part">
             <svg xmlns="http://www.w3.org/2000/svg" width="428.808" height="836.905" viewBox="0 0 428.808 836.905">
                 <path id="Path_12186" data-name="Path 12186" d="M590.7,428.808,836.905,0H0L246.2,428.808Z" transform="translate(428.808) rotate(90)" fill="#ebebeb"/>
             </svg>
@@ -131,9 +132,9 @@ $specialization = 'Specialization_' . app()->currentLocale();
     </section>
 
     <!-- files -->
-    <section class="my-6 relative {{ $sections->files == false ? 'hidden' : '' }}">
+    <section class="my-6 relative {{ $sections->files == false ? 'hidden' : '' }}"  id="files">
         <div class="container w-full">
-            <div class="flex flex-wrap justify-between items-center md:items-start text-center md:text-left">
+            <div class="flex flex-wrap justify-between items-center md:items-start text-center div  md:text-left">
                 <!-- left -->
                 <div class="flex flex-col justify-center img-about md:w-1/3 md:pr-10">
                     <h2 class="left__files text-4xl md:text-7xl font-bold text-main uppercase mb-2">
@@ -197,7 +198,7 @@ $specialization = 'Specialization_' . app()->currentLocale();
     </section>
 
     <!-- partners -->
-    <section class="mt-[102px] mb-[169px] relative {{ $sections->partners == false ? 'hidden' : '' }}">
+    <section class="mt-[102px] mb-[169px] relative {{ $sections->partners == false ? 'hidden' : '' }}"  id="partners">
         <div class="flex justify-center items-end overflow-hidden">
             <div class="left_partners">
                 <svg xmlns="http://www.w3.org/2000/svg" width="677.327" height="136.595" viewBox="0 0 677.327 136.595">
@@ -229,7 +230,7 @@ $specialization = 'Specialization_' . app()->currentLocale();
 
 
     <!-- works -->
-    <section class="my-6 relative {{ $sections->work == false ? 'hidden' : '' }}" style="background-image: url('{{asset('asset/img/extra/work_bg.png')}}">
+    <section class="my-6 relative {{ $sections->work == false ? 'hidden' : '' }}" style="background-image: url('{{asset('asset/img/extra/work_bg.png')}}"  id="works">
         <div class="container py-16">
             <div class="flex flex-col justify-center items-center">
                 <h3 class="text-xl md:text-4xl font-semibold text-main mb-2 text__work">{{$work->name_en}}</h3>
@@ -273,7 +274,7 @@ $specialization = 'Specialization_' . app()->currentLocale();
     </section>
 
     <!-- our team -->
-    <section class="my-10 relative {{ $sections->teams == false ? 'hidden' : '' }}">
+    <section class="my-10 relative {{ $sections->teams == false ? 'hidden' : '' }}" id="teams">
         <div class="container py-10">
             <div class="flex flex-col justify-center items-center">
                 <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2">{{$teams->$name}}</h2>
@@ -339,7 +340,7 @@ $specialization = 'Specialization_' . app()->currentLocale();
     </section>
 
     <!-- client's feedback -->
-    <section class="mt-10 relative {{ $sections->clients == false ? 'hidden' : '' }}">
+    <section class="mt-10 relative {{ $sections->clients == false ? 'hidden' : '' }}"  id="clients">
         <div class="container py-10">
             <div class="flex flex-col justify-center items-center">
                 <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2 text-center">CLIENT'S FEEDBACK</h2>
@@ -391,5 +392,11 @@ $specialization = 'Specialization_' . app()->currentLocale();
 
     </section>
 
+    @endsection
 
-    @stop
+    @push('scripts')
+        <!-- My JS -->
+        <script src="{{asset('asset/js/scrollGsap.js')}}"></script>
+
+        <script src="{{asset('asset/js/pages/index.js')}}"></script>
+    @endpush

@@ -84,15 +84,11 @@ $description = 'description_' . app()->currentLocale();
     @stop
 
     @section('scripts')
-    <script>
 
-        // left__file , bottom__file
-            sr.reveal(`.left__file`, { interval: 100,origin: 'left' }); // عدة عناصر والانتظار بينهم
-            sr.reveal(`.bottom__files , .card__files , .bottom__file`, { interval: 100,origin: 'bottom' }); // عدة عناصر والانتظار بينهم
-
-        </script>
+    <script src="{{ asset('asset/js/pages/pagesScroller.js') }}"></script>
+    <script src="{{ asset('asset/js/main.js') }}"></script>
+    
     @endsection
-
 
     <!-- JS Scripts -->
 

@@ -4,9 +4,14 @@
 
 @php
 $name = 'name_' . app()->currentLocale();
+$title = 'title_' . app()->currentLocale();
+$description = 'description_' . app()->currentLocale();
 $feature = 'feature_'.app()->currentLocale();
 @endphp
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('asset/css/pages/about.css') }}">
+@endpush
 
 @section('content')
 
@@ -51,10 +56,10 @@ $feature = 'feature_'.app()->currentLocale();
                         </div>
                     </div>
                     <!-- Text -->
-                    <div class=" flex flex-col  flex-1/2 justify-start items-center md:items-start">
-                        <h2 class="text__about text-3xl md:text-5xl font-semibold text-main uppercase mb-2">{{$abouts->name_en}}</h2>
-                        <h3 class="text__about text-xl md:text-3xl font-semibold text-second uppercase mb-2">{{$abouts->title_en}}</h3>
-                        <p class="text__about text-dark font-light text-base leading-6">{{$abouts->description_en}}</p>
+                    <div class="content flex flex-col  flex-1/2 justify-start items-center md:items-start">
+                        <h2 class="text__about text-3xl md:text-5xl font-semibold text-main uppercase mb-2">{{$abouts->$name}}</h2>
+                        <h3 class="text__about text-xl md:text-3xl font-semibold text-second uppercase mb-2">{{$abouts->$title}}</h3>
+                        <p class="text__about text-dark font-light text-base leading-6">{{$abouts->$description}}</p>
                         {{-- <p class="text__about text-dark  font-light  text-base leading-6">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p> --}}
                         <div class="flex flex-wrap justify-center md:justify-between items-center  gap-4 contant-hexagon my-4">
                             <div class="card__about hexagon-container w-[70%] md:w-[30%]">
@@ -66,7 +71,7 @@ $feature = 'feature_'.app()->currentLocale();
                                 <!-- العنصر الداخلي -->
                                 <div class="hexagon-content flex flex-col">
                                     <span class="text-7xl font-semibold text-main mb-2 counter" data-target="{{$partnersCount}}">{{$partnersCount}}</span>
-                                    <span class="text-xl font-semibold text-second ">Partners</span>
+                                    <span class="text-xl font-semibold text-second ">{{ __('site.Partners') }}</span>
                                 </div>
                             </div>
                             <div class="card__about hexagon-container w-[70%] md:w-[30%]">
@@ -77,7 +82,7 @@ $feature = 'feature_'.app()->currentLocale();
                                 <!-- العنصر الداخلي -->
                                 <div class="hexagon-content flex flex-col">
                                     <span class="text-7xl font-semibold text-main mb-2 counter" data-target="{{$teamCount}}">{{$teamCount}}</span>
-                                    <span class="text-xl font-semibold text-second ">Employees</span>
+                                    <span class="text-xl font-semibold text-second ">{{ __('site.Employees') }}</span>
                                 </div>
                             </div>
                             <div class="card__about hexagon-container w-[70%] md:w-[30%]">
@@ -88,7 +93,7 @@ $feature = 'feature_'.app()->currentLocale();
                                 <!-- العنصر الداخلي -->
                                 <div class="hexagon-content flex flex-col">
                                     <span class="text-7xl font-semibold text-main mb-2 counter" data-target="{{$workCount}}">{{$workCount}}</span>
-                                    <span class="text-xl font-semibold text-second ">Projects</span>
+                                    <span class="text-xl font-semibold text-second ">{{ __('site.Projects') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -102,12 +107,12 @@ $feature = 'feature_'.app()->currentLocale();
             <div class="container">
                 <div class="flex flex-wrap justify-between items-start">
                     <!-- Text -->
-                    <div class="flex flex-col flex-1/2 justify-start items-center md:items-start text-justify md:text-left md:pr-8">
-                        <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4">{{ $goals->name_en}}</h2>
-                        <p class="left__section__second text-dark font-light text-base leading-6">{{ $goals->description_en}}</p>
+                    <div class="flex flex-col flex-1/2 justify-start items-center md:items-start text-justify md:text-left md:pr-8 content-second ">
+                        <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4">{{ $goals->$name}}</h2>
+                        <p class="left__section__second text-dark font-light text-base leading-6">{{ $goals->$description}}</p>
                         <div class="flex flex-col justify-start items-center md:items-start mt-10">
-                            <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4">{{$item->name_en}}</h2>
-                            <p class="left__section__second text-dark font-light text-base leading-6">{{ $goals->description_en}} </p>
+                            <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4">{{$item->$name}}</h2>
+                            <p class="left__section__second text-dark font-light text-base leading-6">{{ $goals->$description}} </p>
                             <ul class="list-inside list-image-[url(../img/icon/Icon-material-done.png)] mt-4">
                                 @foreach ($features as $features )
                                 <li class="left__section__second text-dark font-light text-base ">{{$features->$feature}}</li>
@@ -117,8 +122,8 @@ $feature = 'feature_'.app()->currentLocale();
                     </div>
                     <!-- Video -->
                     <div class="flex flex-col md:justify-start img-about" style="flex: 1 1 40%;">
-                        <h2 class="top__section_second text-7xl font-semibold text-main uppercase mb-2">Video</h2>
-                        <h3 class="top__section_second text-3xl font-semibold text-second uppercase mb-8">Demonstration</h3>
+                        <h2 class="top__section_second text-7xl font-semibold text-main uppercase mb-2">{{ __('site.Video') }}</h2>
+                        <h3 class="top__section_second text-3xl font-semibold text-second uppercase mb-8">{{ __('site.Demonstration') }}</h3>
                         <div class="img__section__second hexagon-container" data-twe-toggle="modal" data-twe-target="#viewVideo" data-twe-ripple-init data-twe-ripple-color="light">
                             <!-- SVG للشكل السداسي بحدود متقطعة -->
                             <svg viewBox="0 0 100 100">
@@ -180,10 +185,16 @@ $feature = 'feature_'.app()->currentLocale();
             }
         }
     </style>
-    @stop
+@stop
     <!-- Footer -->
 
 
+    @section('scripts')
+
+    <script src="{{ asset('asset/js/pages/pagesScroller.js') }}"></script>
+    <script src="{{ asset('asset/js/pages/about.js') }}"></script>
+    
+    @endsection
 
 
 

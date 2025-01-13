@@ -45,7 +45,7 @@ $description = 'description_' . app()->currentLocale();
                                 </p>
 
                                 <a href="{{route('site.services_show', $service->id)}}" class="my-2 text-main underline hover:pl-2 transition-all delay-150 ease-in">
-                                    {{__('Read MORE')}}
+                                    {{__('site.Read MORE')}}
                                 </a>
                             </div>
                         </div>
@@ -56,12 +56,10 @@ $description = 'description_' . app()->currentLocale();
     </section>
 @stop
 
+
 @section('scripts')
-    <script>
-        // content__card , img__card , left__card ,right__card
-        sr.reveal(`.left__card`, { origin: 'left' , interval: 150});
-        sr.reveal(`.right__card`, { origin: 'right' , interval: 150});
-        sr.reveal(`.content__card`, { origin: 'left' });
-        sr.reveal(`.img__card`, { origin: 'left' });
-    </script>
+
+<script src="{{ asset('asset/js/pages/pagesScroller2.js') }}"></script>
+<script src="{{ asset('asset/js/main.js') }}"></script>
+
 @endsection

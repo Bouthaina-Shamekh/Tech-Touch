@@ -28,56 +28,45 @@ $name = 'name_' . app()->currentLocale();
         </div>
     </div>
 
-    <style>
-        /* edit input in forms */
-        [data-twe-input-notch-ref] {
-            /* direction: rtl; */
-            border: none;
-        }
-        [data-twe-input-notch-leading-ref],[data-twe-input-notch-middle-ref],[data-twe-input-notch-trailing-ref]
-        {
-            border: transparent !important;
-        }
-    </style>
     <!-- Content -->
     <section class="my-20">
         <div class="container">
             <!-- Form -->
             <div class="flex flex-col justify-start items-start md:items-center img-about">
-                <h2 class="text-5xl font-semibold text-main uppercase mb-4 top__form">Provide us with information</h2>
-                <form action="{{route('site.consultation_data')}}" method="post" class="w-full flex flex-wrap justify-between items-center text-center md:text-left my-8 gap-4">
+                <h2 class="text-5xl font-semibold text-main uppercase mb-4 top__form">{{ __('site.Provide us with information') }}</h2>
+                <form action="{{route('site.consultation_data')}}" method="post" class="w-full flex flex-wrap justify-between items-center text-center md:text-left my-8 gap-4 content-second">
                     @csrf
                     <div class="grid grid-cols-12 gap-4 w-full">
                         <div class="left__form col-span-12 md:col-span-6">
-                            <div class="relative mb-3" data-twe-input-wrapper-init>
-                                <input type="text" name="first_name" class="peer block min-h-[auto] w-full border-0 bg-[#F5F5F5] px-3 py-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" id="exampleFormControlInputText" placeholder="Example label"/>
-                                <label for="exampleFormControlInputText" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-4 leading-[1.6] text-neutral-300 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary">
-                                    First Name *
+                            <div class="relative mb-3">
+                                <label for="exampleFormControlInputText" class="leading-[1.6] text-neutral-300">
+                                    {{ __('site.First Name') }} *
                                 </label>
+                                <input type="text" name="first_name" class="peer block min-h-[auto] w-full border-0 bg-[#F5F5F5] px-3 py-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" id="exampleFormControlInputText" placeholder="Example label"/>
                             </div>
                         </div>
                         <div class="right__form col-span-12 md:col-span-6">
-                            <div class="relative mb-3 flex-auto" data-twe-input-wrapper-init>
-                                <input type="text" name="last_name" class="peer block min-h-[auto] w-full border-0 bg-[#F5F5F5] px-3 py-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" id="exampleFormControlInputText" placeholder="Example label" />
-                                <label for="exampleFormControlInputText" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-4 leading-[1.6] text-neutral-300 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary">
-                                    Last Name *
+                            <div class="relative mb-3 flex-auto">
+                                <label for="exampleFormControlInputText" class="leading-[1.6] text-neutral-300">
+                                    {{ __('site.Last Name') }} *
                                 </label>
+                                <input type="text" name="last_name" class="peer block min-h-[auto] w-full border-0 bg-[#F5F5F5] px-3 py-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" id="exampleFormControlInputText" placeholder="Example label" />
                             </div>
                         </div>
                         <div class="left__form col-span-12 md:col-span-6">
-                            <div class="relative mb-3 flex-auto" data-twe-input-wrapper-init>
-                                <input type="email" name="email" class="peer block min-h-[auto] w-full border-0 bg-[#F5F5F5] px-3 py-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" id="exampleFormControlInputText" placeholder="Example label"/>
-                                <label for="exampleFormControlInputText" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-4 leading-[1.6] text-neutral-300 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary">
-                                    Your Email *
+                            <div class="relative mb-3 flex-auto">
+                                <label for="exampleFormControlInputText" class="leading-[1.6] text-neutral-300">
+                                    {{ __('site.Your Email') }} *
                                 </label>
+                                <input type="email" name="email" class="peer block min-h-[auto] w-full border-0 bg-[#F5F5F5] px-3 py-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" id="exampleFormControlInputText" placeholder="Example label"/>
                             </div>
                         </div>
                         <div class="right__form col-span-12 md:col-span-6">
-                            <div class="relative mb-3 flex-auto" data-twe-input-wrapper-init>
-                                <input type="number" name="phone" class="peer block min-h-[auto] w-full border-0 bg-[#F5F5F5] px-3 py-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" id="exampleFormControlInputText" placeholder="Example label" />
-                                <label for="exampleFormControlInputText" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-4 leading-[1.6] text-neutral-300 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary">
-                                    Phone Number *
+                            <div class="relative mb-3 flex-auto">
+                                <label for="exampleFormControlInputText" class="leading-[1.6] text-neutral-300">
+                                    {{ __('site.Phone Number') }} *
                                 </label>
+                                <input type="number" name="phone" class="peer block min-h-[auto] w-full border-0 bg-[#F5F5F5] px-3 py-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" id="exampleFormControlInputText" placeholder="Example label" />
                             </div>
                         </div>
 
@@ -87,7 +76,7 @@ $name = 'name_' . app()->currentLocale();
                             type="submit"
                             class=" mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:-translate-y-2 focus:bg-second active:bg-second transition-all duration-150 ease-in-out"
                         >
-                            Order now
+                            {{ __('site.Order now') }}
                         </button>
                     </div>
                 </form>
@@ -116,9 +105,9 @@ $name = 'name_' . app()->currentLocale();
                         <div class="my-2">
                             <img src="../asset/img/extra/done.png" alt="Order Done" loading="lazy" />
                         </div>
-                        <span class="font-light w-2/3 text-center my-4">Your Request Has Been Sent Successfully, You Will Receive A Message From Us As Soon As Possible.</span>
+                        <span class="font-light w-2/3 text-center my-4">{{ __('site.Your Request Has Been Sent Successfully, You Will Receive A Message From Us As Soon As Possible.') }}</span>
                         <button type="button"  class="mt-8 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:-translate-y-2 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">
-                            Done
+                            {{ __("site.Done") }}
                         </button>
                     </div>
                 </div>
@@ -136,10 +125,9 @@ $name = 'name_' . app()->currentLocale();
                 console.log('done');
             })
         @endif
-        // top__form
-        sr.reveal(`.top__form`);
-        sr.reveal(`.left__form`, { origin: 'left' });
-        sr.reveal(`.right__form`, { origin: 'right' });
-        sr.reveal(`.bottom__form`, { origin: 'bottom' });
     </script>
+    
+<script src="{{ asset('asset/js/pages/pagesScroller.js') }}"></script>
+<script src="{{ asset('asset/js/main.js') }}"></script>
+
 @endsection

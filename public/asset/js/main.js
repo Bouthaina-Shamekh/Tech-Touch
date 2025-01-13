@@ -1,38 +1,24 @@
 $(document).ready(function () {
-    // كتابة النص العلوي
-    let words = [];
-    let i = 0;
-    let j = 0;
-    let currentWord = "";
-    let isDeleting = false;
-
-    // جلب الكلمات من HTML
-    $("#word-list span").each(function () {
-        words.push($(this).text());
-    });
-    function type() {
-        currentWord = words[i];
-        if (isDeleting) {
-            $("#typewriter_hero").text(currentWord.substring(0, j - 1));
-            j--;
-            if (j == 0) {
-                isDeleting = false;
-                i++;
-                if (i == words.length) {
-                    i = 0;
-                }
-            }
+    function convertToRtl(enabled) {
+        if (enabled) {
+            $('html').attr('dir', 'rtl');
+            $('.content').addClass('text-right');
+            $('.content-second').addClass('md:text-right').removeClass('md:text-left');
+            // $('.content-second').addClass('md:pl-8').removeClass('md:pr-8');
+            // index
+    
+            // hero
+            
         } else {
-            $("#typewriter_hero").text(currentWord.substring(0, j + 1));
-            j++;
-            if (j == currentWord.length) {
-                isDeleting = true;
-            }
+            $('html').attr('dir', 'ltr');
+            $('.content').removeClass('text-right');
+            $('.content-second').removeClass('md:text-right').addClass('md:text-left');
+            // $('.content-second').removeClass('md:pl-8').addClass('md:pr-8');
         }
-        setTimeout(type, 300);
     }
-    type();
-
-
-
-});
+    
+    // false is rtl
+    let lang = langApp;
+    console.log(lang);
+    convertToRtl(!lang);
+})

@@ -41,10 +41,10 @@ $question_name = 'question_' . app()->currentLocale();
     <!-- Content -->
     <section class="my-20">
         <div class="container">
-            <h2 class="text-5xl font-semibold text-main uppercase mb-2 w-full text-center top__content">Our comment on your idea</h2>
+            <h2 class="text-5xl font-semibold text-main uppercase mb-2 w-full text-center top__content">{{ __('site.Our comment on your idea') }}</h2>
             <div class="left__content w-full bg-[#F5F5F5] p-10">
                 <div class="flex justify-start items-center">
-                    <span class="text-base me-4 left__content">Maturity Of Your Idea</span>
+                    <span class="text-base me-4 left__content">{{ __('site.Maturity Of Your Idea') }}</span>
                     <div class="flex-1  bg-gray-300 h-4 overflow-hidden top__content">
                         <div class="bg-main h-full " style="width: {{$preg}}%;"></div> <!-- مثال: تقدم بنسبة 70% -->
                     </div>
@@ -53,7 +53,7 @@ $question_name = 'question_' . app()->currentLocale();
                 <form action="{{route('site.select_services')}}" method="post">
                     <div class="flex flex-col justify-start items-start mt-6">
                         @if ($preg != 100)
-                        <span class="text-base me-4 mb-4">Idea Requirements</span>
+                        <span class="text-base me-4 mb-4">{{ __('site.Idea Requirements') }}</span>
                         @endif
                         @foreach ($requirements as $requirement)
                         <label class="bottom__content flex items-center mb-4">
@@ -64,18 +64,18 @@ $question_name = 'question_' . app()->currentLocale();
                     </div>
                     <div class="relative mb-3 w-full flex justify-center right__content">
                         <button type="submit" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:-translate-y-1 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">
-                            Buy
+                            {{ __('site.Buy') }}
                         </button>
                     </div>
                 </form>
             </div>
             <div class="right__content w-full bg-[#F5F5F5] p-10 mt-4">
-                <h2 class="text-2xl font-semibold text-main uppercase mb-4 right__content">Free Consultation</h2>
+                <h2 class="text-2xl font-semibold text-main uppercase mb-4 right__content">{{ __('site.Free Consultation') }}</h2>
                 <p class="text-dark font-light text-base leading-6 mb-4 right__content">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo Duo Dolores Et Ea Rebum. Stet Clita Kasd Gubergren, No Sea Takimata Sanctus Est Lorem Ipsum Dolor Sit Amet.
                     Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p>
                 <div class="relative mb-3 w-full flex justify-center md:justify-start bottom__content">
                     <a href="./free_consultation.html" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:translate-x-2 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">
-                        consultation
+                        {{ __('site.consultation') }}
                     </a>
                 </div>
             </div>
@@ -84,4 +84,10 @@ $question_name = 'question_' . app()->currentLocale();
 
 @stop
 
+
 @section('scripts')
+
+<script src="{{ asset('asset/js/pages/pagesScroller.js') }}"></script>
+<script src="{{ asset('asset/js/main.js') }}"></script>
+
+@endsection

@@ -37,15 +37,15 @@ $name = 'name_' . app()->currentLocale();
                     </div>
                     <div class="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all delay-200 ease-in opacity-0 group-hover:opacity-100">
                         <div class="flex flex-col justify-start items-center my-4">
-                            <h4 class="text-2xl text-white mb-4 font-semibold">{{ $work->name_en }}</h4>
+                            <h4 class="text-2xl text-white mb-4 font-semibold">{{ $work->$name }}</h4>
                             <div>
                                 @foreach ($work->categories as $category)
-                                <span class="text-[#d4d0d0] text-xs font-medium px-3 py-2 left__card">{{$category->name_en}}</span>
+                                <span class="text-[#d4d0d0] text-xs font-medium px-3 py-2 left__card">{{$category->$name}}</span>
                                 @endforeach
                             </div>
                         </div>
                         <a href="{{route('site.portfolio', $work->id)}}" class="link__card mb-4 px-8 py-4 flex items-center justify-center text-white transition-all delay-200 ease-out">
-                            <span class="me-4">Read More</span>
+                            <span class="me-4">{{ __('site.Read More') }}</span>
                             <i class="fa-solid fa-arrow-right ms-2 text-main"></i>
                         </a>
                     </div>
@@ -73,5 +73,10 @@ $name = 'name_' . app()->currentLocale();
     </section>
     <!-- End Content -->
 
-@stop
+@endsection
+
+
+@section('scripts')
+<script src="{{ asset('asset/js/main.js') }}"></script>
+@endsection
 
