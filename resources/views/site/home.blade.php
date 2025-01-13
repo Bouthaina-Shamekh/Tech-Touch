@@ -345,8 +345,8 @@ $specialization = 'Specialization_' . app()->currentLocale();
     <section class="mt-10 relative {{ $sections->clients == false ? 'hidden' : '' }}"  id="clients">
         <div class="container py-10">
             <div class="flex flex-col justify-center items-center">
-       <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2 text-center"> bbbbbbbb</h2>
-                <h3 class="text__client text-xl md:text-3xl font-semibold text-second mb-2">bbbbbbbbbbbb</h3>
+       <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2 text-center">{{$feed->$name}}</h2>
+                <h3 class="text__client text-xl md:text-3xl font-semibold text-second mb-2">{{$feed->$title}}</h3>
             </div>
         </div>
         <div class="bg-main mt-10 py-16 relative flex justify-center">
