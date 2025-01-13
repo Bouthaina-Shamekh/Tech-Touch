@@ -62,7 +62,7 @@ $file_name = 'file_name_' . app()->currentLocale();
                         <span class="text-3xl text-second font-light bottom__files">${{$file->price}}</span>
                     </div>
                     <a href="{{asset($file->file)}}" target="_blank" download="" class="bottom__files mt-4 inline-block px-10 py-3 text-white bg-main hover:bg-second hover:ml-2 focus:bg-second active:bg-second transition-all duration-2 50 ease-in-out">
-                        {{__('siDownload')}}
+                        {{__('admin.Download')}}
                     </a>
                 </div>
             </div>

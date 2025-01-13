@@ -17,13 +17,13 @@ $name = 'name_' . app()->currentLocale();
                 <ol class="list-reset flex">
                     <li>
                         <a href="{{route('site.index')}}" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
-                            Home
+                           {{__('admin.Home')}}
                         </a>
                     </li>
                     <li>
                         <span class="mx-2 text-neutral-400">/</span>
                     </li>
-                    <li class="text-neutral-400">Contact</li>
+                    <li class="text-neutral-400">{{__('admin.Contact')}}</li>
                 </ol>
             </nav>
         </div>
@@ -43,7 +43,7 @@ $name = 'name_' . app()->currentLocale();
             <div class="flex flex-wrap justify-between items-start gap-20">
                 <!-- Text -->
                 <div class="flex flex-col flex-1/2 justify-start items-center md:items-start text-center md:text-left pr-8 content-second">
-                    <h2 class="top__contact text-3xl font-semibold text-main uppercase mb-4">Get in touch with us</h2>
+                    <h2 class="top__contact text-3xl font-semibold text-main uppercase mb-4">{{__('admin.Get in touch with us')}}</h2>
                     <p class="text__contact text-dark font-light text-base leading-6">{!! $settings->where('key', 'about_en')->first()->value ?? '' !!}</p>
                     <div class="flex flex-col justify-start items-center md:items-start mt-10">
                         <div class="text__contact flex justify-start items-center mb-4">

@@ -21,13 +21,13 @@ $description = 'description_' . app()->currentLocale();
                 <ol class="list-reset flex">
                     <li>
                         <a href="{{route('site.index')}}" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
-                            Home
+                           {{__('admin.Home')}}
                         </a>
                     </li>
                     <li>
                         <span class="mx-2 text-neutral-400">/</span>
                     </li>
-                    <li class="text-neutral-400">Files</li>
+                    <li class="text-neutral-400">{{__('admin.Files')}}</li>
                 </ol>
             </nav>
         </div>
@@ -49,7 +49,7 @@ $description = 'description_' . app()->currentLocale();
                             <div class="flex justify-start items-center gap-4 mt-4">
                                 <span class="text-main font-light text-lg bottom__file">${{$file->price}}</span>
                                 <a href="{{route('site.file_show', $file->id)}}" class="bottom__file px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                    <span>{{__('BUY')}}</span>
+                                    <span>{{__('admin.BUY')}}</span>
                                 </a>
                             </div>
                         </div>

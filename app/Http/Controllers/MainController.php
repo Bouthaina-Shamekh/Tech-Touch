@@ -42,6 +42,9 @@ class MainController extends Controller
         $works = Work::with('categories')->orderBy('id','desc')->get();
         $teams = Hero::where('section', 'Teams')
                 ->select('name_en', 'name_ar' ,'title_en','title_ar','description_en','description_ar')->first();
+        $feedback = Hero::where('section', 'Feedback')
+                ->select('name_en', 'name_ar' ,'title_en','title_ar')->first();
+               
         $team = Team::orderBy('id','desc')->get();
         $clients = Client::limit(5)->get();
         $partnersCount = DB::table('partners')->count();
@@ -50,7 +53,7 @@ class MainController extends Controller
 
         $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting::where('key','sections_show')->first()->value) : [];
 
-        return view('site.home', compact('sections','sliders','abouts','services','service','files','file','partners','partner','work','works','teams','team','clients','partnersCount','teamCount','workCount'));
+        return view('site.home', compact('sections','sliders','abouts','services','service','files','file','partners','partner','work','works','teams','team','clients','partnersCount','teamCount','workCount','feedback'));
     }
 
     public function getVideoIdAttribute($video)

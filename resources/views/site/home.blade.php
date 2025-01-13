@@ -40,7 +40,7 @@ $specialization = 'Specialization_' . app()->currentLocale();
                     @endforeach
                     <div class="relative mb-3 w-full flex justify-center md:justify-start my-8">
                         <a href="{{route('site.test_idea')}}" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:ml-4 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">
-                            {{__('Start Now')}}
+                            {{__('admin.Start Now')}}
                         </a>
                     </div>
                     <div class="flex flex-col md:flex-row justify-between items-center w-full">
@@ -94,14 +94,14 @@ $specialization = 'Specialization_' . app()->currentLocale();
                                      </p>
                                     {{-- <p class="text__service text-dark font-light text-base leading-6" style="white-space: pre-wrap; word-wrap: break-word; width: 100%;">{{$services->$description}}</p> --}}
                                 <a href="{{route('site.services_show', $item->id)}}" class="my-2 text-main underline hover:pl-2 transition-all delay-150 ease-in">
-                                    Read MORE
+                                {{__('admin.Read MORE')}}
                                 </a>
                             </div>
                         </div>
                         @endforeach
                         @if(count($service) >= 5)
                         <div class="service__box relative my-8 w-full flex justify-start">
-                            <a href="{{route('site.services')}}" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:ml-4 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">Show All</a>
+                            <a href="{{route('site.services')}}" class="mt-2 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:ml-4 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">{{__('admin.Show All')}}</a>
                         </div>
                         @endif
                     </div>
@@ -130,6 +130,8 @@ $specialization = 'Specialization_' . app()->currentLocale();
             </svg>
         </div>
     </section>
+
+    
 
     <!-- files -->
     <section class="my-6 relative {{ $sections->files == false ? 'hidden' : '' }}"  id="files">
@@ -178,7 +180,7 @@ $specialization = 'Specialization_' . app()->currentLocale();
                                     <div class="flex justify-start items-center gap-4 mt-4">
                                         <span class="text-main font-light text-lg">${{$file->price}}</span>
                                         <a href="{{route('site.file_show', $file->id)}}" class="px-4 py-2 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                            <span>BUY</span>
+                                            <span>{{__('admin.BUY')}}</span>
                                         </a>
                                     </div>
                                 </div>
@@ -233,8 +235,8 @@ $specialization = 'Specialization_' . app()->currentLocale();
     <section class="my-6 relative {{ $sections->work == false ? 'hidden' : '' }}" style="background-image: url('{{asset('asset/img/extra/work_bg.png')}}"  id="works">
         <div class="container py-16">
             <div class="flex flex-col justify-center items-center">
-                <h3 class="text-xl md:text-4xl font-semibold text-main mb-2 text__work">{{$work->name_en}}</h3>
-                <h2 class="text-3xl md:text-5xl font-semibold text-white uppercase mb-2 text__work text-center md:text-left">{{$work->title_en}}</h2>
+                <h3 class="text-xl md:text-4xl font-semibold text-main mb-2 text__work">{{$work->$name}}</h3>
+                <h2 class="text-3xl md:text-5xl font-semibold text-white uppercase mb-2 text__work text-center md:text-left">{{$work->$title}}</h2>
             </div>
             <div class="swiper p-0">
                 <div class="slider-wrapper">
@@ -259,7 +261,7 @@ $specialization = 'Specialization_' . app()->currentLocale();
                                 </div>
                             </div>
                             <a href="{{route('site.portfolio', $work->id)}}" class="mb-4 -translate-y-7 px-8 py-4 flex items-center justify-center bg-main text-white hover:bg-second hover:ml-2 transition-all delay-200 ease-out">
-                                <span class="me-4">Read More</span>
+                                <span class="me-4">{{__('admin.Read MORE')}}</span>
                                 <i class="fa-solid fa-arrow-right ms-2"></i>
                             </a>
                         </div>
@@ -343,8 +345,8 @@ $specialization = 'Specialization_' . app()->currentLocale();
     <section class="mt-10 relative {{ $sections->clients == false ? 'hidden' : '' }}"  id="clients">
         <div class="container py-10">
             <div class="flex flex-col justify-center items-center">
-                <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2 text-center">CLIENT'S FEEDBACK</h2>
-                <h3 class="text__client text-xl md:text-3xl font-semibold text-second mb-2">What People Say About Us</h3>
+       <h2 class="text__client text-5xl md:text-7xl font-semibold text-main uppercase mb-2 text-center"> bbbbbbbb</h2>
+                <h3 class="text__client text-xl md:text-3xl font-semibold text-second mb-2">bbbbbbbbbbbb</h3>
             </div>
         </div>
         <div class="bg-main mt-10 py-16 relative flex justify-center">

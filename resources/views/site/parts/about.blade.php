@@ -20,9 +20,9 @@
             </div>
             <!-- Text -->
             <div class="content flex flex-col  flex-1/2 justify-start items-center md:items-start">
-                <h2 class="text__about text-3xl md:text-5xl font-semibold text-main uppercase mb-2">{{$abouts->name_en}}</h2>
-                <h3 class="text__about text-xl md:text-3xl font-semibold text-second uppercase mb-2">{{$abouts->title_en}}</h3>
-                <p class="text__about text-dark font-light text-base leading-6">{{$abouts->description_en}}</p>
+                <h2 class="text__about text-3xl md:text-5xl font-semibold text-main uppercase mb-2">{{$abouts->$name}}</h2>
+                <h3 class="text__about text-xl md:text-3xl font-semibold text-second uppercase mb-2">{{$abouts->$title}}</h3>
+                <p class="text__about text-dark font-light text-base leading-6">{{$abouts->$description}}</p>
                 {{-- <p class="text__about text-dark  font-light  text-base leading-6">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua. At Vero Eos Et Accusam Et Justo</p> --}}
                 <div class="flex flex-wrap justify-center md:justify-between items-center  gap-4 contant-hexagon my-4">
                     <div class="card__about hexagon-container w-[70%] md:w-[30%]">
@@ -34,7 +34,7 @@
                         <!-- العنصر الداخلي -->
                         <div class="hexagon-content flex flex-col">
                             <span class="text-7xl font-semibold text-main mb-2 counter" data-target="{{$partnersCount}}">{{$partnersCount}}</span>
-                            <span class="text-xl font-semibold text-second ">Partners</span>
+                            <span class="text-xl font-semibold text-second ">{{__('admin.Partners')}}</span>
                         </div>
                     </div>
                     <div class="card__about hexagon-container w-[70%] md:w-[30%]">
@@ -45,7 +45,7 @@
                         <!-- العنصر الداخلي -->
                         <div class="hexagon-content flex flex-col">
                             <span class="text-7xl font-semibold text-main mb-2 counter" data-target="{{$teamCount}}">{{$teamCount}}</span>
-                            <span class="text-xl font-semibold text-second ">Employees</span>
+                            <span class="text-xl font-semibold text-second ">{{__('admin.Employees')}}</span>
                         </div>
                     </div>
                     <div class="card__about hexagon-container w-[70%] md:w-[30%]">
@@ -56,7 +56,7 @@
                         <!-- العنصر الداخلي -->
                         <div class="hexagon-content flex flex-col">
                             <span class="text-7xl font-semibold text-main mb-2 counter" data-target="{{$workCount}}">{{$workCount}}</span>
-                            <span class="text-xl font-semibold text-second ">Projects</span>
+                            <span class="text-xl font-semibold text-second ">{{__('admin.Projects')}}</span>
                         </div>
                     </div>
                 </div>

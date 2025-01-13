@@ -210,6 +210,15 @@ return [
      'Our Comment'=>'Our Comment',
      'Payment Method'=>'Payment Method',
      'Terms Of Payment'=>'Terms Of Payment',
+     'BUY'=>'BUY',
+     'Start Now'=>'Start Now',
+     'Employees'=>'Employees',
+     'Read MORE'=>'Read More',
+     'Show All'=>'Show All',
+     'Links'=>'Links',
+     'Get in touch with us'=>'تواصل معنا',
+     'Location'=>'Location',
+     'Logo'=>'logo',
 
      
      

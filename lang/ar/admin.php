@@ -210,6 +210,15 @@ return [
      'Our Comment'=>'مجتمعنا',
      'Payment Method'=>'طرق الدفع',
      'Terms Of Payment'=>'Terms Of Payment',
+     'BUY'=>'شراء',
+     'Start Now'=>'ابدأ الان ',
+     'Employees'=>'الموظفين',
+     'Read MORE'=>'قرائة المزيد',
+     'Show All'=>'اظهار الكل',
+     'Links'=>'الرابط',
+     'Get in touch with us'=>'تواصل معنا',
+     'Location'=>'موقعنا',
+     'Logo'=>'لوجو',
 
 
 

@@ -22,13 +22,13 @@ $feature = 'feature_'.app()->currentLocale();
                 <ol class="list-reset flex">
                     <li>
                         <a href="{{route('site.index')}}" class="text-main transition duration-150 ease-in-out hover:text-main focus:text-main active:text-main motion-reduce:transition-none ">
-                            Home
+                           {{__('admin.Home')}}
                         </a>
                     </li>
                     <li>
                         <span class="mx-2 text-neutral-400">/</span>
                     </li>
-                    <li class="text-neutral-400">About</li>
+                    <li class="text-neutral-400">{{__('admin.About')}}</li>
                 </ol>
             </nav>
         </div>
