@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +29,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Schema::defaultStringLength(191);
+
+
+        $locale = LaravelLocalization::getCurrentLocale(); // اللغة الحالية من المكتبة
+    if (!$locale) {
+        LaravelLocalization::setLocale('ar');
+    } 
+
         View::share('name', 'name_' . app()->currentLocale());
         View::share('title', 'title_' . app()->currentLocale());
         View::share('description', 'description_' . app()->currentLocale());
@@ -43,15 +53,7 @@ class AppServiceProvider extends ServiceProvider
             }
         });
         // // the Authorization for Report Page
-        // Gate::define('report.view', function ($user) {
-        //     if($user instanceof User) {
-        //         if($user->roles->contains('role_name', 'report.view')) {
-        //             return true;
-        //         }
-        //         return false;
-        //     }
-        // });
-        // Gate::policy(FixedEntries::class, FixedEntriesPolicy::class);
+       
 
     }
 }
