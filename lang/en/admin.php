@@ -219,7 +219,7 @@ return [
      'Get in touch with us'=>'تواصل معنا',
      'Location'=>'Location',
      'Logo'=>'logo',
-
+     'Download'=>'Download',
      
      
 

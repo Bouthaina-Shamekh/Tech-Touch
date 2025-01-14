@@ -16,6 +16,8 @@ use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Models\ServiceSelection;
 use App\Models\Setting;
+use App\Models\Visit;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
@@ -23,7 +25,7 @@ class MainController extends Controller
 
     public function home()
     {
-        $sliders = Slider::all(['name_en','name_ar', 'description_en', 'description_ar']);
+        $sliders = Slider::all(['name_en', 'description_en']);
         $abouts = Hero::where('section', 'About')
                     ->first();
         $services = Hero::where('section', 'Services')
@@ -42,7 +44,7 @@ class MainController extends Controller
         $works = Work::with('categories')->orderBy('id','desc')->get();
         $teams = Hero::where('section', 'Teams')
                 ->select('name_en', 'name_ar' ,'title_en','title_ar','description_en','description_ar')->first();
-        $feed = Hero::where('section', 'Feedback')
+        $feedback = Hero::where('section', 'Feedback')
                 ->select('name_en', 'name_ar' ,'title_en','title_ar')->first();
                
         $team = Team::orderBy('id','desc')->get();
@@ -53,7 +55,7 @@ class MainController extends Controller
 
         $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting::where('key','sections_show')->first()->value) : [];
 
-        return view('site.home', compact('sections','sliders','abouts','services','service','files','file','partners','partner','work','works','teams','team','clients','partnersCount','teamCount','workCount','feed'));
+        return view('site.home', compact('sections','sliders','abouts','services','service','files','file','partners','partner','work','works','teams','team','clients','partnersCount','teamCount','workCount','feedback'));
     }
 
     public function getVideoIdAttribute($video)
@@ -192,6 +194,27 @@ class MainController extends Controller
     return redirect()->route('site.index')->with('success', 'Services selected successfully!');
 }
 
+
+    public function storeVisit(Request $request)
+    {
+        $visit = Visit::where('session_id', $request->session()->getId());
+
+        if ($visit->exists()) {
+            return response()->json(['status' => 'exists']);
+        }
+
+        Visit::create([
+            'ip_address' => $request->ip(),
+            'user_agent' => $request->header('User-Agent'),
+            'url_visited' => $request->input('url_visited'),
+            'referrer' => $request->input('referrer'),
+            'visit_time' => Carbon::now(),
+            'session_id' => $request->session()->getId(),
+            'date' => Carbon::now()->format('Y-m-d'),
+        ]);
+
+        return response()->json(['status' => 'success']);
+    }
 
 }
 

@@ -54,7 +54,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
             'work' =>WorkController::class,
             'partner' =>PartnerController::class,
             'hero' =>HeroController::class,
-            'project' =>ProjectController::class,
             'question' =>QuestionController::class,
             'feature' =>FeatureController::class,
             'users' => UserController::class,
@@ -74,7 +73,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 
 
 });
-Auth::routes();
+
 
 Route::view('not_allowed', 'not_allowed');
 
@@ -119,5 +118,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function(){
         return redirect()->route('admin.home');
     });
     
-    
+
+    Route::post('/track-visit', [MainController::class, 'storeVisit'])->name('site.track_visit');
+
+    Auth::routes();
 });

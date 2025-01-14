@@ -17,9 +17,9 @@ class SetLanguage
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $locale = Session::get('locale', 'ar'); // اللغة الافتراضية
-        App::setLocale($locale);
+        // $locale = Session::get('locale', 'ar'); // اللغة الافتراضية
+        // App::setLocale($locale);
 
-        return $next($request);
+        // return $next($request);
     }
 }

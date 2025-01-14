@@ -263,6 +263,26 @@ $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting
         let langApp = "{{ app()->getLocale() == 'en' ? 1 : 0 }}";
         langApp = langApp == '1' ? true : false;
     </script>
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "{{ route('site.track_visit') }}",
+                method: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    url_visited: window.location.href,
+                    referrer: document.referrer
+                },
+                success: function (response) {
+                    console.log('Visit tracked successfully');
+                },
+                error: function () {
+                    console.log('Error tracking visit');
+                }
+            });
+        });
+    </script>
     @yield('scripts')
     @stack('scripts')
 </body>
