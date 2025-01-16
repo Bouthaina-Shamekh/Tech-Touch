@@ -13,7 +13,9 @@ use App\Models\File;
 use App\Models\Partner;
 use App\Models\Service;
 use App\Models\Team;
+use App\Models\Visit;
 use App\Models\Work;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -28,8 +30,36 @@ class HomeController extends Controller
         $c_count = Client::count();
         $fe_count = Feature::count();
         $u_count = User::count();
-       
-        return view('dashboard.index', compact('s_count','f_count','p_count','w_count','t_count','c_count','fe_count','u_count'));
+
+        // $visits = Visit::;
+        $days = Visit::select('date')->distinct()->pluck('date')->toArray();
+        $daysVisits = collect($days)->map(function ($day) {
+            return [
+                "count" => Visit::where("date", "=", $day)->count(),
+                'date' => $day
+            ];
+        });
+        $daysVisits = $daysVisits->pluck('count')->toArray();
+
+
+        $months = [];
+        foreach ($days as $day) {
+            $month = Carbon::parse($day)->format('Y-m');
+            if (!in_array($month, $months)) {
+                $months[] = $month;
+            }
+        }
+        $months = array_values($months);
+
+        $monthsVisitsArray = collect($months)->map(function ($month) {
+            return [
+                "count" => Visit::whereBetween("date", [$month . '-01', $month . '-31'])->count(),
+                'month' => Carbon::parse($month)->format('M')
+            ];
+        });
+        $monthsVisits = $monthsVisitsArray->pluck('count')->toArray();
+        $months = $monthsVisitsArray->pluck('month')->toArray();
+        return view('dashboard.index', compact('s_count','f_count','p_count','w_count','t_count','c_count','fe_count','u_count','daysVisits','days','monthsVisits','months'));
     }
 
 

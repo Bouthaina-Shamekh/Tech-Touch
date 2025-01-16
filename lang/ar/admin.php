@@ -220,6 +220,8 @@ return [
      'Location'=>'موقعنا',
      'Logo'=>'لوجو',
      'Download'=>'تنزيل',
+     'Visits' =>'زيارات الموقع',
+     'Visits In Month'=>'زيارات الموقع الشهرية'
 
 
 

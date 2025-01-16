@@ -220,6 +220,8 @@ return [
      'Location'=>'Location',
      'Logo'=>'logo',
      'Download'=>'Download',
+     'Visits' =>'Visits',
+     'Visits In Month'=>'Visits In Month'
      
      
 
