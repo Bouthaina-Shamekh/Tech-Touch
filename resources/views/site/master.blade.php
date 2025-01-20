@@ -95,6 +95,14 @@ $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting
 
                     <!-- Right elements -->
                     <div class="right__hero relative hidden lg:!flex items-center ">
+                    @php
+    $localeCode = App::getLocale() == 'ar' ? 'en' : 'ar';
+    $localeText = App::getLocale() == 'ar' ? 'English' : 'العربية';
+                       @endphp
+                       
+                        <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" style="font-size: 18px; margin-left: 30px;" class="block border-0 bg-transparent px-4 text-black/50 hover:text-main hover:shadow-none">
+    {{ $localeText }}
+</a>
                         <div class="relative group">
                             <a href="{{route('site.consultation')}}" class="inline-block bg-second px-6 pb-2 pt-2.5 text-base font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-dark hover:shadow-md focus:bg-dark focus:shadow-md focus:outline-none focus:ring-0 active:bg-dark active:shadow-md motion-reduce:transition-none">
                                 {{__('admin.Free Consultation')}}
@@ -103,12 +111,9 @@ $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting
                                 <img src="{{asset('asset/img/icon/arrow-down.png')}}" alt="" width="33px">
                             </div>
                         </div>
-                        @php
-                            $localeCode = App::getLocale() == 'ar' ? 'en' : 'ar';
-                        @endphp
-                        <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" style="font-size: 28px;" class="block border-0 bg-transparent px-4 text-black/50 hover:text-main hover:shadow-none">
-                            <i class="fa-solid fa-globe"></i>
-                        </a>
+                       
+
+                        
                     </div>
                     <!-- Right elements -->
                     <!-- Hamburger button for mobile view -->
@@ -216,7 +221,7 @@ $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting
                 <div class="relative p-4">
                     <ul class="flex flex-col justify-start items-start w-100">
                         <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('/') || request()->is('/') ? 'text-main' : 'text-dark' }} pl-2 hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in font-light uppercase text-base" href="{{ route('site.index') }}">{{__('admin.Home')}}</a></li>
-                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('about/*') || request()->is('about') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.about') }}">{{__('admin.About Us')}}</a></li>
+                        <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('about/*') || request()->is('about') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.about') }}">{{__('admin.About US')}}</a></li>
                         <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('services/*') || request()->is('services') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.services') }}">{{__('admin.Services')}}</a></li>
                         <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('portfolios/*') || request()->is('portfolios') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.portfolios') }}">{{__('admin.Services')}}</a></li>
                         <li class="my-1 py-2 w-full border-b broder-gray-300"><a class="{{ request()->is('files/*') || request()->is('files') ? 'text-main' : 'text-dark' }} hover:text-main hover:font-semibold hover:pl-2 transition-all delay-150 ease-in  font-light uppercase text-base" href="{{ route('site.files') }}">{{__('admin.Files')}}</a></li>
@@ -228,9 +233,17 @@ $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting
                             {{__('admin.Free Consultation')}}
                             </a>
                         </div>
-                        <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" style="font-size: 28px;" class="block border-0 bg-transparent px-4 text-black/50 hover:text-main hover:shadow-none">
+                        @php
+    $localeCode = App::getLocale() == 'ar' ? 'en' : 'ar';
+    $localeText = App::getLocale() == 'ar' ? 'English' : 'العربية';
+                       @endphp
+                       
+                        <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" style="font-size: 18px; margin-left: 30px;" class="block border-0 bg-transparent px-4 text-black/50 hover:text-main hover:shadow-none">
+    {{ $localeText }}
+</a>
+                        <!-- <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" style="font-size: 28px;" class="block border-0 bg-transparent px-4 text-black/50 hover:text-main hover:shadow-none">
                             <i class="fa-solid fa-globe"></i>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>
