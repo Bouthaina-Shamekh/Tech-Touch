@@ -19,7 +19,7 @@
                 </div>
             </div>
             <!-- Text -->
-            <div class="content flex flex-col  flex-1/2 justify-start items-center md:items-start">
+            <div class="content flex flex-col  flex-1/2 justify-start items-center md:items-start content">
                 <h2 class="text__about text-3xl md:text-5xl font-semibold text-main uppercase mb-2">{{$abouts->$name}}</h2>
                 <h3 class="text__about text-xl md:text-3xl font-semibold text-second uppercase mb-2">{{$abouts->$title}}</h3>
                 <p class="text__about text-dark font-light text-base leading-6">{{$abouts->$description}}</p>

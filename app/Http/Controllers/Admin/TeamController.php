@@ -70,7 +70,7 @@ class TeamController extends Controller
         $this->authorize('edit', Team::class);
         $teams = Team::findOrFail($id);
         $images = Media::paginate(100);
-        return view('dashboard.Team.edit',compact('teams','images'));
+        return view('dashboard.team.edit',compact('teams','images'));
     }
 
     /**
