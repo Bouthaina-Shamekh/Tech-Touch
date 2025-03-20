@@ -33,9 +33,9 @@ $specialization = 'Specialization_' . app()->currentLocale();
                     </h1>
                     @foreach ( $sliders as $index => $slide)
                     <div id="hero-texts" class="relative space-y-4 mt-4">
-                        <p class="hero-paragraph font-light leading-6 text-xl md:text-2xl text-dark {{ $index > 0 ? 'hidden' : '' }}">
+                        <div class="hero-paragraph font-light leading-6 text-xl md:text-2xl text-dark {{ $index > 0 ? 'hidden' : '' }}">
                             {!!$slide->$description!!}
-                        </p>
+                        </div>
                     </div>
                     @endforeach
                     <div class="relative mb-3 w-full flex justify-center md:justify-start my-8">
@@ -89,9 +89,9 @@ $specialization = 'Specialization_' . app()->currentLocale();
                             </div>
                             <div class="flex flex-col flex-1 justify-start items-start my-4">
                                 <h3 class="text-lg md:text-2xl font-medium text-second mb-4">{{$item->$name}}</h3>
-                                <p class="text-second font-light text-xs md:text-sm  md:leading-6">
+                                <div class="text-second font-light text-xs md:text-sm  md:leading-6">
                                     {!! \Illuminate\Support\Str::words($item->$description, 20, '...') !!}
-                                     </p>
+                                </div>
                                     {{-- <p class="text__service text-dark font-light text-base leading-6" style="white-space: pre-wrap; word-wrap: break-word; width: 100%;">{{$services->$description}}</p> --}}
                                 <a href="{{route('site.services_show', $item->id)}}" class="my-2 text-main underline hover:pl-2 transition-all delay-150 ease-in">
                                 {{__('admin.Read MORE')}}

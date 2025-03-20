@@ -15,7 +15,7 @@
                 <div class="card-body sm:!p-10">
                     <div class="text-center">
                         <a href="#">
-                            <img src="{{ asset('assets-dashboard/images/logo.png') }}" alt="img" class="mx-auto"
+                            <img src="{{ asset('/asset/img/logoBrand.png') }}" alt="img" class="mx-auto"
                                 width="80%" />
                         </a>
                         @if ($errors->any())
