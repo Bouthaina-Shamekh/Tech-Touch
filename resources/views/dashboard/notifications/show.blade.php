@@ -32,7 +32,7 @@
                         </tr>
                         <tr>
                             <th>{{ __('admin.Message') }}</th>
-                            <td>{{ $notification->data['message'] }}</td>
+                            <td>{{ $notification->data['consultation'] }}</td>
                         </tr>
                         <tr>
                             <th>{{ __('admin.Date') }}</th>
@@ -54,7 +54,7 @@
                         <p><strong>Name:</strong> {{ $notification->data['name'] }}</p>
                         <p><strong>Email:</strong> {{ $notification->data['email'] }}</p>
                         <p><strong>Phone:</strong> {{ $notification->data['phone'] }}</p>
-                        <p><strong>Message:</strong> {{ $notification->data['message'] }}</p>
+                        <p><strong>Message:</strong> {{ $notification->data['consultation'] }}</p>
                         <p><strong>Source:</strong> {{ $notification->data['source'] ?? 'Unknown' }}</p>
                         <p><strong>Received at:</strong> {{ $notification->created_at }}</p>
                     </div> --}}
@@ -63,7 +63,7 @@
                         <p><strong>Name:</strong> {{ $notificationData['name'] ?? 'No Name' }}</p>
                         <p><strong>Email:</strong> {{ $notificationData['email'] ?? 'No Email' }}</p>
                         <p><strong>Phone:</strong> {{ $notificationData['phone'] ?? 'No Phone' }}</p>
-                        <p><strong>Message:</strong> {{ $notificationData['message'] ?? 'No Message' }}</p>
+                        <p><strong>Message:</strong> {{ $notificationData['consultation'] ?? 'No Message' }}</p>
                         <p><strong>Source:</strong> {{ $notificationData['source'] ?? 'Unknown' }}</p>
                         <p><strong>Received at:</strong> {{ $notification->created_at }}</p>
                     </div>

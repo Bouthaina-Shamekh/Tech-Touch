@@ -14,18 +14,20 @@ class ConsultationNotification extends Notification
    protected $last_name;
    protected $email;
    protected $phone;
+   protected $consultation;
    protected $source;
 
 
     /**
      * Create a new notification instance.
      */
-    public function __construct($first_name , $last_name,$email, $phone,$source = 'contact')
+    public function __construct($first_name , $last_name,$email, $phone,$consultation ,$source = 'contact')
     {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->email =$email;
         $this->phone =$phone;
+        $this->$consultation = $consultation;
         $this->source = $source;
     }
 
@@ -49,6 +51,7 @@ class ConsultationNotification extends Notification
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'phone' => $this->phone,
+            'consultation' => $this->consultation,
             'source' => $this->source,
         ];
     }

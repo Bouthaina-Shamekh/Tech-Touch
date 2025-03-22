@@ -75,7 +75,7 @@ $name = 'name_' . app()->currentLocale();
                             <label for="consultation" class="leading-[1.6] text-neutral-300">
                                 {{ __('site.Consultation') }} *
                             </label>
-                            <textarea name="consultation" id="consultation" class="peer block min-h-[auto] w-full border-0 bg-[#F5F5F5] px-3 py-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary" ></textarea>
+                            <textarea name="consultation" id="consultation" rows="6" class="peer block min-h-[auto] w-full border-0 bg-[#F5F5F5] px-3 py-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary" ></textarea>
                         </div>
                     </div>
 
