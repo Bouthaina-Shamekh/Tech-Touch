@@ -1,0 +1,35 @@
+name: GitHub Actions Tech Touch Deployment
+on:
+  push:
+    branches: 
+     - 'Production'
+jobs:
+  Deploy-Tech-Touch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: Production
+      - name: Test
+        run: ls
+      - name:
+        run: |
+          echo -n '${{ secrets.SERVER_KEY }}' >> keyFile
+          chmod 600 keyFile
+          ssh -t -i  keyFile -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
+           set -ex
+           cd Tech-Touch-co 
+           git checkout composer.lock  package-lock.json 
+           git pull && git fetch
+           composer i
+           php artisan key:generate
+           php artisan migrate
+           cd ..
+           yes | cp -rf Tech-Touch-co/ /var/www/html/
+           cd /var/www/html/Tech-Touch-co
+           php artisan storage:link
+           cd ~
+           sudo ./chownfile.sh
+           set +ex
+           exit
+          EOF

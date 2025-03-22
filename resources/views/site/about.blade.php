@@ -35,7 +35,7 @@ $feature = 'feature_'.app()->currentLocale();
     </div>
 
         <!-- Content -->
-        <section class="my-6 relative lg:h-20" >
+        <section class="my-20 relative lg:h-20" >
             <div class="container w-full">
                 <div class="flex justify-between items-center md:items-start text-center md:text-left">
                     <!-- Img -->
@@ -112,7 +112,7 @@ $feature = 'feature_'.app()->currentLocale();
                         <p class="left__section__second text-dark font-light text-base leading-6">{{ $goals->$description}}</p>
                         <div class="flex flex-col justify-start items-center md:items-start mt-10">
                             <h2 class="left__section__second text-3xl font-semibold text-main uppercase mb-4">{{$item->$name}}</h2>
-                            <p class="left__section__second text-dark font-light text-base leading-6">{{ $goals->$description}} </p>
+                            <p class="left__section__second text-dark font-light text-base leading-6">{{ $item->$description}} </p>
                             <ul class="list-inside list-image-[url(../img/icon/Icon-material-done.png)] mt-4">
                                 @foreach ($features as $features )
                                 <li class="left__section__second text-dark font-light text-base ">{{$features->$feature}}</li>

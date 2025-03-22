@@ -21,7 +21,7 @@ $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting
 <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: "Almarai", serif;
+            font-family: "Almarai", serif !important;
         }
     </style>
 @else
@@ -30,7 +30,7 @@ $sections = Setting::where('key','sections_show')->first() ? json_decode(Setting
 <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: "Roboto", sans-serif;
+            font-family: "Roboto", sans-serif !important;
         }
     </style>
 @endif
