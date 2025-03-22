@@ -16,6 +16,7 @@
         <p><b>Name:</b> <span style="color: rgb(48, 48, 48)">{{ $data['first_name'] }} {{ $data['last_name'] }}</span></p>
         <p><b>Email:</b> <span style="color: rgb(48, 48, 48)"> {{ $data['email'] }}</span> </p>
         <p><b>Phone:</b> <span style="color: rgb(48, 48, 48)"> {{ $data['phone'] }}</span> </p>
+        <p><b>consultation:</b> <span style="color: rgb(48, 48, 48)"> {{ $data['consultation'] }}</span> </p>
         <br>
         <p>Best Regards</p>
     </div>

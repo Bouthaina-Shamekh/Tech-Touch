@@ -84,6 +84,7 @@ class MailController extends Controller
             'last_name' => 'required',
             'email' => 'required',
             'phone' => 'required',
+            'consultation' => 'required',
         ]);
         try {
             $data = $request->except('_token');
@@ -95,6 +96,7 @@ class MailController extends Controller
                 $request->last_name,
                 $request->email,
                 $request->phone,
+                $request->consultation,
                 'consultation'
             ));
 
