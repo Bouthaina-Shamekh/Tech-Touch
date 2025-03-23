@@ -60,10 +60,18 @@
                     </div> --}}
 
                     <div class="card-body">
-                        <p><strong>Name:</strong> {{ $notificationData['name'] ?? 'No Name' }}</p>
+                        @if ($notificationData['source'] == 'contact')
+                            <p><strong>Name:</strong> {{ $notificationData['name'] ?? 'No Name' }}</p>
+                        @else
+                            <p><strong>Name:</strong> {{ $notificationData['first_name'] . ' ' . $notificationData['last_name'] ?? 'No Name' }}</p>
+                        @endif
                         <p><strong>Email:</strong> {{ $notificationData['email'] ?? 'No Email' }}</p>
                         <p><strong>Phone:</strong> {{ $notificationData['phone'] ?? 'No Phone' }}</p>
-                        <p><strong>Message:</strong> {{ $notificationData['consultation'] ?? 'No Message' }}</p>
+                        @if ($notificationData['source'] == 'contact')
+                            <p><strong>Message:</strong> {{ $notificationData['message'] ?? 'No Message' }}</p>
+                        @else
+                            <p><strong>Message:</strong> {{ $notificationData['consultation'] ?? 'No Message' }}</p>
+                        @endif
                         <p><strong>Source:</strong> {{ $notificationData['source'] ?? 'Unknown' }}</p>
                         <p><strong>Received at:</strong> {{ $notification->created_at }}</p>
                     </div>

@@ -32,14 +32,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (auth()->user()->unreadNotifications as $notificationS)
+                            @foreach (auth()->user()->notifications as $notificationS)
                                 @if ($notificationS->data['source'] == 'contact')
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $notificationS->data['name'] }}</td>
                                     <td>{{ $notificationS->data['email'] }}</td>
                                     <td>{{ $notificationS->data['phone'] }}</td>
-                                    <td>{{ $notificationS->data['s'] ?? '' }}</td>
+                                    <td>{{ $notificationS->data['message'] ?? '' }}</td>
                                     <td>
                                         <span class="badge bg-info-500">{{ $notificationS->data['source'] ?? 'Unknown' }}</span>
                                     </td>
@@ -61,12 +61,12 @@
                                 </tr>
                                 @else
                                 <tr>
+
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $notificationS->data['first_name'] }} {{ $notificationS->data['last_name'] }}</td>
                                     <td>{{ $notificationS->data['email'] }}</td>
                                     <td>{{ $notificationS->data['phone'] }}</td>
                                     <td>{{ $notificationS->data['consultation'] ?? '' }}</td>
-                                    <td></td>
                                     <td>
                                         <span class="badge bg-primary-500">{{ $notificationS->data['source'] ?? 'Unknown' }}</span>
                                     </td>

@@ -27,7 +27,7 @@ class ConsultationNotification extends Notification
         $this->last_name = $last_name;
         $this->email =$email;
         $this->phone =$phone;
-        $this->$consultation = $consultation;
+        $this->consultation = $consultation;
         $this->source = $source;
     }
 

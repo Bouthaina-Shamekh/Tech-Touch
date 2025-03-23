@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Models\User;
- use App\Models\Notification;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
@@ -59,7 +59,7 @@ class HomeController extends Controller
         });
         $monthsVisits = $monthsVisitsArray->pluck('count')->toArray();
         $months = $monthsVisitsArray->pluck('month')->toArray();
-        return view('dashboard.index', compact('s_count','f_count','p_count','w_count','t_count','c_count','fe_count','u_count','daysVisits','days','monthsVisits','months'));
+        return view('dashboard.index', compact('s_count', 'f_count', 'p_count', 'w_count', 't_count', 'c_count', 'fe_count', 'u_count', 'daysVisits', 'days', 'monthsVisits', 'months'));
     }
 
 
@@ -77,6 +77,9 @@ class HomeController extends Controller
     {
         $this->authorize('view', Notification::class);
         $notification = Notification::withTrashed()->findOrFail($id);
+        if ($notification->read_at == null) {
+            $notification->update(['read_at' => now()]);
+        }
         $notificationData = $notification->data;
 
         return view('dashboard.notifications.show', compact('notification', 'notificationData'));
@@ -84,14 +87,14 @@ class HomeController extends Controller
 
 
     public function clearAllNotifications(Request $request)
-   {
+    {
 
-    $this->authorize('delete', Notification::class);
+        $this->authorize('delete', Notification::class);
 
-    Notification::where('notifiable_id', auth()->user()->id)
-        ->whereNull('deleted_at')
-        ->update(['deleted_at' => now()]);
+        Notification::where('notifiable_id', auth()->user()->id)
+            ->whereNull('deleted_at')
+            ->update(['deleted_at' => now()]);
 
-    return redirect()->back();
-  }
+        return redirect()->back();
+    }
 }

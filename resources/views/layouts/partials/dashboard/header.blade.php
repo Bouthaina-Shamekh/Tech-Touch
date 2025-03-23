@@ -137,9 +137,6 @@
 
 
                 </li> --}}
-
-               
-
                 <li class="dropdown pc-h-item">
                     <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
                         aria-haspopup="false" aria-expanded="false">
@@ -156,7 +153,7 @@
                         </div>
                         <div id="unread" class="dropdown-body header-notification-scroll relative py-4 px-5"
                             style="max-height: calc(100vh - 215px)">
-                            @foreach(auth()->user()->unreadNotifications->whereNull('deleted_at') as $notification)
+                            @foreach(auth()->user()->notifications->whereNull('read_at')->whereNull('deleted_at') as $notification)
                                 <div class="card mb-2">
                                     <div class="card-body">
                                         <div class="flex gap-4">
