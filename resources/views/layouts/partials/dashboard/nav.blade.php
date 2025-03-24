@@ -238,7 +238,7 @@
                     </ul>
                 </li>
                 @endcan
-
+<!-- 
                 @can('edit', 'App\\Models\Setting')
                 <li class="pc-item">
                     <a href="{{route('admin.setting.index')}}" class="pc-link">
@@ -261,8 +261,47 @@
                         <span class="pc-mtext">{{__('admin.Settings Sections')}}</span>
                     </a>
                 </li>
-                @endcan
+                @endcan -->
                 
+
+                @can('edit', 'App\\Models\Setting')
+                <li class="pc-item pc-hasmenu">
+                    <a href="#!" class="pc-link">
+                        <span class="pc-micon">
+                        <i class="text-lg leading-none ti ti-settings"></i>
+                        </span>
+                        <span class="pc-mtext">
+                            {{__('admin.Settings')}}
+                        </span>
+                        @if (App::getLocale() == 'en')
+                        <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        @else
+                        <span class="pc-arrow"><i data-feather="chevron-left"></i></span>
+                        @endif
+                    </a>
+                    <ul class="pc-submenu">
+
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.setting.index')}}">
+                                {{__('admin.Public Settings')}}
+                            </a>
+                        </li>
+                       
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.setting.showsSection')}}">
+                                {{__('admin.Settings Sections')}}
+                            </a>
+                        </li>
+                       
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{route('admin.setting.settingmail')}}">
+                                {{__('admin.Privet Settings')}}
+                            </a>
+                        </li>
+                      
+                    </ul>
+                </li>
+                @endcan 
 
             </ul>
         </div>

@@ -221,7 +221,11 @@ return [
      'Logo'=>'logo',
      'Download'=>'Download',
      'Visits' =>'Visits',
-     'Visits In Month'=>'Visits In Month'
+     'Visits In Month'=>'Visits In Month',
+     'Public Settings'=>'Public Settings',
+     'Settings Sections'=>'Settings Sections',
+     'Privet Settings'=>'Privet Settings',
+
      
      
 

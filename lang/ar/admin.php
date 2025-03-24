@@ -221,7 +221,10 @@ return [
      'Logo'=>'لوجو',
      'Download'=>'تنزيل',
      'Visits' =>'زيارات الموقع',
-     'Visits In Month'=>'زيارات الموقع الشهرية'
+     'Visits In Month'=>'زيارات الموقع الشهرية',
+     'Public Settings'=>'الاعدادات العامة',
+     'Settings Sections'=>'اعدادات السكاشن',
+     'Privet Settings'=>'الاعدادات الخاصة',
 
 
 
