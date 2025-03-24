@@ -115,9 +115,10 @@ $name = 'name_' . app()->currentLocale();
                         <img src="../asset/img/extra/done.png" alt="Order Done" loading="lazy" />
                     </div>
                     <span class="font-light w-2/3 text-center my-4">{{ __('site.Your Request Has Been Sent Successfully, You Will Receive A Message From Us As Soon As Possible.') }}</span>
-                    <button type="button" class="mt-8 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:-translate-y-2 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">
+                    <button type="button" id="DoneModalButtonClose" class="mt-8 inline-block px-16 py-4 text-white bg-main hover:bg-second hover:-translate-y-2 focus:bg-second active:bg-second transition-all duration-150 ease-in-out">
                         {{ __("site.Done") }}
                     </button>
+                    
                 </div>
             </div>
         </div>
@@ -131,9 +132,13 @@ $name = 'name_' . app()->currentLocale();
     @if(session() -> has('successSend'))
     $(document).ready(function() {
         $('#orderDoneModalButton').click();
-        console.log('done');
     })
     @endif
+    $(document).ready(function () {
+        $('#DoneModalButtonClose').on('click',function () {
+            $('#orderDoneModal').modal('hide');
+        });
+    })
 </script>
 
 <script src="{{ asset('asset/js/pages/pagesScroller.js') }}"></script>
