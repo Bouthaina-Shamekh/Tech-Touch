@@ -222,9 +222,17 @@ return [
      'Download'=>'تنزيل',
      'Visits' =>'زيارات الموقع',
      'Visits In Month'=>'زيارات الموقع الشهرية',
-     'Public Settings'=>'الاعدادات العامة',
+     'Public Settings'=>'الاعدادات',
      'Settings Sections'=>'اعدادات السكاشن',
-     'Privet Settings'=>'الاعدادات الخاصة',
+     'Privet Settings'=>'إعدادات البريد',
+     'MAIL MAILER'=>'مُرسل البريد',
+     'MAIL HOST'=>'مضيف البريد',
+     'MAIL PORT'=>'منفذ البريد',
+     'MAIL USERNAME'=>'اسم مستخدم البريد الإلكتروني',
+     'MAIL PASSWORD'=>'كلمة مرور البريد الإلكتروني',
+     'MAIL ENCRYPTION'=>'تشفير البريد الإلكتروني',
+     'MAIL FROM ADDRESS'=>'عنوان البريد الإلكتروني المرسل',
+     'MAIL FROM NAME'=>'اسم المرسل',
 
 
 

@@ -311,7 +311,7 @@ $(document).ready(function () {
     
             // hero
             $('.img__hero img').css('transform', 'rotateY(180deg)');
-            $('#hero-title').text('جرب فكرتك');
+            $('#hero-title').text('اختبر فكرتك');
             $('#word-list span.ar').slideDown();
             $('#word-list span.en').slideUp();
             wirteWord('ar');

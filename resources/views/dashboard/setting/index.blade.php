@@ -318,7 +318,7 @@
 
 
 
-                            <button type="submit" class="btn btn-primary mb-4">{{ __('Update') }}</button>
+                            <button type="submit" class="btn btn-primary mb-4">{{ __('admin.Update') }}</button>
                           </form>
 
                       </div>

@@ -222,9 +222,17 @@ return [
      'Download'=>'Download',
      'Visits' =>'Visits',
      'Visits In Month'=>'Visits In Month',
-     'Public Settings'=>'Public Settings',
+     'Public Settings'=>'Settings',
      'Settings Sections'=>'Settings Sections',
-     'Privet Settings'=>'Privet Settings',
+     'Privet Settings'=>'Settings Mail',
+     'MAIL MAILER'=>'MAIL MAILER',
+     'MAIL HOST'=>'MAIL HOST',
+     'MAIL PORT'=>'MAIL PORT',
+     'MAIL USERNAME'=>'MAIL USERNAME',
+     'MAIL PASSWORD'=>'MAIL PASSWORD',
+     'MAIL ENCRYPTION'=>'MAIL ENCRYPTION',
+     'MAIL FROM ADDRESS'=>'MAIL FROM ADDRESS',
+     'MAIL FROM NAME'=>'MAIL FROM NAME',
 
      
      

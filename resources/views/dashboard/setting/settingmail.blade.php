@@ -8,7 +8,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>{{__('Add Seetings Mail')}}</h5>
+                    <h5>{{__('admin.Privet Settings')}}</h5>
                 </div>
                 <div class="card-body">
                     <div class="card-body">
@@ -46,7 +46,7 @@
                                 <label class="form-label">{{ __('admin.MAIL FROM NAME') }}</label>
                                 <input type="text"  class="form-control" name="mail_from_name" value="{{ $settingsmail->mail_from_name ?? '' }}" />
                             </div>
-                            <button type="submit" class="btn btn-primary mb-4">{{ __('Update') }}</button>
+                            <button type="submit" class="btn btn-primary mb-4">{{ __('admin.Update') }}</button>
                         </form>
                     </div>
                 </div>
