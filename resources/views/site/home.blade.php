@@ -116,9 +116,9 @@ $specialization = 'Specialization_' . app()->currentLocale();
                     </div>
                     <div  class="img__service sticky top-0 bg-white flex justify-end mt-8">
                         @if($services->image2 == null)
-                        <img src="{{asset('asset/img/extra/services_home_02.png')}}" alt="extra" width="67%">
+                        <img src="{{asset('asset/img/extra/services_home_02.png')}}" alt="extra" width="83%">
                         @else
-                        <img src="{{asset("storage/" . $services->image2)}}" alt="extra" width="67%">
+                        <img src="{{asset("storage/" . $services->image2)}}" alt="extra" width="83%">
                         @endif
                     </div>
                 </div>
