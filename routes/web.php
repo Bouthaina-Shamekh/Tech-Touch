@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\SettingmailController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -69,6 +70,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         Route::get('/shows-sections',[SettingController::class , 'showsSection'])->name('setting.showsSection');
         Route::post('/shows-sections',[SettingController::class , 'showSection'])->name('setting.showSection');
         Route::post('/notification/clearAll',[HomeController::class , 'clearAllNotifications'])->name('notification.clearAll');
+        Route::get('/settingsmail', [SettingmailController::class, 'index'])->name('setting.settingmail');
+        Route::post('/settingsmail/update', [SettingmailController::class, 'update'])->name('settingsmail.update');
     });
 
 
@@ -123,3 +126,4 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function(){
 
     Auth::routes();
 });
+

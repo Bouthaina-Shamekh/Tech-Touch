@@ -250,6 +250,7 @@
                         <span class="pc-mtext">{{__('admin.Settings')}}</span>
                     </a>
                 </li>
+              
                 <li class="pc-item">
                     <a href="{{route('admin.setting.showsSection')}}" class="pc-link">
                         <span class="pc-micon">
@@ -261,6 +262,7 @@
                     </a>
                 </li>
                 @endcan
+                
 
             </ul>
         </div>
