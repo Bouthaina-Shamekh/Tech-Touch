@@ -4,7 +4,7 @@ namespace App\Policies;
 
 use App\Models\User;
 use Illuminate\Support\Str;
-class ClientPolicy extends ModelPolicy
+class WorkPolicy extends ModelPolicy
 {
 
 }

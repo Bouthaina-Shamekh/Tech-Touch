@@ -7,10 +7,11 @@ use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\CertificatesImport;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Mccarlosen\LaravelMpdf\Facades\LaravelMpdf as PDF;
-
+use App\Mail\CertificateDelivered;
 
 class ExportCertificatesController extends Controller
 {
@@ -31,19 +32,18 @@ class ExportCertificatesController extends Controller
         foreach ($data as $row) {
             $names[] = $row['name'];
         }
-
         $paths = $this->generateCertificates($names);
 
         // send email
         foreach ($data as $row) {
             $email = $row['email'];
             $name = $row['name'];
-            $path = $paths[$row['id']];
+            $path = $paths[$name];
             $this->sendEmail($email, $name, $path);
         }
 
 
-        return redirect('/')->with('success', 'All good!');
+        return redirect()->back()->with('success', 'All good!');
     }
 
 
@@ -93,9 +93,14 @@ class ExportCertificatesController extends Controller
             Storage::put($fullPath, $pdfContent);
 
             // خزّن المسار الكامل في المصفوفة
-            $paths[] = storage_path('app/' . $fullPath);
+            $paths[$name] = storage_path('app/' . $fullPath);
         }
 
         return $paths; // استخدمهم لاحقاً للإيميل مثلاً
+    }
+
+    public function sendEmail($email, $name, $path)
+    {
+        Mail::to($email)->send(new CertificateDelivered($name, $path));
     }
 }
