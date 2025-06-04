@@ -10,17 +10,16 @@ use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\WorkController;
-use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\PartnerController;
-use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ExportCertificatesController;
 use App\Http\Controllers\SettingmailController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -44,6 +43,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         Route::get('home', [HomeController::class, 'index'])->name('home');
 
         Route::get('users/{user}/profile', [UserController::class, 'profile'])->name('users.profile');
+
+        Route::get('exportCertificates', [ExportCertificatesController::class, 'index'])->name('exportCertificates.index');
+        Route::post('exportCertificates', [ExportCertificatesController::class, 'store'])->name('exportCertificates.store');
 
         Route::resources([
             'client' => ClientController::class,
@@ -92,35 +94,35 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function(){
     Route::get('services/{id}', [MainController::class, 'services_show'])->name('site.services_show');
 
     Route::get('services/{id}/order', [MainController::class, 'services_order'])->name('site.services_order');
-    
+
     Route::get('file', [MainController::class, 'files'])->name('site.files');
     Route::get('file/{id}', [MainController::class, 'file_show'])->name('site.file_show');
-    
-    
+
+
     Route::get('portfolios', [MainController::class, 'portfolios'])->name('site.portfolios');
     Route::get('portfolios/{id}', [MainController::class, 'portfolio'])->name('site.portfolio');
-    
-    
+
+
     Route::get('test_idea', [MainController::class, 'test_idea'])->name('site.test_idea');
     Route::post('test_idea', [MainController::class, 'test_idea'])->name('site.test_idea');
-    
+
     Route::post('show-answers', [MainController::class, 'showAnswers'])->name('site.show_answers');
     Route::post('select-services', [MainController::class, 'selectServices'])->name('site.select_services');
     Route::post('storeServices', [MainController::class, 'storeServices'])->name('site.storeServices');
-    
+
     Route::get('send-mail', [MailController::class, 'send']);
     Route::get('contact', [MailController::class, 'contact'])->name('site.contact');
     Route::post('contact', [MailController::class, 'contact_data'])->name('site.contact_data');
-    
+
     Route::get('consultation', [MailController::class, 'consultation'])->name('site.consultation');
     Route::post('consultation/send-data', [MailController::class, 'consultation_data'])->name('site.consultation_data');
-    
+
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-    
+
     Route::get('admin', function () {
         return redirect()->route('admin.home');
     });
-    
+
 
     Route::post('/track-visit', [MainController::class, 'storeVisit'])->name('site.track_visit');
 

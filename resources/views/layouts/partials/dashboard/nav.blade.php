@@ -238,7 +238,7 @@
                     </ul>
                 </li>
                 @endcan
-<!-- 
+<!--
                 @can('edit', 'App\\Models\Setting')
                 <li class="pc-item">
                     <a href="{{route('admin.setting.index')}}" class="pc-link">
@@ -250,7 +250,7 @@
                         <span class="pc-mtext">{{__('admin.Settings')}}</span>
                     </a>
                 </li>
-              
+
                 <li class="pc-item">
                     <a href="{{route('admin.setting.showsSection')}}" class="pc-link">
                         <span class="pc-micon">
@@ -262,7 +262,7 @@
                     </a>
                 </li>
                 @endcan -->
-                
+
 
                 @can('edit', 'App\\Models\Setting')
                 <li class="pc-item pc-hasmenu">
@@ -286,23 +286,33 @@
                                 {{__('admin.Public Settings')}}
                             </a>
                         </li>
-                       
+
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.setting.showsSection')}}">
                                 {{__('admin.Settings Sections')}}
                             </a>
                         </li>
-                       
+
                         <li class="pc-item">
                             <a class="pc-link" href="{{route('admin.setting.settingmail')}}">
                                 {{__('admin.Privet Settings')}}
                             </a>
                         </li>
-                      
+
                     </ul>
                 </li>
-                @endcan 
+                @endcan
 
+                <li class="pc-item">
+                    <a href="{{route('admin.exportCertificates.index')}}" class="pc-link">
+                        <span class="pc-micon">
+                            <span class="pc-micon">
+                                <i class="fas fa-file"></i>
+                            </span>
+                        </span>
+                        <span class="pc-mtext">{{__('admin.Export Certificates')}}</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

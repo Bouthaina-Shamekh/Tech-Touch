@@ -233,6 +233,9 @@ return [
      'MAIL ENCRYPTION'=>'تشفير البريد الإلكتروني',
      'MAIL FROM ADDRESS'=>'عنوان البريد الإلكتروني المرسل',
      'MAIL FROM NAME'=>'اسم المرسل',
+     'Export Certificates'=>'تصدير الشهادات',
+     'Please upload the file you want to export certificates (Excel file)'=>'الرجاء تحميل ملف الشهادات (ملف اكسل)',
+     'Download Template'=>'تحميل قالب'
 
 
 

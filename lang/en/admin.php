@@ -233,9 +233,13 @@ return [
      'MAIL ENCRYPTION'=>'MAIL ENCRYPTION',
      'MAIL FROM ADDRESS'=>'MAIL FROM ADDRESS',
      'MAIL FROM NAME'=>'MAIL FROM NAME',
+     'Export Certificates'=>'Export Certificates',
+     'Please upload the file you want to export certificates (Excel file)'=>'Please upload the file you want to export certificates (Excel file)',
+     'Download Template'=>'Download Template',
+     'Upload Ur File'=>'Upload File'
 
-     
-     
+
+
 
 
 ];
